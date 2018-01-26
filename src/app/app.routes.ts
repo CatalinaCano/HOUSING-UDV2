@@ -14,18 +14,6 @@ import { PagesComponent } from './components/pages/pages.component';
 
 
 const appRoutes: Routes = [
-    { path: '',
-     component: PagesComponent,
-     children: [
-        { path: 'registrar', component: RegistrarComponent },
-        { path: 'inicio', component: InicioComponent },
-        { path: 'perfil', component: PerfilComponent },
-        { path: 'galeria', component: GaleriaComponent },
-        { path: 'alojamiento', component: AlojamientoComponent },
-        { path: 'administrador', component: AdministradorComponent },
-        { path: '', redirectTo: '/incio', pathMatch: 'full' },
-     ]
-    },
     { path: 'login', component: LoginComponent },
     { path: '**', component: NotpagefoundComponent}
 

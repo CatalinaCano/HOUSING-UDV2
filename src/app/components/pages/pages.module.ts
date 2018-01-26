@@ -8,6 +8,7 @@ import { AlojamientoComponent } from './alojamiento/alojamiento.component';
 import { AdministradorComponent } from './administrador/administrador.component';
 import { RegistrarComponent } from './registrar/registrar.component';
 import { SharedModule } from '../shared/shared.module';
+import { PAGES_ROUTES } from './pages.routes';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { SharedModule } from '../shared/shared.module';
         RegistrarComponent
     ],
     imports: [
-        SharedModule
+        SharedModule,
+        PAGES_ROUTES
     ]
 })
 
