@@ -2,26 +2,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { PagesModule } from './components/pages/pages.module';
-
-// Componentes
-import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { NotpagefoundComponent } from './components/shared/notpagefound/notpagefound.component';
-import { BreadcrumbsComponent } from './components/shared/breadcrumbs/breadcrumbs.component';
-import { PagesComponent } from './components/pages/pages.component';
+import { SharedModule } from './components/shared/shared.module';
 
 // RUTAS
 import { APP_ROUTES } from './app.routes';
 
+// Componentes
+import { AppComponent } from './app.component';
+import { LoginComponent } from './components/login/login.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    NavbarComponent,
-    NotpagefoundComponent,
-    BreadcrumbsComponent,
-    PagesComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
