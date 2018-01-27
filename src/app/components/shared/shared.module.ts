@@ -4,6 +4,7 @@ import { NotpagefoundComponent } from './notpagefound/notpagefound.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { RouterModule } from '@angular/router';
 import { ServiceModule } from '../../services/service.module';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -11,7 +12,8 @@ import { ServiceModule } from '../../services/service.module';
 @NgModule({
     imports: [
         RouterModule,
-        ServiceModule
+        ServiceModule,
+        CommonModule
     ],
     declarations: [
         NavbarComponent,

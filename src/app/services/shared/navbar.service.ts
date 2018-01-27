@@ -25,21 +25,9 @@ export class NavbarService {
         url: '/galeria'
       },
       {
-        titulo: 'Información',
-        icono: 'fa fa-gavel',
-        url: '#',
-        submenu: [
-          {
-            titulo: 'Políticas',
-            icono: 'fa fa-commenting',
-            url: '/informacion'
-          },
-          {
-            titulo: 'Acta de Entendimiento',
-            icono: 'fa fa-file-pdf-o',
-            url: ''
-          },
-        ]
+        titulo: 'Políticas',
+        icono: 'fa fa-commenting',
+        url: '/informacion'
       },
       {
         titulo: 'Gestión Housing',
