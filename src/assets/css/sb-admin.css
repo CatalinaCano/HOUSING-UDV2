@@ -229,7 +229,7 @@ body.fixed-nav {
 }
 
 #mainNav.fixed-top.navbar-dark .sidenav-toggler {
-    background-color: #212529;
+    background-color: #1f2b38;
 }
 
 #mainNav.fixed-top.navbar-dark .sidenav-toggler a i {
@@ -363,7 +363,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 
 @media (min-width: 992px) {
     #mainNav.navbar-dark .navbar-collapse .navbar-sidenav {
-        background: #343a40;
+        background: #24282c;
     }
     #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a {
         color: white !important;
