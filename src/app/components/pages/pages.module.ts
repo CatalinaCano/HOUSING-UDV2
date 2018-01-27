@@ -9,6 +9,7 @@ import { AdministradorComponent } from './administrador/administrador.component'
 import { RegistrarComponent } from './registrar/registrar.component';
 import { SharedModule } from '../shared/shared.module';
 import { PAGES_ROUTES } from './pages.routes';
+import { InformacionComponent } from './informacion/informacion.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { PAGES_ROUTES } from './pages.routes';
         GaleriaComponent,
         AlojamientoComponent,
         AdministradorComponent,
-        RegistrarComponent
+        RegistrarComponent,
+        InformacionComponent
     ],
     exports: [
         PagesComponent,

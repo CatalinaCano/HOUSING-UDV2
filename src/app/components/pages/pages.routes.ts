@@ -7,6 +7,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { GaleriaComponent } from './galeria/galeria.component';
 import { AlojamientoComponent } from './alojamiento/alojamiento.component';
 import { AdministradorComponent } from './administrador/administrador.component';
+import { InformacionComponent } from './informacion/informacion.component';
 
 
 
@@ -21,6 +22,7 @@ const pagesRoutes: Routes = [
             { path: 'galeria', component: GaleriaComponent },
             { path: 'alojamiento', component: AlojamientoComponent },
             { path: 'administrador', component: AdministradorComponent },
+            { path: 'informacion', component: InformacionComponent },
             { path: '', redirectTo: '/incio', pathMatch: 'full' },
      ]
     }
