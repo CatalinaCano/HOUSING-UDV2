@@ -1,5 +1,10 @@
-.boton {
+.barra {
     margin-top: -2.3%;
+    background: #2A3F54;
+    color: white;
+}
+
+.izq {
     float: right;
 }
 

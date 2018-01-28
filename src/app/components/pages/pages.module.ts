@@ -1,4 +1,7 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { PAGES_ROUTES } from './pages.routes';
 
 import { PagesComponent } from './pages.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -8,10 +11,9 @@ import { AlojamientoComponent } from './alojamiento/alojamiento.component';
 import { AdministradorComponent } from './administrador/administrador.component';
 import { RegistrarComponent } from './registrar/registrar.component';
 import { SharedModule } from '../shared/shared.module';
-import { PAGES_ROUTES } from './pages.routes';
 import { InformacionComponent } from './informacion/informacion.component';
 import { InformacionPerfilComponent } from './informacion-perfil/informacion-perfil.component';
-import { CommonModule } from '@angular/common';
+
 
 
 @NgModule({

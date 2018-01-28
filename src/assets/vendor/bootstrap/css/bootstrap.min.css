@@ -6756,14 +6756,14 @@ button.bg-light:hover {
 }
 
 .bg-dark {
-    background-color: #343a40!important
+    background-color: #2A3F54!important
 }
 
 a.bg-dark:focus,
 a.bg-dark:hover,
 button.bg-dark:focus,
 button.bg-dark:hover {
-    background-color: #1d2124!important
+    background-color: #2A3F54!important
 }
 
 .bg-white {

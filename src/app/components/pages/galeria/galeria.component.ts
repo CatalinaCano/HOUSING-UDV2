@@ -3,8 +3,7 @@ import { AlojamientosService } from '../../../services/service.index';
 
 @Component({
   selector: 'app-galeria',
-  templateUrl: './galeria.component.html',
-  styleUrls: ['./galeria.component.css']
+  templateUrl: './galeria.component.html'
 })
 export class GaleriaComponent implements OnInit {
   alojamientos: any[] = [];
