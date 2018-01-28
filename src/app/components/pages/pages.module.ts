@@ -11,6 +11,7 @@ import { SharedModule } from '../shared/shared.module';
 import { PAGES_ROUTES } from './pages.routes';
 import { InformacionComponent } from './informacion/informacion.component';
 import { InformacionPerfilComponent } from './informacion-perfil/informacion-perfil.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { InformacionPerfilComponent } from './informacion-perfil/informacion-per
     ],
     imports: [
         SharedModule,
+        CommonModule,
         PAGES_ROUTES
     ]
 })

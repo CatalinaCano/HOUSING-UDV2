@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlojamientosService } from '../../../services/service.index';
 
 @Component({
   selector: 'app-galeria',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./galeria.component.css']
 })
 export class GaleriaComponent implements OnInit {
-
-  constructor() { }
+  alojamientos: any[] = [];
+  constructor(private servicioAlojamientos: AlojamientosService) {}
 
   ngOnInit() {
+    this.alojamientos = this.servicioAlojamientos.getAlojamientos();
   }
-
 }

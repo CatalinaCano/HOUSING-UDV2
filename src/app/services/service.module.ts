@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarService,
-         SharedService } from './service.index';
+import {
+  NavbarService,
+  SharedService,
+  AlojamientosService
+} from './service.index';
+
 
 
 
@@ -13,7 +17,8 @@ import { NavbarService,
   declarations: [],
   providers: [
     NavbarService,
-    SharedService
+    SharedService,
+    AlojamientosService
   ]
 })
 export class ServiceModule { }

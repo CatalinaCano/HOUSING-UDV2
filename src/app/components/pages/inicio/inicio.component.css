@@ -1,3 +1,32 @@
-.info {
-    background: #51B768;
+.carddos {
+    background: #51B868;
+}
+
+.carduno {
+    background: #097CD3;
+}
+
+.cardt {
+    background: #F3AC5E;
+}
+
+.cardcuatro {
+    background: #DE5253;
+}
+
+@media handheld,
+only screen and (max-width: 767px) {
+    .housing {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+    .housing {
+        display: none;
+    }
+}
+
+pre {
+    color: white;
 }
