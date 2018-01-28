@@ -66,13 +66,15 @@
                     <div class="form-group row">
                         <label for="carrerar" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Carrera</label>
                         <div class="col-lg-8 col-sm-12- col-xs-12">
-                            <input class="form-control" type="text" readonly value={{usuario.educacion.carrera}} id="carrera">
+                            <!--<input class="form-control" type="text" readonly value={{usuario.educacion.carrera}} id="carrera">-->
+                            <input class="form-control" type="text" readonly value="Ingeniería de Sistemas" id="carrera">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="duracion" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Duración Movilidad</label>
                         <div class="col-lg-5 col-sm-12 col-xs-12">
-                            <input class="form-control" type="text" readonly value={{usuario.movilidad.duracionMovilidad}} id="duracion">
+                            <!--<input class="form-control" type="text" readonly value={{usuario.movilidad.duracionMovilidad}} id="duracion">-->
+                            <input class="form-control" type="text" readonly value="2 Semestres" id="duracion">
                         </div>
                         <label for="duracion" class="col-lg-1 col-sm-12 col-xs-12 col-form-label">Semestre(s)</label>
                     </div>
@@ -80,24 +82,28 @@
                     <div class="form-group row">
                         <label for="correo" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Correo Electrónico</label>
                         <div class="col-lg-8 col-sm-12 col-xs-12">
-                            <input class="form-control" type="email" readonly value={{usuario.contacto.correo}} id="correo">
+                            <!--<input class="form-control" type="email" readonly value={{usuario.contacto.correo}} id="correo">-->
+                            <input class="form-control" type="email" readonly value="cata@hotmail.com" id="correo">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="indicativo" class="col-lg-2 col-sm-12 col-xs-12 col-form-label">Indicativo</label>
                         <div class="col-lg-2 col-sm-12 col-xs-12">
-                            <input class="form-control" type="text" readonly value={{usuario.contacto.indicativo}} id="indicativo">
+                            <!--<input class="form-control" type="text" readonly value={{usuario.contacto.indicativo}} id="indicativo">-->
+                            <input class="form-control" type="text" readonly value="+57" id="indicativo">
                         </div>
 
                         <label for="telefono" class="col-lg-2 col-sm-12 col-xs-12 col-form-label">Teléfono</label>
                         <div class="col-lg-6 col-sm-12 col-xs-12">
-                            <input class="form-control" type="text" readonly value={{usuario.contacto.telefonoFijo}} id="telefono">
+                            <!--<input class="form-control" type="text" readonly value={{usuario.contacto.telefonoFijo}} id="telefono">-->
+                            <input class="form-control" type="text" readonly value="234323" id="telefono">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="celular" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Celular</label>
                         <div class="col-lg-8 col-sm-12 col-xs-12">
-                            <input class="form-control" type="text" readonly value={{usuario.contacto.celular}} id="celular">
+                            <!--<input class="form-control" type="text" readonly value={{usuario.contacto.celular}} id="celular">-->
+                            <input class="form-control" type="text" readonly value="3212344321" id="celular">
                         </div>
                     </div>
                 </div>
@@ -120,13 +126,10 @@
                         <table class="table table-striped">
                             <thead class="bg-success table-inverse">
                                 <tr>
-                                    <th>Enfermedades</th>
+                                    <th style="color:white">Enfermedades</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th>{{usuario.condicionesMedicas.enfermedades}}</th>
-                                </tr>
                                 <tr>
                                     <th>Rinitis alergica</th>
                                 </tr>
@@ -144,13 +147,11 @@
                         <table class="table table-striped">
                             <thead class="bg-info table-inverse">
                                 <tr>
-                                    <th> Alergias</th>
+                                    <th style="color:white"> Alergias</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th>{{usuario.condicionesMedicas.alergias}}</th>
-                                </tr>
+
                                 <tr>
                                     <th>Ají</th>
                                 </tr>
@@ -170,13 +171,10 @@
                         <table class="table table-striped">
                             <thead class="bg-warning table-inverse">
                                 <tr>
-                                    <th>Medicamentos que consume</th>
+                                    <th style="color:white">Medicamentos que consume</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th>{{usuario.condicionesMedicas.medicamentos}}</th>
-                                </tr>
                                 <tr>
                                     <th>Salbutamol</th>
                                 </tr>
@@ -191,20 +189,28 @@
                     </div>
                     <div class="col-lg-8 col-sm-12 col-xs-12">
                         <table class="table table-striped">
-                            <thead class="intereses table-inverse">
+                            <thead class="bg-danger table-inverse">
                                 <tr>
-                                    <th colspan="3"> Limitaciones</th>
+                                    <th colspan="3" style="color:white"> Limitaciones</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th>Auditiva: {{usuario.limitaciones.limitacionAuditva}}</th>
+                                    <th>Auditiva: No</th>
+                                    <th>Fisica: No</th>
+                                    <th>Mental: No</th>
+
+                                    <!--<th>Auditiva: {{usuario.limitaciones.limitacionAuditva}}</th>
                                     <th>Fisica: {{usuario.limitaciones.limitacionFisica}}</th>
-                                    <th>Mental: {{usuario.limitaciones.limitacionMental}}</th>
+                                    <th>Mental: {{usuario.limitaciones.limitacionMental}}</th>-->
+
+
                                 </tr>
                                 <tr>
-                                    <th>Visual: {{usuario.limitaciones.limitacionVisual}}</th>
-                                    <th colspan="2">Otra: {{usuario.limitaciones.otraLimitacion}}</th>
+                                    <!--<th>Visual: {{usuario.limitaciones.limitacionVisual}}</th>
+                                    <th colspan="2">Otra: {{usuario.limitaciones.otraLimitacion}}</th>-->
+                                    <th>Visual: No</th>
+                                    <th colspan="2">Otra: No</th>
                                 </tr>
                             </tbody>
                         </table>
@@ -227,35 +233,40 @@
                         <div class="form-group row">
                             <label for="nombresContacto" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Nombres: </label>
                             <div class="col-lg-8 col-sm-12 col-xs-12">
-                                <input class="form-control" type="text" readonly value="{{usuario.contactoEmergencia.nombreCompleto.nombres}}" id="nombresContacto">
+                                <input class="form-control" type="text" readonly value="Contacto 1" id="nombresContacto">
+                                <!--<input class="form-control" type="text" readonly value="{{usuario.contactoEmergencia.nombreCompleto.nombres}}" id="nombresContacto">-->
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="apellidosContacto" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Apellidos: </label>
                             <div class="col-lg-8 col-sm-12 col-xs-12">
-                                <input class="form-control" type="text" readonly value="{{usuario.contactoEmergencia.nombreCompleto.apellidos}}" id="apellidosContacto">
+                                <input class="form-control" type="text" readonly value="Apellido" id="apellidosContacto">
+                                <!--<input class="form-control" type="text" readonly value="{{usuario.contactoEmergencia.nombreCompleto.apellidos}}" id="apellidosContacto">-->
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="parentescoContacto" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Parentesco: </label>
                             <div class="col-lg-8 col-sm-12 col-xs-12">
-                                <input class="form-control" type="text" readonly value="{{usuario.contactoEmergencia.parentesco}}" id="parentescoContacto">
+                                <input class="form-control" type="text" readonly value="Amiga" id="parentescoContacto">
+                                <!--<input class="form-control" type="text" readonly value="{{usuario.contactoEmergencia.parentesco}}" id="parentescoContacto">-->
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="telefonoContacto" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Teléfono Móvil: </label>
                             <div class="col-lg-8 col-sm-12 col-xs-12">
-                                <input class="form-control" type="text" readonly value="{{usuario.contactoEmergencia.contacto.indicativo}} {{usuario.contactoEmergencia.contacto.telefonoFijo}}" id="telefonoContacto">
+                                <input class="form-control" type="text" readonly value="(+57) 234-34-32" id="telefonoContacto">
+                                <!--<input class="form-control" type="text" readonly value="{{usuario.contactoEmergencia.contacto.indicativo}} {{usuario.contactoEmergencia.contacto.telefonoFijo}}" id="telefonoContacto">-->
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="correoContacto" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Correo Electrónico: </label>
                             <div class="col-lg-8 col-sm-12 col-xs-12">
-                                <input class="form-control" type="text" readonly value="{{usuario.contactoEmergencia.contacto.correo}}" id="correoContacto">
+                                <input class="form-control" type="text" readonly value="sas@sdasd.com" id="correoContacto">
+                                <!--<input class="form-control" type="text" readonly value="{{usuario.contactoEmergencia.contacto.correo}}" id="correoContacto">-->
                             </div>
                         </div>
 
