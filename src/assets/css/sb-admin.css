@@ -44,7 +44,7 @@ body.fixed-nav {
 }
 
 .scroll-to-top:hover {
-    background: #343a40;
+    background: #485058;
 }
 
 .scroll-to-top i {
@@ -363,11 +363,12 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 
 @media (min-width: 992px) {
     #mainNav.navbar-dark .navbar-collapse .navbar-sidenav {
-        background: #24282c;
+        /*background: #24282c;*/
+        background: #293F52;
     }
     #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a {
         color: white !important;
-        background-color: #495057;
+        background-color: #34495B;
     }
     #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a:focus,
     #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a:hover {
@@ -375,7 +376,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
     }
     #mainNav.navbar-dark .navbar-collapse .navbar-sidenav>.nav-item .sidenav-second-level,
     #mainNav.navbar-dark .navbar-collapse .navbar-sidenav>.nav-item .sidenav-third-level {
-        background: #343a40;
+        background: #1F2C37;
     }
 }
 
@@ -412,12 +413,12 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
         background: #f8f9fa;
     }
     #mainNav.navbar-light .navbar-collapse .navbar-sidenav li.active a {
-        color: #000 !important;
+        color: #1F2C37 !important;
         background-color: #e9ecef;
     }
     #mainNav.navbar-light .navbar-collapse .navbar-sidenav li.active a:focus,
     #mainNav.navbar-light .navbar-collapse .navbar-sidenav li.active a:hover {
-        color: #000;
+        color: #1F2C37;
     }
     #mainNav.navbar-light .navbar-collapse .navbar-sidenav>.nav-item .sidenav-second-level,
     #mainNav.navbar-light .navbar-collapse .navbar-sidenav>.nav-item .sidenav-third-level {
