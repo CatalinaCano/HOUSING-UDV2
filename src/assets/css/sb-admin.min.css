@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700");
 html {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     position: relative;
     min-height: 100%
 }
 
 body {
-    overflow-x: hidden
+    overflow-x: hidden;
+    font-family: "Montserrat", sans-serif;
 }
 
 body.sticky-footer {
@@ -23,7 +24,8 @@ body.fixed-nav {
 
 .content-wrapper {
     min-height: calc(100vh - 56px);
-    padding-top: 1rem
+    padding-top: 1rem;
+    font-family: "Monserrat";
 }
 
 .scroll-to-top {
@@ -162,7 +164,8 @@ body.fixed-nav {
         -webkit-flex-direction: column;
         -ms-flex-direction: column;
         flex-direction: column;
-        margin-top: 56px
+        margin-top: 56px;
+        font-family: "Monserrat";
     }
     #mainNav .navbar-collapse .navbar-sidenav>.nav-item {
         width: 250px;
@@ -230,7 +233,8 @@ body.fixed-nav {
 }
 
 #mainNav.fixed-top.navbar-dark .sidenav-toggler {
-    background-color: #2A3F54
+    background-color: #2A3F54;
+    font-family: "Monserrat";
 }
 
 #mainNav.fixed-top.navbar-dark .sidenav-toggler a i {

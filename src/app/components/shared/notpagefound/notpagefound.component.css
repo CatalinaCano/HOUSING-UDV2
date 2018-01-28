@@ -1,14 +1,18 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700");
 .error-template {
     padding: 10% 15px;
     text-align: center;
     color: white;
+    font-family: "Monserrat", sans-serif;
 }
 
 .error-actions {
     margin-top: 30px;
     margin-bottom: 15px;
+    font-family: "Monserrat", sans-serif;
 }
 
 .error-actions .btn {
     margin-right: 10px;
+    font-family: "Monserrat", sans-serif;
 }
