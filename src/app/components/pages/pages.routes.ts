@@ -16,23 +16,13 @@ const pagesRoutes: Routes = [
          path: '',
          component: PagesComponent,
          children: [
-<<<<<<< HEAD
-            { path: 'registrar', component: RegistrarComponent, data: {titulo: 'Registrar Alojamiento'} },
-            { path: 'inicio', component: InicioComponent, data: {titulo: 'Bienvenida'}  },
-            { path: 'perfil', component: PerfilComponent, data: {titulo: 'Mi Perfil'}  },
-            { path: 'galeria', component: GaleriaComponent, data: {titulo: 'Galeria de Alojamientos'} },
-            { path: 'alojamiento', component: AlojamientoComponent, data: {titulo: 'Descripción del Alojamiento'}},
-            { path: 'administrador', component: AdministradorComponent, data: {titulo: 'Gestión de Alojamientos'} },
-            { path: 'informacion', component: InformacionComponent, data: {titulo: 'Políticas de Housing-UD'} },
-=======
-            { path: 'registrar', component: RegistrarComponent },
-            { path: 'inicio', component: InicioComponent },
-            { path: 'perfil', component: PerfilComponent },
-            { path: 'galeria', component: GaleriaComponent },
-            { path: 'alojamiento', component: AlojamientoComponent },
-            { path: 'administrador', component: AdministradorComponent },
-            { path: 'informacion', component: InformacionComponent },
->>>>>>> 20270d710137de8c7025d65f337c4225c275dd1a
+            { path: 'registrar', component: RegistrarComponent, data: {titulo: 'Registrar Alojamiento', icono: 'fa fa-address-card'} },
+            { path: 'inicio', component: InicioComponent, data: {titulo: 'Bienvenida', icono: ''}  },
+            { path: 'perfil', component: PerfilComponent, data: {titulo: 'Mi Perfil', icono: 'fa fa-user'}  },
+            { path: 'galeria', component: GaleriaComponent, data: {titulo: 'Galeria de Alojamientos', icono: 'fa fa-search'} },
+            { path: 'alojamiento', component: AlojamientoComponent, data: {titulo: 'Descripción del Alojamiento', icono: 'fa fa-bed'}},
+            { path: 'informacion', component: InformacionComponent, data: {titulo: 'Políticas de Housing-UD', icono: 'fa fa-commenting'}  },
+            { path: 'administrador', component: AdministradorComponent, data: {titulo: 'Gestión de Alojamientos', icono: 'fa fa-cogs'} },
             { path: '', redirectTo: '/incio', pathMatch: 'full' },
      ]
     }
