@@ -1,3 +1,276 @@
-<p>
-  alojamiento works!
-</p>
+<!--Barra de Navegacion-->
+<app-navbar></app-navbar>
+
+<div class="container-fluid">
+    <!--Barra de navegacion-->
+
+    <!-- Portfolio Item Heading -->
+    <h1 class="my-4 text-primary"> <i class="fa fa-map-marker"></i> Banderas <small>Casa Familiar  | <small>Estrato: 3</small> </small>
+    </h1>
+    <!-- tipo de casa viene de mongo-->
+    <hr>
+
+    <div class="row animated fadeInUp">
+        <div class="col-lg-8">
+            <img class="img-fluid" src="assets/img/img1.jpg" height="auto" width="100%" alt="">
+            <br>
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>
+                            <i class="fa fa-suitcase"></i> Hospedan a: <br> Mujer
+                            <!--viene de mongo-->
+                        </td>
+                        <td>
+                            <i class="fa fa-university"></i> Cerca a:<br> Facultad de Ingeniería
+                            <!--viene de mongo-->
+                        </td>
+                        <td> <i class="fa fa-users"></i> Habitantes en el alojamiento: 4</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <p class="text-justify">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <!--viene de mongo-->
+            <hr>
+            <h3 class="my-4"> <i class="fa fa-home text-info"></i> Componentes del Alojamiento</h3>
+            <div class="alert alert-warning" role="alert">
+                <strong>Atención!</strong> A continuación, se describen los espacios generales del alojamiento, <strong>NO</strong> de la habitación.
+            </div>
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td> <i class="fa fa-bed"></i> 2 Habitaciones</td>
+                        <td> <i class="fa fa-shower"></i> 1 Baño</td>
+                        <td> <i class="fa fa-cutlery"></i> Acceso a cocina: Si </td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa fa-pencil"></i> Espacio para estudiar: Si</td>
+                        <td> <i class="fa fa-info"></i> Se permite fumar: No </td>
+                        <td> <i class="fa fa-flag"></i> Espacios al aire libre: Si </td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-paw"></i> Mascotas: Si</td>
+                        <label> <i class="fa fa-question-circle"></i> Cuales:</label>
+                        <td colspan="2">
+                            <ul>
+                                <li>Perro</li>
+                                <li>Pajaros</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <!--Servicios de la casa-->
+            <h3 class="my-4"> <i class="fa fa-gears text-success"></i> Servicios del Alojamiento</h3>
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td> <i class="fa fa-wifi"></i> Internet: Si </td>
+                        <td> <i class="fa fa-laptop"></i> Computador : No </td>
+                        <td> <i class="fa fa-tv"></i> Televisión: Si </td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa fa-gamepad"></i> Video Juegos: No</td>
+                        <td> <i class="fa fa-flash"></i> Servicios Públicos: Si </td>
+                        <td> <i class="fa fa-fire"></i> Agua Caliente: No</td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa fa-cutlery"></i> Alimentación incluida: Si </td>
+                        <td> <i class="fa fa-handshake-o"></i> Aseo de la habitación: No</td>
+                        <td> <i class="fa fa-suitcase"></i> Lavado de Ropa: No </td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa fa-film"></i> Servicio de TV por cable: Si </td>
+                        <td> <i class="fa fa-tint"></i> Lavadora: Si </td>
+                        <td> <i class="fa fa-key"></i> Acceso a llaves: No </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center" colspan="4"> <i class="fa fa-plug"></i> Electrodomésticos: Voltaje 110</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <h3 class="my-4"> <i class="fa fa-map-marker text-warning"></i> Ubicación</h3>
+            <!-- <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom ">
+                    <agm-marker [latitude]="lat" [longitude]="lng" [label]="'A'">
+                    </agm-marker>
+                </agm-map>-->
+            <!--Direccion y localidad-->
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td> <i class="fa fa-map-pin"></i> Dirección: Calle 1233 # 4 L Sur </td>
+                        <td> <i class="fa fa-street-view"></i> Localidad: Kennedy</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--Barra lateral-->
+        <div class="col-lg-4">
+            <h3 class="my-3"> <i class="fa fa-user text-success"></i> Catalina Cano Narvaez</h3>
+            <!-- <img [src]="usuario.img" height="auto" width="100%" align="center">-->
+            <h3 class="my-3"> <i class="fa fa-coffee text-warning"></i> Interéses y Costumbres del alojamiento anfitrión</h3>
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td> <i class="fa fa-language"></i> Idiomas: Español </td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa fa-spoon"></i> Hábitos Alimenticios: Vegetarianos </td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa fa-plus"></i> Religión: Cristianos</td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa fa-american-sign-language-interpreting"></i> Consumo Drogas: No</td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa fa-glass"></i> Consumo Alcohol: No</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <h3 class="my-4"> <i class="fa fa-warning text-danger"></i> Normas del alojamiento</h3>
+            <div class="reglas">
+                <ol>
+                    <li> Hora de llegada: 10:00 pm </li>
+                    <li> Acceso de otras personas: No</li>
+                    <li> Fiestas o eventos: No </li>
+                    <li> Sonido a volumen: Moderado </li>
+                    <li> Ritos,exorcismos, orgias: No </li>
+                    <li> Consumo de alcohol: No </li>
+                    <li> Consumo de drogas ó sustancias psicoactivas: No </li>
+                </ol>
+            </div>
+            <hr>
+            <h3 class="my-4"><i class="fa fa-map-o text-primary"></i> Lugares de interés cercanos</h3>
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td> <i class="fa fa-building-o"></i> Centros Comerciales: Si </td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa fa-university"></i> Museos: No </td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa fa-cutlery"></i> Restaurantes: Si </td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa fa-beer"></i> Bares: Si</td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa fa-plus"></i> Iglesias: Si</td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa fa-h-square"></i> Hospitales: Si</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <h3 class="my-4"><i class="fa fa-automobile text-success"></i> Transporte Disponible </h3>
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td> <i class="fa fa-trademark"></i> Transmilenio: Si </td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa fa-car"></i> Uber : Si</td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa fa-bicycle"></i> Bicicleta: No </td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa fa-bus"></i> SITP: Si</td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa fa-male"></i> Caminando: Si</td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa fa-taxi"></i> Taxi: Si</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <div class="alert alert-info" role="alert">
+                <strong>Si desea aplicar este alojamiento!</strong> haga clic en Contactar, así podrá comunicarse con el anfitrión
+            </div>
+            <button class="btn btn-success btn-block" data-toggle="modal" data-target="#condiciones"> <i class="fa fa-envelope"></i> Contactar</button>
+        </div>
+    </div>
+    <hr>
+    <!-- /.row -->
+    <!-- Related Projects Row -->
+    <h3 class="my-4"> <i class="fa fa-home text-primary"></i> Espacios del Alojamiento</h3>
+    <div class="row">
+        <div class="col-md-3 col-sm-6 mb-4">
+            <img class="img-fluid" src="assets/img/sala.jpg" height="300px" width="500px" alt="">
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+            <img class="img-fluid" src="assets/img/banio.jpg" alt="">
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+            <img class="img-fluid" src="assets/img/cocina.jpg" alt="">
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+            <img class="img-fluid" src="assets/img/habitacion.jpg" alt="">
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+
+
+<!--MODAL-->
+<!--Ventana Emergente Condiciones-->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="condiciones">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-primary"> <i class="fa fa-phone"></i> Datos de Contacto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="assets/img/contacto.png" align=center width=40% alt="">
+                    </div>
+                    <div class="col-md-7">
+
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <td> <i class="fa fa-user"></i> Nombre Completo: Diana Catalina Cano Narvaez </td>
+                                </tr>
+                                <tr>
+                                    <td> <i class="fa fa-phone"></i> Telefono: +57 123-456</td>
+                                </tr>
+                                <tr>
+                                    <td> <i class="fa fa-mobile"></i> Celular: 3196966720 </td>
+                                </tr>
+                                <tr>
+                                    <td> <i class="fa fa-envelope"></i> Correo:cata@hotmail.com </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-xs" data-dismiss="modal"> <i class="fa fa-window-close"></i> Cerrar</button>
+
+            </div>
+        </div>
+    </div>
+</div>
