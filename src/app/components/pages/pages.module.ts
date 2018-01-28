@@ -10,6 +10,7 @@ import { RegistrarComponent } from './registrar/registrar.component';
 import { SharedModule } from '../shared/shared.module';
 import { PAGES_ROUTES } from './pages.routes';
 import { InformacionComponent } from './informacion/informacion.component';
+import { InformacionPerfilComponent } from './informacion-perfil/informacion-perfil.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { InformacionComponent } from './informacion/informacion.component';
         AlojamientoComponent,
         AdministradorComponent,
         RegistrarComponent,
-        InformacionComponent
+        InformacionComponent,
+        InformacionPerfilComponent
     ],
     exports: [
         PagesComponent,

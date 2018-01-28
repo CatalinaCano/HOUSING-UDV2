@@ -3,9 +3,7 @@ import { NavbarService } from '../../../services/service.index';
 
 @Component({
   selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
-  // providers: [NavbarService]
+  templateUrl: './navbar.component.html'
 })
 export class NavbarComponent implements OnInit {
 
