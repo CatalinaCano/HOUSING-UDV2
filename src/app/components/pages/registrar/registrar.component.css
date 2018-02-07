@@ -6,3 +6,7 @@
 legend {
     color: #2B3E4F;
 }
+
+agm-map {
+    height: 300px;
+}

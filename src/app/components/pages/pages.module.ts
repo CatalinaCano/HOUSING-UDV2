@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { ApplicationRef } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
+// import { AgmCoreModule } from '@agm/core';
 
 import { PAGES_ROUTES } from './pages.routes';
 
@@ -13,6 +18,8 @@ import { RegistrarComponent } from './registrar/registrar.component';
 import { SharedModule } from '../shared/shared.module';
 import { InformacionComponent } from './informacion/informacion.component';
 import { InformacionPerfilComponent } from './informacion-perfil/informacion-perfil.component';
+
+
 
 
 
@@ -40,7 +47,14 @@ import { InformacionPerfilComponent } from './informacion-perfil/informacion-per
     imports: [
         SharedModule,
         CommonModule,
-        PAGES_ROUTES
+        PAGES_ROUTES,
+        BrowserModule,
+        FormsModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyB_8h8OFAoL5Z2HDgeH761GUwoadE_kttg',
+            libraries: ['places']
+        }),
+        ReactiveFormsModule
     ]
 })
 

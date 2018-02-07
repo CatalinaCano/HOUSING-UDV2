@@ -1,3 +1,4 @@
+<!--
 <div class="container-fluid animated fadeInUp jumbotron">
     <h1 class="text-h1"> <i class="fa fa-pencil"></i> Registrar Alojamiento </h1>
     <hr class="my-4">
@@ -93,7 +94,7 @@
         </div>
         <div class="row">
 
-            <label for="tipoVivienda" class="col-lg-4 control-label">¿Que género preferirías Alojar? </label>
+            <label for="tipoVivienda" class="col-lg-5 control-label">¿Que género preferirías Alojar? </label>
             <div class="col-lg-7">
                 <select class="form-control" id="localidad" required>
                     <option>Seleccionar</option>   
@@ -103,6 +104,21 @@
                 </select>
             </div>
         </div>
+
+        <br>
+        <div class="row">
+
+            <label for="tipoVivienda" class="col-lg-5 control-label">¿El tipo de habitación ofertada es? </label>
+            <div class="col-lg-7">
+                <select class="form-control" id="localidad" required>
+      <option>Seleccionar</option>
+      <option>Individual</option>
+      <option>Compartida</option>
+      <option>Otra</option>
+    </select>
+            </div>
+        </div>
+
 
         <hr>
         <legend> <i class="fa fa-home"></i> Componentes del Alojamiento</legend>
@@ -129,7 +145,76 @@
                 </select>
             </div>
         </div>
+        <br>
+
+        <div class="row">
+            <label for="tipoVivienda" class="col-lg-5 control-label">¿El visitante tiene acceso a la cocina del alojamiento? </label>
+            <div class="col-lg-7">
+                <select class="form-control" id="localidad" required>
+                    <option>Seleccionar</option>   
+                    <option>Si</option>                       
+                    <option>No</option>                     
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <label for="tipoVivienda" class="col-lg-5 control-label">¿El alojamiento posee un espacio para estudiar? </label>
+            <div class="col-lg-7">
+                <select class="form-control" id="localidad" required>
+                    <option>Seleccionar</option>
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <label for="tipoVivienda" class="col-lg-5 control-label">¿El alojamiento posee espacios al aire libre? </label>
+            <div class="col-lg-7">
+                <select class="form-control" id="localidad" required>
+                    <option>Seleccionar</option>
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <label for="tipoVivienda" class="col-lg-5 control-label">¿Se permite fumar dentro del alojamiento? </label>
+            <div class="col-lg-7">
+                <select class="form-control" id="localidad" required>
+                    <option>Seleccionar</option>
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+            </div>
+        </div>
+        <br>
 
 
+
+
+
+
+        <hr>
+        <legend>
+            <i class="fa fa-camera"></i> Imágenes del Alojamiento</legend>
+        <div class="row">
+            <label for="tipoVivienda" class="col-lg-5 control-label">Foto Fachada</label>
+            <div class="col-lg-7">
+                <input type="file" id="file" name="file" multiple>
+
+            </div>
+        </div>-->
+
+<div class="container">
+    <h1>Angular 2 + Google Maps Places Autocomplete</h1>
+    <div class="form-group">
+        <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
     </div>
+    <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+    </agm-map>
 </div>

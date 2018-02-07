@@ -5,7 +5,7 @@ import { NotpagefoundComponent } from './components/shared/notpagefound/notpagef
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
-    { path: '**', component: NotpagefoundComponent, data: {titulo: '404 - Página No Encontrada'}}
+    { path: '**', component: LoginComponent, data: {titulo: '404 - Página No Encontrada'}}
 
 ];
 
