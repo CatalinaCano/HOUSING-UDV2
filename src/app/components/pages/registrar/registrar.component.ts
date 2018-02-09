@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
 
@@ -16,6 +16,7 @@ export class RegistrarComponent implements OnInit {
   public searchControl: FormControl;
   public zoom: number;
 
+  forma: FormGroup;
 
 
   @ViewChild('search')
@@ -27,15 +28,25 @@ export class RegistrarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // set google maps defaults
+  // Validar campos
+
+  this.forma = new FormGroup({
+      'tipoVivienda': new FormControl('', Validators.required),
+      'clasificacionAlojamiento': new FormControl ('', Validators.required),
+      'descripcionAlojamiento': new FormControl('', [Validators.required, Validators.minLength(50)])
+
+  });
+
+
+    // Coordenas del mapa por defecto
     this.zoom = 4;
     this.latitude = 39.8282;
     this.longitude = -98.5795;
 
-    // create search FormControl
+    //  Crear el FormControl
     this.searchControl = new FormControl();
 
-    // set current position
+    // Colocar posicion actual
     this.setCurrentPosition();
 
     // load Places Autocomplete
@@ -72,6 +83,10 @@ export class RegistrarComponent implements OnInit {
         this.zoom = 12;
       });
     }
+  }
+
+  guardarCambios() {
+    console.log(this.forma.value);
   }
 
 

@@ -17,52 +17,55 @@
     </agm-map>
 
     <br>
-    <div class="form-group container-fluid">
-        <div class="row">
-            <label for="tipoVivienda" class="col-lg-3 control-label">Tipo de alojamiento </label>
-            <div class="col-lg-3">
-                <select class="form-control" id="tipoVivienda" required>
-
-                    <option>Seleccionar</option>
-                    <option>Casa familiar</option>
-                    <option>Duplex</option>
-                    <option>Apartamento</option>
-                    <option>Conjunto Casas</option>
-                    <option>Conjunto Apartamentos</option>
-                    <option>Otro</option>
+    <form [formGroup]="forma" (ngSubmit)="guardarCambios()" novalidate="novalidate">
+        <div class="form-group container-fluid">
+            <div class="row">
+                <label for="tipoVivienda" class="col-lg-3 control-label">Tipo de alojamiento </label>
+                <div class="col-lg-3" [ngClass]="{'alert alert-danger':!forma.get('tipoVivienda').valid}">
+                    <select class="form-control" id="tipoVivienda" required formControlName="tipoVivienda">
+                        <option>Casa familiar</option>
+                        <option>Duplex</option>
+                        <option>Apartamento</option>
+                        <option>Conjunto Casas</option>
+                        <option>Conjunto Apartamentos</option>
+                        <option>Otro</option>
                 </select>
+                    <div *ngIf="!forma.controls['tipoVivienda'].valid" class="form-control-feedback">
+                        <small>*Obligatorio</small>
+                    </div>
+                </div>
+                <label for="clasificacionAlojamiento" class="col-lg-3 control-label">El alojamiento es</label>
+
+                <div class="col-lg-3" [ngClass]="{'alert alert-danger':!forma.get('clasificacionAlojamiento').valid}">
+                    <select class=" form-control " id="clasificacionAlojamiento " required formControlName="clasificacionAlojamiento">
+                        <option>Arrendado</option>
+                        <option>Propio</option>
+                        <option>Familiar</option>
+                        <option>Otro</option>
+                     </select>
+                    <div *ngIf="!forma.controls[ 'clasificacionAlojamiento'].valid " class="form-control-feedback ">
+                        <small>*Obligatorio</small>
+                    </div>
+                </div>
             </div>
-            <label for="clasificacionAlojamiento" class="col-lg-3 control-label">El alojamiento es</label>
+            <br>
+            <div class="row ">
+                <label for="hospedanA " class="col-lg-3 control-label ">¿Que género preferirías Alojar? </label>
+                <div class="col-lg-4 ">
+                    <select class="form-control " id="hospedanA " required>
 
-            <div class="col-lg-3">
-                <select class="form-control" id="clasificacionAlojamiento" required>
-
-                    <option>Seleccionar</option>
-                    <option>Arrendado</option>
-                    <option>Propio</option>
-                    <option>Familiar</option>
-                    <option>Otro</option>
-                </select>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <label for="hospedanA" class="col-lg-3 control-label">¿Que género preferirías Alojar? </label>
-            <div class="col-lg-4">
-                <select class="form-control" id="hospedanA" required>
-
-                    <option>Seleccionar</option>
+                    
                     <option>Mujer</option>
                     <option>Hombre</option>
                     <option>No importa</option>
                  </select>
-            </div>
+                </div>
 
-            <label for="sedeCercana" class="col-lg-1 control-label">Sede Cercana</label>
-            <div class="col-lg-4">
-                <select class="form-control" id="sedeCercana" required>
+                <label for="sedeCercana " class="col-lg-1 control-label ">Sede Cercana</label>
+                <div class="col-lg-4 ">
+                    <select class="form-control " id="sedeCercana " required>
 
-                    <option>Seleccionar</option>
+                    
                     <option>Aduanilla de Paiba</option>
                     <option>Calle 34</option>
                     <option>Calle 40 (Edificio Administrativo)</option>
@@ -85,129 +88,135 @@
                     <option>Tecnológica</option>
                     <option>Vivero</option>
                 </select>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <label for="zona" class="col-lg-6 control-label">¿En que zona se encuentra ubicado el alojamiento? </label>
-            <div class="col-lg-6">
-                <select class="form-control" id="zona" required>
+            <br>
+            <div class="row ">
+                <label for="zona " class="col-lg-6 control-label ">¿En que zona se encuentra ubicado el alojamiento? </label>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="zona " required>
 
-                    <option>Seleccionar</option>
+                    
                     <option>Centro</option>
                     <option>Sur</option>
                     <option>Norte</option>
                     <option>Oriente</option>
                     <option>Occidente</option>
                     </select>
-            </div>
-        </div>
-        <hr>
-        <legend> <i class="fa fa-i-cursor text-success"></i> Descripción del Alojamiento</legend>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="form-group">
-                    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
                 </div>
             </div>
-        </div>
-        <hr>
-        <legend>
-            <i class="fa fa-home text-primary "></i> Componentes del Alojamiento</legend>
-        <div class="row">
-            <label for="numeroHabitaciones" class="col-lg-6 control-label">¿Cuantas habitaciones posee el alojamiento? </label>
-            <div class="col-lg-6">
-                <select class="form-control" id="numeroHabitaciones" required>
+            <hr>
+            <legend> <i class="fa fa-i-cursor text-success "></i> Descripción del Alojamiento</legend>
+            <div class="row ">
+                <div class="col-lg-12 ">
+                    <div class="form-group ">
+                        <textarea class="form-control " rows="3 " required formControlName="descripcionAlojamiento"></textarea>
+                    </div>
+                </div>
+                <div *ngIf="forma.controls[ 'descripcionAlojamiento'].errors?.required" class="form-control-feedback">
+                    El tipo de alojamiento es requerido
+                </div>
+                <div *ngIf="forma.controls[ 'descripcionAlojamiento'].errors?.minlength" class="form-control-feedback">
+                    La descripción de contener mínimo 50 caractéres
+                </div>
+            </div>
+            <hr>
+            <legend>
+                <i class="fa fa-home text-primary "></i> Componentes del Alojamiento</legend>
+            <div class="row ">
+                <label for="numeroHabitaciones " class="col-lg-6 control-label ">¿Cuantas habitaciones posee el alojamiento? </label>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="numeroHabitaciones " required>
 
-                        <option>Seleccionar</option>
+                        
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
                         <option>5</option>
                 </select>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <label for="cantidadBanios" class="col-lg-6 control-label">¿Cuantos baños posee el alojamiento? </label>
-            <div class="col-lg-6">
-                <select class="form-control" id="cantidadBanios" required>
+            <br>
+            <div class="row ">
+                <label for="cantidadBanios " class="col-lg-6 control-label ">¿Cuantos baños posee el alojamiento? </label>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="cantidadBanios " required>
 
-                        <option>Seleccionar</option>
+                        
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
                         <option>5</option>
                 </select>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <label for="accesoCocina" class="col-lg-6 control-label">¿El estudiante visitante tiene acceso a la cocina del alojamiento? </label>
-            <div class="col-lg-6">
-                <select class="form-control" id="accesoCocina" required>
+            <br>
+            <div class="row ">
+                <label for="accesoCocina " class="col-lg-6 control-label ">¿El estudiante visitante tiene acceso a la cocina del alojamiento? </label>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="accesoCocina " required>
 
-                        <option>Seleccionar</option>
+                        
                         <option>Si</option>
                         <option>No</option>
                 </select>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <label for="espacioEstudio" class="col-lg-6 control-label">¿El estudiante visitante tiene un espacio de estudio disponible dentro del alojamiento? </label>
-            <div class="col-lg-6">
-                <select class="form-control" id="espacioEstudio" required>
+            <br>
+            <div class="row ">
+                <label for="espacioEstudio " class="col-lg-6 control-label ">¿El estudiante visitante tiene un espacio de estudio disponible dentro del alojamiento? </label>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="espacioEstudio " required>
 
-                        <option>Seleccionar</option>
+                        
                         <option>Si</option>
                         <option>No</option>
                 </select>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <label for="sePermiteFumar" class="col-lg-6 control-label">¿Se le permite al estudiante visitante fumar dentro del alojamiento? </label>
-            <div class="col-lg-6">
-                <select class="form-control" id="sePermiteFumar" required>
+            <br>
+            <div class="row ">
+                <label for="sePermiteFumar " class="col-lg-6 control-label ">¿Se le permite al estudiante visitante fumar dentro del alojamiento? </label>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="sePermiteFumar " required>
 
-                        <option>Seleccionar</option>
+                        
                         <option>Si</option>
                         <option>No</option>
                 </select>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <label for="espacioAireLibre" class="col-lg-6 control-label">¿Se le permite al estudiante visitante fumar dentro del alojamiento? </label>
-            <div class="col-lg-6">
-                <select class="form-control" id="espacioAireLibre" required>
+            <br>
+            <div class="row ">
+                <label for="espacioAireLibre " class="col-lg-6 control-label ">¿Se le permite al estudiante visitante fumar dentro del alojamiento? </label>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="espacioAireLibre " required>
 
-                        <option>Seleccionar</option>
+                        
                         <option>Si</option>
                         <option>No</option>
                 </select>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <label for="accesoaSala" class="col-lg-6 control-label">¿El estudiante visitante tiene acceso a la sala del alojamiento? </label>
-            <div class="col-lg-6">
-                <select class="form-control" id="accesoaSala" required>
-                        <option>Seleccionar</option>
+            <br>
+            <div class="row ">
+                <label for="accesoaSala " class="col-lg-6 control-label ">¿El estudiante visitante tiene acceso a la sala del alojamiento? </label>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="accesoaSala " required>
+                        
                         <option>Si</option>
                         <option>No</option>
                 </select>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <label for="habitaMascota" class="col-lg-6 control-label">¿Habitan mascotas dentro del alojamiento? </label>
-            <div class="col-lg-6">
-                <select class="form-control" id="habitaMascota" required>
-                        <option>Seleccionar</option>
+            <br>
+            <div class="row ">
+                <label for="habitaMascota " class="col-lg-6 control-label ">¿Habitan mascotas dentro del alojamiento? </label>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="habitaMascota " required>
+                        
                         <option>Ninguna</option>
                         <option>Mamifero</option>
                         <option>Anfibio</option>
@@ -215,17 +224,17 @@
                         <option>Peces</option>
                         <option>Reptiles</option>
                 </select>
+                </div>
             </div>
-        </div>
-        <hr>
-        <legend>
-            <i class="fa fa-cogs text-success"></i> Servicios del Alojamiento</legend>
-        <br>
-        <div class="row">
-            <label for="tipoCama" class="col-lg-6 control-label">¿Qué tipo de cama se ofrece al estudiante visitante? </label>
-            <div class="col-lg-6">
-                <select class="form-control" id="tipoCama" required>
-                    <option>Seleccionar</option>
+            <hr>
+            <legend>
+                <i class="fa fa-cogs text-success "></i> Servicios del Alojamiento</legend>
+            <br>
+            <div class="row ">
+                <label for="tipoCama " class="col-lg-6 control-label ">¿Qué tipo de cama se ofrece al estudiante visitante? </label>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="tipoCama " required>
+                    
                     <option>Sin cama</option>
                     <option>Sencilla</option>
                     <option>Doble</option>
@@ -233,199 +242,199 @@
                     <option>Sofa Cama</option>
                     <option>Otro</option>
             </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="banioPrivado" class="col-lg-6 control-label">¿El alojamiento posee baño privado para el estudiante visitante? </label>
-            <div class="col-lg-6">
-                <select class="form-control" id="banioPrivado" required>
-                    <option>Seleccionar</option>
+            <br>
+            <div class="row ">
+                <label for="banioPrivado " class="col-lg-6 control-label ">¿El alojamiento posee baño privado para el estudiante visitante? </label>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="banioPrivado " required>
+                    
                     <option>Si</option>
                     <option>No</option>
             </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="guardaRopa" class="col-lg-6 control-label">¿El alojamiento posee guardaropa para el estudiante visitante? </label>
-            <div class="col-lg-6">
-                <select class="form-control" id="guardaRopa" required>
-                    <option>Seleccionar</option>
+            <br>
+            <div class="row ">
+                <label for="guardaRopa " class="col-lg-6 control-label ">¿El alojamiento posee guardaropa para el estudiante visitante? </label>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="guardaRopa " required>
+                    
                     <option>Si</option>
                     <option>No</option>
             </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="internet" class="col-lg-6 control-label">¿El alojamiento posee  el servicio de internet para el estudiante visitante? </label>
-            <div class="col-lg-6">
-                <select class="form-control" id="internet" required>
-                    <option>Seleccionar</option>
+            <br>
+            <div class="row ">
+                <label for="internet " class="col-lg-6 control-label ">¿El alojamiento posee  el servicio de internet para el estudiante visitante? </label>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="internet " required>
+                    
                     <option>Si</option>
                     <option>No</option>
             </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="computador" class="col-lg-6 control-label">¿El alojamiento posee computador para el estudiante visitante? </label>
-            <div class="col-lg-6">
-                <select class="form-control" id="conputador" required>
-                    <option>Seleccionar</option>
+            <br>
+            <div class="row ">
+                <label for="computador " class="col-lg-6 control-label ">¿El alojamiento posee computador para el estudiante visitante? </label>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="conputador " required>
+                    
                     <option>Si</option>
                     <option>No</option>
                 </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="television" class="col-lg-6 control-label">¿El alojamiento posee television para el estudiante visitante? </label>
-            <div class="col-lg-6">
-                <select class="form-control" id="television" required>
-                    <option>Seleccionar</option>
+            <br>
+            <div class="row ">
+                <label for="television " class="col-lg-6 control-label ">¿El alojamiento posee television para el estudiante visitante? </label>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="television " required>
+                    
                     <option>Si</option>
                     <option>No</option>
                     </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="videoJuegos" class="col-lg-6 control-label">¿El alojamiento posee videoJuegos para el estudiante visitante? </label>
-            <div class="col-lg-6">
-                <select class="form-control" id="videoJuegos" required>
-                    <option>Seleccionar</option>
+            <br>
+            <div class="row ">
+                <label for="videoJuegos " class="col-lg-6 control-label ">¿El alojamiento posee videoJuegos para el estudiante visitante? </label>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="videoJuegos " required>
+                    
                     <option>Si</option>
                     <option>No</option>
                     </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="serviciosPublicos" class="col-lg-6 control-label">¿El alojamiento posee servicios Publicos para el estudiante visitante? </label>
+            <br>
+            <div class="row ">
+                <label for="serviciosPublicos " class="col-lg-6 control-label ">¿El alojamiento posee servicios Publicos para el estudiante visitante? </label>
 
-            <div class="col-lg-6">
-                <select class="form-control" id="serviciosPublicos" required>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="serviciosPublicos " required>
 
-                    <option>Seleccionar</option>
+                    
                     <option>Si</option>
                     <option>No</option>
                     </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="aguaCaliente" class="col-lg-6 control-label">¿El alojamiento posee agua Caliente para el estudiante visitante? </label>
+            <br>
+            <div class="row ">
+                <label for="aguaCaliente " class="col-lg-6 control-label ">¿El alojamiento posee agua Caliente para el estudiante visitante? </label>
 
-            <div class="col-lg-6">
-                <select class="form-control" id="aguaCaliente" required>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="aguaCaliente " required>
 
-                    <option>Seleccionar</option>
+                    
                     <option>Si</option>
                     <option>No</option>
                     </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="alimentacionIncluida" class="col-lg-6 control-label">¿El alojamiento posee alimentacion incluida para el estudiante visitante? </label>
+            <br>
+            <div class="row ">
+                <label for="alimentacionIncluida " class="col-lg-6 control-label ">¿El alojamiento posee alimentacion incluida para el estudiante visitante? </label>
 
-            <div class="col-lg-6">
-                <select class="form-control" id="alimentacionIncluida" required>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="alimentacionIncluida " required>
 
-                    <option>Seleccionar</option>
+                    
                     <option>Si</option>
                     <option>No</option>
                     </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="aseoHabitacion" class="col-lg-6 control-label">¿El alojamiento brinda el servicio de  aseo a la  Habitacion para el estudiante visitante? </label>
+            <br>
+            <div class="row ">
+                <label for="aseoHabitacion " class="col-lg-6 control-label ">¿El alojamiento brinda el servicio de  aseo a la  Habitacion para el estudiante visitante? </label>
 
-            <div class="col-lg-6">
-                <select class="form-control" id="aseoHabitacion" required>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="aseoHabitacion " required>
 
-                    <option>Seleccionar</option>
+                    
                     <option>Si</option>
                     <option>No</option>
                     </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="lavadoRopa" class="col-lg-6 control-label">¿El alojamiento posee el servicio de lavado de Ropa para el estudiante visitante? </label>
+            <br>
+            <div class="row ">
+                <label for="lavadoRopa " class="col-lg-6 control-label ">¿El alojamiento posee el servicio de lavado de Ropa para el estudiante visitante? </label>
 
-            <div class="col-lg-6">
-                <select class="form-control" id="lavadoRopa" required>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="lavadoRopa " required>
 
-                    <option>Seleccionar</option>
+                    
                     <option>Si</option>
                     <option>No</option>
                     </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="servicioTVCable" class="col-lg-6 control-label">¿El alojamiento posee servicio TV Cable para el estudiante visitante? </label>
+            <br>
+            <div class="row ">
+                <label for="servicioTVCable " class="col-lg-6 control-label ">¿El alojamiento posee servicio TV Cable para el estudiante visitante? </label>
 
-            <div class="col-lg-6">
-                <select class="form-control" id="servicioTVCable" required>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="servicioTVCable " required>
 
-                    <option>Seleccionar</option>
+                    
                     <option>Si</option>
                     <option>No</option>
                     </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="lavadora" class="col-lg-6 control-label">¿El alojamiento posee lavadora para el estudiante visitante? </label>
+            <br>
+            <div class="row ">
+                <label for="lavadora " class="col-lg-6 control-label ">¿El alojamiento posee lavadora para el estudiante visitante? </label>
 
-            <div class="col-lg-6">
-                <select class="form-control" id="lavadora" required>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="lavadora " required>
 
-                    <option>Seleccionar</option>
+                    
                     <option>Si</option>
                     <option>No</option>
                     </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="accesoLlaves" class="col-lg-6 control-label">¿El estudiante visitante tiene acceso a las llaves del alojamiento durante la estadía? </label>
+            <br>
+            <div class="row ">
+                <label for="accesoLlaves " class="col-lg-6 control-label ">¿El estudiante visitante tiene acceso a las llaves del alojamiento durante la estadía? </label>
 
-            <div class="col-lg-6">
-                <select class="form-control" id="accesoLlaves" required>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="accesoLlaves " required>
 
-                    <option>Seleccionar</option>
+                    
                     <option>Si</option>
                     <option>No</option>
                     </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="electrodomésticos" class="col-lg-6 control-label">¿El alojamiento posee guardaropa para el estudiante visitante? </label>
-            <div class="col-lg-6">
-                <select class="form-control" id="electrodomésticos" required>
-                    <option>Seleccionar</option>
+            <br>
+            <div class="row ">
+                <label for="electrodomésticos " class="col-lg-6 control-label ">¿Que voltaje se maneja en la vivienda? </label>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="electrodomésticos " required>
+                    
                     <option>100V</option>
                     <option>110V</option>
                     <option>120V</option>
@@ -434,101 +443,101 @@
                     <option>230V</option>
                     <option>240V</option>
                     </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="alarma" class="col-lg-6 control-label">¿El alojamiento posee sistema de  alarma ? </label>
+            <br>
+            <div class="row ">
+                <label for="alarma " class="col-lg-6 control-label ">¿El alojamiento posee sistema de  alarma ? </label>
 
-            <div class="col-lg-6">
-                <select class="form-control" id="alarma" required>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="alarma " required>
 
-                    <option>Seleccionar</option>
+                    
                     <option>Si</option>
                     <option>No</option>
                     </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="electrodomésticosDeCocina" class="col-lg-6 control-label">¿El estudiante visitante tiene acceso a los electrodomésticos de la cocina ? </label>
-
-
-            <div class="col-lg-6">
-                <select class="form-control" id="electrodomésticosDeCocina" required>
+            <br>
+            <div class="row ">
+                <label for="electrodomésticosDeCocina " class="col-lg-6 control-label ">¿El estudiante visitante tiene acceso a los electrodomésticos de la cocina ? </label>
 
 
-                    <option>Seleccionar</option>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="electrodomésticosDeCocina " required>
+
+
+                    
                     <option>Si</option>
                     <option>No</option>
                 </select>
+                </div>
             </div>
-        </div>
 
-        <hr>
-        <legend>
-            <i class="fa fa-coffee text-warning"></i> Intereses y costumbres del alojamiento anfitrión</legend>
+            <hr>
+            <legend>
+                <i class="fa fa-coffee text-warning "></i> Intereses y costumbres del alojamiento anfitrión</legend>
 
-        <div class="row">
-            <label for="habitosAlimenticios" class="col-lg-6 control-label">¿El tipo de hábitos alimenticios dentro del alojamiento es? </label>
+            <div class="row ">
+                <label for="habitosAlimenticios " class="col-lg-6 control-label ">¿El tipo de hábitos alimenticios dentro del alojamiento es? </label>
 
 
-            <div class="col-lg-6">
-                <select class="form-control" id="habitosAlimenticios" required>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="habitosAlimenticios " required>
 
-                    <option>Seleccionar</option>
+                    
                     <option>Vegetariano</option>
                     <option>Vegano</option>
                     <option>Sólo carnes blancas</option>
                     <option>Solo carnes rojas</option>
                     <option>Todas las carnes</option>
                     </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="consumoDrogas" class="col-lg-6 control-label">¿Los miembros del alojamiento consumen drogas? </label>
+            <br>
+            <div class="row ">
+                <label for="consumoDrogas " class="col-lg-6 control-label ">¿Los miembros del alojamiento consumen drogas? </label>
 
 
-            <div class="col-lg-6">
-                <select class="form-control" id="consumoDrogas" required>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="consumoDrogas " required>
 
-                    <option>Seleccionar</option>
+                    
                     <option>Si</option>
                     <option>No</option>
                     </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="consumoAlcohol" class="col-lg-6 control-label">¿Los miembros del alojamiento consumen alcohol? </label>
+            <br>
+            <div class="row ">
+                <label for="consumoAlcohol " class="col-lg-6 control-label ">¿Los miembros del alojamiento consumen alcohol? </label>
 
-            <div class="col-lg-6">
-                <select class="form-control" id="consumoAlcohol" required>
-                    <option>Seleccionar</option>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="consumoAlcohol " required>
+                    
                     <option>Si</option>
                     <option>No</option>
                     </select>
+                </div>
             </div>
-        </div>
 
-        <hr>
-        <legend>
-            <i class="fa fa-exclamation-triangle text-danger"></i> Normas del alojamiento anfitrión</legend>
+            <hr>
+            <legend>
+                <i class="fa fa-exclamation-triangle text-danger "></i> Normas del alojamiento anfitrión</legend>
 
-        <br>
-        <div class="row">
-            <label for="horaLlegada" class="col-lg-6 control-label">¿La hora límite de llegada permitida en el alojamiento es? </label>
+            <br>
+            <div class="row ">
+                <label for="horaLlegada " class="col-lg-6 control-label ">¿La hora límite de llegada permitida en el alojamiento es? </label>
 
 
-            <div class="col-lg-3">
-                <select class="form-control" id="horaLlegada" required>
+                <div class="col-lg-3 ">
+                    <select class="form-control " id="horaLlegada " required>
 
-                    <option>Seleccionar</option>
+                    
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -542,334 +551,342 @@
                     <option>11</option>
                     <option>12</option>
                     </select>
-            </div>
-            <div class="col-lg-3">
-                <select class="form-control" id="franjaLlegada" required>
+                </div>
+                <div class="col-lg-3 ">
+                    <select class="form-control " id="franjaLlegada " required>
 
-                    <option>Seleccionar</option>
+                    
                     <option>AM</option>
                     <option>PM</option>
                 </select>
+                </div>
+
             </div>
 
-        </div>
+            <br>
+            <div class="row ">
+                <label for="accesoOtrasPersonas " class="col-lg-6 control-label ">¿El estudiante visitante podrá ingresar otras personas en el alojamiento? </label>
 
-        <br>
-        <div class="row">
-            <label for="accesoOtrasPersonas" class="col-lg-6 control-label">¿El estudiante visitante podrá ingresar otras personas en el alojamiento? </label>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="accesoOtrasPersonas " required>
 
-            <div class="col-lg-6">
-                <select class="form-control" id="accesoOtrasPersonas" required>
-
-      <option>Seleccionar</option>
+      
       <option>Si</option>
       <option>No</option>
     </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="fiestasEventos" class="col-lg-6 control-label">¿El estudiante visitante podrá realizar fiestas o eventos dentro del alojamiento ? </label>
+            <br>
+            <div class="row ">
+                <label for="fiestasEventos " class="col-lg-6 control-label ">¿El estudiante visitante podrá realizar fiestas o eventos dentro del alojamiento ? </label>
 
-            <div class="col-lg-6">
-                <select class="form-control" id="fiestasEventos" required>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="fiestasEventos " required>
 
-                        <option>Seleccionar</option>
+                        
                         <option>Si</option>
                         <option>No</option>
                         </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="nivelVolumen" class="col-lg-6 control-label">¿El volúmen de sonido permitido dentro del alojamiento es ? </label>
+            <br>
+            <div class="row ">
+                <label for="nivelVolumen " class="col-lg-6 control-label ">¿El volúmen de sonido permitido dentro del alojamiento es ? </label>
 
 
-            <div class="col-lg-6">
-                <select class="form-control" id="nivelVolumen" required>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="nivelVolumen " required>
 
-                        <option>Seleccionar</option>
+                        
                         <option>Alto</option>
                         <option>Moderado</option>
                         <option>Bajo</option>
                         </select>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <label for="ritosExorcismosOrgias" class="col-lg-6 control-label">¿Dentro del alojamiento podrán llevarse a cabo actividades tales como: ritos,exorcismos,orgías,etc ? </label>
+            <br>
+            <div class="row ">
+                <label for="ritosExorcismosOrgias " class="col-lg-6 control-label ">¿Dentro del alojamiento podrán llevarse a cabo actividades tales como: ritos,exorcismos,orgías,etc ? </label>
 
-            <div class="col-lg-6">
-                <select class="form-control" id="ritosExorcismosOrgias" required>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="ritosExorcismosOrgias " required>
 
-                    <option>Seleccionar</option>
+                    
                     <option>Si</option>
                     <option>No</option>
                     </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="permiteConsumoAlcohol" class="col-lg-6 control-label">¿El estudiante visitante podrá consumir alcohol dentro del alojamiento? </label>
+            <br>
+            <div class="row ">
+                <label for="permiteConsumoAlcohol " class="col-lg-6 control-label ">¿El estudiante visitante podrá consumir alcohol dentro del alojamiento? </label>
 
-            <div class="col-lg-6">
-                <select class="form-control" id="permiteConsumoAlcohol" required>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="permiteConsumoAlcohol " required>
 
-                    <option>Seleccionar</option>
+                    
                     <option>Si</option>
                     <option>No</option>
                     </select>
+                </div>
             </div>
-        </div>
 
-        <br>
-        <div class="row">
-            <label for="permiteConsumoDrogas" class="col-lg-6 control-label">¿El estudiante visitante podrá consumir sustancias psicoactivas dentro del alojamiento? </label>
-            <div class="col-lg-6">
-                <select class="form-control" id="permiteConsumoDrogas" required>
-                    <option>Seleccionar</option>
+            <br>
+            <div class="row ">
+                <label for="permiteConsumoDrogas " class="col-lg-6 control-label ">¿El estudiante visitante podrá consumir sustancias psicoactivas dentro del alojamiento? </label>
+                <div class="col-lg-6 ">
+                    <select class="form-control " id="permiteConsumoDrogas " required>
+                    
                     <option>Si</option>
                     <option>No</option>
                     </select>
+                </div>
+            </div>
+            <hr>
+            <legend>
+                <i class="fa fa-map text-primary "></i> Lugares de Interés cercanos al Alojamiento</legend>
+            <div class="alert alert-warning " role="alert ">
+                <strong>Atención!</strong> Responde Si o No, si se encuentra cerca el lugar mencionado
+            </div>
+            <div class="row ">
+                <label for="centrosComerciales " class="col-lg-3 control-label ">Centros Comerciales </label>
+
+                <div class="col-lg-3 ">
+                    <select class="form-control " id="centrosComerciales " required>
+                    
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                </div>
+                <label for="museos " class="col-lg-3 control-label ">Museos</label>
+
+                <div class="col-lg-3 ">
+                    <select class="form-control " id="museos " required>
+                    
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                </div>
+            </div>
+            <br>
+            <div class="row ">
+                <label for="restaurantes " class="col-lg-3 control-label ">Restaurantes </label>
+
+                <div class="col-lg-3 ">
+                    <select class="form-control " id="restaurantes " required>
+                    
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                </div>
+                <label for="bares " class="col-lg-3 control-label ">Bares</label>
+
+                <div class="col-lg-3 ">
+                    <select class="form-control " id="bares " required>
+                    
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                </div>
+            </div>
+            <br>
+            <div class="row ">
+                <label for="iglesias " class="col-lg-3 control-label ">Iglesas </label>
+
+                <div class="col-lg-3 ">
+                    <select class="form-control " id="iglesias " required>
+                    
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                </div>
+                <label for="hospitales " class="col-lg-3 control-label ">Hospitales</label>
+
+                <div class="col-lg-3 ">
+                    <select class="form-control " id="hospitales " required>
+                    
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                </div>
+            </div>
+            <br>
+            <div class="row ">
+                <label for="teatros " class="col-lg-3 control-label ">Teatros </label>
+
+                <div class="col-lg-3 ">
+                    <select class="form-control " id="teatros " required>
+                    
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                </div>
+                <label for="parques " class="col-lg-3 control-label ">Parques</label>
+
+                <div class="col-lg-3 ">
+                    <select class="form-control " id="parques " required>
+                    
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                </div>
+            </div>
+            <br>
+            <div class="row ">
+                <label for="zonasComerciales " class="col-lg-3 control-label ">Zonas Comerciales </label>
+
+                <div class="col-lg-3 ">
+                    <select class="form-control " id="zonasComerciales " required>
+                    
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                </div>
+                <label for="zonasCulturales " class="col-lg-3 control-label ">Zonas Culturales</label>
+
+                <div class="col-lg-3 ">
+                    <select class="form-control " id="zonasCulturales " required>
+                    
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                </div>
+            </div>
+            <br>
+            <div class="row ">
+                <label for="gimnasios " class="col-lg-6 control-label text-right ">Gimnasios - Centros Deportivos</label>
+
+                <div class="col-lg-3 ">
+                    <select class="form-control " id="gimnasios " required>
+                    
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                </div>
+            </div>
+            <hr>
+
+            <legend>
+                <i class="fa fa-car text-success "></i> Transportes cercanos al Alojamiento</legend>
+            <div class="alert alert-warning " role="alert ">
+                <strong>Atención!</strong> Responde Si o No, si se el tipo de transporte se encuentra cerca al alojamiento
+            </div>
+            <div class="row ">
+                <label for="publico " class="col-lg-3 control-label ">Transporte Público </label>
+
+                <div class="col-lg-3 ">
+                    <select class="form-control " id="publico " required>
+                    
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                </div>
+                <label for="uber " class="col-lg-3 control-label ">Uber</label>
+
+                <div class="col-lg-3 ">
+                    <select class="form-control " id="uber " required>
+                    
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                </div>
+            </div>
+            <br>
+            <div class="row ">
+                <label for="bicicleta " class="col-lg-3 control-label ">Bicicleta </label>
+
+                <div class="col-lg-3 ">
+                    <select class="form-control " id="bicicleta " required>
+                    
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                </div>
+                <label for="taxi " class="col-lg-3 control-label ">Taxi</label>
+
+                <div class="col-lg-3 ">
+                    <select class="form-control " id="taxi " required>
+                    
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                </div>
+            </div>
+            <br>
+            <div class="row ">
+                <label for="caminando " class="col-lg-3 control-label ">Caminando </label>
+
+                <div class="col-lg-3 ">
+                    <select class="form-control " id="caminando " required>
+                    
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                </div>
+                <label for="metro " class="col-lg-3 control-label ">Metro</label>
+
+                <div class="col-lg-3 ">
+                    <select class="form-control " id="metro " required>
+                    
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                </div>
+            </div>
+            <hr>
+            <legend>
+                <i class="fa fa-camera text-warning "></i> Espacios del Alojamiento</legend>
+            <div class="alert alert-danger " role="alert ">
+                <strong>Atención!</strong> por favor sube las fotos de tu alojamiento, en el orden que se específica
+            </div>
+
+            <div class="row ">
+                <label for="imgHabitacion " class="col-lg-6 control-label text-right "> Habitación del Estudiante Visitante </label>
+                <div class="col-lg-6 ">
+                    <input type="file " class="form-control-file " id="imgHabitacion ">
+                </div>
+            </div>
+
+            <div class="row ">
+                <label for="imgFachada " class="col-lg-6 control-label text-right "> Fachada del Alojamiento </label>
+                <div class="col-lg-6 ">
+                    <input type="file " class="form-control-file " id="imgFachada ">
+                </div>
+            </div>
+
+            <div class="row ">
+                <label for="imgSala " class="col-lg-6 control-label text-right "> Sala del Alojamiento </label>
+                <div class="col-lg-6 ">
+                    <input type="file " class="form-control-file " id="imgSala ">
+                </div>
+            </div>
+
+            <div class="row ">
+                <label for="imgCocina " class="col-lg-6 control-label text-right "> Cocina del Alojamiento </label>
+                <div class="col-lg-6 ">
+                    <input type="file " class="form-control-file " id="imgCocina ">
+                </div>
+            </div>
+
+            <div class="row ">
+                <label for="imgBanio " class="col-lg-6 control-label text-right "> Baño del Alojamiento </label>
+                <div class="col-lg-6 ">
+                    <input type="file " class="form-control-file " id="imgBanio ">
+                </div>
             </div>
         </div>
         <hr>
-        <legend>
-            <i class="fa fa-map text-primary"></i> Lugares de Interés cercanos al Alojamiento</legend>
-        <div class="alert alert-warning" role="alert">
-            <strong>Atención!</strong> Responde Si o No, si se encuentra cerca el lugar mencionado
-        </div>
-        <div class="row">
-            <label for="centrosComerciales" class="col-lg-3 control-label">Centros Comerciales </label>
 
-            <div class="col-lg-3">
-                <select class="form-control" id="centrosComerciales" required>
-                    <option>Seleccionar</option>
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-            </div>
-            <label for="museos" class="col-lg-3 control-label">Museos</label>
-
-            <div class="col-lg-3">
-                <select class="form-control" id="museos" required>
-                    <option>Seleccionar</option>
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
+        <div class="form-group row ">
+            <label class="col-8 col-form-label ">&nbsp;</label>
+            <div class="input-group col-md-4 ">
+                <button [disabled]="!forma.valid " type="submit " class="btn btn-primary text-right ">
+                        Guardar
+                    </button>
             </div>
         </div>
-        <br>
-        <div class="row">
-            <label for="restaurantes" class="col-lg-3 control-label">Restaurantes </label>
-
-            <div class="col-lg-3">
-                <select class="form-control" id="restaurantes" required>
-                    <option>Seleccionar</option>
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-            </div>
-            <label for="bares" class="col-lg-3 control-label">Bares</label>
-
-            <div class="col-lg-3">
-                <select class="form-control" id="bares" required>
-                    <option>Seleccionar</option>
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <label for="iglesias" class="col-lg-3 control-label">Iglesas </label>
-
-            <div class="col-lg-3">
-                <select class="form-control" id="iglesias" required>
-                    <option>Seleccionar</option>
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-            </div>
-            <label for="hospitales" class="col-lg-3 control-label">Hospitales</label>
-
-            <div class="col-lg-3">
-                <select class="form-control" id="hospitales" required>
-                    <option>Seleccionar</option>
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <label for="teatros" class="col-lg-3 control-label">Teatros </label>
-
-            <div class="col-lg-3">
-                <select class="form-control" id="teatros" required>
-                    <option>Seleccionar</option>
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-            </div>
-            <label for="parques" class="col-lg-3 control-label">Parques</label>
-
-            <div class="col-lg-3">
-                <select class="form-control" id="parques" required>
-                    <option>Seleccionar</option>
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <label for="zonasComerciales" class="col-lg-3 control-label">Zonas Comerciales </label>
-
-            <div class="col-lg-3">
-                <select class="form-control" id="zonasComerciales" required>
-                    <option>Seleccionar</option>
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-            </div>
-            <label for="zonasCulturales" class="col-lg-3 control-label">Zonas Culturales</label>
-
-            <div class="col-lg-3">
-                <select class="form-control" id="zonasCulturales" required>
-                    <option>Seleccionar</option>
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <label for="gimnasios" class="col-lg-6 control-label text-right">Gimnasios - Centros Deportivos</label>
-
-            <div class="col-lg-3">
-                <select class="form-control" id="gimnasios" required>
-                    <option>Seleccionar</option>
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-            </div>
-        </div>
-        <hr>
-
-        <legend>
-            <i class="fa fa-car text-success"></i> Transportes cercanos al Alojamiento</legend>
-        <div class="alert alert-warning" role="alert">
-            <strong>Atención!</strong> Responde Si o No, si se el tipo de transporte se encuentra cerca al alojamiento
-        </div>
-        <div class="row">
-            <label for="publico" class="col-lg-3 control-label">Transporte Público </label>
-
-            <div class="col-lg-3">
-                <select class="form-control" id="publico" required>
-                    <option>Seleccionar</option>
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-            </div>
-            <label for="uber" class="col-lg-3 control-label">Uber</label>
-
-            <div class="col-lg-3">
-                <select class="form-control" id="uber" required>
-                    <option>Seleccionar</option>
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <label for="bicicleta" class="col-lg-3 control-label">Bicicleta </label>
-
-            <div class="col-lg-3">
-                <select class="form-control" id="bicicleta" required>
-                    <option>Seleccionar</option>
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-            </div>
-            <label for="taxi" class="col-lg-3 control-label">Taxi</label>
-
-            <div class="col-lg-3">
-                <select class="form-control" id="taxi" required>
-                    <option>Seleccionar</option>
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <label for="caminando" class="col-lg-3 control-label">Caminando </label>
-
-            <div class="col-lg-3">
-                <select class="form-control" id="caminando" required>
-                    <option>Seleccionar</option>
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-            </div>
-            <label for="metro" class="col-lg-3 control-label">Metro</label>
-
-            <div class="col-lg-3">
-                <select class="form-control" id="metro" required>
-                    <option>Seleccionar</option>
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-            </div>
-        </div>
-        <hr>
-        <legend>
-            <i class="fa fa-camera text-warning"></i> Espacios del Alojamiento</legend>
-        <div class="alert alert-danger" role="alert">
-            <strong>Atención!</strong> por favor sube las fotos de tu alojamiento, en el orden que se específica
-        </div>
-
-        <div class="row">
-            <label for="imgHabitacion" class="col-lg-6 control-label text-right"> Habitación del Estudiante Visitante </label>
-            <div class="col-lg-6">
-                <input type="file" class="form-control-file" id="imgHabitacion">
-            </div>
-        </div>
-
-        <div class="row">
-            <label for="imgFachada" class="col-lg-6 control-label text-right"> Fachada del Alojamiento </label>
-            <div class="col-lg-6">
-                <input type="file" class="form-control-file" id="imgFachada">
-            </div>
-        </div>
-
-        <div class="row">
-            <label for="imgSala" class="col-lg-6 control-label text-right"> Sala del Alojamiento </label>
-            <div class="col-lg-6">
-                <input type="file" class="form-control-file" id="imgSala">
-            </div>
-        </div>
-
-        <div class="row">
-            <label for="imgCocina" class="col-lg-6 control-label text-right"> Cocina del Alojamiento </label>
-            <div class="col-lg-6">
-                <input type="file" class="form-control-file" id="imgCocina">
-            </div>
-        </div>
-
-        <div class="row">
-            <label for="imgBanio" class="col-lg-6 control-label text-right"> Baño del Alojamiento </label>
-            <div class="col-lg-6">
-                <input type="file" class="form-control-file" id="imgBanio">
-            </div>
-        </div>
-
-
-
-    </div>
+    </form>
 </div>
