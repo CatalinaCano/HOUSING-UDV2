@@ -95,7 +95,6 @@ export class RegistrarComponent implements OnInit {
       'imgSala': new FormControl('' ),
       'imgCocina': new FormControl(''),
       'imgBanio': new FormControl(''),
-
       'descripcionAlojamiento': new FormControl('', [Validators.required, Validators.minLength(50)])
   });
 
@@ -106,7 +105,7 @@ export class RegistrarComponent implements OnInit {
     this.longitude = -98.5795;
 
     //  Crear el FormControl
-    this.searchControl = new FormControl();
+    this.searchControl = new FormControl('', Validators.required);
 
     // Colocar posicion actual
     this.setCurrentPosition();
