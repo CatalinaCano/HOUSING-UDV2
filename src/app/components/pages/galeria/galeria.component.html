@@ -7,6 +7,45 @@
     <div class="card my-4">
         <h5 class="card-header"> <i class="fa fa-search" aria-hidden="true"></i> Filtros de Búsqueda </h5>
         <div class="row card-block">
+            <div id="destino" class=" col-md-3 col-xs-12">
+                <label> <i class="fa fa-university" aria-hidden="true"></i> Sede de destino</label>
+                <select class="form-control">            <!--Facultades-->
+                    <optgroup label="Facultades">
+                        <option value="Artes(ASAB)">Artes(ASAB)</option>
+                        <option value="Ciencias y Educación">Ciencias y Educación</option>
+                        <option value="Ingeniería">Ingeniería</option>
+                        <option value="Medio Ambiente">Medio Ambiente</option>
+                        <option value="Tecnológica">Tecnológica</option>
+                    </optgroup>
+                    <!--Otras sedes-->
+                    <optgroup label="Otras Sedes">
+                        <option value="Academia Luis A. Calvo">Academia Luis A. Calvo</option>
+                        <option value="Auduanilla de Paiba">Aduanilla de Paiba</option>
+                        <option value="Bosa">Bosa</option>
+                        <option value="Calle 34">Calle 34</option>
+                        <option value="CERI">CERI</option>
+                        <option value="CIDC">CIDC</option>
+                        <option value="IPAZUD">IPAZUD</option>
+                        <option value="IEIE">IEIE</option>
+                    </optgroup>
+                    <!--Sedes ILUD-->
+                    <optgroup label="ILUD">
+                        <option value="i">Sede 1</option>
+                        <option value="i">Sede 2</option>
+                        <option value="i">Sede 3</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class=" col-md-3 col-xs-12">
+                <label> <i class="fa fa-briefcase" aria-hidden="true"></i> Hospedan a</label>
+                <select class="form-control" id="tipoPerfil">
+                <!--Perfil-->
+                <option>Mujer</option>
+                <option>Hombre</option>
+                <option>Indiferente</option>
+            </select>
+            </div>
+
             <div class=" col-md-3 col-xs-12 ">
                 <label> <i class="fa fa-coffee" aria-hidden="true"></i> Tipo de Alojamiento</label>
                 <!--tipos de alojamiento-->
@@ -18,51 +57,12 @@
                     <option>Conjunto Residencial de Apartamentos</option>
                 </select>
             </div>
-            <div id="destino" class=" col-md-3 col-xs-12">
-                <label> <i class="fa fa-university" aria-hidden="true"></i> Facultad de destino</label>
-                <select class="form-control">
-            <!--Facultades-->
-            <optgroup label="Facultades">
-              <option value="Artes(ASAB)">Artes(ASAB)</option>
-              <option value="Ciencias y Educación">Ciencias y Educación</option>
-              <option value="Ingeniería">Ingeniería</option>
-              <option value="Medio Ambiente">Medio Ambiente</option>
-              <option value="Tecnológica">Tecnológica</option>
-            </optgroup>
-            <!--Otras sedes-->
-            <optgroup label="Otras Sedes">
-              <option value="Academia Luis A. Calvo">Academia Luis A. Calvo</option>
-              <option value="Auduanilla de Paiba">Aduanilla de Paiba</option>
-              <option value="Bosa">Bosa</option>
-              <option value="Calle 34">Calle 34</option>
-              <option value="CERI">CERI</option>
-              <option value="CIDC">CIDC</option>
-              <option value="IPAZUD">IPAZUD</option>
-              <option value="IEIE">IEIE</option>
-            </optgroup>
-            <!--Sedes ILUD-->
-            <optgroup label="ILUD">
-              <option value="i">Sede 1</option>
-              <option value="i">Sede 2</option>
-              <option value="i">Sede 3</option>
-            </optgroup>
-          </select>
-            </div>
-            <div class=" col-md-3 col-xs-12">
-                <label> <i class="fa fa-briefcase" aria-hidden="true"></i> Hospedan a</label>
-                <select class="form-control" id="tipoPerfil">
-            <!--Perfil-->
-            <option>Mujer</option>
-            <option>Hombre</option>
-            <option>Indiferente</option>
-          </select>
-            </div>
             <div class=" col-md-3 col-xs-12">
                 <label> <i class="fa fa-bed" aria-hidden="true"></i> Habitación </label>
                 <select class="form-control" id="tipoHabitacion">
-            <option>Individual</option>
-            <option>Compartida</option>
-          </select>
+                    <option>Individual</option>
+                    <option>Compartida</option>
+                 </select>
             </div>
         </div>
     </div>
