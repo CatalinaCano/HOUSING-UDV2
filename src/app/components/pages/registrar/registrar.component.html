@@ -17,7 +17,7 @@
     </agm-map>
 
     <br>
-    <form [formGroup]="forma" (ngSubmit)="guardarCambios()" novalidate="novalidate">
+    <form ngNativeValidate [formGroup]="forma" (ngSubmit)="guardarCambios()" novalidate="novalidate">
         <div class="form-group container-fluid">
             <div class="row">
                 <label for="tipoVivienda" class="col-lg-3 control-label">Tipo de alojamiento </label>
@@ -911,51 +911,43 @@
 
             <div class="row ">
                 <label for="imgHabitacion" class="col-lg-4 control-label"> Habitación del Estudiante Visitante </label>
-                <div class="col-lg-8" [ngClass]="{'alert alert-danger':!forma.get('imgHabitacion').valid}">
-                    <input type="file" class="form-control-file" id="imgHabitacion" formControlName="imgHabitacion">
-                    <div *ngIf="!forma.controls['imgHabitacion'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div class="col-lg-8">
+                    <!-- <input type="file" [value]="imgHabitacion" class="form-control-file" id="imgHabitacion" formControlName="imgHabitacion" required>-->
                 </div>
             </div>
 
             <div class="row ">
                 <label for="imgFachada" class="col-lg-4 control-label"> Fachada del Alojamiento </label>
-                <div class="col-lg-8" [ngClass]="{'alert alert-danger':!forma.get('imgFachada').valid}">
-                    <input type="file" class="form-control-file " id="imgFachada" formControlName="imgFachada">
-                    <div *ngIf="!forma.controls['imgFachada'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div class="col-lg-8">
+                    <!-- <input type="file" class="form-control-file " id="imgFachada" formControlName="imgFachada">-->
                 </div>
             </div>
 
             <div class="row ">
                 <label for="imgSala " class="col-lg-4 control-label"> Sala del Alojamiento </label>
-                <div class="col-lg-8 " [ngClass]="{'alert alert-danger':!forma.get('imgSala').valid}">
-                    <input type="file" class="form-control-file " id="imgSala " formControlName="imgSala">
-                    <div *ngIf="!forma.controls['imgSala'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div class="col-lg-8 ">
+                    <!-- <input type="file" class="form-control-file " id="imgSala " formControlName="imgSala">-->
+
                 </div>
             </div>
 
             <div class="row ">
                 <label for="imgCocina " class="col-lg-4 control-label"> Cocina del Alojamiento </label>
-                <div class="col-lg-8 " [ngClass]="{'alert alert-danger':!forma.get('imgCocina').valid}">
-                    <input type="file" class="form-control-file " id="imgCocina " formControlName="imgCocina">
-                    <div *ngIf="!forma.controls['imgCocina'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div class="col-lg-8 ">
+                    <!--  <input type="file" class="form-control-file " id="imgCocina " formControlName="imgCocina">-->
                 </div>
             </div>
 
             <div class="row ">
                 <label for="imgBanio " class="col-lg-4 control-label"> Baño del Alojamiento </label>
-                <div class="col-lg-8 " [ngClass]="{'alert alert-danger':!forma.get('imgBanio').valid}">
-                    <input type="file" class="form-control-file " id="imgBanio " formControlName="imgBanio">
-                    <div *ngIf="!forma.controls['imgBanio'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div class="col-lg-8 ">
+                    <!-- <input type="file" class="form-control-file " id="imgBanio " formControlName="imgBanio">-->
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="condiciones" formControlName="condiciones">
+                    <label class="form-check-label" for="gridCheck">Acepta las Condiciones</label>
                 </div>
             </div>
         </div>

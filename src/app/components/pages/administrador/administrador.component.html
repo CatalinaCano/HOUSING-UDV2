@@ -2,6 +2,67 @@
     <h1 class="text-h1"><i class="fa fa-users"></i> &nbsp; Solicitudes Radicadas </h1>
     <hr class="my-4">
 
+    <div class="card my-4">
+        <h5 class="card-header"> <i class="fa fa-search" aria-hidden="true"></i> Filtros de Búsqueda </h5>
+        <div class="row card-block">
+            <div id="destino" class=" col-md-3 col-xs-12">
+                <label> <i class="fa fa-university" aria-hidden="true"></i> Sede de destino</label>
+                <select class="form-control">            <!--Facultades-->
+                    <optgroup label="Facultades">
+                        <option value="Artes(ASAB)">Artes(ASAB)</option>
+                        <option value="Ciencias y Educación">Ciencias y Educación</option>
+                        <option value="Ingeniería">Ingeniería</option>
+                        <option value="Medio Ambiente">Medio Ambiente</option>
+                        <option value="Tecnológica">Tecnológica</option>
+                    </optgroup>
+                    <!--Otras sedes-->
+                    <optgroup label="Otras Sedes">
+                        <option value="Academia Luis A. Calvo">Academia Luis A. Calvo</option>
+                        <option value="Auduanilla de Paiba">Aduanilla de Paiba</option>
+                        <option value="Bosa">Bosa</option>
+                        <option value="Calle 34">Calle 34</option>
+                        <option value="CERI">CERI</option>
+                        <option value="CIDC">CIDC</option>
+                        <option value="IPAZUD">IPAZUD</option>
+                        <option value="IEIE">IEIE</option>
+                    </optgroup>
+                    <!--Sedes ILUD-->
+                    <optgroup label="ILUD">
+                        <option value="i">Sede 1</option>
+                        <option value="i">Sede 2</option>
+                        <option value="i">Sede 3</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class=" col-md-3 col-xs-12">
+                <label> <i class="fa fa-briefcase" aria-hidden="true"></i> Hospedan a</label>
+                <select class="form-control" id="tipoPerfil">
+                <!--Perfil-->
+                <option>Mujer</option>
+                <option>Hombre</option>
+                <option>Indiferente</option>
+            </select>
+            </div>
+
+            <div class=" col-md-3 col-xs-12 ">
+                <label> <i class="fa fa-toggle-off" aria-hidden="true"></i> Estado Alojamiento</label>
+                <!--tipos de alojamiento-->
+                <select class="form-control" id="estadoAlojamiento">
+                    <option>Ocupado</option>
+                    <option>Disponible</option>
+                </select>
+            </div>
+            <div class=" col-md-3 col-xs-12">
+                <label> <i class="fa fa-flag" aria-hidden="true"></i> Estado Publicación </label>
+                <select class="form-control" id="estadoPublicacionAlojamiento">
+                    <option>En Estudio</option>
+                    <option>Rechazado</option>
+                    <option>Aceptado</option>
+                 </select>
+            </div>
+        </div>
+    </div>
+
     <div class="card indicadores">
         <div class="card-body">
             <div class="row m-t-40">
@@ -50,6 +111,8 @@
     </div>
 
     <br>
+
+
 
     <div class="table-responsive">
         <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">

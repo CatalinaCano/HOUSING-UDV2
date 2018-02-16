@@ -242,6 +242,36 @@
                 <strong>Si desea aplicar este alojamiento!</strong> haga clic en Contactar, así podrá comunicarse con el anfitrión
             </div>
             <button class="btn btn-success btn-block" data-toggle="modal" data-target="#condiciones"> <i class="fa fa-envelope"></i> Contactar</button>
+            <br>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <button class="btn btn-primary btn-block"> <i class="fa fa-check"></i> Aceptar</button>
+                </div>
+
+                <div class="col-md-6">
+                    <button class="btn btn-danger btn-block"> <i class="fa fa-trash"></i> Rechazar</button>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <form>
+                    <p>Por favor seleccione si el alojamiento se encuentra ocupado :</p>
+                    <div class="row" style="align:center;">
+                        <input class="col-md-1" type="radio" id="disponible" name="estadoAlojamiento" value="Disponible">
+                        <label class="col-md-3" for="disponible">Disponible</label>
+                        <br>
+                        <input class="col-md-1" type="radio" id="ocupado" name="estadoAlojamiento" value="Ocupado">
+                        <label class="col-md-3" for="ocupado">Ocupado</label>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-warning btn-block"> <i class="fa fa-check"></i> Cambiar</button>
+                    </div>
+                </form>
+            </div>
+
+
         </div>
     </div>
     <hr>

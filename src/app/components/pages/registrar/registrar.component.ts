@@ -3,6 +3,7 @@ import { ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
+import * as swal from 'sweetalert';
 
 @Component({
   selector: 'app-registrar',
@@ -90,12 +91,13 @@ export class RegistrarComponent implements OnInit {
       'taxi': new FormControl('', Validators.required),
       'caminando': new FormControl('', Validators.required),
       'metro': new FormControl('', Validators.required),
-       'imgHabitacion': new FormControl('', ),
-      'imgFachada': new FormControl('' ),
-      'imgSala': new FormControl('' ),
-      'imgCocina': new FormControl(''),
-      'imgBanio': new FormControl(''),
-      'descripcionAlojamiento': new FormControl('', [Validators.required, Validators.minLength(50)])
+       'imgHabitacion': new FormControl(false ),
+      'imgFachada': new FormControl(false),
+      'imgSala': new FormControl(false),
+      'imgCocina': new FormControl(false),
+      'imgBanio': new FormControl(false),
+      'descripcionAlojamiento': new FormControl('', [Validators.required, Validators.minLength(50)]),
+      'condiciones': new FormControl(false)
   });
 
 
@@ -147,6 +149,16 @@ export class RegistrarComponent implements OnInit {
   }
 
   guardarCambios() {
+    if (this.forma.invalid) {
+      return;
+    }
+
+    if (!this.forma.value.condiciones) {
+      swal('Importante', 'Debes aceptar las condiciones', 'warning');
+      return;
+    } else {
+      swal('Importante', 'Debes aceptar las condiciones', 'success');
+    }
     console.log(this.forma.value);
   }
 
