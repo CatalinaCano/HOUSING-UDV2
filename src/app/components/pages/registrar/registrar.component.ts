@@ -3,7 +3,7 @@ import { ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
-import * as swal from 'sweetalert';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-registrar',
