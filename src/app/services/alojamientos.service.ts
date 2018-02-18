@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { URL_SERVICIOS } from '../config/config';
+import { Alojamiento } from '../models/alojamiento.model';
 
 @Injectable()
 export class AlojamientosService {
-  private alojamientos: any[] = [
+
+  private alojamientos;
+  /*private alojamientos: any[] = [
     {
       nombre: 'Catalina Cano',
       descripcion: 'Casa de familia ubicada en el suroccidente la ciudad.',
@@ -53,6 +58,7 @@ export class AlojamientosService {
       nombre: 'Pilar Corcho',
       descripcion:
         // tslint:disable-next-line:max-line-length
+        
         'El poder más reconocido de Aquaman es la capacidad telepática para comunicarse con la vida marina, la cual puede convocar a grandes distancias.',
       img: 'assets/img/img6.jpg',
       intercambios: '1',
@@ -92,13 +98,35 @@ export class AlojamientosService {
       habitantes: '2',
       publicacion: '14/04/2017'
     }
-  ];
+  ];*/
 
-  constructor() {
+  constructor(
+    public http: HttpClient
+  ) {
     console.log('Servicio listo para usarse');
   }
 
+
   getAlojamientos() {
-    return this.alojamientos;
+    let url = URL_SERVICIOS + '/busqueda/galeria';
+    return this.http.get(url)
+      .map((resp:any) => {
+        console.log(resp.alojamientos.json());
+        this.alojamientos = resp.alojamientos.json();
+        return resp.alojamientos;
+      });
+
   }
+/*
+  getAlojamientos() {
+    // return this.alojamientos;
+  
+    return this.http.get(url)
+      .map((resp: any) => {
+        console.log(resp.alojamientos.json());
+        this.alojamientos = resp.alojamientos.json();
+        return resp.alojamientos;
+
+      });
+  }*/
 }
