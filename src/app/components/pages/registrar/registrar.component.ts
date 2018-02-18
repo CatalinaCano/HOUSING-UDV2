@@ -3,7 +3,12 @@ import { ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
+// import * as  swal from 'sweetalert';
 import swal from 'sweetalert';
+import { RegistrarAlojamientoService } from '../../../services/service.index';
+import { Alojamiento } from '../../../models/alojamiento.model';
+import { Estudiante } from '../../../models/estudiante.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrar',
@@ -11,7 +16,7 @@ import swal from 'sweetalert';
   styleUrls: ['./registrar.component.css']
 })
 export class RegistrarComponent implements OnInit {
-
+  public estudiante: Estudiante;
   public latitude: number;
   public longitude: number;
   public searchControl: FormControl;
@@ -19,13 +24,14 @@ export class RegistrarComponent implements OnInit {
 
   forma: FormGroup;
 
-
   @ViewChild('search')
   public searchElementRef: ElementRef;
 
   constructor(
     private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    public _registrarAlojamientoService: RegistrarAlojamientoService,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
@@ -156,11 +162,86 @@ export class RegistrarComponent implements OnInit {
     if (!this.forma.value.condiciones) {
       swal('Importante', 'Debes aceptar las condiciones', 'warning');
       return;
-    } else {
-      swal('Importante', 'Debes aceptar las condiciones', 'success');
     }
+
+    let alojamiento = new Alojamiento (
+      this.estudiante,
+      this.forma.value.tipoVivienda,
+      this.forma.value.clasificacionAlojamiento,
+      this.forma.value.hospedanA,
+      this.forma.value.sedeCercana,
+      this.forma.value.zona,
+      this.forma.value.numeroHabitaciones,
+      this.forma.value.cantidadBanios,
+      this.forma.value.accesoCocina,
+      this.forma.value.espacioEstudio,
+      this.forma.value.sePermiteFumar,
+      this.forma.value.espacioAireLibre,
+      this.forma.value.accesoSala,
+      this.forma.value.habitaMascota,
+      this.forma.value.tipoCama,
+      this.forma.value.banioPrivado,
+      this.forma.value.guardaRopa,
+      this.forma.value.internet,
+      this.forma.value.computador,
+      this.forma.value.television,
+      this.forma.value.videoJuegos,
+      this.forma.value.serviciosPublicos,
+      this.forma.value.aguaCaliente,
+      this.forma.value.alimentacionIncluida,
+      this.forma.value.aseoHabitacion,
+      this.forma.value.lavadoRopa,
+      this.forma.value.servicioTVCable,
+      this.forma.value.lavadora,
+      this.forma.value.accesoLlaves,
+      this.forma.value.electrodomésticos,
+      this.forma.value.alarma,
+      this.forma.value.electrodomésticosDeCocina,
+      this.forma.value.habitosAlimenticios,
+      this.forma.value.consumoDrogas,
+      this.forma.value.consumoAlcohol,
+      this.forma.value.horaLlegada,
+      this.forma.value.franjaLlegada,
+      this.forma.value.accesoOtrasPersonas,
+      this.forma.value.fiestasEventos,
+      this.forma.value.nivelVolumen,
+      this.forma.value.ritosExorcismosOrgias,
+      this.forma.value.permiteConsumoAlcohol,
+      this.forma.value.permiteConsumoDrogas,
+      this.forma.value.centrosComerciales,
+      this.forma.value.museos,
+      this.forma.value.restaurantes,
+      this.forma.value.bares,
+      this.forma.value.iglesias,
+      this.forma.value.hospitales,
+      this.forma.value.teatros,
+      this.forma.value.parques,
+      this.forma.value.zonasComerciales,
+      this.forma.value.zonasCulturales,
+      this.forma.value.gimnasios,
+      this.forma.value.publico,
+      this.forma.value.uber,
+      this.forma.value.bicicleta,
+      this.forma.value.taxi,
+      this.forma.value.caminando,
+      this.forma.value.metro,
+      this.forma.value.imgHabitacion,
+      this.forma.value.imgFachada,
+      this.forma.value.imgSala,
+      this.forma.value.imgCocina,
+      this.forma.value.imgBanio,
+      this.forma.value.descripcionAlojamiento,
+      this.forma.value.condiciones,
+    );
+
+    this._registrarAlojamientoService.crearAlojamiento(alojamiento).subscribe(resp => {
+              console.log(resp );
+    });
+
     console.log(this.forma.value);
+    this.router.navigate(['/inicio']);
   }
+
 
 
 
