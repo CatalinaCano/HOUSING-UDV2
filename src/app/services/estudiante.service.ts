@@ -28,9 +28,9 @@ export class EstudianteService {
     return usuario;
   }
 
-  loginGoogle() { // Pilas aqui debe ir el token
+  loginGoogle(token: string) { // Pilas aqui debe ir el token
     let url = URL_SERVICIOS + '/login/google';
-    return this.http.post(url, {}) // return this.http.post(url,{token:token})
+    return this.http.post(url, {token: token}) // return this.http.post(url,{token:token})
     .map((resp: any) => {
         this.guardarStorage(resp.token, resp.estudianteBD);
         return true;
