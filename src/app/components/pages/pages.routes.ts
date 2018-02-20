@@ -8,6 +8,7 @@ import { GaleriaComponent } from './galeria/galeria.component';
 import { AlojamientoComponent } from './alojamiento/alojamiento.component';
 import { AdministradorComponent } from './administrador/administrador.component';
 import { InformacionComponent } from './informacion/informacion.component';
+import { LoginGuardGuard } from '../../services/service.index';
 
 
 
@@ -15,8 +16,9 @@ const pagesRoutes: Routes = [
     {
          path: '',
          component: PagesComponent,
+         canActivate: [ LoginGuardGuard ],
          children: [
-            { path: 'registrar', component: RegistrarComponent, data: {titulo: 'Registrar Alojamiento', icono: 'fa fa-address-card'} },
+             { path: 'registrar', component: RegistrarComponent, data: { titulo: 'Registrar Alojamiento', icono: 'fa fa-address-card' } },
             { path: 'inicio', component: InicioComponent, data: {titulo: 'Bienvenida', icono: ''}  },
             { path: 'perfil', component: PerfilComponent, data: {titulo: 'Mi Perfil', icono: 'fa fa-user'}  },
             { path: 'galeria', component: GaleriaComponent, data: {titulo: 'Galeria de Alojamientos', icono: 'fa fa-search'} },
