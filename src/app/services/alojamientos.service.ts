@@ -6,7 +6,7 @@ import { Alojamiento } from '../models/alojamiento.model';
 @Injectable()
 export class AlojamientosService {
 
-  private alojamientos;
+  private alojamientos: any;
   /*private alojamientos: any[] = [
     {
       nombre: 'Catalina Cano',
@@ -28,7 +28,8 @@ export class AlojamientosService {
       nombre: 'Frida Narváez',
       descripcion:
         // tslint:disable-next-line:max-line-length
-        'El poder más reconocido de Aquaman es la capacidad telepática para comunicarse con la vida marina, la cual puede convocar a grandes distancias.',
+        'El poder más reconocido de Aquaman es la capacidad telepática
+         para comunicarse con la vida marina, la cual puede convocar a grandes distancias.',
       img: 'assets/img/img3.jpg',
       intercambios: '0',
       habitantes: '5',
@@ -38,7 +39,8 @@ export class AlojamientosService {
       nombre: 'Ximena Rodriguez',
       descripcion:
         // tslint:disable-next-line:max-line-length
-        'El poder más reconocido de Aquaman es la capacidad telepática para comunicarse con la vida marina, la cual puede convocar a grandes distancias.',
+        'El poder más reconocido de Aquaman es la capacidad telepática
+        para comunicarse con la vida marina, la cual puede convocar a grandes distancias.',
       img: 'assets/img/img4.JPG',
       intercambios: '5',
       habitantes: '2',
@@ -48,7 +50,8 @@ export class AlojamientosService {
       nombre: 'Jorge Cardenas',
       descripcion:
         // tslint:disable-next-line:max-line-length
-        'El poder más reconocido de Aquaman es la capacidad telepática para comunicarse con la vida marina, la cual puede convocar a grandes distancias.',
+        'El poder más reconocido de Aquaman es la capacidad telepática para
+        comunicarse con la vida marina, la cual puede convocar a grandes distancias.',
       img: 'assets/img/img5.jpg',
       intercambios: '1',
       habitantes: '7',
@@ -58,8 +61,9 @@ export class AlojamientosService {
       nombre: 'Pilar Corcho',
       descripcion:
         // tslint:disable-next-line:max-line-length
-        
-        'El poder más reconocido de Aquaman es la capacidad telepática para comunicarse con la vida marina, la cual puede convocar a grandes distancias.',
+
+        'El poder más reconocido de Aquaman es la capacidad telepática para
+         comunicarse con la vida marina, la cual puede convocar a grandes distancias.',
       img: 'assets/img/img6.jpg',
       intercambios: '1',
       habitantes: '3',
@@ -70,7 +74,8 @@ export class AlojamientosService {
       // tslint:disable-next-line:max-line-length
       descripcion:
         // tslint:disable-next-line:max-line-length
-        'El poder más reconocido de Aquaman es la capacidad telepática para comunicarse con la vida marina, la cual puede convocar a grandes distancias.',
+        'El poder más reconocido de Aquaman es la capacidad telepática para
+        comunicarse con la vida marina, la cual puede convocar a grandes distancias.',
       img: 'assets/img/img8.gif',
       intercambios: '0',
       habitantes: '5',
@@ -81,7 +86,8 @@ export class AlojamientosService {
       // tslint:disable-next-line:max-line-length
       descripcion:
         // tslint:disable-next-line:max-line-length
-        'El poder más reconocido de Aquaman es la capacidad telepática para comunicarse con la vida marina, la cual puede convocar a grandes distancias.',
+        'El poder más reconocido de Aquaman es la capacidad telepática
+         para comunicarse con la vida marina, la cual puede convocar a grandes distancias.',
       img: 'assets/img/img9.jpg',
       intercambios: '10',
       habitantes: '3',
@@ -92,7 +98,8 @@ export class AlojamientosService {
       // tslint:disable-next-line:max-line-length
       descripcion:
         // tslint:disable-next-line:max-line-length
-        'El poder más reconocido de Aquaman es la capacidad telepática para comunicarse con la vida marina, la cual puede convocar a grandes distancias.',
+        'El poder más reconocido de Aquaman es la capacidad telepática
+         para comunicarse con la vida marina, la cual puede convocar a grandes distancias.',
       img: 'assets/img/img10.jpg',
       intercambios: '5',
       habitantes: '2',
@@ -110,7 +117,7 @@ export class AlojamientosService {
   getAlojamientos() {
     let url = URL_SERVICIOS + '/busqueda/galeria';
     return this.http.get(url)
-      .map((resp:any) => {
+      .map((resp: any) => {
         console.log(resp.alojamientos.json());
         this.alojamientos = resp.alojamientos.json();
         return resp.alojamientos;
@@ -120,7 +127,6 @@ export class AlojamientosService {
 /*
   getAlojamientos() {
     // return this.alojamientos;
-  
     return this.http.get(url)
       .map((resp: any) => {
         console.log(resp.alojamientos.json());
