@@ -48,7 +48,7 @@ import { InformacionPerfilComponent } from './informacion-perfil/informacion-per
         BrowserModule,
         FormsModule,
         AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyB_8h8OFAoL5Z2HDgeH761GUwoadE_kttg',
+            apiKey: 'AIzaSyD8ybUhErV1uJUHmHzNP92-P5Mfe9VCwHA',
             libraries: ['places']
         }),
         ReactiveFormsModule

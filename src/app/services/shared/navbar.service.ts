@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
+import { EstudianteService } from '../estudiante.service';
+import { Estudiante } from '../../models/estudiante.model';
 
 @Injectable()
 export class NavbarService {
+
+    usuario: Estudiante;
 
     menu: any = [
       {
@@ -36,6 +40,9 @@ export class NavbarService {
       },
     ];
 
-  constructor() { }
+  constructor( public _estudianteService: EstudianteService) {
+    this.usuario = _estudianteService.obtenerStorage();
+    console.log(this.usuario);
+   }
 
 }

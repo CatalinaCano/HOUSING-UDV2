@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     gapi.load('auth2', () => {
 
       this.auth2 = gapi.auth2.init({
-        client_id : '430294334235-ab0t1b1e45bml213k82lld46ng1s9dfk.apps.googleusercontent.com',
+        client_id: '430294334235-ab0t1b1e45bml213k82lld46ng1s9dfk.apps.googleusercontent.com',
         cookiepolicy: 'single_host_origin',
         scope: 'profile email'
       });
@@ -42,10 +42,8 @@ export class LoginComponent implements OnInit {
           console.log(profile);
           let token = googleUser.getAuthResponse().id_token;
           console.log(token);
-          this._estudianteService.loginGoogle(token)
-            .subscribe( resp => {
-                console.log(resp);
-            });
+          this._estudianteService.loginGoogle()
+            .subscribe(  () => window.location.href = '#/inicio');
       });
 
 
