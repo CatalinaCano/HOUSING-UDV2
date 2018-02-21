@@ -19,7 +19,7 @@ export class LoginGuardGuard implements CanActivate {
       return true;
     } else {
       console.log('bloquedao por el guard');
-      this.router.navigate(['/login']);
+      window.location.href = 'https://mail.google.com/mail/u/0/?logout&hl=en';
      return false;
     }
   }

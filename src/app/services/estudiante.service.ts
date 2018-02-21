@@ -25,11 +25,14 @@ export class EstudianteService {
 }
 
 estaLogueado() {
-  console.log('esta logueado ' + this.token.length );
-  if (this.token.length > 5) {
-    return true;
-  } else {
+  if (this.estudiante == null) {
+    console.log(this.token);
+    localStorage.removeItem('token');
+    localStorage.clear();
     return false;
+  } else {
+    console.log('esta logueado ' + this.token.length);
+    return true;
   }
 
 }
@@ -59,7 +62,6 @@ cargarStorage() {
   }
 
   obtenerStorage() {
-    let token = localStorage.getItem('token');
     let usuario = JSON.parse( localStorage.getItem('estudianteBD'));
     return usuario;
   }
@@ -68,17 +70,25 @@ cargarStorage() {
   logout() {
     this.estudiante = null;
     this.token = '';
+    this.img = '';
     localStorage.clear();
-    this.router.navigate(['/login']);
+     localStorage.setItem('estudianteBD', null);
+     localStorage.setItem('token', null);
+     window.location.href = 'https://mail.google.com/mail/u/0/?logout&hl=en';
+
+    /*let url = URL_SERVICIOS + '/logout';
+    return this.http.get(url)
+      .map((resp: any) => {
+        this.router.navigate(['/login']);
+      });*/
   }
 
-  loginGoogle(token: string) { // Pilas aqui debe ir el token
+  loginGoogle(token: string) {
     let url = URL_SERVICIOS + '/login/google';
-    return this.http.post(url, {token: token}) // return this.http.post(url,{token:token})
+    return this.http.post(url, {token: token})
     .map((resp: any) => {
       this.guardarStorage(resp.token, resp.imagenUsuario, resp.estudianteBD);
         return true;
-
     });
 
 
