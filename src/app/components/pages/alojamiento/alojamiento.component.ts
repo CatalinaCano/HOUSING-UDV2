@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Marker } from '../../../interfaces/marker.interface';
+import { EstudianteService } from '../../../services/service.index';
 
 @Component({
   selector: 'app-alojamiento',
@@ -29,7 +30,7 @@ export class AlojamientoComponent implements OnInit {
   ];
 
 
-  constructor() { }
+  constructor(public _estudianteService: EstudianteService) { }
 
   ngOnInit() {
   }

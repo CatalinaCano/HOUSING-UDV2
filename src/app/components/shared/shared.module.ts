@@ -5,6 +5,7 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { RouterModule } from '@angular/router';
 import { ServiceModule } from '../../services/service.module';
 import { CommonModule } from '@angular/common';
+import { PipesModule } from '../../pipes/pipes.module';
 
 
 
@@ -13,7 +14,8 @@ import { CommonModule } from '@angular/common';
     imports: [
         RouterModule,
         ServiceModule,
-        CommonModule
+        CommonModule,
+        PipesModule
     ],
     declarations: [
         NavbarComponent,

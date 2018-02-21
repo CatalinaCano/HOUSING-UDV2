@@ -71,42 +71,43 @@
         <div class="col-lg-12">
             <!-- Card Columns Example Social Feed -->
             <div class="card-columns">
-                <!-- Example Social Card 
 
-                <div class="card" *ngFor="let alojamiento of alojamientos.alojamientosGaleria">
 
-                    <img class="card-img-top img-fluid w-100" [src]="alojamiento.img" alt="">
-                        <div id="descripcion" class="card-block">
-                            <h6 class="card-title text-primary"> {{alojamiento.nombre}} </h6>
-                            <p class="card-text small">
-                                {{alojamiento.descripcion}}
-                            </p>
-                        </div>
-                        <hr class="my-0">
-                        <div class="card-block small">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <i class="fa fa-university"></i> Ingeniería
-                                </div>
-                                <div class="col-lg-6">
-                                    <i class="fa fa-users"></i> {{alojamiento.habitantes}}
-                                </div>
+                <!--<div class="card" *ngFor="let alojamiento of alojamientos.alojamientosGaleria">-->
+                <div class="card" *ngFor="let alojamiento of alojamientos">
+
+                    <img class="card-img-top img-fluid w-100" [src]="alojamiento.img|imagen" alt="">
+                    <div id="descripcion" class="card-block">
+                        <h6 class="card-title text-primary"> {{alojamiento.nombre}} </h6>
+                        <p class="card-text small">
+                            {{alojamiento.descripcion}}
+                        </p>
+                    </div>
+                    <hr class="my-0">
+                    <div class="card-block small">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <i class="fa fa-university"></i> Ingeniería
                             </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <i class="fa fa-info-circle"></i> Casa Familiar
-                                </div>
-                                <div class="col-lg-6">
-                                    <i class="fa fa-bed"></i> Individual
-                                </div>
+                            <div class="col-lg-6">
+                                <i class="fa fa-users"></i> {{alojamiento.habitantes}}
                             </div>
-                            <br>
-                            <a class="btn btn-success btn-block" [routerLink]="['/alojamiento']"> <i class="fa fa-search-plus"></i> Ver más...</a>
                         </div>
-                        <div class="card-footer small text-muted">
-                            Publicado: {{alojamiento.publicacion}}
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <i class="fa fa-info-circle"></i> Casa Familiar
+                            </div>
+                            <div class="col-lg-6">
+                                <i class="fa fa-bed"></i> Individual
+                            </div>
                         </div>
-                </div>-->
+                        <br>
+                        <a class="btn btn-success btn-block" [routerLink]="['/alojamiento']"> <i class="fa fa-search-plus"></i> Ver más...</a>
+                    </div>
+                    <div class="card-footer small text-muted">
+                        Publicado: {{alojamiento.publicacion}}
+                    </div>
+                </div>
                 <!-- /Card Columns -->
             </div>
         </div>

@@ -10,6 +10,6 @@ export class GaleriaComponent implements OnInit {
   constructor(private servicioAlojamientos: AlojamientosService) {}
 
   ngOnInit() {
-   // this.alojamientos = this.servicioAlojamientos.getAlojamientos();
+    this.alojamientos = this.servicioAlojamientos.getAlojamientos();
   }
 }

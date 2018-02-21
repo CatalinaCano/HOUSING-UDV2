@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 export class EstudianteService {
     estudiante: Estudiante;
     token: string;
+    img: string;
 
 
   constructor(
@@ -17,6 +18,11 @@ export class EstudianteService {
     this.cargarStorage();
     }
 
+
+  obtenerImagen() {
+  let img = localStorage.getItem('imagenUsuario');
+  return img;
+}
 
 estaLogueado() {
   console.log('esta logueado ' + this.token.length );
@@ -31,18 +37,22 @@ estaLogueado() {
 cargarStorage() {
   if (localStorage.getItem('token')) {
       this.token = localStorage.getItem('token');
-    this.estudiante = JSON.parse(localStorage.getItem('estudiante'));
+      this.estudiante = JSON.parse(localStorage.getItem('estudiante'));
+    this.img = localStorage.getItem('imagenUsuario');
   } else {
     this.token = '';
     this.estudiante = null;
+    this.img = '';
   }
 }
 
 
-  guardarStorage(token: string, estudianteBD: Estudiante) {
+  guardarStorage(token: string, imagenUsuario: string,  estudianteBD: Estudiante) {
     localStorage.setItem('token', token);
+    localStorage.setItem('imagenUsuario', imagenUsuario);
     localStorage.setItem('estudianteBD', JSON.stringify(estudianteBD));
     this.estudiante = estudianteBD;
+    this.img = imagenUsuario;
     this.token = token;
 
 
@@ -66,7 +76,7 @@ cargarStorage() {
     let url = URL_SERVICIOS + '/login/google';
     return this.http.post(url, {token: token}) // return this.http.post(url,{token:token})
     .map((resp: any) => {
-        this.guardarStorage(resp.token, resp.estudianteBD);
+      this.guardarStorage(resp.token, resp.imagenUsuario, resp.estudianteBD);
         return true;
 
     });

@@ -127,7 +127,7 @@
         <!--Barra lateral-->
         <div class="col-lg-4">
             <h3 class="my-3"> <i class="fa fa-user text-success"></i> Catalina Cano Narvaez</h3>
-            <!-- <img [src]="usuario.img" height="auto" width="100%" align="center">-->
+            <img [src]="_estudianteService.obtenerImagen()|imagen" height="auto" width="100%" align="center">
             <h3 class="my-3"> <i class="fa fa-coffee text-warning"></i> Interéses y Costumbres del alojamiento anfitrión</h3>
             <table class="table table-striped">
                 <tbody>
@@ -202,10 +202,6 @@
                             <i class="fa fa-sign-language"></i> Teatros: Si</td>
 
                     </tr>
-
-
-
-
 
                 </tbody>
             </table>

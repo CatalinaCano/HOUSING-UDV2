@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ApplicationRef } from '@angular/core';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
-
+import { PipesModule } from '../../pipes/pipes.module';
 
 import { PAGES_ROUTES } from './pages.routes';
 
@@ -18,6 +18,7 @@ import { RegistrarComponent } from './registrar/registrar.component';
 import { SharedModule } from '../shared/shared.module';
 import { InformacionComponent } from './informacion/informacion.component';
 import { InformacionPerfilComponent } from './informacion-perfil/informacion-perfil.component';
+
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { InformacionPerfilComponent } from './informacion-perfil/informacion-per
             apiKey: 'AIzaSyD8ybUhErV1uJUHmHzNP92-P5Mfe9VCwHA',
             libraries: ['places']
         }),
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        PipesModule
     ]
 })
 

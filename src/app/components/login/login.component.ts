@@ -48,9 +48,5 @@ export class LoginComponent implements OnInit {
 
 
   }
-  ingresar() {
-    console.log('Ingresando');
-    this.router.navigate(['/inicio']);
-  }
 
 }
