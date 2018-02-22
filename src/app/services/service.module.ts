@@ -8,7 +8,8 @@ import {
   SharedService,
   AlojamientosService,
   RegistrarAlojamientoService,
-  LoginGuardGuard
+  LoginGuardGuard,
+  CondorService
 } from './service.index';
 
 
@@ -24,7 +25,8 @@ import {
     AlojamientosService,
     EstudianteService,
     RegistrarAlojamientoService,
-    LoginGuardGuard
+    LoginGuardGuard,
+    CondorService
   ]
 })
 export class ServiceModule { }

@@ -1,11 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { CondorService } from '../../../services/service.index';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 @Component({
   selector: 'app-informacion-perfil',
   templateUrl: './informacion-perfil.component.html'
 })
+
+
 export class InformacionPerfilComponent implements OnInit {
-  constructor() {}
+  usuarioCondor: any;
+  constructor( public _condorService: CondorService) {
+  }
 
   ngOnInit() {}
 

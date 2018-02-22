@@ -4,20 +4,27 @@ import { URL_SERVICIOS } from '../config/config';
 import { Estudiante } from '../models/estudiante.model';
 import { Router } from '@angular/router';
 
+declare const gapi: any;
 @Injectable()
 export class EstudianteService {
     estudiante: Estudiante;
     token: string;
     img: string;
-
+    matchUsuario: string;
+    auth2: any;
 
   constructor(
     public http: HttpClient,
     public router: Router
   ) {
     this.cargarStorage();
+
     }
 
+  obtenerMatchID() {
+      console.log(this.matchUsuario);
+     return this.matchUsuario = this.estudiante.email.split('@', 1).toString();
+  }
 
   obtenerImagen() {
   let img = localStorage.getItem('imagenUsuario');
@@ -32,6 +39,7 @@ estaLogueado() {
     return false;
   } else {
     console.log('esta logueado ' + this.token.length);
+     this.obtenerMatchID();
     return true;
   }
 
@@ -41,7 +49,7 @@ cargarStorage() {
   if (localStorage.getItem('token')) {
       this.token = localStorage.getItem('token');
       this.estudiante = JSON.parse(localStorage.getItem('estudiante'));
-    this.img = localStorage.getItem('imagenUsuario');
+      this.img = localStorage.getItem('imagenUsuario');
   } else {
     this.token = '';
     this.estudiante = null;
@@ -67,21 +75,6 @@ cargarStorage() {
   }
 
 
-  logout() {
-    this.estudiante = null;
-    this.token = '';
-    this.img = '';
-    localStorage.clear();
-     localStorage.setItem('estudianteBD', null);
-     localStorage.setItem('token', null);
-     window.location.href = 'https://mail.google.com/mail/u/0/?logout&hl=en';
-
-    /*let url = URL_SERVICIOS + '/logout';
-    return this.http.get(url)
-      .map((resp: any) => {
-        this.router.navigate(['/login']);
-      });*/
-  }
 
   loginGoogle(token: string) {
     let url = URL_SERVICIOS + '/login/google';
@@ -93,4 +86,14 @@ cargarStorage() {
 
 
   }
+
+  signOut() {
+    this.auth2 = gapi.auth2.getAuthInstance();
+    this.auth2.signOut().then(function () {
+      console.log('User signed out.');
+      window.location.href = 'https://mail.google.com/mail/u/0/?logout&hl=en';
+    });
+  }
+
+
 }

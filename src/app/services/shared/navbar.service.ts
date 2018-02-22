@@ -6,7 +6,7 @@ import { Estudiante } from '../../models/estudiante.model';
 export class NavbarService {
 
     usuario: Estudiante;
-
+    matchUsuario: string;
     menu: any = [
       {
         titulo: 'Inicio',
@@ -42,7 +42,5 @@ export class NavbarService {
 
   constructor( public _estudianteService: EstudianteService) {
     this.usuario = _estudianteService.obtenerStorage();
-    console.log(this.usuario);
-   }
-
+}
 }

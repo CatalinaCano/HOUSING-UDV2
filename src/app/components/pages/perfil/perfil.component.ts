@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EstudianteService } from '../../../services/service.index';
+import { EstudianteService, CondorService } from '../../../services/service.index';
 import { Estudiante } from '../../../models/estudiante.model';
+
 
 
 @Component({
@@ -10,8 +11,10 @@ import { Estudiante } from '../../../models/estudiante.model';
 export class PerfilComponent implements OnInit {
 
   usuario: Estudiante;
+  usuarioCondor: any;
 
-  constructor(public _estudianteService: EstudianteService) { }
+  constructor(public _estudianteService: EstudianteService,
+              public _condorService: CondorService) { }
 
   ngOnInit() {
     this.usuario = this._estudianteService.obtenerStorage();
