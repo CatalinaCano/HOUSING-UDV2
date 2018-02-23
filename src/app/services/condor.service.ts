@@ -5,14 +5,18 @@ import 'rxjs/Rx';
 @Injectable()
 export class CondorService {
 
-  CondorURL: string = 'https://housingud-501cb.firebaseio.com/estudiantes';
+  CondorURL: string = 'https://housingud-501cb.firebaseio.com';
 
-  constructor( private http: Http) {
+  constructor(private http: Http) {
     console.log('servicio condor ');
    }
 
    obtenerUsuarioCondor(key$: string) {
-     let  url = `${this.CondorURL}/${key$}.json`;
+    console.log('servicio condor ' + key$);
+    let idUsuario = key$.split('@', 1).toString();
+    console.log(idUsuario);
+     let url = `${this.CondorURL}/${idUsuario}.json`;
+     console.log(url);
      let headers = new Headers({
        'Content-Type': 'application/json'
      });

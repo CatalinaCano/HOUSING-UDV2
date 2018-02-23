@@ -12,6 +12,7 @@ export class EstudianteService {
     img: string;
     matchUsuario: string;
     auth2: any;
+    idUsuario: string;
 
   constructor(
     public http: HttpClient,
@@ -20,11 +21,6 @@ export class EstudianteService {
     this.cargarStorage();
 
     }
-
-  obtenerMatchID() {
-      console.log(this.matchUsuario);
-     return this.matchUsuario = this.estudiante.email.split('@', 1).toString();
-  }
 
   obtenerImagen() {
   let img = localStorage.getItem('imagenUsuario');
@@ -39,7 +35,9 @@ estaLogueado() {
     return false;
   } else {
     console.log('esta logueado ' + this.token.length);
-     this.obtenerMatchID();
+    this.matchUsuario = this.estudiante.email.split('@', 1).toString();
+    console.log('Correo: ' + this.matchUsuario);
+    this.obtenerMatchID();
     return true;
   }
 
@@ -58,13 +56,15 @@ cargarStorage() {
 }
 
 
-  guardarStorage(token: string, imagenUsuario: string,  estudianteBD: Estudiante) {
+  guardarStorage(token: string, imagenUsuario: string, idUsuario: string,  estudianteBD: Estudiante) {
     localStorage.setItem('token', token);
     localStorage.setItem('imagenUsuario', imagenUsuario);
     localStorage.setItem('estudianteBD', JSON.stringify(estudianteBD));
+    localStorage.setItem('idUsuario', idUsuario);
     this.estudiante = estudianteBD;
     this.img = imagenUsuario;
     this.token = token;
+    this.idUsuario = idUsuario;
 
 
   }
@@ -80,7 +80,7 @@ cargarStorage() {
     let url = URL_SERVICIOS + '/login/google';
     return this.http.post(url, {token: token})
     .map((resp: any) => {
-      this.guardarStorage(resp.token, resp.imagenUsuario, resp.estudianteBD);
+      this.guardarStorage(resp.token, resp.imagenUsuario, resp.idUsuario, resp.estudianteBD);
         return true;
     });
 
@@ -95,5 +95,8 @@ cargarStorage() {
     });
   }
 
+  obtenerMatchID() {
+    return this.matchUsuario;
+  }
 
 }

@@ -18,6 +18,8 @@ import { RegistrarComponent } from './registrar/registrar.component';
 import { SharedModule } from '../shared/shared.module';
 import { InformacionComponent } from './informacion/informacion.component';
 import { InformacionPerfilComponent } from './informacion-perfil/informacion-perfil.component';
+import { HttpModule } from '@angular/http';
+
 
 
 
@@ -53,7 +55,8 @@ import { InformacionPerfilComponent } from './informacion-perfil/informacion-per
             libraries: ['places']
         }),
         ReactiveFormsModule,
-        PipesModule
+        PipesModule,
+        HttpModule
     ]
 })
 

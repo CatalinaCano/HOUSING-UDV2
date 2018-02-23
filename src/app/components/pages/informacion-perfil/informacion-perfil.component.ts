@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CondorService } from '../../../services/service.index';
-import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
 @Component({
@@ -11,10 +10,14 @@ import { HttpModule } from '@angular/http';
 
 export class InformacionPerfilComponent implements OnInit {
   usuarioCondor: any;
-  constructor( public _condorService: CondorService) {
+  id = 'dccanon@correo.udistrital.edu.co';
+  constructor(public _condorService: CondorService) {
   }
 
-  ngOnInit() {}
+
+  ngOnInit() {
+     this.usuarioCondor = this._condorService.obtenerUsuarioCondor(this.id);
+  }
 
   CalcularEdad(): number {
     return 0;

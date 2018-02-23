@@ -9,7 +9,7 @@
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 
             <li *ngFor="let menu of _navbar.menu" class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="[ menu.url ]"><i [class]="menu.icono"></i> {{ menu.titulo }}</a>
+                <a class="nav-link" [routerLink]="[ menu.url, usuario.email]"><i [class]="menu.icono"></i> {{ menu.titulo }}</a>
             </li>
 
         </ul>

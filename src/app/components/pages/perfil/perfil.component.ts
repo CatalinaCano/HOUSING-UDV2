@@ -11,11 +11,11 @@ import { Estudiante } from '../../../models/estudiante.model';
 export class PerfilComponent implements OnInit {
 
   usuario: Estudiante;
-  usuarioCondor: any;
+  // usuarioCondor: any;
 
   constructor(public _estudianteService: EstudianteService,
-              public _condorService: CondorService) { }
-
+              ) { }
+  // public _condorService: CondorService
   ngOnInit() {
     this.usuario = this._estudianteService.obtenerStorage();
   }
