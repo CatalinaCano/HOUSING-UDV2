@@ -21,16 +21,16 @@ export class InformacionPerfilComponent implements OnInit {
       .subscribe(parametros => {
         this.id = parametros['id'],
           this._condorService.obtenerUsuarioCondor(this.id)
-            .subscribe(usuarioCondor => {
-              this.usuarioCondor = usuarioCondor;
+            .subscribe(res => {
+              this.usuarioCondor = res.json();
             }, error => console.log(error));
       });
   }
 
   CalcularEdad(): number {
-   if (this.usuarioCondor.fechaNacimiento) {
+   if (this.usuarioCondor.informacion.fechaNacimiento) {
       let hoy = new Date();
-      let cumpleanos = new Date(this.usuarioCondor.fechaNacimiento);
+      let cumpleanos = new Date(this.usuarioCondor.informacion.fechaNacimiento);
       let edad = hoy.getFullYear() - cumpleanos.getFullYear();
       return edad;
     } else {

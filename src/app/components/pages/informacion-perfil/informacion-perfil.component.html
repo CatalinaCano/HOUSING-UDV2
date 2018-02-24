@@ -1,4 +1,4 @@
-<div class="container-fluid ">
+<div class="container-fluid">
     <ul class="nav nav-tabs col-xs-offset-12" role="tablist">
         <li class="nav-item">
             <a class="nav-link active" data-toggle="tab" href="#datosBasicos" role="tab"> <i class="fa fa-address-book"></i> Datos Básicos</a>
@@ -8,7 +8,7 @@
             <a class="nav-link" data-toggle="tab" href="#condicionesMedicas" role="tab"> <i class="fa fa-medkit"></i> Condiciones Médicas</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " data-toggle="tab" href="#contactosEmergencia" role="tab"> <i class="fa fa-ambulance"></i> Contactos de Emergencia</a>
+            <a class="nav-link" data-toggle="tab" href="#contactosEmergencia" role="tab"> <i class="fa fa-ambulance"></i> Contactos de Emergencia</a>
         </li>
     </ul>
     <!--Datos Basicos-->
@@ -22,86 +22,77 @@
                     <label for="fechaNacimiento" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Fecha de Nacimiento</label>
 
                     <div class="col-lg-4 col-sm-8 col-xs-8">
-                        <!--<input class="form-control " type="text" readonly value={{usuarioCondor.fechaNacimiento}} id="fechaNacimiento">-->
-                        <input class="form-control " type="text" readonly value={{usuarioCondor.informacion.fechaNacimiento}}>
+                        <input class="form-control" type="text" readonly value={{usuarioCondor.informacion.fechaNacimiento}}>
                     </div>
 
-                    <label for="genero " class="col-lg-1 col-sm-4 col-xs-4 col-form-label ">Género </label>
+                    <label for="genero" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">Género </label>
 
-                    <div class="col-lg-4 col-sm-8 col-xs-8 ">
-                        <!-- <input class="form-control " type="text " readonly value={{ usuario.genero }} id="genero "> -->
-                        <input class="form-control " type="text " readonly value="P ">
+                    <div class="col-lg-4 col-sm-8 col-xs-8">
+                        <!-- <input class="form-control" type="text" readonly value={{ usuario.genero }} id="genero"> -->
+                        <input class="form-control" type="text" readonly value={{usuarioCondor.informacion.genero}}>
                     </div>
 
                 </div>
 
-                <div class="form-group row ">
-                    <label for="tipoSangre " class="col-lg-3 col-sm-4 col-xs-4 col-form-label ">Tipo de Sangre</label>
-                    <div class="col-lg-2 col-sm-8 col-xs-8 ">
-                        <!--<input class="form-control " type="text " readonly value="{{usuario.sangre.tipoSangre}} " id="tipoSangre ">-->
-                        <input class="form-control " type="text " readonly value="O " id="tipoSangre ">
+                <div class="form-group row">
+                    <label for="tipoSangre" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Tipo de Sangre</label>
+                    <div class="col-lg-2 col-sm-8 col-xs-8">
+                        <input class="form-control" type="text" readonly value={{usuarioCondor.informacion.tipoSangre}} id="tipoSangre">
                     </div>
-                    <label for="RH " class="col-lg-1 col-sm-4 col-xs-4 col-form-label ">RH</label>
-                    <div class="col-lg-2 col-sm-8 col-xs-8 ">
-                        <input class="form-control " type="text " readonly value="+ " id="RH ">
-                        <!--<input class="form-control " type="text " readonly value="{{usuario.sangre.rh}} " id="RH ">-->
+                    <label for="RH" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">RH</label>
+                    <div class="col-lg-2 col-sm-8 col-xs-8">
+                        <input class="form-control" type="text" readonly value={{usuarioCondor.informacion.rh}} id="RH">
                     </div>
-                    <label for="edad " class="col-lg-1 col-sm-4 col-xs-4 col-form-label ">Edad</label>
-                    <div class="col-lg-2 col-sm-8 col-xs-8 ">
-                        <input class="form-control " type="text " readonly [value]="CalcularEdad() " id="edad ">
+                    <label for="edad" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">Edad</label>
+                    <div class="col-lg-2 col-sm-8 col-xs-8">
+                        <input class="form-control" type="text" readonly [value]="CalcularEdad()" id="edad">
                     </div>
-                    <label for="edad " class="col-lg-1 col-sm-4 col-xs-4 col-form-label text-left ">Años</label>
+                    <label for="edad" class="col-lg-1 col-sm-4 col-xs-4 col-form-label text-left">Años</label>
                 </div>
 
                 <hr>
-                <div class="form-group row ">
-                    <label for="universidadOrigen " class="col-lg-4 col-sm-12 col-xs-12 col-form-label ">Universidad de Origen</label>
-                    <div class="col-lg-8 col-sm-12 col-xs-12 ">
-                        <!--<input class="form-control " type="text " readonly value={{usuario.movilidad.universidadOrigen}} id="universidadOrigen ">-->
-                        <input class="form-control " type="text " readonly value="Universidad Distrital Francisco José de Caldas " id="universidadOrigen ">
+                <div class="form-group row">
+                    <label for="universidadOrigen" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Universidad de Origen</label>
+                    <div class="col-lg-8 col-sm-12 col-xs-12">
+                        <input class="form-control" type="text" readonly value={{usuarioCondor.informacion.universidadOrigen}} id="universidadOrigen">
                     </div>
                 </div>
-                <div class="form-group row ">
-                    <label for="carrerar " class="col-lg-4 col-sm-12 col-xs-12 col-form-label ">Carrera</label>
-                    <div class="col-lg-8 col-sm-12- col-xs-12 ">
-                        <!--<input class="form-control " type="text " readonly value={{usuario.educacion.carrera}} id="carrera ">-->
-                        <input class="form-control " type="text " readonly value="Ingeniería de Sistemas " id="carrera ">
+                <div class="form-group row">
+                    <label for="carrera" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Carrera</label>
+                    <div class="col-lg-8 col-sm-12- col-xs-12">
+                        <input class="form-control" type="text" readonly value={{usuarioCondor.informacion.carrera}} id="carrera">
                     </div>
                 </div>
-                <div class="form-group row ">
-                    <label for="duracion " class="col-lg-4 col-sm-12 col-xs-12 col-form-label ">Duración Movilidad</label>
-                    <div class="col-lg-5 col-sm-12 col-xs-12 ">
-                        <!--<input class="form-control " type="text " readonly value={{usuario.movilidad.duracionMovilidad}} id="duracion ">-->
-                        <input class="form-control " type="text " readonly value="2 Semestres " id="duracion ">
+                <div class="form-group row">
+                    <label for="duracion" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Duración Movilidad</label>
+                    <div class="col-lg-5 col-sm-12 col-xs-12">
+                        <input class="form-control" type="text" readonly value={{usuarioCondor.informacion.duracionMovilidad}} id="duracion">
                     </div>
-                    <label for="duracion " class="col-lg-1 col-sm-12 col-xs-12 col-form-label ">Semestre(s)</label>
+                    <label for="duracion" class="col-lg-1 col-sm-12 col-xs-12 col-form-label">Semestre(s)</label>
                 </div>
                 <hr>
-                <div class="form-group row ">
-                    <label for="correo " class="col-lg-4 col-sm-12 col-xs-12 col-form-label ">Correo Electrónico</label>
-                    <div class="col-lg-8 col-sm-12 col-xs-12 ">
-                        <!--<input class="form-control " type="email " readonly value={{usuario.contacto.correo}} id="correo ">-->
-                        <input class="form-control " type="email " readonly value="cata@hotmail.com " id="correo ">
+                <div class="form-group row">
+                    <label for="correo" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Correo Electrónico</label>
+                    <div class="col-lg-8 col-sm-12 col-xs-12">
+
+                        <input class="form-control" type="email" readonly value={{usuarioCondor.informacion.correo}} id="correo">
                     </div>
                 </div>
-                <div class="form-group row ">
-                    <label for="indicativo " class="col-lg-2 col-sm-12 col-xs-12 col-form-label ">Indicativo</label>
-                    <div class="col-lg-2 col-sm-12 col-xs-12 ">
-                        <!--<input class="form-control " type="text " readonly value={{usuario.contacto.indicativo}} id="indicativo ">-->
-                        <input class="form-control " type="text " readonly value="+57 " id="indicativo ">
+                <div class="form-group row">
+                    <label for="indicativo" class="col-lg-2 col-sm-12 col-xs-12 col-form-label">Indicativo</label>
+                    <div class="col-lg-2 col-sm-12 col-xs-12">
+                        <input class="form-control" type="text" readonly value={{usuarioCondor.informacion.indicativo}} id="indicativo">
                     </div>
 
-                    <label for="telefono " class="col-lg-2 col-sm-12 col-xs-12 col-form-label ">Teléfono</label>
-                    <div class="col-lg-6 col-sm-12 col-xs-12 ">
-                        <!--<input class="form-control " type="text " readonly value={{usuario.contacto.telefonoFijo}} id="telefono ">-->
-                        <input class="form-control " type="text " readonly value="234323 " id="telefono ">
+                    <label for="telefono" class="col-lg-2 col-sm-12 col-xs-12 col-form-label">Teléfono</label>
+                    <div class="col-lg-6 col-sm-12 col-xs-12">
+                        <input class="form-control" type="text" readonly value={{usuarioCondor.informacion.telefono}} id="telefono">
                     </div>
                 </div>
-                <div class="form-group row ">
-                    <label for="celular " class="col-lg-4 col-sm-12 col-xs-12 col-form-label ">Celular</label>
-                    <div class="col-lg-8 col-sm-12 col-xs-12 ">
-                        <!--<input class="form-control " type="text " readonly value={{usuario.contacto.celular}} id="celular ">-->
-                        <input class="form-control " type="text " readonly value="3212344321 " id="celular ">
+                <div class="form-group row">
+                    <label for="celular" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Teléfono Móvil</label>
+                    <div class="col-lg-8 col-sm-12 col-xs-12">
+                        <input class="form-control" type="text" readonly value={{usuarioCondor.informacion.telefonoMovil}} id="celular">
                     </div>
                 </div>
             </div>
@@ -110,25 +101,25 @@
         <!--/Datos Basicos-->
 
         <!--Condiciones Medicas-->
-        <div class="tab-pane " id="condicionesMedicas " role="tabpanel ">
+        <div class="tab-pane" id="condicionesMedicas" role="tabpanel">
             <br>
-            <div class="jumbotron ">
-                <h2> <i class="fa fa-medkit "></i> Condiciones Médicas</h2>
+            <div class="jumbotron">
+                <h2> <i class="fa fa-medkit"></i> Condiciones Médicas</h2>
                 <hr>
-                <div class=" form-group row ">
-                    <div align="center " class="col-lg-4 col-sm-12 col-xs-12 ">
-                        <img class="img " src="./assets/img/Enfermedades.svg " width="70% " alt=" ">
+                <div class=" form-group row">
+                    <div align="center" class="col-lg-4 col-sm-12 col-xs-12">
+                        <img class="img" src="./assets/img/Enfermedades.svg" width="70%" alt="">
                     </div>
-                    <div class="col-lg-8 col-sm-12 col-xs-12 ">
-                        <table class="table table-striped ">
-                            <thead class="bg-success table-inverse ">
+                    <div class="col-lg-8 col-sm-12 col-xs-12">
+                        <table class="table table-striped">
+                            <thead class="bg-success table-inverse">
                                 <tr>
-                                    <th style="color:white ">Enfermedades</th>
+                                    <th style="color:white">Enfermedades</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th>Rinitis alergica</th>
+                                    <th>{{usuarioCondor.informacion.enfermedades}}</th>
                                 </tr>
 
                             </tbody>
@@ -136,78 +127,67 @@
                     </div>
                 </div>
                 <hr>
-                <div class=" form-group row ">
-                    <div align="center " class="col-lg-4 col-sm-12 col-xs-12 ">
-                        <img class="img " src="./assets/img/Alergias.svg " width="50% " alt=" ">
+                <div class=" form-group row">
+                    <div align="center" class="col-lg-4 col-sm-12 col-xs-12">
+                        <img class="img" src="./assets/img/Alergias.svg" width="50%" alt="">
                     </div>
-                    <div class="col-lg-8 col-sm-12 col-xs-12 ">
-                        <table class="table table-striped ">
-                            <thead class="bg-info table-inverse ">
+                    <div class="col-lg-8 col-sm-12 col-xs-12">
+                        <table class="table table-striped">
+                            <thead class="bg-info table-inverse">
                                 <tr>
-                                    <th style="color:white "> Alergias</th>
+                                    <th style="color:white"> Alergias</th>
                                 </tr>
                             </thead>
                             <tbody>
-
                                 <tr>
-                                    <th>Ají</th>
+                                    <th>{{usuarioCondor.informacion.alergias}}</th>
                                 </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <hr>
+                <div class=" form-group row">
+                    <div align="center" class="col-lg-4 col-sm-12 col-xs-12">
+                        <img class="img" src="./assets/img/m.svg" width="50%" alt="">
+                    </div>
+                    <div class="col-lg-8 col-sm-12 col-xs-12">
+                        <table class="table table-striped">
+                            <thead class="bg-warning table-inverse">
                                 <tr>
-                                    <th>Fresas</th>
+                                    <th style="color:white">Medicamentos que consume</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>{{usuarioCondor.informacion.medicamentos}}</th>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <hr>
-                <div class=" form-group row ">
-                    <div align="center " class="col-lg-4 col-sm-12 col-xs-12 ">
-                        <img class="img " src="./assets/img/m.svg " width="50% " alt=" ">
+                <div class=" form-group row">
+                    <div align="center" class="col-lg-4 col-sm-12 col-xs-12">
+                        <img class="img" src="./assets/img/limitaciones.svg" width="50%" alt="">
                     </div>
-                    <div class="col-lg-8 col-sm-12 col-xs-12 ">
-                        <table class="table table-striped ">
-                            <thead class="bg-warning table-inverse ">
+                    <div class="col-lg-8 col-sm-12 col-xs-12">
+                        <table class="table table-striped">
+                            <thead class="bg-danger table-inverse">
                                 <tr>
-                                    <th style="color:white ">Medicamentos que consume</th>
+                                    <th colspan="3" style="color:white"> Limitaciones</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th>Salbutamol</th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <hr>
-                <div class=" form-group row ">
-                    <div align="center " class="col-lg-4 col-sm-12 col-xs-12 ">
-                        <img class="img " src="./assets/img/limitaciones.svg " width="50% " alt=" ">
-                    </div>
-                    <div class="col-lg-8 col-sm-12 col-xs-12 ">
-                        <table class="table table-striped ">
-                            <thead class="bg-danger table-inverse ">
-                                <tr>
-                                    <th colspan="3 " style="color:white "> Limitaciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>Auditiva: No</th>
-                                    <th>Fisica: No</th>
-                                    <th>Mental: No</th>
-
-                                    <!--<th>Auditiva: {{usuario.limitaciones.limitacionAuditva}}</th>
-                                    <th>Fisica: {{usuario.limitaciones.limitacionFisica}}</th>
-                                    <th>Mental: {{usuario.limitaciones.limitacionMental}}</th>-->
-
-
+                                    <th>Auditiva: {{usuarioCondor.informacion.limitaciones.auditiva}}</th>
+                                    <th>Fisica: {{usuarioCondor.informacion.limitaciones.fisica}}</th>
+                                    <th>Mental: {{usuarioCondor.informacion.limitaciones.mental}}</th>
                                 </tr>
                                 <tr>
-                                    <!--<th>Visual: {{usuario.limitaciones.limitacionVisual}}</th>
-                                    <th colspan="2 ">Otra: {{usuario.limitaciones.otraLimitacion}}</th>-->
-                                    <th>Visual: No</th>
-                                    <th colspan="2 ">Otra: No</th>
+                                    <th>Visual: {{usuarioCondor.informacion.limitaciones.visual}}</th>
+                                    <th colspan="2">Otra: {{usuarioCondor.informacion.limitaciones.otra}}</th>
                                 </tr>
                             </tbody>
                         </table>
@@ -217,53 +197,46 @@
         </div>
         <!--/Condiciones Medicas-->
         <!--Contactos de emergencia-->
-        <div class="tab-pane " id="contactosEmergencia " role="tabpanel ">
+        <div class="tab-pane" id="contactosEmergencia" role="tabpanel">
             <br>
-            <div class="jumbotron ">
-                <h2> <i class="fa fa-ambulance "></i> Contactos de Emergencia</h2>
+            <div class="jumbotron">
+                <h2> <i class="fa fa-ambulance"></i> Contactos de Emergencia</h2>
                 <hr>
-                <div class="form-group row ">
-                    <div align="center " class="col-lg-4 col-sm-12 col-xs-12 ">
-                        <img class="img " src="./assets/img/Contacto1.svg " width="80% " alt=" ">
+                <div class="form-group row">
+                    <div align="center" class="col-lg-4 col-sm-12 col-xs-12">
+                        <img class="img" src="./assets/img/Contacto1.svg" width="80%" alt="">
                     </div>
-                    <div class="col-lg-8 col-sm-12 col-xs-12 ">
-                        <div class="form-group row ">
-                            <label for="nombresContacto " class="col-lg-4 col-sm-12 col-xs-12 col-form-label ">Nombres: </label>
-                            <div class="col-lg-8 col-sm-12 col-xs-12 ">
-                                <input class="form-control " type="text " readonly value="Contacto 1 " id="nombresContacto ">
-                                <!--<input class="form-control " type="text " readonly value="{{usuario.contactoEmergencia.nombreCompleto.nombres}} " id="nombresContacto ">-->
+                    <div class="col-lg-8 col-sm-12 col-xs-12">
+                        <div class="form-group row">
+                            <label for="nombresContacto" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Nombres: </label>
+                            <div class="col-lg-8 col-sm-12 col-xs-12">
+                                <input class="form-control" type="text" readonly value={{usuarioCondor.informacion.contactoEmergencia.nombres}} id="nombresContacto"> </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="apellidosContacto" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Apellidos: </label>
+                            <div class="col-lg-8 col-sm-12 col-xs-12">
+                                <input class="form-control" type="text" readonly value={{usuarioCondor.informacion.contactoEmergencia.apellidos}} id="apellidosContacto"> </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="parentescoContacto" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Parentesco: </label>
+                            <div class="col-lg-8 col-sm-12 col-xs-12">
+                                <input class="form-control" type="text" readonly value={{usuarioCondor.informacion.contactoEmergencia.parentesco}} id="parentescoContacto">
                             </div>
                         </div>
 
-                        <div class="form-group row ">
-                            <label for="apellidosContacto " class="col-lg-4 col-sm-12 col-xs-12 col-form-label ">Apellidos: </label>
-                            <div class="col-lg-8 col-sm-12 col-xs-12 ">
-                                <input class="form-control " type="text " readonly value="Apellido " id="apellidosContacto ">
-                                <!--<input class="form-control " type="text " readonly value="{{usuario.contactoEmergencia.nombreCompleto.apellidos}} " id="apellidosContacto ">-->
+                        <div class="form-group row">
+                            <label for="telefonoContacto" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Teléfono Móvil: </label>
+                            <div class="col-lg-8 col-sm-12 col-xs-12">
+                                <input class="form-control" type="text" readonly value={{usuarioCondor.informacion.contactoEmergencia.telefonoMovil}} id="telefonoContacto">
                             </div>
                         </div>
 
-                        <div class="form-group row ">
-                            <label for="parentescoContacto " class="col-lg-4 col-sm-12 col-xs-12 col-form-label ">Parentesco: </label>
-                            <div class="col-lg-8 col-sm-12 col-xs-12 ">
-                                <input class="form-control " type="text " readonly value="Amiga " id="parentescoContacto ">
-                                <!--<input class="form-control " type="text " readonly value="{{usuario.contactoEmergencia.parentesco}} " id="parentescoContacto ">-->
-                            </div>
-                        </div>
-
-                        <div class="form-group row ">
-                            <label for="telefonoContacto " class="col-lg-4 col-sm-12 col-xs-12 col-form-label ">Teléfono Móvil: </label>
-                            <div class="col-lg-8 col-sm-12 col-xs-12 ">
-                                <input class="form-control " type="text " readonly value="(+57) 234-34-32 " id="telefonoContacto ">
-                                <!--<input class="form-control " type="text " readonly value="{{usuario.contactoEmergencia.contacto.indicativo}} {{usuario.contactoEmergencia.contacto.telefonoFijo}} " id="telefonoContacto ">-->
-                            </div>
-                        </div>
-
-                        <div class="form-group row ">
-                            <label for="correoContacto " class="col-lg-4 col-sm-12 col-xs-12 col-form-label ">Correo Electrónico: </label>
-                            <div class="col-lg-8 col-sm-12 col-xs-12 ">
-                                <input class="form-control " type="text " readonly value="sas@sdasd.com " id="correoContacto ">
-                                <!--<input class="form-control " type="text " readonly value="{{usuario.contactoEmergencia.contacto.correo}} " id="correoContacto ">-->
+                        <div class="form-group row">
+                            <label for="correoContacto" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Correo Electrónico: </label>
+                            <div class="col-lg-8 col-sm-12 col-xs-12">
+                                <input class="form-control" type="text" readonly value={{usuarioCondor.informacion.contactoEmergencia.correo}} id="correoContacto">
                             </div>
                         </div>
 

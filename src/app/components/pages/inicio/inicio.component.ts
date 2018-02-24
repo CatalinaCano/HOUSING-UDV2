@@ -9,13 +9,10 @@ import { Estudiante } from '../../../models/estudiante.model';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-
-  usuario: Estudiante;
   nombres: string;
   constructor( private _estudianteService: EstudianteService ) {}
 
   ngOnInit() {
-    this.usuario = this._estudianteService.obtenerStorage();
     this.nombres = this._estudianteService.obtenerNombres();
   }
 }

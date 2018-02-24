@@ -14,7 +14,6 @@ export class PerfilComponent implements OnInit {
   usuario: Estudiante;
   usuarioCondor: any;
   id: string;
-  fechaNacimiento: string;
 
   constructor(public _condorService: CondorService,
     public router: Router,
