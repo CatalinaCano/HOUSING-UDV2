@@ -6,9 +6,9 @@ import 'rxjs/Rx';
 export class CondorService {
 
   CondorURL: string = 'https://housingud-501cb.firebaseio.com';
+  usuarioCondor: any;
 
   constructor(private http: Http) {
-    console.log('servicio condor ');
    }
 
    obtenerUsuarioCondor(key$: string) {
@@ -21,7 +21,10 @@ export class CondorService {
        'Content-Type': 'application/json'
      });
       return this.http.get(url)
-                      .map(res => res.json());
+                      .map((res: any) => {
+                        console.log(res.json());
+                        // this.guardarStorage( res.json());
+                        return res;
+                      });
    }
-
 }

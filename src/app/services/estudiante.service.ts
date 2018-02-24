@@ -13,6 +13,7 @@ export class EstudianteService {
     matchUsuario: string;
     auth2: any;
     idUsuario: string;
+    nombresUsuario: string;
 
   constructor(
     public http: HttpClient,
@@ -22,10 +23,7 @@ export class EstudianteService {
 
     }
 
-  obtenerImagen() {
-  let img = localStorage.getItem('imagenUsuario');
-  return img;
-}
+
 
 estaLogueado() {
   if (this.estudiante == null) {
@@ -48,25 +46,27 @@ cargarStorage() {
       this.token = localStorage.getItem('token');
       this.estudiante = JSON.parse(localStorage.getItem('estudiante'));
       this.img = localStorage.getItem('imagenUsuario');
+      this.nombresUsuario = localStorage.getItem('nombres');
   } else {
     this.token = '';
     this.estudiante = null;
     this.img = '';
+    this.nombresUsuario = '';
   }
 }
 
 
-  guardarStorage(token: string, imagenUsuario: string, idUsuario: string,  estudianteBD: Estudiante) {
+  guardarStorage(token: string, imagenUsuario: string, idUsuario: string, nombres: string, estudianteBD: Estudiante) {
     localStorage.setItem('token', token);
     localStorage.setItem('imagenUsuario', imagenUsuario);
     localStorage.setItem('estudianteBD', JSON.stringify(estudianteBD));
     localStorage.setItem('idUsuario', idUsuario);
+    localStorage.setItem('nombres', nombres);
     this.estudiante = estudianteBD;
     this.img = imagenUsuario;
     this.token = token;
     this.idUsuario = idUsuario;
-
-
+    this.nombresUsuario = nombres;
   }
 
   obtenerStorage() {
@@ -74,13 +74,11 @@ cargarStorage() {
     return usuario;
   }
 
-
-
   loginGoogle(token: string) {
     let url = URL_SERVICIOS + '/login/google';
     return this.http.post(url, {token: token})
     .map((resp: any) => {
-      this.guardarStorage(resp.token, resp.imagenUsuario, resp.idUsuario, resp.estudianteBD);
+      this.guardarStorage(resp.token, resp.imagenUsuario, resp.idUsuario, resp.nombres, resp.estudianteBD);
         return true;
     });
 
@@ -99,4 +97,11 @@ cargarStorage() {
     return this.matchUsuario;
   }
 
+  obtenerNombres() {
+    return this.nombresUsuario;
+  }
+  obtenerImagen() {
+    let img = localStorage.getItem('imagenUsuario');
+    return img;
+  }
 }
