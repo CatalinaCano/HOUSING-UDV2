@@ -13,9 +13,8 @@ export class CondorService {
 
    obtenerUsuarioCondor(key$: string) {
     console.log('servicio condor ' + key$);
-    let idUsuario = key$.split('@', 1).toString();
-    console.log(idUsuario);
-     let url = `${this.CondorURL}/${idUsuario}.json`;
+     console.log(key$);
+     let url = `${this.CondorURL}/${key$}.json`;
      console.log(url);
      let headers = new Headers({
        'Content-Type': 'application/json'
@@ -23,7 +22,6 @@ export class CondorService {
       return this.http.get(url)
                       .map((res: any) => {
                         console.log(res.json());
-                        // this.guardarStorage( res.json());
                         return res;
                       });
    }

@@ -10,37 +10,42 @@ export class NavbarService {
   constructor( public _estudianteService: EstudianteService) {
     this.usuario = _estudianteService.obtenerStorage();
 }
-
   menu: any = [
     {
       titulo: 'Inicio',
       icono: 'fa fa-home',
-      url: '/inicio'
+      url: '/inicio',
+      id: {}
     },
     {
       titulo: 'Perfil',
       icono: 'fa fa-user',
-      url: '/perfil'
+      url: '/perfil',
+      id: this._estudianteService.obtenerMatchID()
     },
     {
       titulo: 'Registrar Alojamiento',
       icono: 'fa fa-address-card',
-      url: '/registrar'
+      url: '/registrar',
+      id: this._estudianteService.obtenerStorage()._id
     },
     {
       titulo: 'Galeria de Alojamientos',
       icono: 'fa fa-search',
-      url: '/galeria'
+      url: '/galeria',
+      id: {}
     },
     {
       titulo: 'Políticas',
       icono: 'fa fa-commenting',
-      url: '/informacion'
+      url: '/informacion',
+      id: {}
     },
     {
       titulo: 'Gestión Housing',
       icono: 'fa fa-cogs',
-      url: '/administrador'
+      url: '/administrador',
+      id: {}
     },
   ];
 }
