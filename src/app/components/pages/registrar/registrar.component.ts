@@ -3,13 +3,12 @@ import { ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
-// import * as  swal from 'sweetalert';
- import swal from 'sweetalert';
-// import swal from 'sweetalert2';
+import swal from 'sweetalert';
 import { RegistrarAlojamientoService } from '../../../services/service.index';
 import { Alojamiento } from '../../../models/alojamiento.model';
 import { Estudiante } from '../../../models/estudiante.model';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-registrar',

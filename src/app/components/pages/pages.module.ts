@@ -57,7 +57,7 @@ import { HttpModule } from '@angular/http';
         ReactiveFormsModule,
         PipesModule,
         HttpModule
-    ]
+    ],
 })
 
 export class PagesModule { }
