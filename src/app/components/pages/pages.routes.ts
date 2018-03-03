@@ -17,7 +17,7 @@ const pagesRoutes: Routes = [
          component: PagesComponent,
          canActivate: [ LoginGuardGuard ],
          children: [
-            { path: 'registrar/:id', component: RegistrarComponent, data: { titulo: 'Registrar Alojamiento', icono: 'fa fa-address-card' } },
+            { path: 'alojamiento/:id', component: RegistrarComponent, data: { titulo: 'Registrar Alojamiento', icono: 'fa fa-address-card' } },
             { path: 'inicio', component: InicioComponent, data: {titulo: 'Bienvenida', icono: ''}  },
             { path: 'perfil/:id', component: PerfilComponent, data: {titulo: 'Mi Perfil', icono: 'fa fa-user'}  },
             { path: 'galeria', component: GaleriaComponent, data: {titulo: 'Galeria de Alojamientos', icono: 'fa fa-search'} },

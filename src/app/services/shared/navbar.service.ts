@@ -26,7 +26,7 @@ export class NavbarService {
     {
       titulo: 'Registrar Alojamiento',
       icono: 'fa fa-address-card',
-      url: '/registrar',
+      url: '/alojamiento',
       id: this._estudianteService.obtenerStorage()._id
     },
     {

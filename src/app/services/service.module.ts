@@ -10,7 +10,8 @@ import {
   AlojamientosService,
   RegistrarAlojamientoService,
   LoginGuardGuard,
-  CondorService
+  CondorService,
+  SubirArchivoService
 } from './service.index';
 
 
@@ -27,7 +28,8 @@ import {
     EstudianteService,
     RegistrarAlojamientoService,
     LoginGuardGuard,
-    CondorService
+    CondorService,
+    SubirArchivoService
   ]
 })
 export class ServiceModule { }
