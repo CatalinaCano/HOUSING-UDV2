@@ -8,6 +8,7 @@ import { AlojamientoComponent } from './alojamiento/alojamiento.component';
 import { AdministradorComponent } from './administrador/administrador.component';
 import { InformacionComponent } from './informacion/informacion.component';
 import { LoginGuardGuard } from '../../services/service.index';
+import { ImagenesComponent } from './imagenes/imagenes.component';
 
 
 
@@ -24,6 +25,7 @@ const pagesRoutes: Routes = [
             { path: 'alojamiento/:id', component: AlojamientoComponent, data: {titulo: 'Descripción del Alojamiento', icono: 'fa fa-bed'}},
             { path: 'informacion', component: InformacionComponent, data: {titulo: 'Políticas de Housing-UD', icono: 'fa fa-commenting'}  },
             { path: 'administrador', component: AdministradorComponent, data: {titulo: 'Gestión de Alojamientos', icono: 'fa fa-cogs'} },
+            { path: 'imagenes/:id', component: ImagenesComponent, data: { titulo: 'Registrar Alojamiento', icono: 'fa fa-address-card'} },
             { path: '', redirectTo: '/incio', pathMatch: 'full' },
      ]
     }

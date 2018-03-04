@@ -14,11 +14,13 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { GaleriaComponent } from './galeria/galeria.component';
 import { AlojamientoComponent } from './alojamiento/alojamiento.component';
 import { AdministradorComponent } from './administrador/administrador.component';
+import { ImagenesComponent } from './imagenes/imagenes.component';
 import { RegistrarComponent } from './registrar/registrar.component';
 import { SharedModule } from '../shared/shared.module';
 import { InformacionComponent } from './informacion/informacion.component';
 import { InformacionPerfilComponent } from './informacion-perfil/informacion-perfil.component';
 import { HttpModule } from '@angular/http';
+
 
 
 
@@ -33,7 +35,8 @@ import { HttpModule } from '@angular/http';
         AdministradorComponent,
         RegistrarComponent,
         InformacionComponent,
-        InformacionPerfilComponent
+        InformacionPerfilComponent,
+        ImagenesComponent
     ],
     exports: [
         PagesComponent,
@@ -42,7 +45,8 @@ import { HttpModule } from '@angular/http';
         GaleriaComponent,
         AlojamientoComponent,
         AdministradorComponent,
-        RegistrarComponent
+        RegistrarComponent,
+        ImagenesComponent
     ],
     imports: [
         SharedModule,

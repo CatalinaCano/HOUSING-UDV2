@@ -3,7 +3,6 @@ import { ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
-import swal from 'sweetalert';
 import { RegistrarAlojamientoService, EstudianteService } from '../../../services/service.index';
 import { Alojamiento } from '../../../models/alojamiento.model';
 import { Estudiante } from '../../../models/estudiante.model';
@@ -24,12 +23,13 @@ export class RegistrarComponent implements OnInit {
   public estadoAlojamiento: string = 'Disponible';
   public estadoPublicacionAlojamiento: string = 'En estudio';
   public fechaPublicacionAlojamiento: string;
+  public idEstudiante: string;
+  public idAlojamiento: string;
   public imgSala = null;
   public imgBanio = null;
   public imgCocina = null;
   public imgHabitacion = null;
   public imgFachada = null;
-  public idEstudiante: string;
   forma: FormGroup;
 
   @ViewChild('search')
@@ -112,7 +112,7 @@ export class RegistrarComponent implements OnInit {
       'caminando': new FormControl('', Validators.required),
       'metro': new FormControl('', Validators.required),
       'descripcionAlojamiento': new FormControl('', [Validators.required, Validators.minLength(50)]),
-      'condiciones': new FormControl(false)
+      'condiciones': new FormControl(true)
   });
 
 
@@ -163,56 +163,8 @@ export class RegistrarComponent implements OnInit {
     }
   }
 
-  seleccionImagenHabitacion( archivo: File ) {
-    console.log('tipo inicial ' + typeof(this.imgHabitacion));
-      if (! archivo) {
-        this.imgHabitacion = null;
-        return;
-      }
-    this.imgHabitacion = archivo;
-     console.log(this.imgHabitacion);
-     console.log(typeof(this.imgHabitacion));
-  }
-
-  seleccionImagenBanio(archivo: File) {
-    if (!archivo) {
-      this.imgBanio = null;
-      return;
-    }
-    this.imgBanio = archivo;
-  }
-
-  seleccionImagenCocina(archivo: File) {
-    if (!archivo) {
-      this.imgCocina = null;
-      return;
-    }
-    this.imgCocina = archivo;
-  }
-
-  seleccionImagenFachada(archivo: File) {
-    if (!archivo) {
-      this.imgFachada = null;
-      return;
-    }
-    this.imgFachada = archivo;
-  }
-
-  seleccionImagenSala(archivo: File) {
-    if (!archivo) {
-      this.imgSala = null;
-      return;
-    }
-    this.imgSala = archivo;
-  }
-
   guardarCambios() {
     if (this.forma.invalid) {
-      return;
-    }
-
-    if (!this.forma.value.condiciones) {
-      swal('Importante', 'Debes aceptar las condiciones', 'warning');
       return;
     }
     let alojamiento = new Alojamiento (
@@ -291,19 +243,13 @@ export class RegistrarComponent implements OnInit {
     );
 
     this._registrarAlojamientoService.crearAlojamiento(alojamiento, this.idEstudiante ).subscribe(resp => {
-      console.log(resp.alojamientoGuardado );
-      this.actualizarImagenes(resp.alojamientoGuardado);
+      this.idAlojamiento = resp;
+     // this.actualizarImagenes(resp);
     });
-
-    console.log(this.forma.value);
-    // this.router.navigate(['/inicio']);
+    this.router.navigate(['/imagenes', this.idAlojamiento]);
   }
 
 
-
-  actualizarImagenes(idAlojamiento: string) {
-    console.log (idAlojamiento);
-  }
 
 
 
