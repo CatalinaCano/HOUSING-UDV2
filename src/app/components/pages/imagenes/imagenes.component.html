@@ -1,6 +1,6 @@
 <div class="container-fluid animated fadeInUp jumbotron">
     <h1 class="text-h1">
-        <i class="fa fa-home"></i> Imágenes del Alojamiento </h1>
+        <i class="fa fa-camera"></i> Imágenes del Alojamiento </h1>
     <hr class="my-4">
     <div class="form-group row">
         <legend>
@@ -15,7 +15,7 @@
             <div class="col-lg-6 col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title text-primary">Imágen Habitación </h4>
+                        <h4 class="card-title text-primary"> <i class="fa fa-bed"></i>Imágen Habitación </h4>
                         <label for="input-file-now">Seleciona la imágen de la habitación del estudiante visitante</label>
                         <input (change)="seleccionImagenHabitacion($event.target.files[0])" type="file" id="imgHabitacion" class="dropify" />
                     </div>
@@ -24,7 +24,7 @@
             <div class="col-lg-6 col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title text-primary">Imágen Fachada </h4>
+                        <h4 class="card-title text-primary"> <i class="fa fa-home"></i>Imágen Fachada </h4>
                         <label for="input-file-now">Seleciona la imágen de la Fachada del alojamiento</label>
                         <input (change)="seleccionImagenFachada($event.target.files[0])" type="file" id="imgFachada" class="dropify" />
                     </div>
@@ -36,7 +36,7 @@
             <div class="col-lg-6 col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title text-primary">Imágen Sala </h4>
+                        <h4 class="card-title text-primary"> <i class="fa fa-coffee"></i>Imágen Sala </h4>
                         <label for="input-file-now">Seleciona la imágen de la Sala del alojamiento</label>
                         <input (change)="seleccionImagenSala($event.target.files[0])" type="file" id="imgSala" class="dropify" />
                     </div>
@@ -59,33 +59,31 @@
             <div class="col-lg-6 col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title text-primary">Imágen Baño </h4>
+                        <h4 class="card-title text-primary"> <i class="fa fa-bath"></i> Imágen Baño </h4>
                         <label for="input-file-now">Seleciona la imágen del baño del alojamiento</label>
                         <input (change)="seleccionImagenBanio($event.target.files[0])" type="file" id="imgSala" class="dropify" />
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="condiciones">
-                            <label class="form-check-label" for="gridCheck">Acepta las Condiciones</label>
-                        </div>
 
-                    </div>
-                </div>
-            </div>
         </div>
 
         <hr>
 
         <br>
-        <div class="row">
-            <button (click)="cambiarImagen()" [disabled]="validarCampos()" type="button" class="btn btn-success waves-effect waves-light m-r-10">
+        <div class="form-group row ">
+            <label class="col-2 col-form-label ">&nbsp;</label>
+            <div class="input-group col-md-4 ">
+                <button (click)="cambiarImagen()" [disabled]="validarCampos()" type="button" class="btn btn-success waves-effect waves-light m-r-10">
                     <i class="fa fa-save"></i>
                     Guardar Alojamiento
         </button>
+            </div>
+            <div class="input-group col-md-4 ">
+                <button [(click)="limpiar()" class="btn btn-success text-right ">
+                     <i class="fa fa-eraser"></i> Limpiar
+                </button>
+            </div>
         </div>
 
 

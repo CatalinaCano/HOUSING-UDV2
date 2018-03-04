@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { URL_SERVICIOS } from '../../../config/config';
 import { RegistrarAlojamientoService } from '../../../services/registrar-alojamiento.service';
 import { SubirArchivoService } from '../../../services/subir-archivo.service';
+import swal from 'sweetalert';
 
 
 @Component({
@@ -20,7 +21,6 @@ export class ImagenesComponent implements OnInit {
   constructor(
     public router: Router,
     public route: ActivatedRoute,
-    // public _registrarAlojamientoService: RegistrarAlojamientoService,
     public _subirArchivos: SubirArchivoService
   ) { }
 
@@ -35,14 +35,11 @@ export class ImagenesComponent implements OnInit {
 
 
   seleccionImagenHabitacion(archivo: File) {
-    console.log('tipo inicial ' + typeof (this.imgHabitacion));
     if (!archivo) {
       this.imgHabitacion = null;
       return;
     }
     this.imgHabitacion = archivo;
-    console.log(this.imgHabitacion);
-    console.log(typeof (this.imgHabitacion));
   }
 
   seleccionImagenBanio(archivo: File) {
@@ -75,7 +72,6 @@ export class ImagenesComponent implements OnInit {
       return;
     }
     this.imgSala = archivo;
-    console.log(this.imgSala);
   }
 
 
@@ -88,11 +84,11 @@ export class ImagenesComponent implements OnInit {
   }
 
   cambiarImagen() {
-
   this._subirArchivos.subirArchivo(this.imgSala, this.imgHabitacion, this.imgFachada, this.imgCocina, this.imgBanio, this.idAlojamiento)
     .then( resp => {
         console.log(resp);
       alert('Alojamiento Guardado Con Éxito');
+      swal('Éxito', 'Alojamiento Almacenado con Éxito', 'Success' );
       this.router.navigate(['/inicio']);
     })
     .catch( resp => {

@@ -112,7 +112,7 @@ export class RegistrarComponent implements OnInit {
       'caminando': new FormControl('', Validators.required),
       'metro': new FormControl('', Validators.required),
       'descripcionAlojamiento': new FormControl('', [Validators.required, Validators.minLength(50)]),
-      'condiciones': new FormControl(true)
+      'condiciones': new FormControl('')
   });
 
 
@@ -165,6 +165,11 @@ export class RegistrarComponent implements OnInit {
 
   guardarCambios() {
     if (this.forma.invalid) {
+      return;
+    }
+
+    if (!this.forma.value.codiciones) {
+      swal('Importante', 'Debes aceptar las condiciones', 'warning');
       return;
     }
     let alojamiento = new Alojamiento (
@@ -246,8 +251,12 @@ export class RegistrarComponent implements OnInit {
       this.idAlojamiento = resp;
       this.router.navigate(['/imagenes', this.idAlojamiento]);
     });
+    this.forma.reset();
   }
 
+  limpiar() {
+    this.forma.reset();
+  }
 
 
 
