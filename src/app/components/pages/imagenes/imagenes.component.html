@@ -14,9 +14,10 @@
         <div class="row">
             <div class="col-lg-6 col-md-6">
                 <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title text-primary"> <i class="fa fa-bed"></i>Imágen Habitación </h4>
+                    <div class="card-body" align="center">
+                        <h4 class="card-title text-primary"> <i class="fa fa-bed"></i> Imágen Habitación </h4>
                         <label for="input-file-now">Seleciona la imágen de la habitación del estudiante visitante</label>
+                        <img *ngIf="imgHabitacionTemp" [src]="imgHabitacionTemp" class="w150">
                         <input (change)="seleccionImagenHabitacion($event.target.files[0])" type="file" id="imgHabitacion" class="dropify" />
                     </div>
                 </div>
@@ -24,8 +25,9 @@
             <div class="col-lg-6 col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title text-primary"> <i class="fa fa-home"></i>Imágen Fachada </h4>
+                        <h4 class="card-title text-primary"> <i class="fa fa-home"></i> Imágen Fachada </h4>
                         <label for="input-file-now">Seleciona la imágen de la Fachada del alojamiento</label>
+                        <img *ngIf="imgFachadaTemp" [src]="imgFachadaTemp" class="w150">
                         <input (change)="seleccionImagenFachada($event.target.files[0])" type="file" id="imgFachada" class="dropify" />
                     </div>
                 </div>
@@ -36,8 +38,9 @@
             <div class="col-lg-6 col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title text-primary"> <i class="fa fa-coffee"></i>Imágen Sala </h4>
+                        <h4 class="card-title text-primary"> <i class="fa fa-coffee"></i> Imágen Sala </h4>
                         <label for="input-file-now">Seleciona la imágen de la Sala del alojamiento</label>
+                        <img *ngIf="imgSalaTemp" [src]="imgSalaTemp" class="w150">
                         <input (change)="seleccionImagenSala($event.target.files[0])" type="file" id="imgSala" class="dropify" />
                     </div>
                 </div>
@@ -45,8 +48,9 @@
             <div class="col-lg-6 col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title text-primary">Imágen Cocina </h4>
+                        <h4 class="card-title text-primary"> <i class="fa fa-cutlery"></i> Imágen Cocina </h4>
                         <label for="input-file-now">Seleciona la imágen de la Cocina del alojamiento</label>
+                        <img *ngIf="imgCocinaTemp" [src]="imgCocinaTemp" class="w150">
                         <input (change)="seleccionImagenCocina($event.target.files[0])" type="file" id="imgCocina" class="dropify" />
                     </div>
                 </div>
@@ -61,7 +65,8 @@
                     <div class="card-body">
                         <h4 class="card-title text-primary"> <i class="fa fa-bath"></i> Imágen Baño </h4>
                         <label for="input-file-now">Seleciona la imágen del baño del alojamiento</label>
-                        <input (change)="seleccionImagenBanio($event.target.files[0])" type="file" id="imgSala" class="dropify" />
+                        <img *ngIf="imgBanioTemp" [src]="imgBanioTemp" class="w150">
+                        <input (change)="seleccionImagenBanio($event.target.files[0])" type="file" id="imgBanio" class="dropify" />
                     </div>
                 </div>
             </div>

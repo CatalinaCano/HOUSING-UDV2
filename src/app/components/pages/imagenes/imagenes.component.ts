@@ -18,6 +18,12 @@ export class ImagenesComponent implements OnInit {
   public imgHabitacion: File;
   public imgFachada: File;
 
+  public imgHabitacionTemp: string;
+  public imgSalaTemp: string;
+  public imgCocinaTemp: string;
+  public imgBanioTemp: string;
+  public imgFachadaTemp: string;
+
   constructor(
     public router: Router,
     public route: ActivatedRoute,
@@ -39,40 +45,123 @@ export class ImagenesComponent implements OnInit {
       this.imgHabitacion = null;
       return;
     }
+
+    if (archivo.type.indexOf('image') < 0) {
+        swal('Sólo imágenes', 'El archivo seleccionado para la habitación no es una imagen', 'error');
+      this.imgHabitacion = null;
+      return;
+    }
+
+
     this.imgHabitacion = archivo;
+
+    let reader = new FileReader();
+    let urlImgHabitacionTemp = reader.readAsDataURL(archivo);
+
+    reader.onloadend = () => this.imgHabitacionTemp = reader.result;
   }
+
+
+
 
   seleccionImagenBanio(archivo: File) {
     if (!archivo) {
       this.imgBanio = null;
       return;
     }
+
+    if (archivo.type.indexOf('image') < 0) {
+      swal('Sólo imágenes', 'El archivo seleccionado para el baño no es una imagen', 'error');
+      this.imgBanio = null;
+      return;
+    }
+
     this.imgBanio = archivo;
+
+    let reader = new FileReader();
+    let urlImgBanioTemp = reader.readAsDataURL(archivo);
+
+    reader.onloadend = () => this.imgBanioTemp = reader.result;
   }
+
+
+
+
 
   seleccionImagenCocina(archivo: File) {
     if (!archivo) {
       this.imgCocina = null;
       return;
     }
+
+    if (archivo.type.indexOf('image') < 0) {
+      swal('Sólo imágenes', 'El archivo seleccionado para la cocina no es una imagen', 'error');
+      this.imgCocina = null;
+      return;
+    }
+
+
     this.imgCocina = archivo;
+
+    let reader = new FileReader();
+    let urlImgCocinaTemp = reader.readAsDataURL(archivo);
+
+    reader.onloadend = () => this.imgCocinaTemp = reader.result;
   }
+
+
+
+
 
   seleccionImagenFachada(archivo: File) {
     if (!archivo) {
       this.imgFachada = null;
       return;
     }
+
+    if (archivo.type.indexOf('image') < 0) {
+      swal('Sólo imágenes', 'El archivo seleccionado para la fachada no es una imagen', 'error');
+      this.imgFachada = null;
+      return;
+    }
+
+
     this.imgFachada = archivo;
+
+    let reader = new FileReader();
+    let urlImgFachadaTemp = reader.readAsDataURL(archivo);
+
+    reader.onloadend = () => this.imgFachadaTemp = reader.result;
   }
+
+
+
+
 
   seleccionImagenSala(archivo: File) {
     if (!archivo) {
       this.imgSala = null;
       return;
     }
+
+    if (archivo.type.indexOf('image') < 0) {
+      swal('Sólo imágenes', 'El archivo seleccionado para la sala no es una imagen', 'error');
+      this.imgSala = null;
+      return;
+    }
+
+
     this.imgSala = archivo;
+
+    let reader = new FileReader();
+    let urlImgSalaTemp = reader.readAsDataURL(archivo);
+
+    reader.onloadend = () => this.imgSalaTemp = reader.result;
   }
+
+
+
+
 
 
   validarCampos() {
