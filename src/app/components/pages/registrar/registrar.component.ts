@@ -44,8 +44,8 @@ export class RegistrarComponent implements OnInit {
   ngOnInit(): void {
     let fecha = new Date();
     this.fechaPublicacionAlojamiento = fecha.toString();
-  // Validar campos
 
+    console.log('fecha en oninit ' + this.fechaPublicacionAlojamiento);
   this.forma = new FormGroup({
       'tipoVivienda': new FormControl('', Validators.required),
       'tipoHabitacion': new FormControl('', Validators.required),
@@ -109,13 +109,6 @@ export class RegistrarComponent implements OnInit {
       'metro': new FormControl('', Validators.required),
       'descripcionAlojamiento': new FormControl('', [Validators.required, Validators.minLength(50)]),
       'condiciones': new FormControl(false)
-      /*
-      'imgHabitacion': new FormControl(false ),
-      'imgFachada': new FormControl(false),
-      'imgSala': new FormControl(false),
-      'imgCocina': new FormControl(false),
-      'imgBanio': new FormControl(false),
-      */
   });
 
 
@@ -175,7 +168,6 @@ export class RegistrarComponent implements OnInit {
       swal('Importante', 'Debes aceptar las condiciones', 'warning');
       return;
     }
-
     let alojamiento = new Alojamiento (
       this.estudiante,
       this.forma.value.tipoVivienda,
@@ -248,12 +240,7 @@ export class RegistrarComponent implements OnInit {
       this.forma.value.accesoSala,
       this.forma.value.habitosAlimenticios,
       this.forma.value.consumoDrogas,
-      this.forma.value.consumoAlcohol,
-            /* this.forma.value.imgFachada,
-      this.forma.value.imgSala,
-      this.forma.value.imgCocina,
-      this.forma.value.imgBanio,
-      this.forma.value.condiciones,*/
+      this.forma.value.consumoAlcohol
     );
 
     this._registrarAlojamientoService.crearAlojamiento(alojamiento).subscribe(resp => {
