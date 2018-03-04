@@ -6,12 +6,16 @@ export class SubirArchivoService {
 
   constructor() { }
 
-  subirArchivo(archivo: File, idAlojamiento: string ) {
+  subirArchivo(imgSala: File, imgHabitacion: File, imgFachada: File, imgCocina: File, imgBanio: File,  idAlojamiento: string ) {
     return new Promise ((resolve, reject) => {
       let formData = new FormData();
       let xhr = new XMLHttpRequest();
 
-      formData.append('imgSala', archivo, archivo.name);
+      formData.append('imgSala', imgSala, imgSala.name);
+      formData.append('imgHabitacion', imgHabitacion, imgHabitacion.name);
+      formData.append('imgFachada', imgFachada, imgFachada.name);
+      formData.append('imgCocina', imgCocina, imgCocina.name);
+      formData.append('imgBanio', imgBanio, imgBanio.name);
 
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {

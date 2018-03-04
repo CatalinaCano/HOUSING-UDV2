@@ -32,17 +32,8 @@ export class ImagenesComponent implements OnInit {
       });
   }
 
-  seleccionImagenHabitacion(archivo: File) {
-    console.log('tipo inicial ' + typeof (this.imgHabitacion));
-    if (!archivo) {
-      this.imgHabitacion = null;
-      return;
-    }
-    this.imgHabitacion = archivo;
-    console.log(this.imgHabitacion);
-    console.log(typeof (this.imgHabitacion));
-  }
-/*
+
+
   seleccionImagenHabitacion(archivo: File) {
     console.log('tipo inicial ' + typeof (this.imgHabitacion));
     if (!archivo) {
@@ -76,7 +67,7 @@ export class ImagenesComponent implements OnInit {
       return;
     }
     this.imgFachada = archivo;
-  }*/
+  }
 
   seleccionImagenSala(archivo: File) {
     if (!archivo) {
@@ -93,7 +84,7 @@ export class ImagenesComponent implements OnInit {
   console.log('sala es' + this.imgSala);
   console.log('ID ES' + this.idAlojamiento);
 
-  this._subirArchivos.subirArchivo(this.imgHabitacion, this.idAlojamiento)
+  this._subirArchivos.subirArchivo(this.imgSala, this.imgHabitacion, this.imgFachada, this.imgCocina, this.imgBanio, this.idAlojamiento)
     .then( resp => {
         console.log(resp);
     })

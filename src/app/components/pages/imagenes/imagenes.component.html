@@ -8,21 +8,7 @@
         <div class="alert alert-danger " role="alert ">
             <strong>Atención!</strong> por favor sube las fotos de tu alojamiento, en el orden que se específica
         </div>
-        <!--
-        <div class="row ">
-            <label for="imgHabitacion" class="col-lg-4 control-label"> Habitación del Estudiante Visitante </label>
-            <div class="col-lg-8">
-                <input (change)="seleccionImagenHabitacion($event.target.files[0])" type="file" class="form-control-file" id="imgHabitacion" required>
 
-            </div>
-        </div>
-
-        <div class="row ">
-            <label for="imgFachada" class="col-lg-4 control-label"> Fachada del Alojamiento </label>
-            <div class="col-lg-8">
-                <input (change)="seleccionImagenFachada($event.target.files[0])" type="file" class="form-control-file" id="imgFachada" required>
-            </div>
-        </div>-->
 
 
         <div class="row">
@@ -40,7 +26,7 @@
                     <div class="card-body">
                         <h4 class="card-title text-primary">Imágen Fachada </h4>
                         <label for="input-file-now">Seleciona la imágen de la Fachada del alojamiento</label>
-                        <input type="file" id="input-file-now" class="dropify" />
+                        <input (change)="seleccionImagenFachada($event.target.files[0])" type="file" id="imgFachada" class="dropify" />
                     </div>
                 </div>
             </div>
@@ -52,7 +38,7 @@
                     <div class="card-body">
                         <h4 class="card-title text-primary">Imágen Sala </h4>
                         <label for="input-file-now">Seleciona la imágen de la Sala del alojamiento</label>
-                        <input type="file" id="input-file-now" class="dropify" />
+                        <input (change)="seleccionImagenSala($event.target.files[0])" type="file" id="imgSala" class="dropify" />
                     </div>
                 </div>
             </div>
@@ -61,58 +47,48 @@
                     <div class="card-body">
                         <h4 class="card-title text-primary">Imágen Cocina </h4>
                         <label for="input-file-now">Seleciona la imágen de la Cocina del alojamiento</label>
-                        <input type="file" id="input-file-now" class="dropify" />
+                        <input (change)="seleccionImagenCocina($event.target.files[0])" type="file" id="imgCocina" class="dropify" />
                     </div>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title text-primary">Imágen Baño </h4>
-                            <label for="input-file-now">Seleciona la imágen del  baño del alojamiento</label>
-                            <input type="file" id="input-file-now" class="dropify" />
-                        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title text-primary">Imágen Baño </h4>
+                        <label for="input-file-now">Seleciona la imágen del baño del alojamiento</label>
+                        <input (change)="seleccionImagenBanio($event.target.files[0])" type="file" id="imgSala" class="dropify" />
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="row ">
-            <label for="imgSala" class="col-lg-4 control-label"> Sala del Alojamiento </label>
-            <div class="col-lg-8 ">
-                <input (change)="seleccionImagenSala($event.target.files[0])" type="file" class="form-control-file" id="imgSala" required>
-            </div>
-        </div>-->
-
-            <!--
-        <div class="row ">
-            <label for="imgCocina" class="col-lg-4 control-label"> Cocina del Alojamiento </label>
-            <div class="col-lg-8 ">
-                <input (change)="seleccionImagenCocina($event.target.files[0])" type="file" class="form-control-file" id="imgCocina" required>
+            <div class="col-lg-6 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title text-primary">Imágen Cocina </h4>
+                        <label for="input-file-now">Seleciona la imágen de la Cocina del alojamiento</label>
+                        <input (change)="seleccionImagenCocina($event.target.files[0])" type="file" id="imgCocina" class="dropify" />
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="row ">
-            <label for="imgBanio " class="col-lg-4 control-label"> Baño del Alojamiento </label>
-            <div class="col-lg-8 ">
-                <input (change)="seleccionImagenBanio($event.target.files[0])" type="file" class="form-control-file" id="imgBanio" required>
-            </div>
-        </div>
         <hr>
         <div class="form-group">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="condiciones">
                 <label class="form-check-label" for="gridCheck">Acepta las Condiciones</label>
             </div>
-        </div>-->
-            <div class="form-group row ">
+        </div>
 
-                <button (click)="cambiarImagen()" [disabled]="!imgHabitacion" type="button" class="btn btn-success waves-effect waves-light m-r-10">
+
+        <button (click)="cambiarImagen()" [disabled]="!imgHabitacion && !imgFachada && !imgCocina && !imgBanio && !imgSala" type="button" class="btn btn-success waves-effect waves-light m-r-10">
                     <i class="fa fa-save"></i>
                     Actualizar Foto
-                  </button>
-            </div>
-        </div>
+        </button>
+
     </div>
+</div>
