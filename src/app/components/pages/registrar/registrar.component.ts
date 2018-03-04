@@ -244,9 +244,8 @@ export class RegistrarComponent implements OnInit {
 
     this._registrarAlojamientoService.crearAlojamiento(alojamiento, this.idEstudiante ).subscribe(resp => {
       this.idAlojamiento = resp;
-     // this.actualizarImagenes(resp);
+      this.router.navigate(['/imagenes', this.idAlojamiento]);
     });
-    this.router.navigate(['/imagenes', this.idAlojamiento]);
   }
 
 

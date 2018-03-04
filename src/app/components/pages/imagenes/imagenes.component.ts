@@ -31,6 +31,17 @@ export class ImagenesComponent implements OnInit {
         console.log('parametros del imagenes component' + this.idAlojamiento);
       });
   }
+
+  seleccionImagenHabitacion(archivo: File) {
+    console.log('tipo inicial ' + typeof (this.imgHabitacion));
+    if (!archivo) {
+      this.imgHabitacion = null;
+      return;
+    }
+    this.imgHabitacion = archivo;
+    console.log(this.imgHabitacion);
+    console.log(typeof (this.imgHabitacion));
+  }
 /*
   seleccionImagenHabitacion(archivo: File) {
     console.log('tipo inicial ' + typeof (this.imgHabitacion));
@@ -82,7 +93,7 @@ export class ImagenesComponent implements OnInit {
   console.log('sala es' + this.imgSala);
   console.log('ID ES' + this.idAlojamiento);
 
-  this._subirArchivos.subirArchivo(this.imgSala, this.idAlojamiento)
+  this._subirArchivos.subirArchivo(this.imgHabitacion, this.idAlojamiento)
     .then( resp => {
         console.log(resp);
     })
