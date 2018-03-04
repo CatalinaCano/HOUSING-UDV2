@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { URL_SERVICIOS } from '../../../config/config';
+import { RegistrarAlojamientoService } from '../../../services/registrar-alojamiento.service';
+import { SubirArchivoService } from '../../../services/subir-archivo.service';
+
 
 @Component({
   selector: 'imagenes',
@@ -7,15 +11,17 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ImagenesComponent implements OnInit {
   public idAlojamiento: string;
-  public imgSala = null;
-  public imgBanio = null;
-  public imgCocina = null;
-  public imgHabitacion = null;
-  public imgFachada = null;
+  public imgSala: File;
+  public imgBanio: File;
+  public imgCocina: File;
+  public imgHabitacion: File;
+  public imgFachada: File;
 
   constructor(
     public router: Router,
     public route: ActivatedRoute,
+    // public _registrarAlojamientoService: RegistrarAlojamientoService,
+    public _subirArchivos: SubirArchivoService
   ) { }
 
   ngOnInit() {
@@ -23,13 +29,9 @@ export class ImagenesComponent implements OnInit {
       .subscribe(parametros => {
         this.idAlojamiento = parametros['id'];
         console.log('parametros del imagenes component' + this.idAlojamiento);
-         // this._condorService.obtenerUsuarioCondor(this.id)
-           // .subscribe(res => {
-             // this.usuarioCondor = res.json();
-            // }, error => console.log(error));
       });
   }
-
+/*
   seleccionImagenHabitacion(archivo: File) {
     console.log('tipo inicial ' + typeof (this.imgHabitacion));
     if (!archivo) {
@@ -63,7 +65,7 @@ export class ImagenesComponent implements OnInit {
       return;
     }
     this.imgFachada = archivo;
-  }
+  }*/
 
   seleccionImagenSala(archivo: File) {
     if (!archivo) {
@@ -71,11 +73,22 @@ export class ImagenesComponent implements OnInit {
       return;
     }
     this.imgSala = archivo;
+    console.log(this.imgSala);
   }
 
 
-  guardarCambios() {
+  cambiarImagen() {
+  console.log('llego a cambiar imagen');
+  console.log('sala es' + this.imgSala);
+  console.log('ID ES' + this.idAlojamiento);
 
+  this._subirArchivos.subirArchivo(this.imgSala, this.idAlojamiento)
+    .then( resp => {
+        console.log(resp);
+    })
+    .catch( resp => {
+      console.log(resp);
+    });
   }
 
 }

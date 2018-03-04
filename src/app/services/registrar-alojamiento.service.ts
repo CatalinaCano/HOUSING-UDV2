@@ -3,6 +3,7 @@ import { Alojamiento } from '../models/alojamiento.model';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../config/config';
 import 'rxjs/add/operator/map';
+import swal from 'sweetalert';
 
 @Injectable()
 export class RegistrarAlojamientoService {
@@ -23,4 +24,13 @@ export class RegistrarAlojamientoService {
        return resp.alojamientoGuardado;
      });
   }
+
+  /*actualizarImagenes(idAlojamiento) {
+    console.log(idAlojamiento + 'id del alojamiento a actualizar');
+    let url = URL_SERVICIOS + '/alojamiento' + '/' + idAlojamiento;
+    return this.http.put(url, idAlojamiento).map((resp: any) => {
+        swal('Alojamiento Guardado con Éxito', 'Se actualizo la BD', 'success' );
+        return true;
+    });
+  }*/
 }
