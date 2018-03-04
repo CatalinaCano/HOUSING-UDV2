@@ -920,6 +920,7 @@
                 </div>
             </div>
         </div>
+        <!--
         <hr>
         <legend>
             <i class="fa fa-camera text-warning "></i> Espacios del Alojamiento</legend>
@@ -930,38 +931,39 @@
         <div class="row ">
             <label for="imgHabitacion" class="col-lg-4 control-label"> Habitación del Estudiante Visitante </label>
             <div class="col-lg-8">
-                <input type="file" class="form-control-file" id="imgHabitacion" required>
+                <input (change)="seleccionImagenHabitacion($event.target.files[0])" type="file" class="form-control-file" id="imgHabitacion" required>
+
             </div>
         </div>
 
         <div class="row ">
             <label for="imgFachada" class="col-lg-4 control-label"> Fachada del Alojamiento </label>
             <div class="col-lg-8">
-                <!-- <input type="file" class="form-control-file " id="imgFachada" formControlName="imgFachada">-->
+                <input (change)="seleccionImagenFachada($event.target.files[0])" type="file" class="form-control-file" id="imgFachada" required>
             </div>
         </div>
 
         <div class="row ">
-            <label for="imgSala " class="col-lg-4 control-label"> Sala del Alojamiento </label>
+            <label for="imgSala" class="col-lg-4 control-label"> Sala del Alojamiento </label>
             <div class="col-lg-8 ">
-                <!-- <input type="file" class="form-control-file " id="imgSala " formControlName="imgSala">-->
-
+                <input (change)="seleccionImagenSala($event.target.files[0])" type="file" class="form-control-file" id="imgSala" required>
             </div>
         </div>
 
+
         <div class="row ">
-            <label for="imgCocina " class="col-lg-4 control-label"> Cocina del Alojamiento </label>
+            <label for="imgCocina" class="col-lg-4 control-label"> Cocina del Alojamiento </label>
             <div class="col-lg-8 ">
-                <!--  <input type="file" class="form-control-file " id="imgCocina " formControlName="imgCocina">-->
+                <input (change)="seleccionImagenCocina($event.target.files[0])" type="file" class="form-control-file" id="imgCocina" required>
             </div>
         </div>
 
         <div class="row ">
             <label for="imgBanio " class="col-lg-4 control-label"> Baño del Alojamiento </label>
             <div class="col-lg-8 ">
-                <!-- <input type="file" class="form-control-file " id="imgBanio " formControlName="imgBanio">-->
+                <input (change)="seleccionImagenBanio($event.target.files[0])" type="file" class="form-control-file" id="imgBanio" required>
             </div>
-        </div>
+        </div>-->
         <div class="form-group">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="condiciones" formControlName="condiciones">

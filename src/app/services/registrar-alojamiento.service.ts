@@ -12,8 +12,9 @@ export class RegistrarAlojamientoService {
     console.log('Listos para registrar alojamiento');
   }
 
-  crearAlojamiento(alojamiento: Alojamiento) {
-    let url = URL_SERVICIOS + '/alojamiento/5a807710de7c1e0afa523d87';
+  crearAlojamiento(alojamiento: Alojamiento, id) {
+    console.log('se regustra alojamiento con id:' + id);
+    let url = URL_SERVICIOS + '/alojamiento' + id;
     return this.http.post( url , alojamiento)
      .map((resp: any ) => {
        swal('Registro Exitoso', 'El registro se ha almacenado con éxito', 'success');

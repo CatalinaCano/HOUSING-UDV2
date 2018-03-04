@@ -4,7 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
 import swal from 'sweetalert';
-import { RegistrarAlojamientoService } from '../../../services/service.index';
+import { RegistrarAlojamientoService, EstudianteService } from '../../../services/service.index';
 import { Alojamiento } from '../../../models/alojamiento.model';
 import { Estudiante } from '../../../models/estudiante.model';
 import { Router } from '@angular/router';
@@ -24,11 +24,12 @@ export class RegistrarComponent implements OnInit {
   public estadoAlojamiento: string = 'Disponible';
   public estadoPublicacionAlojamiento: string = 'En estudio';
   public fechaPublicacionAlojamiento: string;
-  public imgSala: File;
-  public imgBanio: File;
-  public imgCocina: File;
-  public imgHabitacion: File;
-  public imgFachada: File;
+  public imgSala = null;
+  public imgBanio = null;
+  public imgCocina = null;
+  public imgHabitacion = null;
+  public imgFachada = null;
+  public idEstudiante: string;
   forma: FormGroup;
 
   @ViewChild('search')
@@ -38,12 +39,15 @@ export class RegistrarComponent implements OnInit {
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
     public _registrarAlojamientoService: RegistrarAlojamientoService,
+    public _estudianteService: EstudianteService,
     public router: Router
   ) { }
 
   ngOnInit(): void {
     let fecha = new Date();
     this.fechaPublicacionAlojamiento = fecha.toString();
+    this.estudiante = this._estudianteService.obtenerStorage();
+    this.idEstudiante = this.estudiante._id;
 
     console.log('fecha en oninit ' + this.fechaPublicacionAlojamiento);
   this.forma = new FormGroup({
@@ -159,6 +163,49 @@ export class RegistrarComponent implements OnInit {
     }
   }
 
+  seleccionImagenHabitacion( archivo: File ) {
+    console.log('tipo inicial ' + typeof(this.imgHabitacion));
+      if (! archivo) {
+        this.imgHabitacion = null;
+        return;
+      }
+    this.imgHabitacion = archivo;
+     console.log(this.imgHabitacion);
+     console.log(typeof(this.imgHabitacion));
+  }
+
+  seleccionImagenBanio(archivo: File) {
+    if (!archivo) {
+      this.imgBanio = null;
+      return;
+    }
+    this.imgBanio = archivo;
+  }
+
+  seleccionImagenCocina(archivo: File) {
+    if (!archivo) {
+      this.imgCocina = null;
+      return;
+    }
+    this.imgCocina = archivo;
+  }
+
+  seleccionImagenFachada(archivo: File) {
+    if (!archivo) {
+      this.imgFachada = null;
+      return;
+    }
+    this.imgFachada = archivo;
+  }
+
+  seleccionImagenSala(archivo: File) {
+    if (!archivo) {
+      this.imgSala = null;
+      return;
+    }
+    this.imgSala = archivo;
+  }
+
   guardarCambios() {
     if (this.forma.invalid) {
       return;
@@ -243,14 +290,20 @@ export class RegistrarComponent implements OnInit {
       this.forma.value.consumoAlcohol
     );
 
-    this._registrarAlojamientoService.crearAlojamiento(alojamiento).subscribe(resp => {
-              console.log(resp );
+    this._registrarAlojamientoService.crearAlojamiento(alojamiento, this.idEstudiante ).subscribe(resp => {
+      console.log(resp.alojamientoGuardado );
+      this.actualizarImagenes(resp.alojamientoGuardado);
     });
 
     console.log(this.forma.value);
-    this.router.navigate(['/inicio']);
+    // this.router.navigate(['/inicio']);
   }
 
+
+
+  actualizarImagenes(idAlojamiento: string) {
+    console.log (idAlojamiento);
+  }
 
 
 

@@ -9,7 +9,7 @@ export class Alojamiento {
         public tipoHabitacion: string,
         public clasificacionAlojamiento: string,
         public estadoAlojamiento:  string= 'Disponible',
-        public estadoPublicacionAlojamient: string= 'En estudio',
+        public estadoPublicacionAlojamiento: string= 'En estudio',
         public fechaPublicacionAlojamiento: string,
         public sedeCercana: string,
         public hospedanA: string,
