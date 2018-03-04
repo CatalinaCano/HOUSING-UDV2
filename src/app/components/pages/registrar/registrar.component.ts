@@ -44,8 +44,7 @@ export class RegistrarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    let fecha = new Date();
-    this.fechaPublicacionAlojamiento = fecha.toString();
+    this.fechaPublicacionAlojamiento = this.asignarFecha();
     this.estudiante = this._estudianteService.obtenerStorage();
     this.idEstudiante = this.estudiante._id;
 
@@ -112,7 +111,7 @@ export class RegistrarComponent implements OnInit {
       'caminando': new FormControl('', Validators.required),
       'metro': new FormControl('', Validators.required),
       'descripcionAlojamiento': new FormControl('', [Validators.required, Validators.minLength(50)]),
-      'condiciones': new FormControl('')
+      'condiciones': new FormControl(false)
   });
 
 
@@ -258,6 +257,24 @@ export class RegistrarComponent implements OnInit {
     this.forma.reset();
   }
 
+  asignarFecha() {
+
+    let fecha = new Date();
+    let dd = fecha.getDate();
+    let mm = fecha.getMonth() + 1;
+    let dia;
+    let mes;
+    let yyyy = fecha.getFullYear();
+    if (dd < 10) {
+      dia = '0' + dd;
+    }
+    if (mm < 10) {
+      mes = '0' + mm;
+    }
+    let today = dia + '/' + mes + '/' + yyyy;
+    return today;
+
+  }
 
 
 
