@@ -17,11 +17,18 @@ import { Router } from '@angular/router';
 })
 export class RegistrarComponent implements OnInit {
   public estudiante: Estudiante;
-  public latitude: number;
-  public longitude: number;
+  public latitud: number;
+  public longitud: number;
   public searchControl: FormControl;
   public zoom: number;
-
+  public estadoAlojamiento: string = 'Disponible';
+  public estadoPublicacionAlojamiento: string = 'En estudio';
+  public fechaPublicacionAlojamiento: string;
+  public imgSala: File;
+  public imgBanio: File;
+  public imgCocina: File;
+  public imgHabitacion: File;
+  public imgFachada: File;
   forma: FormGroup;
 
   @ViewChild('search')
@@ -35,10 +42,13 @@ export class RegistrarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    let fecha = new Date();
+    this.fechaPublicacionAlojamiento = fecha.toString();
   // Validar campos
 
   this.forma = new FormGroup({
       'tipoVivienda': new FormControl('', Validators.required),
+      'tipoHabitacion': new FormControl('', Validators.required),
       'clasificacionAlojamiento': new FormControl ('', Validators.required),
       'hospedanA': new FormControl('', Validators.required),
       'sedeCercana': new FormControl('', Validators.required),
@@ -90,27 +100,29 @@ export class RegistrarComponent implements OnInit {
       'parques': new FormControl('', Validators.required),
       'zonasComerciales': new FormControl('', Validators.required),
       'zonasCulturales': new FormControl('', Validators.required),
-      'gimnasios': new FormControl('', Validators.required),
+      'gimnasio': new FormControl('', Validators.required),
       'publico': new FormControl('', Validators.required),
       'uber': new FormControl('', Validators.required),
       'bicicleta': new FormControl('', Validators.required),
       'taxi': new FormControl('', Validators.required),
       'caminando': new FormControl('', Validators.required),
       'metro': new FormControl('', Validators.required),
-       'imgHabitacion': new FormControl(false ),
+      'descripcionAlojamiento': new FormControl('', [Validators.required, Validators.minLength(50)]),
+      'condiciones': new FormControl(false)
+      /*
+      'imgHabitacion': new FormControl(false ),
       'imgFachada': new FormControl(false),
       'imgSala': new FormControl(false),
       'imgCocina': new FormControl(false),
       'imgBanio': new FormControl(false),
-      'descripcionAlojamiento': new FormControl('', [Validators.required, Validators.minLength(50)]),
-      'condiciones': new FormControl(false)
+      */
   });
 
 
     // Coordenas del mapa por defecto
     this.zoom = 4;
-    this.latitude = 39.8282;
-    this.longitude = -98.5795;
+    this.latitud = 39.8282;
+    this.longitud = -98.5795;
 
     //  Crear el FormControl
     this.searchControl = new FormControl('', Validators.required);
@@ -134,8 +146,8 @@ export class RegistrarComponent implements OnInit {
           }
 
           // set latitude, longitude and zoom
-          this.latitude = place.geometry.location.lat();
-          this.longitude = place.geometry.location.lng();
+          this.latitud = place.geometry.location.lat();
+          this.longitud = place.geometry.location.lng();
           this.zoom = 12;
         });
       });
@@ -145,10 +157,10 @@ export class RegistrarComponent implements OnInit {
    setCurrentPosition() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = position.coords.latitude;
-        console.log('LAT: ' + this.latitude);
-        console.log('LON: ' + this.longitude);
-        this.longitude = position.coords.longitude;
+        this.latitud = position.coords.latitude;
+        console.log('LAT: ' + this.latitud);
+        console.log('LON: ' + this.longitud);
+        this.longitud = position.coords.longitude;
         this.zoom = 12;
       });
     }
@@ -167,21 +179,48 @@ export class RegistrarComponent implements OnInit {
     let alojamiento = new Alojamiento (
       this.estudiante,
       this.forma.value.tipoVivienda,
+      this.forma.value.descripcionAlojamiento,
+      this.forma.value.tipoHabitacion,
       this.forma.value.clasificacionAlojamiento,
-      this.forma.value.hospedanA,
+      this.estadoAlojamiento,
+      this.estadoPublicacionAlojamiento,
+      this.fechaPublicacionAlojamiento,
       this.forma.value.sedeCercana,
+      this.forma.value.hospedanA,
+      this.latitud,
+      this.longitud,
       this.forma.value.zona,
-      this.forma.value.numeroHabitaciones,
-      this.forma.value.cantidadBanios,
-      this.forma.value.accesoCocina,
-      this.forma.value.espacioEstudio,
-      this.forma.value.sePermiteFumar,
-      this.forma.value.espacioAireLibre,
-      this.forma.value.accesoSala,
+      this.imgSala,
+      this.imgBanio,
+      this.imgCocina,
+      this.imgHabitacion,
+      this.imgFachada,
       this.forma.value.habitaMascota,
-      this.forma.value.tipoCama,
-      this.forma.value.banioPrivado,
-      this.forma.value.guardaRopa,
+      this.forma.value.horaLlegada,
+      this.forma.value.franjaLlegada,
+      this.forma.value.accesoOtrasPersonas,
+      this.forma.value.fiestasEventos,
+      this.forma.value.nivelVolumen,
+      this.forma.value.ritosExorcismosOrgias,
+      this.forma.value.permiteConsumoAlcohol,
+      this.forma.value.permiteConsumoDrogas,
+      this.forma.value.publico,
+      this.forma.value.bicicleta,
+      this.forma.value.taxi,
+      this.forma.value.caminando,
+      this.forma.value.metro,
+      this.forma.value.uber,
+      this.forma.value.centrosComerciales,
+      this.forma.value.museos,
+      this.forma.value.restaurantes,
+      this.forma.value.bares,
+      this.forma.value.iglesias,
+      this.forma.value.hospitales,
+      this.forma.value.teatros,
+      this.forma.value.parques,
+      this.forma.value.zonasComerciales,
+      this.forma.value.zonasCulturales,
+      this.forma.value.gimnasio,
       this.forma.value.internet,
       this.forma.value.computador,
       this.forma.value.television,
@@ -195,43 +234,26 @@ export class RegistrarComponent implements OnInit {
       this.forma.value.lavadora,
       this.forma.value.accesoLlaves,
       this.forma.value.electrodomésticos,
-      this.forma.value.alarma,
+      this.forma.value.banioPrivado,
+      this.forma.value.tipoCama,
       this.forma.value.electrodomésticosDeCocina,
+      this.forma.value.alarma,
+      this.forma.value.guardaRopa,
+      this.forma.value.numeroHabitaciones,
+      this.forma.value.cantidadBanios,
+      this.forma.value.accesoCocina,
+      this.forma.value.espacioEstudio,
+      this.forma.value.sePermiteFumar,
+      this.forma.value.espacioAireLibre,
+      this.forma.value.accesoSala,
       this.forma.value.habitosAlimenticios,
       this.forma.value.consumoDrogas,
       this.forma.value.consumoAlcohol,
-      this.forma.value.horaLlegada,
-      this.forma.value.franjaLlegada,
-      this.forma.value.accesoOtrasPersonas,
-      this.forma.value.fiestasEventos,
-      this.forma.value.nivelVolumen,
-      this.forma.value.ritosExorcismosOrgias,
-      this.forma.value.permiteConsumoAlcohol,
-      this.forma.value.permiteConsumoDrogas,
-      this.forma.value.centrosComerciales,
-      this.forma.value.museos,
-      this.forma.value.restaurantes,
-      this.forma.value.bares,
-      this.forma.value.iglesias,
-      this.forma.value.hospitales,
-      this.forma.value.teatros,
-      this.forma.value.parques,
-      this.forma.value.zonasComerciales,
-      this.forma.value.zonasCulturales,
-      this.forma.value.gimnasios,
-      this.forma.value.publico,
-      this.forma.value.uber,
-      this.forma.value.bicicleta,
-      this.forma.value.taxi,
-      this.forma.value.caminando,
-      this.forma.value.metro,
-      this.forma.value.imgHabitacion,
-      this.forma.value.imgFachada,
+            /* this.forma.value.imgFachada,
       this.forma.value.imgSala,
       this.forma.value.imgCocina,
       this.forma.value.imgBanio,
-      this.forma.value.descripcionAlojamiento,
-      this.forma.value.condiciones,
+      this.forma.value.condiciones,*/
     );
 
     this._registrarAlojamientoService.crearAlojamiento(alojamiento).subscribe(resp => {

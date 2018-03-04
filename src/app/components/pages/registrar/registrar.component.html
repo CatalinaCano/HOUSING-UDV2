@@ -12,8 +12,8 @@
 
         <input class="col-lg-12" placeholder="Ejemplo: Colombia,Bogotá,Calle 123" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
     </div>
-    <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+    <agm-map [latitude]="latitud" [longitude]="longitud" [scrollwheel]="false" [zoom]="zoom">
+        <agm-marker [latitude]="latitud" [longitude]="longitud"></agm-marker>
     </agm-map>
 
     <br>
@@ -94,139 +94,157 @@
             </div>
             <br>
             <div class="row ">
-                <label for="zona " class="col-lg-6 control-label ">¿En que zona se encuentra ubicado el alojamiento? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('zona').valid}">
+                <label for="zona " class="col-lg-4 control-label ">¿En que zona se encuentra ubicado el alojamiento? </label>
+                <div class="col-lg-2 " [ngClass]="{'alert alert-danger':!forma.get('zona').valid}">
                     <select class="form-control " id="zona " required formControlName="zona">
-                            <option>Centro</option>
-                            <option>Sur</option>
-                            <option>Norte</option>
-                            <option>Oriente</option>
-                            <option>Occidente</option>
-                    </select>
+                        <option>Centro</option>
+                        <option>Sur</option>
+                        <option>Norte</option>
+                        <option>Oriente</option>
+                        <option>Occidente</option>
+                     </select>
                     <div *ngIf="!forma.controls['zona'].valid " class="form-control-feedback ">
                         <small>*Obligatorio</small>
                     </div>
                 </div>
-            </div>
-            <hr>
-            <legend> <i class="fa fa-i-cursor text-success "></i> Descripción del Alojamiento</legend>
-            <div class="row " [ngClass]="{'alert alert-danger':!forma.get('descripcionAlojamiento').valid}">
-                <div class="col-lg-12 ">
-                    <div class="form-group ">
-                        <textarea class="form-control " rows="3 " required formControlName="descripcionAlojamiento"></textarea>
+                <label for="tipoHabitacion" class="col-lg-2 control-label ">Tipo de Habitación</label>
+                <div class="col-lg-4 " [ngClass]="{'alert alert-danger':!forma.get('tipoHabitacion').valid}">
+                    <select class="form-control " id="tipoHabitacion " required formControlName="tipoHabitacion">
+                        <option>Individual</option>
+                        <option>Compartida</option>
+                        <option>Otra</option>
+                    </select>
+                    <div *ngIf="!forma.controls['tipoHabitacion'].valid " class="form-control-feedback ">
+                        <small>*Obligatorio</small>
                     </div>
                 </div>
-                <div *ngIf="forma.controls[ 'descripcionAlojamiento'].errors?.required" class="form-control-feedback">
-                    <small> El tipo de alojamiento es requerido</small>
-                </div>
-                <div *ngIf="forma.controls[ 'descripcionAlojamiento'].errors?.minlength" class="form-control-feedback">
-                    <small>La descripción de contener mínimo 50 caractéres</small>
+
+
+            </div>
+
+
+        </div>
+
+
+        <hr>
+        <legend> <i class="fa fa-i-cursor text-success "></i> Descripción del Alojamiento</legend>
+        <div class="row " [ngClass]="{'alert alert-danger':!forma.get('descripcionAlojamiento').valid}">
+            <div class="col-lg-12 ">
+                <div class="form-group ">
+                    <textarea class="form-control " rows="3 " required formControlName="descripcionAlojamiento"></textarea>
                 </div>
             </div>
-            <hr>
-            <legend>
-                <i class="fa fa-home text-primary "></i> Componentes del Alojamiento</legend>
-            <div class="row ">
-                <label for="numeroHabitaciones " class="col-lg-6 control-label ">¿Cuantas habitaciones posee el alojamiento? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('numeroHabitaciones').valid}">
-                    <select class="form-control " id="numeroHabitaciones " required formControlName="numeroHabitaciones">
+            <div *ngIf="forma.controls[ 'descripcionAlojamiento'].errors?.required" class="form-control-feedback">
+                <small> El tipo de alojamiento es requerido</small>
+            </div>
+            <div *ngIf="forma.controls[ 'descripcionAlojamiento'].errors?.minlength" class="form-control-feedback">
+                <small>La descripción de contener mínimo 50 caractéres</small>
+            </div>
+        </div>
+        <hr>
+        <legend>
+            <i class="fa fa-home text-primary "></i> Componentes del Alojamiento</legend>
+        <div class="row ">
+            <label for="numeroHabitaciones " class="col-lg-6 control-label ">¿Cuantas habitaciones posee el alojamiento? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('numeroHabitaciones').valid}">
+                <select class="form-control " id="numeroHabitaciones " required formControlName="numeroHabitaciones">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
                         <option>5</option>
                     </select>
-                    <div *ngIf="!forma.controls['numeroHabitaciones'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['numeroHabitaciones'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
-            <br>
-            <div class="row ">
-                <label for="cantidadBanios " class="col-lg-6 control-label ">¿Cuantos baños posee el alojamiento? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('cantidadBanios').valid}">
-                    <select class="form-control " id="cantidadBanios " required formControlName="cantidadBanios">
+        </div>
+        <br>
+        <div class="row ">
+            <label for="cantidadBanios " class="col-lg-6 control-label ">¿Cuantos baños posee el alojamiento? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('cantidadBanios').valid}">
+                <select class="form-control " id="cantidadBanios " required formControlName="cantidadBanios">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
                         <option>5</option>
                     </select>
-                    <div *ngIf="!forma.controls['cantidadBanios'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['cantidadBanios'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
-            <br>
-            <div class="row ">
-                <label for="accesoCocina " class="col-lg-6 control-label ">¿El estudiante visitante tiene acceso a la cocina del alojamiento? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('accesoCocina').valid}">
-                    <select class="form-control " id="accesoCocina " required formControlName="accesoCocina">
+        </div>
+        <br>
+        <div class="row ">
+            <label for="accesoCocina " class="col-lg-6 control-label ">¿El estudiante visitante tiene acceso a la cocina del alojamiento? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('accesoCocina').valid}">
+                <select class="form-control " id="accesoCocina " required formControlName="accesoCocina">
                         <option>Si</option>
                         <option>No</option>
                      </select>
-                    <div *ngIf="!forma.controls['accesoCocina'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['accesoCocina'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
-            <br>
-            <div class="row ">
-                <label for="espacioEstudio " class="col-lg-6 control-label ">¿El estudiante visitante tiene un espacio de estudio disponible dentro del alojamiento? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('espacioEstudio').valid}">
-                    <select class="form-control " id="espacioEstudio " required formControlName="espacioEstudio">
+        </div>
+        <br>
+        <div class="row ">
+            <label for="espacioEstudio " class="col-lg-6 control-label ">¿El estudiante visitante tiene un espacio de estudio disponible dentro del alojamiento? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('espacioEstudio').valid}">
+                <select class="form-control " id="espacioEstudio " required formControlName="espacioEstudio">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['espacioEstudio'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['espacioEstudio'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
-            <br>
-            <div class="row ">
-                <label for="sePermiteFumar " class="col-lg-6 control-label ">¿Se le permite al estudiante visitante fumar dentro del alojamiento? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('sePermiteFumar').valid}">
-                    <select class="form-control " id="sePermiteFumar " required formControlName="sePermiteFumar">
+        </div>
+        <br>
+        <div class="row ">
+            <label for="sePermiteFumar " class="col-lg-6 control-label ">¿Se le permite al estudiante visitante fumar dentro del alojamiento? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('sePermiteFumar').valid}">
+                <select class="form-control " id="sePermiteFumar " required formControlName="sePermiteFumar">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['sePermiteFumar'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['sePermiteFumar'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
-            <br>
-            <div class="row ">
-                <label for="espacioAireLibre " class="col-lg-6 control-label ">¿El alojamiento posee espacios al aire libre? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('espacioAireLibre').valid}">
-                    <select class="form-control " id="espacioAireLibre " required formControlName="espacioAireLibre">
+        </div>
+        <br>
+        <div class="row ">
+            <label for="espacioAireLibre " class="col-lg-6 control-label ">¿El alojamiento posee espacios al aire libre? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('espacioAireLibre').valid}">
+                <select class="form-control " id="espacioAireLibre " required formControlName="espacioAireLibre">
                         <option>Si</option>
                         <option>No</option>
                       </select>
-                    <div *ngIf="!forma.controls['espacioAireLibre'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['espacioAireLibre'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
-            <br>
-            <div class="row ">
-                <label for="accesoaSala " class="col-lg-6 control-label ">¿El estudiante visitante tiene acceso a la sala del alojamiento? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('accesoSala').valid}">
-                    <select class="form-control " id="accesoaSala " required formControlName="accesoSala">
+        </div>
+        <br>
+        <div class="row ">
+            <label for="accesoaSala " class="col-lg-6 control-label ">¿El estudiante visitante tiene acceso a la sala del alojamiento? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('accesoSala').valid}">
+                <select class="form-control " id="accesoaSala " required formControlName="accesoSala">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['accesoSala'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['accesoSala'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
-            <br>
-            <div class="row ">
-                <label for="habitaMascota " class="col-lg-6 control-label ">¿Habitan mascotas dentro del alojamiento? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('habitaMascota').valid}">
-                    <select class="form-control " id="habitaMascota " required formControlName="habitaMascota">
+        </div>
+        <br>
+        <div class="row ">
+            <label for="habitaMascota " class="col-lg-6 control-label ">¿Habitan mascotas dentro del alojamiento? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('habitaMascota').valid}">
+                <select class="form-control " id="habitaMascota " required formControlName="habitaMascota">
                         <option>Ninguna</option>
                         <option>Mamifero</option>
                         <option>Anfibio</option>
@@ -234,19 +252,19 @@
                         <option>Peces</option>
                         <option>Reptiles</option>
                     </select>
-                    <div *ngIf="!forma.controls['habitaMascota'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['habitaMascota'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
-            <hr>
-            <legend>
-                <i class="fa fa-cogs text-success "></i> Servicios del Alojamiento</legend>
-            <br>
-            <div class="row ">
-                <label for="tipoCama " class="col-lg-6 control-label ">¿Qué tipo de cama se ofrece al estudiante visitante? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('tipoCama').valid}">
-                    <select class="form-control " id="tipoCama " required formControlName="tipoCama">
+        </div>
+        <hr>
+        <legend>
+            <i class="fa fa-cogs text-success "></i> Servicios del Alojamiento</legend>
+        <br>
+        <div class="row ">
+            <label for="tipoCama " class="col-lg-6 control-label ">¿Qué tipo de cama se ofrece al estudiante visitante? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('tipoCama').valid}">
+                <select class="form-control " id="tipoCama " required formControlName="tipoCama">
                         <option>Sin cama</option>
                         <option>Sencilla</option>
                         <option>Doble</option>
@@ -254,220 +272,220 @@
                         <option>Sofa Cama</option>
                         <option>Otro</option>
                      </select>
-                    <div *ngIf="!forma.controls['tipoCama'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['tipoCama'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="banioPrivado " class="col-lg-6 control-label ">¿El alojamiento posee baño privado para el estudiante visitante? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('banioPrivado').valid}">
-                    <select class="form-control " id="banioPrivado " required formControlName="banioPrivado">
+        <br>
+        <div class="row ">
+            <label for="banioPrivado " class="col-lg-6 control-label ">¿El alojamiento posee baño privado para el estudiante visitante? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('banioPrivado').valid}">
+                <select class="form-control " id="banioPrivado " required formControlName="banioPrivado">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['banioPrivado'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['banioPrivado'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="guardaRopa " class="col-lg-6 control-label ">¿El alojamiento posee guardaropa para el estudiante visitante? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('guardaRopa').valid}">
-                    <select class="form-control " id="guardaRopa " required formControlName="guardaRopa">
+        <br>
+        <div class="row ">
+            <label for="guardaRopa " class="col-lg-6 control-label ">¿El alojamiento posee guardaropa para el estudiante visitante? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('guardaRopa').valid}">
+                <select class="form-control " id="guardaRopa " required formControlName="guardaRopa">
                         <option>Si</option>
                         <option>No</option>
                    </select>
-                    <div *ngIf="!forma.controls['guardaRopa'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-
+                <div *ngIf="!forma.controls['guardaRopa'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
-            </div>
 
-            <br>
-            <div class="row ">
-                <label for="internet " class="col-lg-6 control-label ">¿El alojamiento posee  el servicio de internet para el estudiante visitante? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('internet').valid}">
-                    <select class="form-control " id="internet " required formControlName="internet">
+            </div>
+        </div>
+
+        <br>
+        <div class="row ">
+            <label for="internet " class="col-lg-6 control-label ">¿El alojamiento posee  el servicio de internet para el estudiante visitante? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('internet').valid}">
+                <select class="form-control " id="internet " required formControlName="internet">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['internet'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['internet'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="computador " class="col-lg-6 control-label ">¿El alojamiento posee computador para el estudiante visitante? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('computador').valid}">
-                    <select class="form-control " id="conputador " required formControlName="computador">
+        <br>
+        <div class="row ">
+            <label for="computador " class="col-lg-6 control-label ">¿El alojamiento posee computador para el estudiante visitante? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('computador').valid}">
+                <select class="form-control " id="conputador " required formControlName="computador">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['computador'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['computador'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="television " class="col-lg-6 control-label ">¿El alojamiento posee television para el estudiante visitante? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('television').valid}">
-                    <select class="form-control " id="television" required formControlName="television">
+        <br>
+        <div class="row ">
+            <label for="television " class="col-lg-6 control-label ">¿El alojamiento posee television para el estudiante visitante? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('television').valid}">
+                <select class="form-control " id="television" required formControlName="television">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['television'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['television'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="videoJuegos " class="col-lg-6 control-label ">¿El alojamiento posee videoJuegos para el estudiante visitante? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('videoJuegos').valid}">
-                    <select class="form-control " id="videoJuegos " required formControlName="videoJuegos">
+        <br>
+        <div class="row ">
+            <label for="videoJuegos " class="col-lg-6 control-label ">¿El alojamiento posee videoJuegos para el estudiante visitante? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('videoJuegos').valid}">
+                <select class="form-control " id="videoJuegos " required formControlName="videoJuegos">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['videoJuegos'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['videoJuegos'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="serviciosPublicos" class="col-lg-6 control-label ">¿El alojamiento posee servicios Publicos para el estudiante visitante? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('serviciosPublicos').valid}">
-                    <select class="form-control " id="serviciosPublicos " required formControlName="serviciosPublicos">
+        <br>
+        <div class="row ">
+            <label for="serviciosPublicos" class="col-lg-6 control-label ">¿El alojamiento posee servicios Publicos para el estudiante visitante? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('serviciosPublicos').valid}">
+                <select class="form-control " id="serviciosPublicos " required formControlName="serviciosPublicos">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['serviciosPublicos'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['serviciosPublicos'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="aguaCaliente" class="col-lg-6 control-label ">¿El alojamiento posee agua Caliente para el estudiante visitante? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('aguaCaliente').valid}">
-                    <select class="form-control " id="aguaCaliente" required formControlName="aguaCaliente">
+        <br>
+        <div class="row ">
+            <label for="aguaCaliente" class="col-lg-6 control-label ">¿El alojamiento posee agua Caliente para el estudiante visitante? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('aguaCaliente').valid}">
+                <select class="form-control " id="aguaCaliente" required formControlName="aguaCaliente">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['aguaCaliente'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['aguaCaliente'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="alimentacionIncluida" class="col-lg-6 control-label ">¿El alojamiento posee alimentacion incluida para el estudiante visitante? </label>
+        <br>
+        <div class="row ">
+            <label for="alimentacionIncluida" class="col-lg-6 control-label ">¿El alojamiento posee alimentacion incluida para el estudiante visitante? </label>
 
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('alimentacionIncluida').valid}">
-                    <select class="form-control " id="alimentacionIncluida" required formControlName="alimentacionIncluida">
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('alimentacionIncluida').valid}">
+                <select class="form-control " id="alimentacionIncluida" required formControlName="alimentacionIncluida">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['alimentacionIncluida'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['alimentacionIncluida'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="aseoHabitacion" class="col-lg-6 control-label ">¿El alojamiento brinda el servicio de  aseo a la  Habitacion para el estudiante visitante? </label>
+        <br>
+        <div class="row ">
+            <label for="aseoHabitacion" class="col-lg-6 control-label ">¿El alojamiento brinda el servicio de  aseo a la  Habitacion para el estudiante visitante? </label>
 
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('aseoHabitacion').valid}">
-                    <select class="form-control " id="aseoHabitacion" required formControlName="aseoHabitacion">  
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('aseoHabitacion').valid}">
+                <select class="form-control " id="aseoHabitacion" required formControlName="aseoHabitacion">  
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['aseoHabitacion'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['aseoHabitacion'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="lavadoRopa" class="col-lg-6 control-label ">¿El alojamiento posee el servicio de lavado de Ropa para el estudiante visitante? </label>
+        <br>
+        <div class="row ">
+            <label for="lavadoRopa" class="col-lg-6 control-label ">¿El alojamiento posee el servicio de lavado de Ropa para el estudiante visitante? </label>
 
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('lavadoRopa').valid}">
-                    <select class="form-control " id="lavadoRopa" required formControlName="lavadoRopa">
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('lavadoRopa').valid}">
+                <select class="form-control " id="lavadoRopa" required formControlName="lavadoRopa">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['lavadoRopa'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['lavadoRopa'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="servicioTVCable" class="col-lg-6 control-label ">¿El alojamiento posee servicio TV Cable para el estudiante visitante? </label>
+        <br>
+        <div class="row ">
+            <label for="servicioTVCable" class="col-lg-6 control-label ">¿El alojamiento posee servicio TV Cable para el estudiante visitante? </label>
 
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('servicioTVCable').valid}">
-                    <select class="form-control " id="servicioTVCable" required formControlName="servicioTVCable">
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('servicioTVCable').valid}">
+                <select class="form-control " id="servicioTVCable" required formControlName="servicioTVCable">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['servicioTVCable'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['servicioTVCable'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="lavadora" class="col-lg-6 control-label ">¿El alojamiento posee lavadora para el estudiante visitante? </label>
+        <br>
+        <div class="row ">
+            <label for="lavadora" class="col-lg-6 control-label ">¿El alojamiento posee lavadora para el estudiante visitante? </label>
 
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('lavadora').valid}">
-                    <select class="form-control " id="lavadora" required formControlName="lavadora">
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('lavadora').valid}">
+                <select class="form-control " id="lavadora" required formControlName="lavadora">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['lavadora'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['lavadora'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="accesoLlaves" class="col-lg-6 control-label ">¿El estudiante visitante tiene acceso a las llaves del alojamiento durante la estadía? </label>
+        <br>
+        <div class="row ">
+            <label for="accesoLlaves" class="col-lg-6 control-label ">¿El estudiante visitante tiene acceso a las llaves del alojamiento durante la estadía? </label>
 
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('accesoLlaves').valid}">
-                    <select class="form-control " id="accesoLlaves" required formControlName="accesoLlaves">
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('accesoLlaves').valid}">
+                <select class="form-control " id="accesoLlaves" required formControlName="accesoLlaves">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['accesoLlaves'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['accesoLlaves'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="electrodomésticos" class="col-lg-6 control-label ">¿Que voltaje se maneja en la vivienda? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('electrodomésticos').valid}">
-                    <select class="form-control " id="electrodomésticos " required formControlName="electrodomésticos">
+        <br>
+        <div class="row ">
+            <label for="electrodomésticos" class="col-lg-6 control-label ">¿Que voltaje se maneja en la vivienda? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('electrodomésticos').valid}">
+                <select class="form-control " id="electrodomésticos " required formControlName="electrodomésticos">
                         <option>100V</option>
                         <option>110V</option>
                         <option>120V</option>
@@ -476,98 +494,98 @@
                         <option>230V</option>
                         <option>240V</option>
                     </select>
-                    <div *ngIf="!forma.controls['electrodomésticos'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['electrodomésticos'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="alarma " class="col-lg-6 control-label ">¿El alojamiento posee sistema de  alarma ? </label>
+        <br>
+        <div class="row ">
+            <label for="alarma " class="col-lg-6 control-label ">¿El alojamiento posee sistema de  alarma ? </label>
 
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('alarma').valid}">
-                    <select class="form-control " id="alarma " required formControlName="alarma">
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('alarma').valid}">
+                <select class="form-control " id="alarma " required formControlName="alarma">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['alarma'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['alarma'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="electrodomésticosDeCocina " class="col-lg-6 control-label ">¿El estudiante visitante tiene acceso a los electrodomésticos de la cocina ? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('electrodomésticosDeCocina').valid}">
-                    <select class="form-control " id="electrodomésticosDeCocina " required formControlName="electrodomésticosDeCocina">
+        <br>
+        <div class="row ">
+            <label for="electrodomésticosDeCocina " class="col-lg-6 control-label ">¿El estudiante visitante tiene acceso a los electrodomésticos de la cocina ? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('electrodomésticosDeCocina').valid}">
+                <select class="form-control " id="electrodomésticosDeCocina " required formControlName="electrodomésticosDeCocina">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['electrodomésticosDeCocina'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['electrodomésticosDeCocina'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <hr>
-            <legend>
-                <i class="fa fa-coffee text-warning "></i> Intereses y costumbres del alojamiento anfitrión</legend>
+        <hr>
+        <legend>
+            <i class="fa fa-coffee text-warning "></i> Intereses y costumbres del alojamiento anfitrión</legend>
 
-            <div class="row ">
-                <label for="habitosAlimenticios " class="col-lg-6 control-label ">¿El tipo de hábitos alimenticios dentro del alojamiento es? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('habitosAlimenticios').valid}">
-                    <select class="form-control " id="habitosAlimenticios " required formControlName="habitosAlimenticios">        
+        <div class="row ">
+            <label for="habitosAlimenticios " class="col-lg-6 control-label ">¿El tipo de hábitos alimenticios dentro del alojamiento es? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('habitosAlimenticios').valid}">
+                <select class="form-control " id="habitosAlimenticios " required formControlName="habitosAlimenticios">        
                         <option>Vegetariano</option>
                         <option>Vegano</option>
                         <option>Sólo carnes blancas</option>
                         <option>Solo carnes rojas</option>
                         <option>Todas las carnes</option>
                     </select>
-                    <div *ngIf="!forma.controls['habitosAlimenticios'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['habitosAlimenticios'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="consumoDrogas " class="col-lg-6 control-label ">¿Los miembros del alojamiento consumen drogas? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('consumoDrogas').valid}">
-                    <select class="form-control " id="consumoDrogas " required formControlName="consumoDrogas">
+        <br>
+        <div class="row ">
+            <label for="consumoDrogas " class="col-lg-6 control-label ">¿Los miembros del alojamiento consumen drogas? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('consumoDrogas').valid}">
+                <select class="form-control " id="consumoDrogas " required formControlName="consumoDrogas">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['consumoDrogas'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['consumoDrogas'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="consumoAlcohol " class="col-lg-6 control-label ">¿Los miembros del alojamiento consumen alcohol? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('consumoAlcohol').valid}">
-                    <select class="form-control " id="consumoAlcohol " required formControlName="consumoAlcohol">
+        <br>
+        <div class="row ">
+            <label for="consumoAlcohol " class="col-lg-6 control-label ">¿Los miembros del alojamiento consumen alcohol? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('consumoAlcohol').valid}">
+                <select class="form-control " id="consumoAlcohol " required formControlName="consumoAlcohol">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['consumoAlcohol'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['consumoAlcohol'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <hr>
-            <legend>
-                <i class="fa fa-exclamation-triangle text-danger "></i> Normas del alojamiento anfitrión</legend>
+        <hr>
+        <legend>
+            <i class="fa fa-exclamation-triangle text-danger "></i> Normas del alojamiento anfitrión</legend>
 
-            <br>
-            <div class="row ">
-                <label for="horaLlegada " class="col-lg-6 control-label ">¿La hora límite de llegada permitida en el alojamiento es? </label>
-                <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('horaLlegada').valid}">
-                    <select class="form-control " id="horaLlegada " required formControlName="horaLlegada">
+        <br>
+        <div class="row ">
+            <label for="horaLlegada " class="col-lg-6 control-label ">¿La hora límite de llegada permitida en el alojamiento es? </label>
+            <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('horaLlegada').valid}">
+                <select class="form-control " id="horaLlegada " required formControlName="horaLlegada">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -581,376 +599,376 @@
                         <option>11</option>
                         <option>12</option>
                     </select>
-                    <div *ngIf="!forma.controls['horaLlegada'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['horaLlegada'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
-                <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('franjaLlegada').valid}">
-                    <select class="form-control" id="franjaLlegada" required formControlName="franjaLlegada">
+            </div>
+            <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('franjaLlegada').valid}">
+                <select class="form-control" id="franjaLlegada" required formControlName="franjaLlegada">
                         <option>AM</option>
                         <option>PM</option>
                     </select>
-                    <div *ngIf="!forma.controls['franjaLlegada'].valid" class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['franjaLlegada'].valid" class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
-
             </div>
 
-            <br>
-            <div class="row ">
-                <label for="accesoOtrasPersonas " class="col-lg-6 control-label ">¿El estudiante visitante podrá ingresar otras personas en el alojamiento? </label>
+        </div>
 
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('accesoOtrasPersonas').valid}">
-                    <select class="form-control " id="accesoOtrasPersonas " required formControlName="accesoOtrasPersonas">
+        <br>
+        <div class="row ">
+            <label for="accesoOtrasPersonas " class="col-lg-6 control-label ">¿El estudiante visitante podrá ingresar otras personas en el alojamiento? </label>
+
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('accesoOtrasPersonas').valid}">
+                <select class="form-control " id="accesoOtrasPersonas " required formControlName="accesoOtrasPersonas">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['accesoOtrasPersonas'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['accesoOtrasPersonas'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="fiestasEventos" class="col-lg-6 control-label ">¿El estudiante visitante podrá realizar fiestas o eventos dentro del alojamiento ? </label>
+        <br>
+        <div class="row ">
+            <label for="fiestasEventos" class="col-lg-6 control-label ">¿El estudiante visitante podrá realizar fiestas o eventos dentro del alojamiento ? </label>
 
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('fiestasEventos').valid}">
-                    <select class="form-control " id="fiestasEventos" required formControlName="fiestasEventos">
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('fiestasEventos').valid}">
+                <select class="form-control " id="fiestasEventos" required formControlName="fiestasEventos">
                         <option>Si</option>
                         <option>No</option>
                     </select>
-                    <div *ngIf="!forma.controls['fiestasEventos'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
+                <div *ngIf="!forma.controls['fiestasEventos'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
+        </div>
 
-            <br>
-            <div class="row ">
-                <label for="nivelVolumen " class="col-lg-6 control-label ">¿El volúmen de sonido permitido dentro del alojamiento es? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('nivelVolumen').valid}">
-                    <select class="form-control " id="nivelVolumen " required formControlName="nivelVolumen">
+        <br>
+        <div class="row ">
+            <label for="nivelVolumen " class="col-lg-6 control-label ">¿El volúmen de sonido permitido dentro del alojamiento es? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('nivelVolumen').valid}">
+                <select class="form-control " id="nivelVolumen " required formControlName="nivelVolumen">
                         <option>Alto</option>
                         <option>Moderado</option>
                         <option>Bajo</option>
                     </select>
-                    <div *ngIf="!forma.controls['nivelVolumen'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <label for="ritosExorcismosOrgias" class="col-lg-6 control-label ">¿Dentro del alojamiento podrán llevarse a cabo actividades tales como: ritos,exorcismos,orgías,etc ? </label>
-
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('ritosExorcismosOrgias').valid}">
-                    <select class="form-control" id="ritosExorcismosOrgias" required formControlName="ritosExorcismosOrgias">
-                        <option>Si</option>
-                        <option>No</option>
-                    </select>
-                    <div *ngIf="!forma.controls['ritosExorcismosOrgias'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-            </div>
-
-            <br>
-            <div class="row ">
-                <label for="permiteConsumoAlcohol" class="col-lg-6 control-label ">¿El estudiante visitante podrá consumir alcohol dentro del alojamiento? </label>
-
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('permiteConsumoAlcohol').valid}">
-                    <select class="form-control " id="permiteConsumoAlcohol " required formControlName="permiteConsumoAlcohol">
-                        <option>Si</option>
-                        <option>No</option>
-                        </select>
-                    <div *ngIf="!forma.controls['permiteConsumoAlcohol'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-            </div>
-
-            <br>
-            <div class="row ">
-                <label for="permiteConsumoDrogas " class="col-lg-6 control-label ">¿El estudiante visitante podrá consumir sustancias psicoactivas dentro del alojamiento? </label>
-                <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('permiteConsumoDrogas').valid}">
-                    <select class="form-control " id="permiteConsumoDrogas" required formControlName="permiteConsumoDrogas">
-                        <option>Si</option>
-                        <option>No</option>
-                    </select>
-                    <div *ngIf="!forma.controls['permiteConsumoDrogas'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <legend>
-                <i class="fa fa-map text-primary "></i> Lugares de Interés cercanos al Alojamiento</legend>
-            <div class="alert alert-warning " role="alert ">
-                <strong>Atención!</strong> Responde Si o No, si se encuentra cerca el lugar mencionado
-            </div>
-            <div class="row ">
-                <label for="centrosComerciales" class="col-lg-3 control-label ">Centros Comerciales </label>
-                <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('centrosComerciales').valid}">
-                    <select class="form-control " id="centrosComerciales" required formControlName="centrosComerciales">
-                        <option>Si</option>
-                        <option>No</option>
-                    </select>
-                    <div *ngIf="!forma.controls['centrosComerciales'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-
-                <label for="museos" class="col-lg-3 control-label ">Museos</label>
-                <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('museos').valid}">
-                    <select class="form-control " id="museos" required formControlName="museos">
-                        <option>Si</option>
-                        <option>No</option>
-                     </select>
-                    <div *ngIf="!forma.controls['museos'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row ">
-                <label for="restaurantes" class="col-lg-3 control-label">Restaurantes</label>
-                <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('restaurantes').valid}">
-                    <select class="form-control " id="restaurantes " required formControlName="restaurantes">
-                        <option>Si</option>
-                        <option>No</option>
-                    </select>
-                    <div *ngIf="!forma.controls['restaurantes'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-                <label for="bares" class="col-lg-3 control-label">Bares</label>
-                <div class="col-lg-3" [ngClass]="{'alert alert-danger':!forma.get('bares').valid}">
-                    <select class="form-control " id="bares" required formControlName="bares">         
-                        <option>Si</option>
-                        <option>No</option>
-                    </select>
-                    <div *ngIf="!forma.controls['bares'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row ">
-                <label for="iglesias" class="col-lg-3 control-label ">Iglesas</label>
-                <div class="col-lg-3" [ngClass]="{'alert alert-danger':!forma.get('iglesias').valid}">
-                    <select class="form-control" id="iglesias" required formControlName="iglesias">
-                        <option>Si</option>
-                        <option>No</option>
-                    </select>
-                    <div *ngIf="!forma.controls['iglesias'].valid" class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-                <label for="hospitales" class="col-lg-3 control-label ">Hospitales</label>
-                <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('hospitales').valid}">
-                    <select class="form-control " id="hospitales" required formControlName="hospitales">
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-                    <div *ngIf="!forma.controls['hospitales'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <label for="teatros" class="col-lg-3 control-label">Teatros</label>
-
-                <div class="col-lg-3" [ngClass]="{'alert alert-danger':!forma.get('teatros').valid}">
-                    <select class="form-control " id="teatros" required formControlName="teatros">
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-                    <div *ngIf="!forma.controls['teatros'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-                <label for="parques" class="col-lg-3 control-label ">Parques</label>
-
-                <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('parques').valid}">
-                    <select class="form-control " id="parques" required formControlName="parques">
-                        <option>Si</option>
-                        <option>No</option>
-                    </select>
-                    <div *ngIf="!forma.controls['parques'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <label for="zonasComerciales" class="col-lg-3 control-label">Zonas Comerciales</label>
-
-                <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('zonasComerciales').valid}">
-                    <select class="form-control " id="zonasComerciales" required formControlName="zonasComerciales">
-                        <option>Si</option>
-                        <option>No</option>
-                    </select>
-                    <div *ngIf="!forma.controls['zonasComerciales'].valid" class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-                <label for="zonasCulturales" class="col-lg-3 control-label">Zonas Culturales</label>
-                <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('zonasCulturales').valid}">
-                    <select class="form-control " id="zonasCulturales" required formControlName="zonasCulturales">
-                        <option>Si</option>
-                        <option>No</option>
-                    </select>
-                    <div *ngIf="!forma.controls['zonasCulturales'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <label for="gimnasios" class="col-lg-6 control-label text-right ">Gimnasios - Centros Deportivos</label>
-
-                <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('gimnasios').valid}">
-                    <select class="form-control " id="gimnasios" required formControlName="gimnasios">
-                        <option>Si</option>
-                        <option>No</option>
-                     </select>
-                    <div *ngIf="!forma.controls['gimnasios'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-            </div>
-            <hr>
-
-            <legend>
-                <i class="fa fa-car text-success "></i> Transportes cercanos al Alojamiento</legend>
-            <div class="alert alert-warning " role="alert ">
-                <strong>Atención!</strong> Responde Si o No, si el tipo de transporte se encuentra cerca al alojamiento
-            </div>
-            <div class="row ">
-                <label for="publico" class="col-lg-3 control-label ">Transporte Público </label>
-
-                <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('publico').valid}">
-                    <select class="form-control" id="publico" required formControlName="publico">
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-                    <div *ngIf="!forma.controls['publico'].valid " class="form-control-feedback">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-
-                <label for="uber" class="col-lg-3 control-label ">Uber</label>
-                <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('uber').valid}">
-                    <select class="form-control" id="uber" required formControlName="uber">
-                    <option>Si</option>
-                    <option>No</option>
-                </select>
-                    <div *ngIf="!forma.controls['uber'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <label for="bicicleta" class="col-lg-3 control-label ">Bicicleta</label>
-                <div class="col-lg-3" [ngClass]="{'alert alert-danger':!forma.get('bicicleta').valid}">
-                    <select class="form-control" id="bicicleta" required formControlName="bicicleta">
-                        <option>Si</option>
-                        <option>No</option>
-                    </select>
-                    <div *ngIf="!forma.controls['bicicleta'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-                <label for="taxi" class="col-lg-3 control-label ">Taxi</label>
-
-                <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('taxi').valid}">
-                    <select class="form-control" id="taxi" required formControlName="taxi">
-                        <option>Si</option>
-                        <option>No</option>
-                    </select>
-                    <div *ngIf="!forma.controls['taxi'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <label for="caminando" class="col-lg-3 control-label ">Caminando </label>
-
-                <div class="col-lg-3" [ngClass]="{'alert alert-danger':!forma.get('caminando').valid}">
-                    <select class="form-control" id="caminando" required formControlName="caminando">
-                        <option>Si</option>
-                        <option>No</option>
-                    </select>
-                    <div *ngIf="!forma.controls['caminando'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-                <label for="metro" class="col-lg-3 control-label ">Metro</label>
-
-                <div class="col-lg-3" [ngClass]="{'alert alert-danger':!forma.get('metro').valid}">
-                    <select class="form-control" id="metro" required formControlName="metro">
-                        <option>Si</option>
-                        <option>No</option>
-                    </select>
-                    <div *ngIf="!forma.controls['metro'].valid " class="form-control-feedback ">
-                        <small>*Obligatorio</small>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <legend>
-                <i class="fa fa-camera text-warning "></i> Espacios del Alojamiento</legend>
-            <div class="alert alert-danger " role="alert ">
-                <strong>Atención!</strong> por favor sube las fotos de tu alojamiento, en el orden que se específica
-            </div>
-
-            <div class="row ">
-                <label for="imgHabitacion" class="col-lg-4 control-label"> Habitación del Estudiante Visitante </label>
-                <div class="col-lg-8">
-                    <!-- <input type="file" [value]="imgHabitacion" class="form-control-file" id="imgHabitacion" formControlName="imgHabitacion" required>-->
-                </div>
-            </div>
-
-            <div class="row ">
-                <label for="imgFachada" class="col-lg-4 control-label"> Fachada del Alojamiento </label>
-                <div class="col-lg-8">
-                    <!-- <input type="file" class="form-control-file " id="imgFachada" formControlName="imgFachada">-->
-                </div>
-            </div>
-
-            <div class="row ">
-                <label for="imgSala " class="col-lg-4 control-label"> Sala del Alojamiento </label>
-                <div class="col-lg-8 ">
-                    <!-- <input type="file" class="form-control-file " id="imgSala " formControlName="imgSala">-->
-
-                </div>
-            </div>
-
-            <div class="row ">
-                <label for="imgCocina " class="col-lg-4 control-label"> Cocina del Alojamiento </label>
-                <div class="col-lg-8 ">
-                    <!--  <input type="file" class="form-control-file " id="imgCocina " formControlName="imgCocina">-->
-                </div>
-            </div>
-
-            <div class="row ">
-                <label for="imgBanio " class="col-lg-4 control-label"> Baño del Alojamiento </label>
-                <div class="col-lg-8 ">
-                    <!-- <input type="file" class="form-control-file " id="imgBanio " formControlName="imgBanio">-->
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="condiciones" formControlName="condiciones">
-                    <label class="form-check-label" for="gridCheck">Acepta las Condiciones</label>
+                <div *ngIf="!forma.controls['nivelVolumen'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
                 </div>
             </div>
         </div>
+        <br>
+        <div class="row">
+            <label for="ritosExorcismosOrgias" class="col-lg-6 control-label ">¿Dentro del alojamiento podrán llevarse a cabo actividades tales como: ritos,exorcismos,orgías,etc ? </label>
+
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('ritosExorcismosOrgias').valid}">
+                <select class="form-control" id="ritosExorcismosOrgias" required formControlName="ritosExorcismosOrgias">
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
+                <div *ngIf="!forma.controls['ritosExorcismosOrgias'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="row ">
+            <label for="permiteConsumoAlcohol" class="col-lg-6 control-label ">¿El estudiante visitante podrá consumir alcohol dentro del alojamiento? </label>
+
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('permiteConsumoAlcohol').valid}">
+                <select class="form-control " id="permiteConsumoAlcohol " required formControlName="permiteConsumoAlcohol">
+                        <option>Si</option>
+                        <option>No</option>
+                        </select>
+                <div *ngIf="!forma.controls['permiteConsumoAlcohol'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="row ">
+            <label for="permiteConsumoDrogas " class="col-lg-6 control-label ">¿El estudiante visitante podrá consumir sustancias psicoactivas dentro del alojamiento? </label>
+            <div class="col-lg-6 " [ngClass]="{'alert alert-danger':!forma.get('permiteConsumoDrogas').valid}">
+                <select class="form-control " id="permiteConsumoDrogas" required formControlName="permiteConsumoDrogas">
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
+                <div *ngIf="!forma.controls['permiteConsumoDrogas'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <legend>
+            <i class="fa fa-map text-primary "></i> Lugares de Interés cercanos al Alojamiento</legend>
+        <div class="alert alert-warning " role="alert ">
+            <strong>Atención!</strong> Responde Si o No, si se encuentra cerca el lugar mencionado
+        </div>
+        <div class="row ">
+            <label for="centrosComerciales" class="col-lg-3 control-label ">Centros Comerciales </label>
+            <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('centrosComerciales').valid}">
+                <select class="form-control " id="centrosComerciales" required formControlName="centrosComerciales">
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
+                <div *ngIf="!forma.controls['centrosComerciales'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+
+            <label for="museos" class="col-lg-3 control-label ">Museos</label>
+            <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('museos').valid}">
+                <select class="form-control " id="museos" required formControlName="museos">
+                        <option>Si</option>
+                        <option>No</option>
+                     </select>
+                <div *ngIf="!forma.controls['museos'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row ">
+            <label for="restaurantes" class="col-lg-3 control-label">Restaurantes</label>
+            <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('restaurantes').valid}">
+                <select class="form-control " id="restaurantes " required formControlName="restaurantes">
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
+                <div *ngIf="!forma.controls['restaurantes'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+            <label for="bares" class="col-lg-3 control-label">Bares</label>
+            <div class="col-lg-3" [ngClass]="{'alert alert-danger':!forma.get('bares').valid}">
+                <select class="form-control " id="bares" required formControlName="bares">         
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
+                <div *ngIf="!forma.controls['bares'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row ">
+            <label for="iglesias" class="col-lg-3 control-label ">Iglesas</label>
+            <div class="col-lg-3" [ngClass]="{'alert alert-danger':!forma.get('iglesias').valid}">
+                <select class="form-control" id="iglesias" required formControlName="iglesias">
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
+                <div *ngIf="!forma.controls['iglesias'].valid" class="form-control-feedback ">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+            <label for="hospitales" class="col-lg-3 control-label ">Hospitales</label>
+            <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('hospitales').valid}">
+                <select class="form-control " id="hospitales" required formControlName="hospitales">
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                <div *ngIf="!forma.controls['hospitales'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <label for="teatros" class="col-lg-3 control-label">Teatros</label>
+
+            <div class="col-lg-3" [ngClass]="{'alert alert-danger':!forma.get('teatros').valid}">
+                <select class="form-control " id="teatros" required formControlName="teatros">
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                <div *ngIf="!forma.controls['teatros'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+            <label for="parques" class="col-lg-3 control-label ">Parques</label>
+
+            <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('parques').valid}">
+                <select class="form-control " id="parques" required formControlName="parques">
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
+                <div *ngIf="!forma.controls['parques'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <label for="zonasComerciales" class="col-lg-3 control-label">Zonas Comerciales</label>
+
+            <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('zonasComerciales').valid}">
+                <select class="form-control " id="zonasComerciales" required formControlName="zonasComerciales">
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
+                <div *ngIf="!forma.controls['zonasComerciales'].valid" class="form-control-feedback ">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+            <label for="zonasCulturales" class="col-lg-3 control-label">Zonas Culturales</label>
+            <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('zonasCulturales').valid}">
+                <select class="form-control " id="zonasCulturales" required formControlName="zonasCulturales">
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
+                <div *ngIf="!forma.controls['zonasCulturales'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <label for="gimnasio" class="col-lg-6 control-label text-right ">Gimnasio - Centros Deportivos</label>
+
+            <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('gimnasio').valid}">
+                <select class="form-control " id="gimnasio" required formControlName="gimnasio">
+                        <option>Si</option>
+                        <option>No</option>
+                     </select>
+                <div *ngIf="!forma.controls['gimnasio'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <legend>
+            <i class="fa fa-car text-success "></i> Transportes cercanos al Alojamiento</legend>
+        <div class="alert alert-warning " role="alert ">
+            <strong>Atención!</strong> Responde Si o No, si el tipo de transporte se encuentra cerca al alojamiento
+        </div>
+        <div class="row ">
+            <label for="publico" class="col-lg-3 control-label ">Transporte Público </label>
+
+            <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('publico').valid}">
+                <select class="form-control" id="publico" required formControlName="publico">
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                <div *ngIf="!forma.controls['publico'].valid " class="form-control-feedback">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+
+            <label for="uber" class="col-lg-3 control-label ">Uber</label>
+            <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('uber').valid}">
+                <select class="form-control" id="uber" required formControlName="uber">
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                <div *ngIf="!forma.controls['uber'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <label for="bicicleta" class="col-lg-3 control-label ">Bicicleta</label>
+            <div class="col-lg-3" [ngClass]="{'alert alert-danger':!forma.get('bicicleta').valid}">
+                <select class="form-control" id="bicicleta" required formControlName="bicicleta">
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
+                <div *ngIf="!forma.controls['bicicleta'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+            <label for="taxi" class="col-lg-3 control-label ">Taxi</label>
+
+            <div class="col-lg-3 " [ngClass]="{'alert alert-danger':!forma.get('taxi').valid}">
+                <select class="form-control" id="taxi" required formControlName="taxi">
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
+                <div *ngIf="!forma.controls['taxi'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <label for="caminando" class="col-lg-3 control-label ">Caminando </label>
+
+            <div class="col-lg-3" [ngClass]="{'alert alert-danger':!forma.get('caminando').valid}">
+                <select class="form-control" id="caminando" required formControlName="caminando">
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
+                <div *ngIf="!forma.controls['caminando'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+            <label for="metro" class="col-lg-3 control-label ">Metro</label>
+
+            <div class="col-lg-3" [ngClass]="{'alert alert-danger':!forma.get('metro').valid}">
+                <select class="form-control" id="metro" required formControlName="metro">
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
+                <div *ngIf="!forma.controls['metro'].valid " class="form-control-feedback ">
+                    <small>*Obligatorio</small>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <legend>
+            <i class="fa fa-camera text-warning "></i> Espacios del Alojamiento</legend>
+        <div class="alert alert-danger " role="alert ">
+            <strong>Atención!</strong> por favor sube las fotos de tu alojamiento, en el orden que se específica
+        </div>
+
+        <div class="row ">
+            <label for="imgHabitacion" class="col-lg-4 control-label"> Habitación del Estudiante Visitante </label>
+            <div class="col-lg-8">
+                <input type="file" [value]="imgHabitacion" class="form-control-file" id="imgHabitacion" required>
+            </div>
+        </div>
+
+        <div class="row ">
+            <label for="imgFachada" class="col-lg-4 control-label"> Fachada del Alojamiento </label>
+            <div class="col-lg-8">
+                <!-- <input type="file" class="form-control-file " id="imgFachada" formControlName="imgFachada">-->
+            </div>
+        </div>
+
+        <div class="row ">
+            <label for="imgSala " class="col-lg-4 control-label"> Sala del Alojamiento </label>
+            <div class="col-lg-8 ">
+                <!-- <input type="file" class="form-control-file " id="imgSala " formControlName="imgSala">-->
+
+            </div>
+        </div>
+
+        <div class="row ">
+            <label for="imgCocina " class="col-lg-4 control-label"> Cocina del Alojamiento </label>
+            <div class="col-lg-8 ">
+                <!--  <input type="file" class="form-control-file " id="imgCocina " formControlName="imgCocina">-->
+            </div>
+        </div>
+
+        <div class="row ">
+            <label for="imgBanio " class="col-lg-4 control-label"> Baño del Alojamiento </label>
+            <div class="col-lg-8 ">
+                <!-- <input type="file" class="form-control-file " id="imgBanio " formControlName="imgBanio">-->
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="condiciones" formControlName="condiciones">
+                <label class="form-check-label" for="gridCheck">Acepta las Condiciones</label>
+            </div>
+        </div>
+
         <hr>
 
         <div class="form-group row ">

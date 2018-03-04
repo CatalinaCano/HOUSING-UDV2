@@ -1,27 +1,27 @@
 import { Estudiante } from './estudiante.model';
+import { Administrador } from './administrador.model';
 export class Alojamiento {
 
     constructor(
         public estudiante:  Estudiante,
         public tipoVivienda: string,
+        public descripcionAlojamiento: string,
         public tipoHabitacion: string,
-        public descripcionAlojamiento:  string,
         public clasificacionAlojamiento: string,
         public estadoAlojamiento:  string= 'Disponible',
-        public publicacionEstadoAlojamiento: string= 'En estudio',
+        public estadoPublicacionAlojamient: string= 'En estudio',
         public fechaPublicacionAlojamiento: string,
         public sedeCercana: string,
         public hospedanA: string,
         public latitud: number,
         public longitud: number,
         public zona: string,
-        // public imgSala: string,
-        // public imgBanio: string,
-        // public imgCocina: string,
-        // public imgHabitacion: string,
-        // public imgFachada: string,
+        public imgSala: File,
+        public imgBanio: File,
+        public imgCocina: File,
+        public imgHabitacion: File,
+        public imgFachada: File,
         public habitaMascota: string,
-        public tipoMascota: string = 'Sin mascota',
         public horaLlegada: string,
         public franjaLlegada: string,
         public accesoOtrasPersonas: string,
@@ -35,6 +35,7 @@ export class Alojamiento {
         public taxi: string,
         public caminando: string,
         public metro: string,
+        public uber: string,
         public centrosComerciales: string,
         public museos: string,
         public restaurantes: string,
@@ -73,7 +74,8 @@ export class Alojamiento {
         public accesoSala: string,
         public habitosAlimenticios: string,
         public consumoDrogas: string,
-        public consumoAlcohol: string
+        public consumoAlcohol: string,
+        public administrador?: Administrador,
     ) {}
 
 }
