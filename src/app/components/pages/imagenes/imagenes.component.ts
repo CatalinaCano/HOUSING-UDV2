@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { URL_SERVICIOS } from '../../../config/config';
 import { RegistrarAlojamientoService } from '../../../services/registrar-alojamiento.service';
 import { SubirArchivoService } from '../../../services/subir-archivo.service';
-import swal from 'sweetalert';
+
 
 
 @Component({
@@ -88,8 +88,7 @@ export class ImagenesComponent implements OnInit {
   this._subirArchivos.subirArchivo(this.imgSala, this.imgHabitacion, this.imgFachada, this.imgCocina, this.imgBanio, this.idAlojamiento)
     .then( resp => {
         console.log(resp);
-      alert('Alojamiento Guardado Con Éxito');
-      swal('Éxito', 'Alojamiento Almacenado con Éxito', 'Success' );
+      swal('Éxito', 'Alojamiento Almacenado con Éxito', 'success' );
       this.router.navigate(['/inicio']);
     })
     .catch( resp => {
