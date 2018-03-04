@@ -20,6 +20,7 @@ import { SharedModule } from '../shared/shared.module';
 import { InformacionComponent } from './informacion/informacion.component';
 import { InformacionPerfilComponent } from './informacion-perfil/informacion-perfil.component';
 import { HttpModule } from '@angular/http';
+import { EstudiantesComponent } from './estudiantes/estudiantes.component';
 
 
 
@@ -36,7 +37,8 @@ import { HttpModule } from '@angular/http';
         RegistrarComponent,
         InformacionComponent,
         InformacionPerfilComponent,
-        ImagenesComponent
+        ImagenesComponent,
+        EstudiantesComponent
     ],
     exports: [
         PagesComponent,

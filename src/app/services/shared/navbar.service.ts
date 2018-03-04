@@ -47,5 +47,11 @@ export class NavbarService {
       url: '/administrador',
       id: {}
     },
+    {
+      titulo: 'Estudiantes',
+      icono: 'fa fa-users',
+      url: '/estudiantes',
+      id: {}
+    },
   ];
 }

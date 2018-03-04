@@ -1,0 +1,73 @@
+<div class="container-fluid animated fadeInUp">
+
+    <div class="row" align="right">
+        <input #input class="form-control mr-sm-2" type="text" placeholder="Buscar Estudiante">
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-warning text-center">
+                <strong>Cargando ... </strong>
+                <br>
+                <i class="fa fa-refresh fa-spin fa-2x"></i>
+                <br>
+                <span>Espere por favor </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <h2 class="tetx-primary"> Estudiantes Registrados ( <small>134</small> ) </h2>
+        <table class="table table-striped">
+            <thead>
+                <tr class="tabla">
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                    <td>
+                        <button class="btn btn-danger">
+                        <i class="fa fa-trash-o"></i>
+                      </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                    <td>
+                        <button class="btn btn-danger">
+                        <i class="fa fa-trash-o"></i>
+                      </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                    <td>
+                        <button class="btn btn-danger">
+                        <i class="fa fa-trash-o"></i>
+                      </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="btn btn-success">
+                      Anteriores
+                    </button>
+        <button class="btn btn-warning">
+                      Siguientes
+                    </button>
+    </div>
+</div>
