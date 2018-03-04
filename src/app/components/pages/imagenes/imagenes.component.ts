@@ -79,14 +79,21 @@ export class ImagenesComponent implements OnInit {
   }
 
 
+  validarCampos() {
+    if ( !this.imgBanio && !this.imgFachada  && !this.imgCocina && !this.imgSala  && !this.imgHabitacion ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   cambiarImagen() {
-  console.log('llego a cambiar imagen');
-  console.log('sala es' + this.imgSala);
-  console.log('ID ES' + this.idAlojamiento);
 
   this._subirArchivos.subirArchivo(this.imgSala, this.imgHabitacion, this.imgFachada, this.imgCocina, this.imgBanio, this.idAlojamiento)
     .then( resp => {
         console.log(resp);
+      alert('Alojamiento Guardado Con Éxito');
+      this.router.navigate(['/inicio']);
     })
     .catch( resp => {
       console.log(resp);
