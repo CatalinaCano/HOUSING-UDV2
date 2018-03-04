@@ -167,7 +167,7 @@ export class RegistrarComponent implements OnInit {
       return;
     }
 
-    if (!this.forma.value.codiciones) {
+    if (!this.forma.value.condiciones) {
       swal('Importante', 'Debes aceptar las condiciones', 'warning');
       return;
     }
