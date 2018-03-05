@@ -4,6 +4,13 @@ export class Alojamiento {
 
     constructor(
         public estudiante:  Estudiante,
+        public propiedadesAlojamiento: {
+            estadoAlojamiento: string,
+            estadoPublicacionAlojamiento: string,
+            descripcionAlojamiento: string,
+            clasificacionAlojamiento: string,
+            fechaPublicacionAlojamiento: string
+        },
         public tipoVivienda: string,
         public descripcionAlojamiento: string,
         public tipoHabitacion: string,

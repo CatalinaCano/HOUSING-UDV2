@@ -1,3 +1,4 @@
+export { EstadisticasService } from './estadisticas.service';
 export { EstudiantesHousingService } from './estudiantes-housing.service';
 export { SubirArchivoService } from './subir-archivo.service';
 export { EstudianteService } from './estudiante.service';

@@ -76,7 +76,6 @@ export class EstudiantesComponent implements OnInit {
                 .subscribe(borrado => {
                   console.log(borrado);
                   this.cargarEstudiantes();
-
                 });
           }
       });

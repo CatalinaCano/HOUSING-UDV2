@@ -70,7 +70,7 @@
                 <div class="col-md-6 col-lg-3 col-xlg-3">
                     <div class="card">
                         <div class="box bg-info text-center">
-                            <h1 class="font-light text-white">2,064</h1>
+                            <h1 class="font-light text-white">67</h1>
                             <h6 class="text-white">Total Alojamientos</h6>
                         </div>
                     </div>
@@ -119,84 +119,28 @@
             <thead>
                 <tr>
                     <th>Estudiante</th>
-                    <th>Facultad</th>
-                    <th>Estado</th>
-                    <th>Aprobar</th>
+                    <th>Sede Cercana</th>
+                    <th>Estado Publicación Alojamiento</th>
+                    <th>Estado Alojamiento</th>
                     <th>Ver Alojamiento</th>
 
                 </tr>
             </thead>
 
             <tbody>
-                <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td><span class="badge badge-pill badge-danger">Warning</span></td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-
+                <tr *ngFor="let alojamiento of alojamientos">
+                    <td>{{ alojamiento.estudiante.email }}</td>
+                    <td>{{ alojamiento.sedeCercana }}</td>
+                    <td><span class="badge badge-pill badge-danger">{{ alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento }}</span></td>
+                    <td>{{ alojamiento.propiedadesAlojamiento.estadoAlojamiento }}</td>
+                    <td>
+                        <button class="btn btn-success">
+                        <i class="fa fa-search-plus"></i>
+                      </button>
+                    </td>
                 </tr>
-                <tr>
-                    <td>Garrett Winters</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>
-                    <td>63</td>
-                    <td>2011/07/25</td>
 
-                </tr>
-                <tr>
-                    <td>Ashton Cox</td>
-                    <td>Junior Technical Author</td>
-                    <td>San Francisco</td>
-                    <td>66</td>
-                    <td>2009/01/12</td>
-
-                </tr>
-                <tr>
-                    <td>Cedric Kelly</td>
-                    <td>Senior Javascript Developer</td>
-                    <td>Edinburgh</td>
-                    <td>22</td>
-                    <td>2012/03/29</td>
-
-                </tr>
 
             </tbody>
         </table>
-    </div>
-
-    <!--Ventana Emergente Condiciones-->
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="rechazo">
-        <div class="modal-dialog modal-lg">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-danger"> <i class="fa fa-exclamation-triangle"></i> Motivo de Rechazo</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <img src="assets/img/rechazo.png" align="center" alt="">
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="exampleTextarea">Describa el motivo por el cual fue rechazado el alojamiento</label>
-                                <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-info btn-xs"> <i class="fa fa-send"></i> Enviar</button>
-                    <button type="button" class="btn btn-danger btn-xs" data-dismiss="modal"> <i class="fa fa-window-close"></i> Cerrar</button>
-
-                </div>
-            </div>
-        </div>
     </div>
