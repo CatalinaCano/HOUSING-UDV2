@@ -19,8 +19,6 @@ export class ImagenPipe implements PipeTransform {
     if (tipo === 'alojamiento') {
         return url + img;
     }
-
-    return 'FUNCIONA';
   }
 
 }

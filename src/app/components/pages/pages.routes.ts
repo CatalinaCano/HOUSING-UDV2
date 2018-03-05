@@ -23,7 +23,7 @@ const pagesRoutes: Routes = [
             { path: 'inicio', component: InicioComponent, data: {titulo: 'Bienvenida', icono: ''}  },
             { path: 'perfil/:id', component: PerfilComponent, data: {titulo: 'Mi Perfil', icono: 'fa fa-user'}  },
             { path: 'galeria', component: GaleriaComponent, data: {titulo: 'Galeria de Alojamientos', icono: 'fa fa-search'} },
-            { path: 'alojamiento/:id', component: AlojamientoComponent, data: {titulo: 'Descripción del Alojamiento', icono: 'fa fa-bed'}},
+            { path: 'alojamientoEstudiante', component: AlojamientoComponent, data: {titulo: 'Descripción del Alojamiento', icono: 'fa fa-bed'}},
             { path: 'informacion', component: InformacionComponent, data: {titulo: 'Políticas de Housing-UD', icono: 'fa fa-commenting'}  },
             { path: 'imagenes/:id', component: ImagenesComponent, data: { titulo: 'Registrar Alojamiento', icono: 'fa fa-address-card' } },
              // Gestion

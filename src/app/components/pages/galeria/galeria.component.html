@@ -76,36 +76,36 @@
                 <!--<div class="card" *ngFor="let alojamiento of alojamientos.alojamientosGaleria">-->
                 <div class="card" *ngFor="let alojamiento of alojamientos">
 
-                    <img class="card-img-top img-fluid w-100" [src]="alojamiento.img|imagen" alt="">
+                    <img class="card-img-top img-fluid w-100" [src]="alojamiento.imagenes.imgFachada |imagen:'alojamiento'" alt="">
                     <div id="descripcion" class="card-block">
-                        <h6 class="card-title text-primary"> {{alojamiento.nombre}} </h6>
+                        <h6 class="card-title text-primary"> {{alojamiento.estudiante.email}} </h6>
                         <p class="card-text small">
-                            {{alojamiento.descripcion}}
+                            {{alojamiento.propiedadesAlojamiento.descripcionAlojamiento}}
                         </p>
                     </div>
                     <hr class="my-0">
                     <div class="card-block small">
                         <div class="row">
                             <div class="col-lg-6">
-                                <i class="fa fa-university"></i> Ingeniería
+                                <i class="fa fa-university"></i> {{alojamiento.sedeCercana}}
                             </div>
                             <div class="col-lg-6">
-                                <i class="fa fa-users"></i> {{alojamiento.habitantes}}
+                                <i class="fa fa-users"></i> {{alojamiento.normasAlojamiento.horaLlegada}}
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
-                                <i class="fa fa-info-circle"></i> Casa Familiar
+                                <i class="fa fa-info-circle"></i> {{alojamiento.tipoVivienda}}
                             </div>
                             <div class="col-lg-6">
-                                <i class="fa fa-bed"></i> Individual
+                                <i class="fa fa-bed"></i> {{alojamiento.tipoHabitacion}}
                             </div>
                         </div>
                         <br>
-                        <a class="btn btn-success btn-block" [routerLink]="['/alojamiento']"> <i class="fa fa-search-plus"></i> Ver más...</a>
+                        <a class="btn btn-success btn-block" [routerLink]="['/alojamientoEstudiante']"> <i class="fa fa-search-plus"></i> Ver más...</a>
                     </div>
                     <div class="card-footer small text-muted">
-                        Publicado: {{alojamiento.publicacion}}
+                        Publicado: {{alojamiento.propiedadesAlojamiento.fechaPublicacionAlojamiento}}
                     </div>
                 </div>
                 <!-- /Card Columns -->
