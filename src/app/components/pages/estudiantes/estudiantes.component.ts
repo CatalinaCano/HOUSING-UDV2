@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Estudiante } from '../../../models/estudiante.model';
 import { EstudiantesHousingService } from '../../../services/service.index';
 
+declare var swal: any;
+
 @Component({
   selector: 'estudiantes',
   templateUrl: './estudiantes.component.html',
@@ -48,9 +50,35 @@ export class EstudiantesComponent implements OnInit {
   }
 
   buscarEstudiante( termino: string) {
+
+    if (termino.length <= 0 ) {
+      this.cargarEstudiantes();
+      return;
+    }
+
     this._estudiantesHousing.buscarEstudiante(termino)
       .subscribe((estudiantes: Estudiante[]) => {
           this.estudiantes = estudiantes;
+      });
+  }
+
+  borrarEstudiante(estudiante: Estudiante) {
+      swal({
+        title: '¿Estas Seguro?',
+        text: 'Esta a punto de borrar a ' + estudiante.email,
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No'
+      }).then(borrar => {
+          if (borrar) {
+            this._estudiantesHousing.borrarEstudiante(estudiante._id)
+                .subscribe(borrado => {
+                  console.log(borrado);
+                  this.cargarEstudiantes();
+
+                });
+          }
       });
   }
 

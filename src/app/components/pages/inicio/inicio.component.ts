@@ -10,9 +10,11 @@ import { Estudiante } from '../../../models/estudiante.model';
 })
 export class InicioComponent implements OnInit {
   nombres: string;
+  id: string;
   constructor( private _estudianteService: EstudianteService ) {}
 
   ngOnInit() {
     this.nombres = this._estudianteService.obtenerNombres();
+    this.id = this._estudianteService.obtenerMatchID()
   }
 }

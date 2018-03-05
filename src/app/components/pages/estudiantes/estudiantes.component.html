@@ -35,7 +35,7 @@
                     <td> {{ estudiante.perteneceA}} </td>
                     <td> {{ estudiante.role }}</td>
                     <td>
-                        <button class="btn btn-danger">
+                        <button (click)="borrarEstudiante(estudiante)" class="btn btn-danger">
                         <i class="fa fa-trash-o"></i>
                       </button>
                     </td>

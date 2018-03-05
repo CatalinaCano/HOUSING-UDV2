@@ -26,4 +26,13 @@ export class EstudiantesHousingService {
 
   }
 
+  borrarEstudiante (id: string ) {
+    let url = URL_SERVICIOS + '/estudiante/' + id;
+    return this.http.delete(url)
+                .map(resp => {
+                  swal('Estudiante Borrado', 'Estudiante eliminado correctamente', 'success');
+                  return true;
+                });
+  }
+
 }

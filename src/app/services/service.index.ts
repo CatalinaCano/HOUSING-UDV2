@@ -1,4 +1,4 @@
-export { EstudiantesHousingService } from './estudiantes-housing-service';
+export { EstudiantesHousingService } from './estudiantes-housing.service';
 export { SubirArchivoService } from './subir-archivo.service';
 export { EstudianteService } from './estudiante.service';
 export { NavbarService } from '../services/shared/navbar.service';
