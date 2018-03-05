@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EstadisticasService } from '../../../services/estadisticas.service';
-import { Alojamiento } from '../../../models/alojamiento.model';
+import { AlojamientoConsulta } from '../../../models/alojamientoConsulta.model';
 
 @Component({
   selector: 'app-administrador',
@@ -9,7 +9,7 @@ import { Alojamiento } from '../../../models/alojamiento.model';
 })
 export class AdministradorComponent implements OnInit {
 
-  alojamientos: Alojamiento[] = [];
+  alojamientos: AlojamientoConsulta[] = [];
   totalAlojamientos: number;
   totalAlojamientosDisponibles: number;
   totalAlojamientosAprobados: number;
@@ -23,6 +23,7 @@ export class AdministradorComponent implements OnInit {
 
   ngOnInit() {
     this.cargarAlojamientos();
+    this.cargarEstadisticas();
   }
 
   cargarAlojamientos() {
@@ -30,10 +31,19 @@ export class AdministradorComponent implements OnInit {
     this._estadisticas.cargarAlojamientos(this.desde)
       .subscribe((res: any) => {
         console.log(res);
-        this.totalRegistros = res.total;
         this.alojamientos = res.totalAlojamientos;
         this.cargando = false;
       });
+  }
+
+  cargarEstadisticas() {
+    this._estadisticas.estadisticas()
+        .subscribe((res: any) => {
+          this.totalAlojamientos = res.cantidadAlojamientos;
+          this.totalAlojamientosDisponibles = res.alojamientosDisponibles;
+          this.totalAlojamientosAprobados = res.alojamientosAceptados;
+          this.totalAlojamientosPorAprobar = res.alojamientosPorAprobar;
+        });
   }
 
   cambiarDesde(valor: number) {

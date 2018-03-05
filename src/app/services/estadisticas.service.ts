@@ -16,4 +16,9 @@ export class EstadisticasService {
     return this.http.get(url);
   }
 
+  estadisticas() {
+    let url = URL_SERVICIOS + '/busqueda/estadisticas';
+    return this.http.get(url);
+  }
+
 }
