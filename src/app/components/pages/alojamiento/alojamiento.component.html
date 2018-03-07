@@ -5,7 +5,7 @@
     <!--Barra de navegacion-->
 
     <!-- Encabezado -->
-    <h1 class="my-4 text-primary"> <i class="fa fa-map-marker"></i> {{alojamiento.ubicacion.zona}} <small>{{alojamiento.tipoVivienda}}  | <small>{{alojamiento.propiedadesAlojamiento.clasificacionAlojamiento}}- </small> <small>{{alojamiento.propiedadesAlojamiento.fechaPublicacionAlojamiento}}</small>        </small>
+    <h1 class="my-4 text-primary"> <i class="fa fa-map-marker"></i> {{usuarioCondor.alojamiento.barrio}} <small>{{alojamiento.tipoVivienda}}  |  <small> Estrato: {{usuarioCondor.alojamiento.estrato}} - </small> <small>{{alojamiento.propiedadesAlojamiento.clasificacionAlojamiento}}</small>        </small>
     </h1>
     <!-- tipo de casa viene de mongo-->
     <hr>
@@ -119,7 +119,7 @@
         </div>
         <!--Barra lateral-->
         <div class="col-lg-4">
-            <h3 class="my-3"> <i class="fa fa-user text-success"></i> {{alojamiento.estudiante.email}}</h3>
+            <h3 class="my-3"> <i class="fa fa-user text-success"></i> PRUEBA</h3>
             <img [src]="_estudianteService.obtenerImagen()|imagen" height="auto" width="100%" align="center">
             <h3 class="my-3"> <i class="fa fa-coffee text-warning"></i> Interéses y Costumbres del alojamiento anfitrión</h3>
             <table class="table table-striped">
@@ -313,16 +313,16 @@
                         <table class="table table-striped">
                             <tbody>
                                 <tr>
-                                    <td> <i class="fa fa-user"></i> Nombre Completo: Diana Catalina Cano Narvaez </td>
+                                    <td> <i class="fa fa-user"></i> Nombre Completo: {{usuarioCondor.informacion.nombres}} {{usuarioCondor.informacion.apellidos}} </td>
                                 </tr>
                                 <tr>
-                                    <td> <i class="fa fa-phone"></i> Telefono: +57 123-456</td>
+                                    <td> <i class="fa fa-phone"></i> Telefono: {{usuarioCondor.informacion.indicativo}} {{usuarioCondor.informacion.telefono}} </td>
                                 </tr>
                                 <tr>
-                                    <td> <i class="fa fa-mobile"></i> Celular: 3196966720 </td>
+                                    <td> <i class="fa fa-mobile"></i> Celular: {{usuarioCondor.informacion.telefonoMovil}} </td>
                                 </tr>
                                 <tr>
-                                    <td> <i class="fa fa-envelope"></i> Correo:{{alojamiento.estudiante.email}} </td>
+                                    <td> <i class="fa fa-envelope"></i> Correo:{{usuarioCondor.informacion.correo}} </td>
                                 </tr>
 
                             </tbody>

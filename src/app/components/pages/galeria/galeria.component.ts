@@ -27,7 +27,7 @@ export class GaleriaComponent implements OnInit {
   }
 
   buscarAlojamiento( alojamiento ) {
-    this.router.navigate(['/alojamientoEstudiante', alojamiento._id]);
+    this.router.navigate(['/alojamientoEstudiante', alojamiento._id, alojamiento.estudiante.email.split('@', 1).toString()]);
   }
 
 }

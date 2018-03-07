@@ -15,6 +15,6 @@ export class InicioComponent implements OnInit {
 
   ngOnInit() {
     this.nombres = this._estudianteService.obtenerNombres();
-    this.id = this._estudianteService.obtenerMatchID()
+    this.id = this._estudianteService.obtenerMatchID();
   }
 }
