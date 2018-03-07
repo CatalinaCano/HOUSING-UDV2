@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlojamientosService } from '../../../services/service.index';
 import { AlojamientoConsulta } from '../../../models/alojamientoConsulta.model';
+import { Alojamiento } from '../../../models/alojamiento.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-galeria',
@@ -8,18 +10,23 @@ import { AlojamientoConsulta } from '../../../models/alojamientoConsulta.model';
 })
 export class GaleriaComponent implements OnInit {
   alojamientos: AlojamientoConsulta [] = [];
-  constructor(private servicioAlojamientos: AlojamientosService) {}
+  id: string;
+  constructor(private servicioAlojamientos: AlojamientosService,
+              public router: Router) {}
 
   ngOnInit() {
     this.cargarAlojamientos();
   }
 
   cargarAlojamientos() {
-    console.log('llego');
     this.servicioAlojamientos.cargarAlojamientos()
               .subscribe((res: any ) => {
                 this.alojamientos = res.alojamientosGaleria;
               });
+  }
+
+  buscarAlojamiento( alojamiento ) {
+    this.router.navigate(['/alojamientoEstudiante', alojamiento._id]);
   }
 
 }

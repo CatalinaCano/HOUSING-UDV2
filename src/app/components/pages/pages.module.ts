@@ -5,6 +5,8 @@ import { ApplicationRef } from '@angular/core';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { PipesModule } from '../../pipes/pipes.module';
+import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
+
 
 import { PAGES_ROUTES } from './pages.routes';
 
@@ -62,7 +64,8 @@ import { EstudiantesComponent } from './estudiantes/estudiantes.component';
         }),
         ReactiveFormsModule,
         PipesModule,
-        HttpModule
+        HttpModule,
+        NgxPaginationModule
     ],
 })
 

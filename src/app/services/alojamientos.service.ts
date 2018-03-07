@@ -20,4 +20,9 @@ export class AlojamientosService {
     return this.http.get(url);
   }
 
+  buscarAlojamiento(idAlojamiento: string) {
+    let url = URL_SERVICIOS + '/busqueda/alojamiento/' + idAlojamiento;
+    return this.http.get(url);
+  }
+
   }

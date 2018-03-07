@@ -101,7 +101,10 @@
                             </div>
                         </div>
                         <br>
-                        <a class="btn btn-success btn-block" [routerLink]="['/alojamientoEstudiante']"> <i class="fa fa-search-plus"></i> Ver más...</a>
+                        <button (click)="buscarAlojamiento(alojamiento)" class="btn btn-success btn-block">
+                        <i class="fa fa-search-plus"></i> Ver más...
+                      </button>
+
                     </div>
                     <div class="card-footer small text-muted">
                         Publicado: {{alojamiento.propiedadesAlojamiento.fechaPublicacionAlojamiento}}
@@ -112,9 +115,9 @@
         </div>
     </div>
 
-    <!-- <div id="paginacion" class="row">
-            <pagination-controls (pageChange)="p = $event" maxSize="10" previousLabel="Anterior" nextLabel="Siguiente" screenReaderPaginationLabel="Paginación" screenReaderPageLabel="Página" screenReaderCurrentLabel="Página Actual">
-            </pagination-controls>
-        </div>-->
+    <div id="paginacion" class="row">
+        <pagination-controls (pageChange)="p = $event" maxSize="10" previousLabel="Anterior" nextLabel="Siguiente" screenReaderPaginationLabel="Paginación" screenReaderPageLabel="Página" screenReaderCurrentLabel="Página Actual">
+        </pagination-controls>
+    </div>
 </div>
 <!-- /.container-fluid -->
