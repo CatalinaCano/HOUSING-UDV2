@@ -25,7 +25,7 @@
                             <i class="fa fa-university"></i> Sede Cercana:<br> {{alojamiento.sedeCercana}}
                             <!--viene de mongo-->
                         </td>
-                        <td> <i class="fa fa-users"></i> Habitantes en el alojamiento: 4</td>
+                        <td> <i class="fa fa-users"></i> Habitantes en el alojamiento: {{usuarioCondor.alojamiento.cantidadHabitantes}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -111,7 +111,7 @@
             <table class="table table-striped">
                 <tbody>
                     <tr>
-                        <td> <i class="fa fa-map-pin"></i> Dirección: Calle 1233 # 4 L Sur </td>
+                        <td> <i class="fa fa-map-pin"></i> Dirección: {{usuarioCondor.alojamiento.direccion}} </td>
                         <td> <i class="fa fa-street-view"></i> Zona: {{alojamiento.ubicacion.zona}}</td>
                     </tr>
                 </tbody>
@@ -119,13 +119,13 @@
         </div>
         <!--Barra lateral-->
         <div class="col-lg-4">
-            <h3 class="my-3"> <i class="fa fa-user text-success"></i> PRUEBA</h3>
-            <img [src]="_estudianteService.obtenerImagen()|imagen" height="auto" width="100%" align="center">
+            <h3 class="my-3"> <i class="fa fa-user text-success"></i> {{usuarioCondor.informacion.nombres}} {{usuarioCondor.informacion.apellidos}}</h3>
+            <img [src]="usuarioCondor.informacion.imagen |imagen:'google'" height="auto" width="100%" align="center">
             <h3 class="my-3"> <i class="fa fa-coffee text-warning"></i> Interéses y Costumbres del alojamiento anfitrión</h3>
             <table class="table table-striped">
                 <tbody>
                     <tr>
-                        <td> <i class="fa fa-language"></i> Idiomas: Español </td>
+                        <td> <i class="fa fa-language"></i> Idiomas: {{usuarioCondor.informacion.idioma}} </td>
                     </tr>
                     <tr>
                         <td> <i class="fa fa-spoon"></i> Hábitos Alimenticios: {{alojamiento.costumbres.habitosAlimenticios}} </td>
