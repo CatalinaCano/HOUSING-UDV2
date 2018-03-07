@@ -73,40 +73,40 @@
 
 
                 <!--<div class="card" *ngFor="let alojamiento of alojamientos.alojamientosGaleria">-->
-                <div class="card" *ngFor="let alojamiento of alojamientos">
+                <div class="card" *ngFor="let alojamiento of alojamientos | paginate: { itemsPerPage: 10, currentPage: p }">
 
-                    <img class="card-img-top img-fluid w-100" [src]="alojamiento.imagenes.imgFachada |imagen:'alojamiento'" alt="">
-                    <div id="descripcion" class="card-block">
-                        <h6 class="card-title text-primary"> {{alojamiento.estudiante.email}} </h6>
-                        <p class="card-text small">
+                    <img class="card-img-top img-fluid w-100 " [src]="alojamiento.imagenes.imgFachada |imagen: 'alojamiento' " alt=" ">
+                    <div id="descripcion " class="card-block ">
+                        <h6 class="card-title text-primary "> {{alojamiento.estudiante.email}} </h6>
+                        <p class="card-text small ">
                             {{alojamiento.propiedadesAlojamiento.descripcionAlojamiento}}
                         </p>
                     </div>
-                    <hr class="my-0">
-                    <div class="card-block small">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <i class="fa fa-university"></i> {{alojamiento.sedeCercana}}
+                    <hr class="my-0 ">
+                    <div class="card-block small ">
+                        <div class="row ">
+                            <div class="col-lg-6 ">
+                                <i class="fa fa-university "></i> {{alojamiento.sedeCercana}}
                             </div>
-                            <div class="col-lg-6">
-                                <i class="fa fa-users"></i> {{alojamiento.normasAlojamiento.horaLlegada}}
+                            <div class="col-lg-6 ">
+                                <i class="fa fa-users "></i> {{alojamiento.normasAlojamiento.horaLlegada}}
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <i class="fa fa-info-circle"></i> {{alojamiento.tipoVivienda}}
+                        <div class="row ">
+                            <div class="col-lg-6 ">
+                                <i class="fa fa-info-circle "></i> {{alojamiento.tipoVivienda}}
                             </div>
-                            <div class="col-lg-6">
-                                <i class="fa fa-bed"></i> {{alojamiento.tipoHabitacion}}
+                            <div class="col-lg-6 ">
+                                <i class="fa fa-bed "></i> {{alojamiento.tipoHabitacion}}
                             </div>
                         </div>
                         <br>
-                        <button (click)="buscarAlojamiento(alojamiento)" class="btn btn-success btn-block">
-                        <i class="fa fa-search-plus"></i> Ver más...
+                        <button (click)="buscarAlojamiento(alojamiento) " class="btn btn-success btn-block ">
+                        <i class="fa fa-search-plus "></i> Ver más...
                       </button>
 
                     </div>
-                    <div class="card-footer small text-muted">
+                    <div class="card-footer small text-muted ">
                         Publicado: {{alojamiento.propiedadesAlojamiento.fechaPublicacionAlojamiento}}
                     </div>
                 </div>
@@ -114,10 +114,12 @@
             </div>
         </div>
     </div>
+    <br>
 
-    <div id="paginacion" class="row">
-        <pagination-controls (pageChange)="p = $event" maxSize="10" previousLabel="Anterior" nextLabel="Siguiente" screenReaderPaginationLabel="Paginación" screenReaderPageLabel="Página" screenReaderCurrentLabel="Página Actual">
-        </pagination-controls>
+    <div id="paginacion " class="paginacion">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        <!-- <pagination-controls (pageChange)="p=$ event" maxSize="10 " previousLabel="Anterior " nextLabel="Siguiente " screenReaderPaginationLabel="Paginación " screenReaderPageLabel="Página " screenReaderCurrentLabel="Página Actual ">
+        </pagination-controls>-->
     </div>
 </div>
 <!-- /.container-fluid -->
