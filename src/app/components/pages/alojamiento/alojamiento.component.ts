@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { } from 'googlemaps';
+import { MapsAPILoader } from '@agm/core';
 import { Marker } from '../../../interfaces/marker.interface';
 import { EstudianteService, AlojamientosService, CondorService} from '../../../services/service.index';
 import { AlojamientoConsulta } from '../../../models/alojamientoConsulta.model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { } from 'googlemaps';
 
 
 @Component({
@@ -12,20 +16,27 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AlojamientoComponent implements OnInit {
 
   // Variables para el mapa
-  lat: number; // = 4.627837801285463;
-  lng: number;  // = -74.15065860000004;
+  lat: number;
+  lng: number;
+  // lat: number; // = 4.627837801285463;
+  // lng: number;  // = -74.15065860000004;
   zoom: number = 18;
   idAlojamiento: string;
   usuarioCondor: any;
   idEstudiante: string;
   alojamiento: any;
+  map: any;
+
+
 
   constructor(  public _estudianteService: EstudianteService,
                 public router: Router,
                 public route: ActivatedRoute,
                 public _alojamientoService: AlojamientosService,
                 public _condorService: CondorService
-                ) { }
+                ) {
+
+                 }
 
   ngOnInit() {
     this.cargarAlojamiento();

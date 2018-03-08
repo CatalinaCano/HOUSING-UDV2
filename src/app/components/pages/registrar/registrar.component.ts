@@ -117,8 +117,8 @@ export class RegistrarComponent implements OnInit {
 
     // Coordenas del mapa por defecto
     this.zoom = 4;
-    this.latitud = 39.8282;
-    this.longitud = -98.5795;
+    this.latitud = 4.6233868;
+    this.longitud = -74.0662944;
 
     //  Crear el FormControl
     this.searchControl = new FormControl('', Validators.required);
