@@ -25,4 +25,10 @@ export class AlojamientosService {
     return this.http.get(url);
   }
 
+  borrarAlojamiento(idAlojamiento: string) {
+      let url = URL_SERVICIOS + '/alojamiento/' + idAlojamiento;
+      return this.http.delete(url);
+
+  }
+
   }

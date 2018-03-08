@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EstadisticasService } from '../../../services/estadisticas.service';
 import { AlojamientoConsulta } from '../../../models/alojamientoConsulta.model';
+import { Router } from '@angular/router';
+import { AlojamientosService } from '../../../services/service.index';
+declare var swal: any;
 
 @Component({
   selector: 'app-administrador',
@@ -18,7 +21,9 @@ export class AdministradorComponent implements OnInit {
   totalRegistros: number = 0;
   cargando: boolean = true;
   constructor(
-    public _estadisticas: EstadisticasService
+    public _estadisticas: EstadisticasService,
+    public router: Router,
+    public _alojamientoService: AlojamientosService
   ) { }
 
   ngOnInit() {
@@ -58,6 +63,30 @@ export class AdministradorComponent implements OnInit {
 
     this.desde += valor;
     this.cargarAlojamientos();
+
+  }
+
+  buscarAlojamiento(alojamiento) {
+    this.router.navigate(['/alojamientoEstudiante', alojamiento._id, alojamiento.estudiante.email.split('@', 1).toString()]);
+  }
+
+  borrarAlojamiento(alojamiento) {
+    swal({
+      title: '¿Estas Seguro?',
+      text: 'Esta a punto de borrar el alojamiento de ' + alojamiento.estudiante.email,
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+      cancelButtonText: 'No'
+    }).then(borrar => {
+      if (borrar) {
+        this._alojamientoService.borrarAlojamiento(alojamiento._id)
+          .subscribe(borrado => {
+            console.log(borrado);
+            this.cargarAlojamientos();
+          });
+      }
+    });
 
   }
 

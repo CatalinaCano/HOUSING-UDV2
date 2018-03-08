@@ -56,4 +56,6 @@ export class AlojamientoComponent implements OnInit {
             }, error => console.log(error));
       });
   }
+
+
 }

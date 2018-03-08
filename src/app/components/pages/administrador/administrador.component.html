@@ -122,6 +122,7 @@
                     <th>Estado Publicación Alojamiento</th>
                     <th>Estado Alojamiento</th>
                     <th>Ver Alojamiento</th>
+                    <th>Eliminar Alojamiento</th>
 
                 </tr>
             </thead>
@@ -133,8 +134,13 @@
                     <td><span class="badge badge-pill badge-danger">{{ alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento }}</span></td>
                     <td>{{ alojamiento.propiedadesAlojamiento.estadoAlojamiento }}</td>
                     <td>
-                        <button class="btn btn-success">
+                        <button (click)="buscarAlojamiento(alojamiento)" class="btn btn-success">
                         <i class="fa fa-search-plus"></i>
+                      </button>
+                    </td>
+                    <td>
+                        <button (click)="borrarAlojamiento(alojamiento)" class="btn btn-danger">
+                        <i class="fa fa-trash-o"></i>
                       </button>
                     </td>
                 </tr>
