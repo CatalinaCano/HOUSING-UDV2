@@ -24,7 +24,7 @@ export class AlojamientoComponent implements OnInit {
   idEstudiante: string;
   alojamiento: any;
   role: string;
-  administrador: boolean = false;
+  administrador: boolean = true;
 
 
 
@@ -86,4 +86,66 @@ export class AlojamientoComponent implements OnInit {
     });
 
   }
+
+  cambiarEstadoAprobado(alojamiento) {
+    alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento = 'Aceptado';
+    swal({
+      title: '¿Estas Seguro?',
+      text: 'Esta a punto de actualizar el estado del alojamiento de ' + alojamiento.estudiante.email,
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+      cancelButtonText: 'No'
+    }).then(borrar => {
+      if (borrar) {
+        this._alojamientoService.actualizarEstadoAlojamiento(alojamiento)
+          .subscribe(actualizado => {
+            this.router.navigate(['/administrador']);
+            // devolver a la pagina anterior  this.cargarAlojamientos();
+          });
+      }
+    });
+
+  }
+
+  cambiarEstadoRechazado(alojamiento) {
+    alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento = 'Rechazado';
+    swal({
+      title: '¿Estas Seguro?',
+      text: 'Esta a punto de actualizar el estado del alojamiento de ' + alojamiento.estudiante.email,
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+      cancelButtonText: 'No'
+    }).then(borrar => {
+      if (borrar) {
+        this._alojamientoService.actualizarEstadoAlojamiento(alojamiento)
+          .subscribe(actualizado => {
+            this.router.navigate(['/administrador']);
+            // devolver a la pagina anterior  this.cargarAlojamientos();
+          });
+      }
+    });
+  }
+
+  actualizarEstadoAlojamiento(alojamiento) {
+    swal({
+      title: '¿Estas Seguro?',
+      text: 'Esta a punto de actualizar el estado del alojamiento de ' + alojamiento.estudiante.email,
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+      cancelButtonText: 'No'
+    }).then(borrar => {
+      if (borrar) {
+        this._alojamientoService.actualizarEstadoAlojamiento(alojamiento)
+          .subscribe(actualizado => {
+            this.router.navigate(['/administrador']);
+            // devolver a la pagina anterior  this.cargarAlojamientos();
+          });
+      }
+    });
+
+  }
+
 }

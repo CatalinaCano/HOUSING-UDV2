@@ -36,7 +36,7 @@ export class AlojamientosService {
     console.log(alojamiento);
     return this.http.put(url, alojamiento)
                 .map((resp: any) => {
-                  swal('Alojamiento Actualizado', alojamiento.propiedadesAlojamiento.estadoAlojamiento, 'success');
+                  swal('Alojamiento Actualizado', alojamiento.estudiante.email, 'success');
                   return true;
                 });
 
