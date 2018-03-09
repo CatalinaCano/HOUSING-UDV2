@@ -110,65 +110,72 @@
     </div>
 
     <br>
+    <div class="row" align="right">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+            <input #input (keyup)="buscar(input.value)" class="form-control mr-sm-2" type="text" placeholder="&#xF002; Buscar Estudiante ... " style="font-family: FontAwesome, Montserrat; font-style: normal">
+        </div>
+    </div>
 
 
 
     <div class="table-responsive">
-        <table class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+        <table class="display nowrap table table-hover table-striped table-bordered table-responsive" cellspacing="0" width="100%">
             <thead>
                 <tr>
+                    <th class="text-center"> <i class="fa fa-cog "></i> </th>
                     <th>Estudiante</th>
                     <th>Sede Cercana</th>
-                    <th>Estado Publicación Alojamiento</th>
-                    <th>Estado Alojamiento</th>
-                    <th>Ver Alojamiento</th>
-                    <th>Eliminar Alojamiento</th>
-
+                    <th>Publicación</th>
+                    <th>Estado Alojamiento </th>
                 </tr>
             </thead>
 
             <tbody>
+
                 <tr *ngFor="let alojamiento of alojamientos">
-                    <td>{{ alojamiento.estudiante.email }}</td>
-                    <td>{{ alojamiento.sedeCercana }}</td>
-                    <td><span class="badge badge-pill badge-danger">{{ alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento }}</span></td>
-                    <td>
-                        <div class="row">
-                            <div class="col-md-10"><select [(ngModel)]="alojamiento.propiedadesAlojamiento.estadoAlojamiento" name="role" class="form-control">
-                                    <option value="Disponible">Disponible</option>
-                                    <option value="Ocupado">Ocupado</option>
-                        </select>
-                            </div>
-                            <div class="col-md-2">
-                                <button (click)="actualizarEstadoAlojamiento(alojamiento)" class="btn btn-primary">
-                                     <i class="fa fa-save"></i>
-                                </button>
-
-                            </div>
-                        </div>
-
-                    </td>
                     <td class="text-center">
                         <button (click)="buscarAlojamiento(alojamiento)" class="btn btn-success">
                         <i class="fa fa-search-plus"></i>
                       </button>
-                    </td>
-                    <td>
                         <button (click)="borrarAlojamiento(alojamiento)" class="btn btn-danger">
                         <i class="fa fa-trash-o"></i>
                       </button>
                     </td>
+                    <td>{{ alojamiento.estudiante.email }}</td>
+                    <td>{{ alojamiento.sedeCercana }}</td>
+                    <td>
+                        <span *ngIf="alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento==='En estudio'" class="badge badge-pill badge-primary">{{ alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento }}</span>
+                        <span *ngIf="alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento==='Aceptado'" class="badge badge-pill badge-success">{{ alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento }}</span>
+                        <span *ngIf="alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento==='Rechazado'" class="badge badge-pill badge-danger">{{ alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento }}</span>
+                    </td>
+                    <td>
+                        <div class="input-group">
+                            <select [(ngModel)]="alojamiento.propiedadesAlojamiento.estadoAlojamiento" name="role" class="form-control">
+                                    <option value="Disponible">Disponible</option>
+                                    <option value="Ocupado">Ocupado</option>
+                        </select>
+                            <br>
+                            <button (click)="actualizarEstadoAlojamiento(alojamiento)" class="btn btn-primary">
+                                     <i class="fa fa-save"></i>
+                        </button>
+                        </div>
+
+                    </td>
                 </tr>
-
-
             </tbody>
         </table>
         <br>
-        <div class="footerNavWrap clearfix">
-            <button (click)="cambiarDesde(-5)" class="btn btn-success pull-left btn-fyi"> <i class="fa fa-angle-double-left"></i> Anteriores  </button>
-            <button (click)="cambiarDesde(5)" class="btn btn-success pull-right btn-fyi"> Siguientes <i class="fa fa-angle-double-right"></i> </button>
-        </div>
-
-        <br>
-
     </div>
+    <div class="footerNavWrap clearfix">
+        <button (click)="cambiarDesde(-5)" class="btn btn-info pull-left btn-fyi"> <i class="fa fa-angle-double-left"></i> Anteriores  </button>
+        <button (click)="cambiarDesde(5)" class="btn btn-info pull-right btn-fyi"> Siguientes <i class="fa fa-angle-double-right"></i> </button>
+    </div>
+
+    <br>
+</div>

@@ -37,4 +37,10 @@ export class AlojamientosService {
 
   }
 
+  buscar(termino) {
+    let url = URL_SERVICIOS + '/busqueda/alojamientos/' + termino;
+    return this.http.get(url)
+      .map((res: any) => res.sedes);
+  }
+
   }

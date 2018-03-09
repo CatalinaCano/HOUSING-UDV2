@@ -1,7 +1,9 @@
 <div class="container-fluid animated fadeInUp">
 
-    <div class="row" align="right">
-        <input #input (keyup)="buscarEstudiante(input.value)" class="form-control mr-sm-2" type="text" placeholder="&#xF002; Buscar Estudiante ... " style="font-family: FontAwesome, Montserrat; font-style: normal">
+    <div class="row">
+        <div class="col-md-4">
+            <input #input (keyup)="buscarEstudiante(input.value)" class="form-control mr-sm-2" type="text" placeholder="&#xF002; Buscar Estudiante ... " style="font-family: FontAwesome, Montserrat; font-style: normal">
+        </div>
     </div>
 
     <br>
@@ -18,36 +20,40 @@
         </div>
     </div>
 
-    <div class="row" *ngIf="!cargando">
+    <div *ngIf="!cargando">
         <h2 class="tetx-primary"> Estudiantes Registrados ( <small>{{totalRegistros}}</small> ) </h2>
-        <table class="table table-striped">
-            <thead>
-                <tr class="tabla">
-                    <th>Correo</th>
-                    <th>Sede Cercana</th>
-                    <th>Rol</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let estudiante of estudiantes">
-                    <td> {{ estudiante.email }} </td>
-                    <td> {{ estudiante.perteneceA}} </td>
-                    <td> {{ estudiante.role }}</td>
-                    <td>
-                        <button (click)="borrarEstudiante(estudiante)" class="btn btn-danger">
-                        <i class="fa fa-trash-o"></i>
-                      </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
 
-        <button (click)="cambiarDesde(-5)" class="btn btn-success">
-                      Anteriores
-                    </button>
-        <button (click)="cambiarDesde(5)" class="btn btn-warning">
-                      Siguientes
-                    </button>
+        <div class="row table-responsive" style="text-align:center;">
+            <table class=" display nowrap table table-hover table-striped table-bordered table-responsive " cellspacing="0 " wwidth="100% " height="100% ">
+                <thead>
+                    <tr>
+                        <th> <i class="fa fa-cog "></i> </th>
+                        <th>Correo</th>
+                        <th>Sede Cercana</th>
+                        <th>Rol</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let estudiante of estudiantes ">
+                        <td>
+                            <button (click)="borrarEstudiante(estudiante) " class="btn btn-danger ">
+                        <i class="fa fa-trash-o "></i>
+                      </button>
+                        </td>
+                        <td> {{ estudiante.email }} </td>
+                        <td> {{ estudiante.perteneceA}} </td>
+                        <td> {{ estudiante.role }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+        </div>
+
+
+        <div class="footerNavWrap clearfix ">
+            <button (click)="cambiarDesde(-5) " class="btn btn-success pull-left btn-fyi "> <i class="fa fa-angle-double-left "></i> Anteriores  </button>
+            <button (click)="cambiarDesde(5) " class="btn btn-success pull-right btn-fyi "> Siguientes <i class="fa fa-angle-double-right "></i> </button>
+        </div>
+        <br>
     </div>
-</div>

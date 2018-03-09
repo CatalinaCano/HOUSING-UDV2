@@ -111,4 +111,19 @@ export class AdministradorComponent implements OnInit {
 
   }
 
+  buscar(termino: string) {
+ console.log('llego a buscar... con ' + termino);
+    if (termino.length <= 0) {
+      this.cargarAlojamientos();
+      return;
+    }
+
+    this._alojamientoService.buscar(termino)
+      .subscribe((alojamientos: AlojamientoConsulta[]) => {
+        console.log(alojamientos);
+        this.alojamientos = alojamientos;
+      });
+  }
+
+
 }
