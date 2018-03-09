@@ -5,9 +5,18 @@
     <!--Barra de navegacion-->
 
     <!-- Encabezado -->
-    <h1 class="my-4 text-primary"> <i class="fa fa-map-marker"></i> {{usuarioCondor.alojamiento.barrio}} <small>{{alojamiento.tipoVivienda}}  |  <small> Estrato: {{usuarioCondor.alojamiento.estrato}} - </small> <small>{{alojamiento.propiedadesAlojamiento.clasificacionAlojamiento}}</small>        </small>
-    </h1>
-    <!-- tipo de casa viene de mongo-->
+    <div class="row">
+        <div class="col-md-10">
+            <h1 class="my-4 text-primary"> <i class="fa fa-map-marker"></i> {{usuarioCondor.alojamiento.barrio}} <small>{{alojamiento.tipoVivienda}}  |  <small> Estrato: {{usuarioCondor.alojamiento.estrato}} - </small> <small>{{alojamiento.propiedadesAlojamiento.clasificacionAlojamiento}}</small></small>
+            </h1>
+        </div>
+        <div class="col-md-2" *ngIf="administrador">
+            <button (click)="borrarAlojamiento(alojamiento)" class="btn btn-danger"> <i class="fa fa-trash-o"></i></button>
+            <button (click)="borrarAlojamiento(alojamiento)" class="btn btn-success"> <i class="fa fa-thumbs-up"></i></button>
+            <button (click)="borrarAlojamiento(alojamiento)" class="btn btn-warning"> <i class="fa fa-thumbs-down"></i></button>
+        </div>
+
+    </div>
     <hr>
 
     <div class="row animated fadeInUp">
@@ -103,8 +112,6 @@
             </table>
             <hr>
             <h3 class="my-4"> <i class="fa fa-map-marker text-warning"></i> Ubicación</h3>
-
-
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.809026464145!2d-74.06758188523798!3d4.628134896637911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a286d598bd5%3A0xddf14904a87dfb47!2sUniversidad+Distrital+Francisco+Jos%C3%A9+de+Caldas!5e0!3m2!1ses!2sco!4v1520470384812"
                 width="100%" height="450px" frameborder="0" style="border:0" allowfullscreen></iframe>
 
@@ -236,17 +243,6 @@
                 <strong>Si desea aplicar este alojamiento!</strong> haga clic en Contactar, así podrá comunicarse con el anfitrión
             </div>
             <button class="btn btn-success btn-block" data-toggle="modal" data-target="#condiciones"> <i class="fa fa-envelope"></i> Contactar</button>
-            <br>
-            <hr>
-            <div class="row">
-                <div class="col-md-6">
-                    <button class="btn btn-primary btn-block"> <i class="fa fa-check"></i> Aceptar</button>
-                </div>
-
-                <div class="col-md-6">
-                    <button class="btn btn-danger btn-block"> <i class="fa fa-trash"></i> Rechazar</button>
-                </div>
-            </div>
             <br>
             <hr>
             <div class="row">

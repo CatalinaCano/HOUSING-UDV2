@@ -92,8 +92,7 @@ export class AlojamientoConsulta {
             },
         public tipoVivienda: string,
         public tipoHabitacion: string,
-        public sedeCercana: string,
-        public administrador?: Administrador,
+        public sedeCercana: string
     ) {}
 
 }

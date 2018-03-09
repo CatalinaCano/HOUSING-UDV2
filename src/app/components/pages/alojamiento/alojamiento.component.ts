@@ -7,7 +7,7 @@ import { EstudianteService, AlojamientosService, CondorService} from '../../../s
 import { AlojamientoConsulta } from '../../../models/alojamientoConsulta.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { } from 'googlemaps';
-
+declare var swal: any;
 
 @Component({
   selector: 'app-alojamiento',
@@ -18,14 +18,13 @@ export class AlojamientoComponent implements OnInit {
   // Variables para el mapa
   lat: number;
   lng: number;
-  // lat: number; // = 4.627837801285463;
-  // lng: number;  // = -74.15065860000004;
   zoom: number = 18;
   idAlojamiento: string;
   usuarioCondor: any;
   idEstudiante: string;
   alojamiento: any;
-  map: any;
+  role: string;
+  administrador: boolean = false;
 
 
 
@@ -68,5 +67,23 @@ export class AlojamientoComponent implements OnInit {
       });
   }
 
+  borrarAlojamiento(alojamiento) {
+    swal({
+      title: '¿Estas Seguro?',
+      text: 'Esta a punto de borrar el alojamiento de ' + alojamiento.estudiante.email,
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+      cancelButtonText: 'No'
+    }).then(borrar => {
+      if (borrar) {
+        this._alojamientoService.borrarAlojamiento(alojamiento._id)
+          .subscribe(borrado => {
+            console.log(borrado);
+          // devolver a la pagina anterior  this.cargarAlojamientos();
+          });
+      }
+    });
 
+  }
 }

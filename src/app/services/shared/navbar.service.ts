@@ -42,13 +42,13 @@ export class NavbarService {
       id: {}
     },
     {
-      titulo: 'Gestión Housing',
+      titulo: 'Gestión Alojamientos',
       icono: 'fa fa-cogs',
       url: '/administrador',
       id: {}
     },
     {
-      titulo: 'Estudiantes',
+      titulo: 'Gestión Estudiantes',
       icono: 'fa fa-users',
       url: '/estudiantes',
       id: {}

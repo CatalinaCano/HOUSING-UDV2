@@ -90,4 +90,25 @@ export class AdministradorComponent implements OnInit {
 
   }
 
+  actualizarEstadoAlojamiento(alojamiento) {
+    swal({
+      title: '¿Estas Seguro?',
+      text: 'Esta a punto de actualizar el estado del alojamiento de ' + alojamiento.estudiante.email,
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+      cancelButtonText: 'No'
+    }).then(borrar => {
+      if (borrar) {
+        this._alojamientoService.actualizarEstadoAlojamiento(alojamiento)
+          .subscribe(actualizado => {
+            console.log(actualizado);
+            this.cargarAlojamientos();
+            // devolver a la pagina anterior  this.cargarAlojamientos();
+          });
+      }
+    });
+
+  }
+
 }
