@@ -102,8 +102,8 @@ export class AdministradorComponent implements OnInit {
       if (borrar) {
         this._alojamientoService.actualizarEstadoAlojamiento(alojamiento)
           .subscribe(actualizado => {
-            console.log(actualizado);
             this.cargarAlojamientos();
+            this.cargarEstadisticas();
             // devolver a la pagina anterior  this.cargarAlojamientos();
           });
       }
@@ -119,10 +119,7 @@ export class AdministradorComponent implements OnInit {
     }
 
     this._alojamientoService.buscar(termino)
-      .subscribe((alojamientos: AlojamientoConsulta[]) => {
-        console.log(alojamientos);
-        this.alojamientos = alojamientos;
-      });
+      .subscribe();
   }
 
 

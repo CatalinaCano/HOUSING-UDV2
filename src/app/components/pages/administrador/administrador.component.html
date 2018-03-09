@@ -1,7 +1,13 @@
 <div class="container-fluid animated fadeInUp">
-    <h1 class="text-h1"><i class="fa fa-users"></i> &nbsp; Solicitudes Radicadas </h1>
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="text-h1"><i class="fa fa-users"></i> &nbsp; Solicitudes Radicadas </h1>
+        </div>
+        <div class="col-md-4">
+            <input #input (keyup)="buscar(input.value)" class="form-control mr-sm-2" type="text" placeholder="&#xF002; Buscar Estudiante ... " style="font-family: FontAwesome, Montserrat; font-style: normal">
+        </div>
+    </div>
     <hr class="my-4">
-
     <div class="card my-4">
         <h5 class="card-header"> <i class="fa fa-search" aria-hidden="true"></i> Filtros de Búsqueda </h5>
         <div class="row card-block">
@@ -110,17 +116,7 @@
     </div>
 
     <br>
-    <div class="row" align="right">
-        <div class="col-md-4">
 
-        </div>
-        <div class="col-md-4">
-
-        </div>
-        <div class="col-md-4">
-            <input #input (keyup)="buscar(input.value)" class="form-control mr-sm-2" type="text" placeholder="&#xF002; Buscar Estudiante ... " style="font-family: FontAwesome, Montserrat; font-style: normal">
-        </div>
-    </div>
 
 
 
@@ -132,7 +128,7 @@
                     <th>Estudiante</th>
                     <th>Sede Cercana</th>
                     <th>Publicación</th>
-                    <th>Estado Alojamiento </th>
+                    <th>Estado del Alojamiento </th>
                 </tr>
             </thead>
 
@@ -149,18 +145,17 @@
                     </td>
                     <td>{{ alojamiento.estudiante.email }}</td>
                     <td>{{ alojamiento.sedeCercana }}</td>
-                    <td>
+                    <td class="text-center">
                         <span *ngIf="alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento==='En estudio'" class="badge badge-pill badge-primary">{{ alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento }}</span>
                         <span *ngIf="alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento==='Aceptado'" class="badge badge-pill badge-success">{{ alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento }}</span>
                         <span *ngIf="alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento==='Rechazado'" class="badge badge-pill badge-danger">{{ alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento }}</span>
                     </td>
                     <td>
                         <div class="input-group">
-                            <select [(ngModel)]="alojamiento.propiedadesAlojamiento.estadoAlojamiento" name="role" class="form-control">
+                            <select [(ngModel)]="alojamiento.propiedadesAlojamiento.estadoAlojamiento" name="estadoAlojamiento" class="form-control">
                                     <option value="Disponible">Disponible</option>
                                     <option value="Ocupado">Ocupado</option>
-                        </select>
-                            <br>
+                            </select> &nbsp;
                             <button (click)="actualizarEstadoAlojamiento(alojamiento)" class="btn btn-primary">
                                      <i class="fa fa-save"></i>
                         </button>

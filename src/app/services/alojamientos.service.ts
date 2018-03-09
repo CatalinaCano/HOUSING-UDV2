@@ -33,7 +33,12 @@ export class AlojamientosService {
 
   actualizarEstadoAlojamiento(alojamiento) {
      let url = URL_SERVICIOS + '/alojamiento/estadoAlojamiento/' + alojamiento._id;
-    return this.http.put(url, alojamiento._id);
+    console.log(alojamiento);
+    return this.http.put(url, alojamiento)
+                .map((resp: any) => {
+                  swal('Alojamiento Actualizado', alojamiento.propiedadesAlojamiento.estadoAlojamiento, 'success');
+                  return true;
+                });
 
   }
 
