@@ -120,7 +120,7 @@ export class AdministradorComponent implements OnInit {
 
     this._alojamientoService.buscar(termino)
       .subscribe((resp: any) => {
-        this.alojamientos = resp.totalAlojamientos;
+        this.alojamientos = resp.sedes;
       });
   }
 

@@ -51,7 +51,7 @@ export class EstudiantesComponent implements OnInit {
   }
 
   buscarEstudiante( termino: string) {
-
+    console.log('buscando con.. ' + termino);
     if (termino.length <= 0 ) {
       this.cargarEstudiantes();
       return;
