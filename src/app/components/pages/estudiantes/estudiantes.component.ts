@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Estudiante } from '../../../models/estudiante.model';
 import { EstudiantesHousingService } from '../../../services/service.index';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 declare var swal: any;
 
@@ -20,7 +21,8 @@ export class EstudiantesComponent implements OnInit {
   cargando: boolean = true;
   forma: FormGroup;
 
-  constructor(public _estudiantesHousing: EstudiantesHousingService) { }
+  constructor( public _estudiantesHousing: EstudiantesHousingService,
+               public router: Router) { }
 
   ngOnInit() {
     this.cargarEstudiantes();
