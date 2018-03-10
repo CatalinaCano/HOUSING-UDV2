@@ -112,7 +112,6 @@ export class AdministradorComponent implements OnInit {
   }
 
   buscar(termino: string) {
- console.log('llego a buscar... con ' + termino);
     if (termino.length <= 0) {
       this.cargarAlojamientos();
       return;

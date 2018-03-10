@@ -35,7 +35,6 @@ export class EstudiantesComponent implements OnInit {
   }
 
   cambiarDesde (valor: number) {
-    alert('llego a cambiar');
     let desde = this.desde + valor;
 
     if ( desde >= this.totalRegistros) {
