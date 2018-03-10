@@ -2,11 +2,11 @@
 
     <div class="row">
         <div class="col-md-8">
-            <input #input (keyup)="buscarEstudiante(input.value)" class="form-control mr-sm-2" type="text" placeholder="&#xF002; Buscar Estudiante ... " style="font-family: FontAwesome, Montserrat; font-style: normal">
+            <input #input (keyup)="buscarEstudiante(input.value)" class="form-control mr-sm-2" type="text" placeholder="&#xF002; Buscar Usuario ... " style="font-family: FontAwesome, Montserrat; font-style: normal">
         </div>
 
         <div class="col-md-4">
-            <button type="button" class="btn btn-block btn-info" data-toggle="modal" data-target="#estudianteModal" data-whatever="@mdo"> <i class="fa fa-user-plus"></i> Agregar Estudiante</button>
+            <button type="button" class="btn btn-block btn-info" data-toggle="modal" data-target="#estudianteModal" data-whatever="@mdo"> <i class="fa fa-user-plus"></i> Agregar Usuario</button>
         </div>
     </div>
 
@@ -25,14 +25,15 @@
     </div>
 
     <div *ngIf="!cargando">
-        <h2 class="tetx-primary"> Estudiantes Registrados ( <small>{{totalRegistros}}</small> ) </h2>
+        <h2 class="tetx-primary"> Usuarios Registrados ( <small>{{totalRegistros}}</small> ) </h2>
         <table class="table table-hover table-striped table-bordered table-responsive">
             <thead>
                 <tr>
                     <th class="text-center"> <i class="fa fa-cog "></i> </th>
-                    <th>Correo del Estudiante</th>
-                    <th>Sede Cercana del Estudiante</th>
-                    <th>Rol del Estudiante</th>
+                    <th>Correo del Usuario</th>
+                    <th>Sede Cercana del Usuario</th>
+                    <th>Rol del Usuario</th>
+                    <th>Descripción del Usuario</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,6 +46,7 @@
                     <td> {{ estudiante.email }} </td>
                     <td> {{ estudiante.perteneceA}} </td>
                     <td> {{ estudiante.role }}</td>
+                    <td> {{ estudiante.sobreMi }}</td>
                 </tr>
             </tbody>
         </table>
@@ -62,19 +64,23 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-primary" id="exampleModalLabel"> <i class="fa fa-user-plus"></i> Agregar Estudiante </h5>
+                <h5 class="modal-title text-primary" id="exampleModalLabel"> <i class="fa fa-user-plus"></i> Agregar Usuario </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
             </div>
             <div class="modal-body">
                 <form ngNativeValidate [formGroup]="forma" (ngSubmit)="guardarCambios()" novalidate="novalidate">
-                    <div class="form-group">
-                        <label for="recipient-name" class="form-control-label">Email Estudiante:</label>
+                    <div class="form-group" [ngClass]="{'alert alert-danger':!forma.get('email').valid}">
+                        <label for="recipient-name" class="form-control-label">Email Usuario:</label>
                         <input type="email" class="form-control" id="email" required formControlName="email">
+                        <div *ngIf="!forma.controls['email'].valid" class="form-control-feedback">
+                            <small>*Obligatorio y  debe contener @ </small>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="recipient-name" class="form-control-label">Sede cercana del Estudiante:</label>
+
+                    <div class="form-group" [ngClass]="{'alert alert-danger':!forma.get('perteneceA').valid}">
+                        <label for="recipient-name" class="form-control-label">Sede del Usuario:</label>
                         <select class="form-control" class="form-control" id="perteneceA" required formControlName="perteneceA">            <!--Facultades-->
                             <optgroup label="Sedes">
                             <option value="Aduanilla de Paiba">Aduanilla de Paiba</option>
@@ -100,15 +106,36 @@
                             <option value="Vivero">Vivero</option>
                             </optgroup>
                         </select>
+                        <div *ngIf="!forma.controls['perteneceA'].valid" class="form-control-feedback">
+                            <small>*Obligatorio</small>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="message-text" class="form-control-label">Descripción del Estudiante:</label>
+                    <div class="form-group" [ngClass]="{'alert alert-danger':!forma.get('role').valid}">
+                        <label for="recipient-name" class="form-control-label">Rol del Usuario:</label>
+                        <select class="form-control" class="form-control" id="role" required formControlName="role">            <!--Facultades-->
+                            <optgroup label="Roles">
+                            <option value="ESTUDIANTE">ESTUDIANTE</option>
+                            <option value="ADMINISTRADOR">ADMINISTRADOR</option>
+                            </optgroup>
+                        </select>
+                        <div *ngIf="!forma.controls['role'].valid" class="form-control-feedback">
+                            <small>*Obligatorio</small>
+                        </div>
+                    </div>
+                    <div class="form-group" [ngClass]="{'alert alert-danger':!forma.get('sobreMi').valid}">
+                        <label for="message-text" class="form-control-label">Descripción del Usuario:</label>
                         <textarea class="form-control" rows="3 " required formControlName="sobreMi"></textarea>
+                        <div *ngIf="forma.controls['sobreMi'].errors?.required" class="form-control-feedback">
+                            <small> *Obligatorio</small>
+                        </div>
+                        <div *ngIf="forma.controls['sobreMi'].errors?.minlength" class="form-control-feedback">
+                            <small>La descripción de contener mínimo 10 caractéres</small>
+                        </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal"> <i class="fa fa-close"></i> Cerrar </button>
+                <button (click)="limpiar()" type="button" class="btn btn-secondary" data-dismiss="modal"> <i class="fa fa-close"></i> Cerrar </button>
                 <button (click)="limpiar()" type="button" class="btn btn-primary"> <i class="fa fa-eraser"></i> Limpiar </button>
                 <button (click)="guardarCambios()" [disabled]="!forma.valid " type="submit" class="btn btn-success"> <i class="fa fa-user-plus"></i> Crear Estudiante</button>
             </div>

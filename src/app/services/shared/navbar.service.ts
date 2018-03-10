@@ -48,7 +48,7 @@ export class NavbarService {
       id: {}
     },
     {
-      titulo: 'Gestión Estudiantes',
+      titulo: 'Gestión de Usuarios',
       icono: 'fa fa-users',
       url: '/estudiantes',
       id: {}
