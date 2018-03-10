@@ -4,8 +4,7 @@ export class Estudiante {
         public email: string,
         public sobreMi: string,
         public perteneceA: string,
-        public role: string = 'ESTUDIANTE',
-        public _id: string
+        public role: string = 'ESTUDIANTE'
     ) { }
 
 }

@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./registrar.component.css']
 })
 export class RegistrarComponent implements OnInit {
-  public estudiante: Estudiante;
+  public estudiante: any;
   public latitud: number;
   public longitud: number;
   public searchControl: FormControl;

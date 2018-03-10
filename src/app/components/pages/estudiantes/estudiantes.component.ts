@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Estudiante } from '../../../models/estudiante.model';
 import { EstudiantesHousingService } from '../../../services/service.index';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 declare var swal: any;
 
@@ -12,15 +13,22 @@ declare var swal: any;
 export class EstudiantesComponent implements OnInit {
 
   estudiantes: Estudiante [] = [];
+  estudianteNuevo: Estudiante;
   desde: number = 0;
-
+  role: string = 'ESTUDIANTE';
   totalRegistros: number = 0;
   cargando: boolean = true;
+  forma: FormGroup;
 
   constructor(public _estudiantesHousing: EstudiantesHousingService) { }
 
   ngOnInit() {
     this.cargarEstudiantes();
+    this.forma = new FormGroup({
+      'email': new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$') ]),
+      'perteneceA': new FormControl('', Validators.required),
+      'sobreMi': new FormControl('', [Validators.required, Validators.minLength(10)])
+    });
   }
 
   cargarEstudiantes() {
@@ -62,7 +70,7 @@ export class EstudiantesComponent implements OnInit {
       });
   }
 
-  borrarEstudiante(estudiante: Estudiante) {
+  borrarEstudiante(estudiante) {
       swal({
         title: '¿Estas Seguro?',
         text: 'Esta a punto de borrar a ' + estudiante.email,
@@ -80,5 +88,30 @@ export class EstudiantesComponent implements OnInit {
           }
       });
   }
+
+  guardarCambios() {
+    if (this.forma.invalid) {
+      return;
+    }
+    let estudiante = new Estudiante(
+      this.forma.value.email,
+      this.forma.value.sobreMi,
+      this.forma.value.perteneceA,
+      this.role
+    );
+
+    this._estudiantesHousing.crearEstudiante(estudiante)
+      .subscribe(resp => {
+        console.log(resp);
+        swal('Éxito', 'Estudiante creado con Éxito', 'success');
+        this.cargarEstudiantes();
+      });
+    this.forma.reset();
+  }
+
+  limpiar() {
+    this.forma.reset();
+  }
+
 
 }

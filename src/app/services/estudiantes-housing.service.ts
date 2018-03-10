@@ -13,6 +13,12 @@ export class EstudiantesHousingService {
     public router: Router
   ) { }
 
+
+  crearEstudiante(estudiante) {
+    let url = URL_SERVICIOS + '/estudiante';
+    return this.http.post(url, estudiante);
+  }
+
   cargarUsuarios( desde: number= 0 ) {
 
     let url = URL_SERVICIOS + '/estudiante?desde=' + desde;
