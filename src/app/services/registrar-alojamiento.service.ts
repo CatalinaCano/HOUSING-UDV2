@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../config/config';
 import 'rxjs/add/operator/map';
 import swal from 'sweetalert';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class RegistrarAlojamientoService {
@@ -22,15 +23,9 @@ export class RegistrarAlojamientoService {
        console.log('se guardo con exito ' + '\n');
        console.log(resp.alojamientoGuardado);
        return resp.alojamientoGuardado;
-     });
+      }).catch((err: any) => {
+        swal('Error', err.error.mensaje, 'error');
+        return Observable.throw(err);
+      });
   }
-
-  /*actualizarImagenes(idAlojamiento) {
-    console.log(idAlojamiento + 'id del alojamiento a actualizar');
-    let url = URL_SERVICIOS + '/alojamiento' + '/' + idAlojamiento;
-    return this.http.put(url, idAlojamiento).map((resp: any) => {
-        swal('Alojamiento Guardado con Éxito', 'Se actualizo la BD', 'success' );
-        return true;
-    });
-  }*/
 }

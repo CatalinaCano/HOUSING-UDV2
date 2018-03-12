@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SharedService, NavbarService } from './services/service.index';
+
 
 
 @Component({
@@ -10,5 +10,5 @@ import { SharedService, NavbarService } from './services/service.index';
 export class AppComponent {
   title = 'Housing-UD';
 
-   constructor (public _shared: SharedService) {}
+   constructor () {}
 }

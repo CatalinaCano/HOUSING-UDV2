@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import {
   EstudianteService,
   NavbarService,
-  SharedService,
   AlojamientosService,
   RegistrarAlojamientoService,
   LoginGuardGuard,
@@ -25,7 +24,6 @@ import {
   declarations: [],
   providers: [
     NavbarService,
-    SharedService,
     AlojamientosService,
     EstudianteService,
     RegistrarAlojamientoService,

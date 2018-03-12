@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../../config/config';
 import { AlojamientoConsulta } from '../../../models/alojamientoConsulta.model';
+import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-busqueda',

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class CondorService {
@@ -23,6 +24,9 @@ export class CondorService {
                       .map((res: any) => {
                         console.log(res.json());
                         return res;
-                      });
+        }).catch((err: any) => {
+          swal('Error', err.error.mensaje, 'error');
+          return Observable.throw(err);
+        });
    }
 }

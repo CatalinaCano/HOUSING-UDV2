@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../config/config';
 import { Estudiante } from '../models/estudiante.model';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
 
 @Injectable()
@@ -28,7 +29,11 @@ export class EstudiantesHousingService {
   buscarEstudiante( termino: string ) {
       let url = URL_SERVICIOS + '/busqueda/estudiantes/' + termino;
      return this.http.get(url)
-                 .map( (res: any) => res.estudiantes);
+                 .map( (res: any) => res.estudiantes)
+                 .catch( (err: any) => {
+                   swal('Error', err.error.mensaje, 'error');
+                    return Observable.throw(err);
+                 } );
 
   }
 
@@ -38,7 +43,10 @@ export class EstudiantesHousingService {
                 .map(resp => {
                   swal('Estudiante Borrado', 'Estudiante eliminado correctamente', 'success');
                   return true;
-                });
+      }).catch((err: any) => {
+        swal('Error', err.error.mensaje, 'error');
+        return Observable.throw(err);
+      });
   }
 
 }

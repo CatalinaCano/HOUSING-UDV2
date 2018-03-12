@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../config/config';
 import { Alojamiento } from '../models/alojamiento.model';
 import { AlojamientoConsulta } from '../models/alojamientoConsulta.model';
-
+import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AlojamientosService {
 
@@ -38,6 +39,9 @@ export class AlojamientosService {
                 .map((resp: any) => {
                   swal('Alojamiento Actualizado', alojamiento.estudiante.email, 'success');
                   return true;
+                }).catch( err => {
+                    swal('Error', err.mensaje, 'error');
+                    return Observable.throw(err);
                 });
 
   }
