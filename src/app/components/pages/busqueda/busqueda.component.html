@@ -1,3 +1,39 @@
-<p>
-  busqueda works!
-</p>
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title text-primary"> <i class="fa fa-users"></i>Estudiantes </h4>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr class="encabezado">
+                            <td>Email</td>
+                            <td>Sede</td>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let estudiante of estudiantes">
+                            <td> {{estudiante.email}}</td>
+                            <td> {{estudiante.perteneceA}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title text-primary"> <i class="fa fa-home"></i> Alojamientos</h4>
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <td>Email</td>
+                            <td>Sede</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
