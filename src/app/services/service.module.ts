@@ -12,7 +12,8 @@ import {
   CondorService,
   SubirArchivoService,
   EstudiantesHousingService,
-  EstadisticasService
+  EstadisticasService,
+  AdminGuard
 } from './service.index';
 
 
@@ -32,7 +33,8 @@ import {
     CondorService,
     SubirArchivoService,
     EstudiantesHousingService,
-    EstadisticasService
+    EstadisticasService,
+    AdminGuard
   ]
 })
 export class ServiceModule { }

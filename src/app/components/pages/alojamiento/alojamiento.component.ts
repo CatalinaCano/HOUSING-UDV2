@@ -45,16 +45,9 @@ export class AlojamientoComponent implements OnInit {
     this.buscarEstudiante();
     this.lat = this.alojamiento.ubicacion.latitud;
     this.lng = this.alojamiento.ubicacion.longitud;
-  //  this.verificarAdministrador();
   }
 
 
-  verificarAdministrador() {
-    console.log('llega y el rol es ' + this.usuario.role);
-    if (this.usuario.role === 'ADMINISTRADOR') {
-      this.administrador = true;
-    }
-  }
 
   cargarAlojamiento() {
     this.route.params

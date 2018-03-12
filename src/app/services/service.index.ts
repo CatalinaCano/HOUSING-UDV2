@@ -1,3 +1,4 @@
+export { AdminGuard } from './guards/admin.guard';
 export { EstadisticasService } from './estadisticas.service';
 export { EstudiantesHousingService } from './estudiantes-housing.service';
 export { SubirArchivoService } from './subir-archivo.service';

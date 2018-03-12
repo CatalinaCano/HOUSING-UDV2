@@ -11,6 +11,7 @@ import { LoginGuardGuard } from '../../services/service.index';
 import { ImagenesComponent } from './imagenes/imagenes.component';
 import { EstudiantesComponent } from './estudiantes/estudiantes.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
+import { AdminGuard } from '../../services/service.index';
 
 
 
@@ -27,10 +28,10 @@ const pagesRoutes: Routes = [
             { path: 'alojamientoEstudiante/:idAlojamiento/:idEstudiante', component: AlojamientoComponent, data: {titulo: 'Descripción del Alojamiento', icono: 'fa fa-bed'}},
             { path: 'informacion', component: InformacionComponent, data: {titulo: 'Políticas de Housing-UD', icono: 'fa fa-commenting'}  },
             { path: 'imagenes/:id', component: ImagenesComponent, data: { titulo: 'Registrar Alojamiento', icono: 'fa fa-address-card' } },
-            { path: 'busqueda/:termino', component: BusquedaComponent, data: { titulo: 'Busqueda', icono: 'fa fa-search' } },
+            { path: 'busqueda/:termino', component: BusquedaComponent,  data: { titulo: 'Busqueda', icono: 'fa fa-search' } },
              // Gestion
-            { path: 'administrador', component: AdministradorComponent, data: {titulo: 'Gestión de Alojamientos', icono: 'fa fa-cogs'} },
-            { path: 'estudiantes', component: EstudiantesComponent, data: {titulo: 'Gestión de Usuarios', icono: 'fa fa-users-plus'} },
+             { path: 'administrador', component: AdministradorComponent, canActivate: [AdminGuard], data: {titulo: 'Gestión de Alojamientos', icono: 'fa fa-cogs'} },
+             { path: 'estudiantes', component: EstudiantesComponent, canActivate: [AdminGuard], data: {titulo: 'Gestión de Usuarios', icono: 'fa fa-users-plus'} },
             { path: '', redirectTo: '/incio', pathMatch: 'full' },
      ]
     }
