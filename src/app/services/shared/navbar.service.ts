@@ -5,7 +5,7 @@ import { Estudiante } from '../../models/estudiante.model';
 @Injectable()
 export class NavbarService {
 
-    usuario: Estudiante;
+  usuario: Estudiante;
   menu: any = [
     {
       titulo: 'Inicio',
@@ -65,28 +65,3 @@ construirMenu() {
   }
 }
 }
-   /* {
-      titulo: 'Perfil',
-      icono: 'fa fa-user',
-      url: '/perfil',
-      id: this._estudianteService.obtenerMatchID()
-    },
-    {
-      titulo: 'Registrar Alojamiento',
-      icono: 'fa fa-address-card',
-      url: '/alojamiento',
-      id: this._estudianteService.obtenerStorage()._id
-    },
-    {
-      titulo: 'Gestión Alojamientos',
-      icono: 'fa fa-cogs',
-      url: '/administrador',
-      id: {}
-    },
-    {
-      titulo: 'Gestión de Usuarios',
-      icono: 'fa fa-users',
-      url: '/estudiantes',
-      id: {}
-    },
-  ]; */

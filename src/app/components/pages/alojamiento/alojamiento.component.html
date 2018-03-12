@@ -10,7 +10,7 @@
             <h1 class="my-4 text-primary"> <i class="fa fa-map-marker"></i> {{usuarioCondor.alojamiento.barrio}} <small>{{alojamiento.tipoVivienda}}  |  <small> Estrato: {{usuarioCondor.alojamiento.estrato}} - </small> <small>{{alojamiento.propiedadesAlojamiento.clasificacionAlojamiento}}</small></small>
             </h1>
         </div>
-        <div class="col-md-2" *ngIf="administrador">
+        <div class="col-md-2" *ngIf="this.usuario.role === 'ADMINISTRADOR'">
             <button (click)="borrarAlojamiento(alojamiento)" class="btn btn-danger"> <i class="fa fa-trash-o"></i></button>
             <button (click)="cambiarEstadoAprobado(alojamiento)" class="btn btn-success"> <i class="fa fa-thumbs-up"></i></button>
             <button (click)="cambiarEstadoRechazado(alojamiento)" class="btn btn-warning"> <i class="fa fa-thumbs-down"></i></button>
@@ -244,24 +244,6 @@
             </div>
             <button class="btn btn-success btn-block" data-toggle="modal" data-target="#condiciones"> <i class="fa fa-envelope"></i> Contactar</button>
             <br>
-            <hr>
-            <div class="row">
-                <form>
-                    <p> Por favor seleccione si el alojamiento se encuentra ocupado :</p>
-                    <div class="row">
-                        <input class="col-md-1" type="radio" id="disponible" name="estadoAlojamiento" value="Disponible">
-                        <label class="col-md-3" for="disponible">Disponible</label>
-                        <br>
-                        <input class="col-md-1" type="radio" id="ocupado" name="estadoAlojamiento" value="Ocupado">
-                        <label class="col-md-3" for="ocupado">Ocupado</label>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn btn-warning btn-block"> <i class="fa fa-check"></i> Cambiar</button>
-                    </div>
-                </form>
-            </div>
-
-
         </div>
     </div>
     <hr>

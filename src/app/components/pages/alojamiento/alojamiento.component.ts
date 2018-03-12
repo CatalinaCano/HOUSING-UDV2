@@ -7,6 +7,7 @@ import { EstudianteService, AlojamientosService, CondorService} from '../../../s
 import { AlojamientoConsulta } from '../../../models/alojamientoConsulta.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { } from 'googlemaps';
+import { Estudiante } from '../../../models/estudiante.model';
 declare var swal: any;
 
 @Component({
@@ -24,7 +25,8 @@ export class AlojamientoComponent implements OnInit {
   idEstudiante: string;
   alojamiento: any;
   role: string;
-  administrador: boolean = true;
+  administrador: boolean = false;
+  usuario: Estudiante;
 
 
 
@@ -38,10 +40,20 @@ export class AlojamientoComponent implements OnInit {
                  }
 
   ngOnInit() {
+    this.usuario = this._estudianteService.obtenerStorage();
     this.cargarAlojamiento();
     this.buscarEstudiante();
     this.lat = this.alojamiento.ubicacion.latitud;
     this.lng = this.alojamiento.ubicacion.longitud;
+  //  this.verificarAdministrador();
+  }
+
+
+  verificarAdministrador() {
+    console.log('llega y el rol es ' + this.usuario.role);
+    if (this.usuario.role === 'ADMINISTRADOR') {
+      this.administrador = true;
+    }
   }
 
   cargarAlojamiento() {
