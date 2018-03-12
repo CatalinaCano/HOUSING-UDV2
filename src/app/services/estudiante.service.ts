@@ -79,6 +79,7 @@ cargarStorage() {
     return this.http.post(url, {token: token})
     .map((resp: any) => {
       this.guardarStorage(resp.token, resp.imagenUsuario, resp.idUsuario, resp.nombres, resp.estudianteBD);
+      console.log(resp);
         return true;
     });
 
