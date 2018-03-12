@@ -90,6 +90,7 @@ export class AlojamientoConsulta {
             consumoDrogas: string,
             consumoAlcohol: string
             },
+        public hospedanA: string,
         public tipoVivienda: string,
         public tipoHabitacion: string,
         public sedeCercana: string

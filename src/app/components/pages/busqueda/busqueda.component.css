@@ -1,4 +1,13 @@
-.encabezado {
-    background: cadetblue;
+.encabezadoEstudiantes {
+    background: #E16465;
     color: white;
+}
+
+.encabezadoAlojamientos {
+    background: #F3AC5D;
+    color: white;
+}
+
+.titulo {
+    color: #293E51;
 }

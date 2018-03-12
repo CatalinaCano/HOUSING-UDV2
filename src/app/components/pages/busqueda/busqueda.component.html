@@ -1,11 +1,11 @@
 <div class="row">
-    <div class="col-6">
+    <div class="col-md-6 col-sm-12 col-xs-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title text-primary"> <i class="fa fa-users"></i>Estudiantes </h4>
-                <table class="table table-bordered table-hover">
+                <h4 class="card-title titulo"> <i class="fa fa-users"></i> Estudiantes </h4>
+                <table class="table table-responsive table-bordered table-striped table-hover">
                     <thead>
-                        <tr class="encabezado">
+                        <tr class="encabezadoEstudiantes">
                             <td>Email</td>
                             <td>Sede</td>
                         </tr>
@@ -21,15 +21,26 @@
             </div>
         </div>
     </div>
-    <div class="col-6">
+    <div class="col-md-6 col-sm-12 col-xs-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title text-primary"> <i class="fa fa-home"></i> Alojamientos</h4>
-                <table class="table table-hover">
+                <h4 class="card-title titulo"> <i class="fa fa-home"></i> Alojamientos</h4>
+                <table class="table table-responsive table-bordered table-striped table-hover">
+                    <thead>
+                        <tr class="encabezadoAlojamientos">
+                            <td>Estudiante</td>
+                            <td>Zona</td>
+                            <td>Hospedan A</td>
+                            <td>Sede Cercana</td>
+                        </tr>
+
+                    </thead>
                     <tbody>
-                        <tr>
-                            <td>Email</td>
-                            <td>Sede</td>
+                        <tr *ngFor="let alojamiento of alojamientos">
+                            <td> {{alojamiento.estudiante.email}}</td>
+                            <td> {{alojamiento.ubicacion.zona}}</td>
+                            <td> {{alojamiento.hospedanA}} </td>
+                            <td> {{alojamiento.sedeCercana}}</td>
                         </tr>
                     </tbody>
                 </table>
