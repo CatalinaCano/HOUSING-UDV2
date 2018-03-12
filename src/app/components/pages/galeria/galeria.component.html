@@ -1,6 +1,8 @@
 <!--Barra de Navegacion-->
 <app-navbar></app-navbar>
 
+
+
 <div class="container-fluid animated fadeInUp">
 
     <!--Filtros de Búsqueda -->
@@ -9,7 +11,7 @@
         <div class="row card-block">
             <div id="destino" class=" col-md-3 col-xs-12">
                 <label> <i class="fa fa-university" aria-hidden="true"></i> Sede de destino</label>
-                <select class="form-control">            <!--Facultades-->
+                <select class="form-control" #sedes (change)="onChange($event, sedes.value)">            <!--Facultades-->
                     <optgroup label="Sedes">
                     <option value="Aduanilla de Paiba">Aduanilla de Paiba</option>
                     <option value="Calle 34">Calle 34</option>

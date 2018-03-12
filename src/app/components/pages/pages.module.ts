@@ -23,6 +23,7 @@ import { InformacionComponent } from './informacion/informacion.component';
 import { InformacionPerfilComponent } from './informacion-perfil/informacion-perfil.component';
 import { HttpModule } from '@angular/http';
 import { EstudiantesComponent } from './estudiantes/estudiantes.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 
 
@@ -40,7 +41,8 @@ import { EstudiantesComponent } from './estudiantes/estudiantes.component';
         InformacionComponent,
         InformacionPerfilComponent,
         ImagenesComponent,
-        EstudiantesComponent
+        EstudiantesComponent,
+        BusquedaComponent
     ],
     exports: [
         PagesComponent,

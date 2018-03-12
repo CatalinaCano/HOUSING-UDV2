@@ -20,6 +20,7 @@ export class EstudiantesComponent implements OnInit {
   totalRegistros: number = 0;
   cargando: boolean = true;
   forma: FormGroup;
+  oculto: string = ' ';
 
   constructor( public _estudiantesHousing: EstudiantesHousingService,
                public router: Router) { }
@@ -96,6 +97,7 @@ export class EstudiantesComponent implements OnInit {
     if (this.forma.invalid) {
       return;
     }
+    this.oculto = ' oculto';
     let estudiante = new Estudiante(
       this.forma.value.email,
       this.forma.value.sobreMi,

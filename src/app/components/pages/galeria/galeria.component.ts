@@ -30,5 +30,9 @@ export class GaleriaComponent implements OnInit {
     this.router.navigate(['/alojamientoEstudiante', alojamiento._id, alojamiento.estudiante.email.split('@', 1).toString()]);
   }
 
+  onChange($event, sedesValue) {
+    console.log(sedesValue);
+  }
+
 }
 
