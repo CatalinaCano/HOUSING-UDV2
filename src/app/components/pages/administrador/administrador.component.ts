@@ -20,6 +20,7 @@ export class AdministradorComponent implements OnInit {
   desde: number = 0;
   totalRegistros: number = 0;
   cargando: boolean = true;
+
   constructor(
     public _estadisticas: EstadisticasService,
     public router: Router,
@@ -116,12 +117,42 @@ export class AdministradorComponent implements OnInit {
       this.cargarAlojamientos();
       return;
     }
-
     this._alojamientoService.buscar(termino)
       .subscribe((resp: any) => {
         this.alojamientos = resp.sedes;
       });
   }
+
+  onChangeSede($event, sedesValue) {
+    this._alojamientoService.buscarPorSede(sedesValue)
+        .subscribe((resp: any) => {
+          this.alojamientos = resp.sedesAlojamientos;
+        });
+    }
+
+  onChangeHospedanA($event, hospedanAValue) {
+    this._alojamientoService.buscarPorHospedanA(hospedanAValue)
+      .subscribe((resp: any) => {
+        this.alojamientos = resp.tipoPersonas;
+      });
+  }
+
+  onChangeEstadoAlojamiento($event, estadoAlojamiento) {
+    this._alojamientoService.buscarPorEstadoAlojamiento(estadoAlojamiento)
+      .subscribe((resp: any) => {
+        this.alojamientos = resp.estadosAlojamientos;
+      });
+  }
+
+  onChangeEstadoPublicacionAlojamiento($event, estadoPublicacionAlojamiento) {
+    this._alojamientoService.buscarPorEstadoPublicacionAlojamiento(estadoPublicacionAlojamiento)
+      .subscribe((resp: any) => {
+        this.alojamientos = resp.estadosPublicacionAlojamiento;
+      });
+  }
+
+
+
 
 
 }

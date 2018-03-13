@@ -18,17 +18,26 @@ export class AlojamientosService {
 
   cargarAlojamientos() {
     let url = URL_SERVICIOS + '/busqueda/galeria';
-    return this.http.get(url);
+    return this.http.get(url).catch(err => {
+      swal('Error', 'Error al cargar alojamientos', 'error');
+      return Observable.throw(err);
+    });
   }
 
   buscarAlojamiento(idAlojamiento: string) {
     let url = URL_SERVICIOS + '/busqueda/alojamiento/' + idAlojamiento;
-    return this.http.get(url);
+    return this.http.get(url).catch(err => {
+      swal('Error', 'Error al buscar alojamiento', 'error');
+      return Observable.throw(err);
+    });
   }
 
   borrarAlojamiento(idAlojamiento: string) {
       let url = URL_SERVICIOS + '/alojamiento/' + idAlojamiento;
-      return this.http.delete(url);
+    return this.http.delete(url).catch(err => {
+      swal('Error', 'Error al borrar alojamiento', 'error');
+      return Observable.throw(err);
+    });
 
   }
 
@@ -40,7 +49,7 @@ export class AlojamientosService {
                   swal('Alojamiento Actualizado', alojamiento.estudiante.email, 'success');
                   return true;
                 }).catch( err => {
-                    swal('Error', err.mensaje, 'error');
+                    swal('Error', 'Error al actualizar el estado del alojamiento', 'error');
                     return Observable.throw(err);
                 });
 
@@ -48,13 +57,55 @@ export class AlojamientosService {
 
   buscar(termino) {
     let url = URL_SERVICIOS + '/busqueda/alojamientos/' + termino;
-    return this.http.get(url);
+    return this.http.get(url)
+      .catch(err => {
+        swal('Error', 'Error al buscar el termino',  'error');
+        return Observable.throw(err);
+      });
   }
 
   buscarPorFiltro(sede, hospedanA, tipoAlojamiento, habitacion) {
     let url = URL_SERVICIOS + '/busqueda/alojamientos/' + sede + '/' + hospedanA + '/' + tipoAlojamiento + '/' + habitacion;
-    console.log(url);
-     return this.http.get(url);
+     return this.http.get(url)
+                .catch( err => {
+                  swal('Error', 'Error al buscar por filtros', 'error');
+                  return Observable.throw(err);
+                });
   }
 
+
+  buscarPorSede(sede) {
+    let url = URL_SERVICIOS + '/busqueda/admin?sede=' + sede;
+    return this.http.get(url)
+      .catch(err => {
+        swal('Error', 'Erro al buscar por sede' , 'error');
+        return Observable.throw(err);
+      });
+  }
+
+  buscarPorHospedanA(hospedanA) {
+    let url = URL_SERVICIOS + '/busqueda/admin?hospedanA=' + hospedanA;
+    return this.http.get(url)
+      .catch(err => {
+        swal('Error', 'Error al buscar por tipo de persona', 'error');
+        return Observable.throw(err);
+      });
+  }
+
+  buscarPorEstadoPublicacionAlojamiento(estadoPublicacion) {
+    let url = URL_SERVICIOS + '/busqueda/admin?estadoPublicacionAlojamiento=' + estadoPublicacion;
+    return this.http.get(url)
+      .catch(err => {
+        swal('Error', 'Error al buscar por estado de publicación', 'error');
+        return Observable.throw(err);
+      });
+  }
+  buscarPorEstadoAlojamiento(estadoAlojamiento) {
+    let url = URL_SERVICIOS + '/busqueda/admin?=estadoAlojamiento=' + estadoAlojamiento;
+    return this.http.get(url)
+      .catch(err => {
+        swal('Error', 'Error al buscar por estado del alojamiento', 'error');
+        return Observable.throw(err);
+      });
+  }
   }

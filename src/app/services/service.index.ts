@@ -1,3 +1,4 @@
+export { EstudianteGuard } from './guards/estudiante.guard';
 export { AdminGuard } from './guards/admin.guard';
 export { EstadisticasService } from './estadisticas.service';
 export { EstudiantesHousingService } from './estudiantes-housing.service';

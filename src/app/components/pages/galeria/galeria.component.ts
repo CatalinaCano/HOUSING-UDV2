@@ -37,14 +37,12 @@ export class GaleriaComponent implements OnInit {
   }
 
   onChangeSede($event, sedesValue) {
-    console.log( $event , sedesValue);
     this.sede = sedesValue;
     if (this.sede.length > 0  && this.hospedanA.length > 0 && this.tipoAlojamiento.length > 0 && this.habitacion.length > 0) {
       this.servicioAlojamientos.buscarPorFiltro(this.sede, this.hospedanA, this.tipoAlojamiento, this.habitacion)
         .subscribe((resp: any) => {
           console.log(resp);
            this.alojamientos = resp.alojamientos;
-         // this.cargarAlojamientos();
         });
     } else {
       swal('Error', 'Debes seleccionar todos los filtros', 'error');
@@ -52,42 +50,36 @@ export class GaleriaComponent implements OnInit {
   }
 
   onChangeHospedanA($event, hospedanAValue) {
-    console.log($event, hospedanAValue);
     this.hospedanA = hospedanAValue;
     if (this.sede.length > 0 && this.hospedanA.length > 0 && this.tipoAlojamiento.length > 0 && this.habitacion.length > 0) {
       this.servicioAlojamientos.buscarPorFiltro(this.sede, this.hospedanA, this.tipoAlojamiento, this.habitacion)
         .subscribe((resp: any) => {
-          console.log(resp);
           this.alojamientos = resp.alojamientos;
-          // this.cargarAlojamientos();
         });
     } else {
       swal('Error', 'Debes seleccionar todos los filtros', 'error');
     }
   }
+
   onChangeTipoAlojamiento($event, tipoAlojamientoValue) {
-    console.log($event, tipoAlojamientoValue);
     this.tipoAlojamiento = tipoAlojamientoValue;
     if (this.sede.length > 0 && this.hospedanA.length > 0 && this.tipoAlojamiento.length > 0 && this.habitacion.length > 0) {
       this.servicioAlojamientos.buscarPorFiltro(this.sede, this.hospedanA, this.tipoAlojamiento, this.habitacion)
         .subscribe((resp: any) => {
-          console.log(resp);
            this.alojamientos = resp.alojamientos;
-          // this.cargarAlojamientos();
         });
     } else {
       swal('Error', 'Debes seleccionar todos los filtros', 'error');
     }
   }
+
   onChangeTipoHabitacion($event, tipoHabitacionValue) {
     console.log($event, tipoHabitacionValue);
     this.habitacion = tipoHabitacionValue;
     if (this.sede.length > 0 && this.hospedanA.length > 0 && this.tipoAlojamiento.length > 0 && this.habitacion.length > 0) {
       this.servicioAlojamientos.buscarPorFiltro(this.sede, this.hospedanA, this.tipoAlojamiento, this.habitacion)
         .subscribe((resp: any) => {
-          console.log(resp);
            this.alojamientos = resp.alojamientos;
-          // this.cargarAlojamientos();
         });
     } else {
       swal('Error', 'Debes seleccionar todos los filtros', 'error');

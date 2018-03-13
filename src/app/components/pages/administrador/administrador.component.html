@@ -13,14 +13,14 @@
         <div class="row card-block">
             <div id="destino" class=" col-md-3 col-xs-12">
                 <label> <i class="fa fa-university" aria-hidden="true"></i> Sede de destino</label>
-                <select class="form-control">            <!--Facultades-->
+                <select class="form-control" #sedes (change)="onChangeSede($event, sedes.value)">            <!--Facultades-->
                     <optgroup label="Sedes">
                     <option value="Aduanilla de Paiba">Aduanilla de Paiba</option>
                     <option value="Calle 34">Calle 34</option>
                     <option value="Calle 40 (Edificio Administrativo)">Calle 40 (Edificio Administrativo)</option>
                     <option value="Calle 40 (Facultad de Ingeniería)">Calle 40 (Facultad de Ingeniería)</option>
                     <option value="Calle 64">Calle 64</option>
-                    <option value="Edificio Villa Esther Desarrollo Físico y SGA/PIGA">Edificio Villa Esther Desarrollo Físico y SGA/PIGA</option>
+                    <option value="Edificio Villa Esther Desarrollo Físico y SGA-PIGA">Edificio Villa Esther Desarrollo Físico y SGA-PIGA</option>
                     <option value="Edificio UGI">Edificio UGI</option>
                     <option value="El Tibar">El Tibar</option>
                     <option value="Emisora LAUD 90.4 F.M">Emisora LAUD 90.4 F.M</option>
@@ -41,25 +41,24 @@
             </div>
             <div class=" col-md-3 col-xs-12">
                 <label> <i class="fa fa-briefcase" aria-hidden="true"></i> Hospedan a</label>
-                <select class="form-control" id="tipoPerfil">
-                <!--Perfil-->
-                <option value="Mujer">Mujer</option>
-                <option value="Hombre">Hombre</option>
-                <option value="Indiferente">Indiferente</option>
-            </select>
+                <select class="form-control" #hospedanA (change)="onChangeHospedanA($event, hospedanA.value)">   
+                    <option value="">Seleccionar</option>
+                    <option value="Mujer">Mujer</option>
+                    <option value="Hombre">Hombre</option>
+                    <option value="No importa">No importa</option>
+                </select>
             </div>
 
             <div class=" col-md-3 col-xs-12 ">
                 <label> <i class="fa fa-toggle-off" aria-hidden="true"></i> Estado Alojamiento</label>
-                <!--tipos de alojamiento-->
-                <select class="form-control" id="estadoAlojamiento">
+                <select class="form-control" #estadoAlojamiento (change)="onChangeEstadoAlojamiento($event, estadoAlojamiento.value)">         
                     <option value="Ocupado">Ocupado</option>
                     <option value="Disponible">Disponible</option>
                 </select>
             </div>
             <div class=" col-md-3 col-xs-12">
                 <label> <i class="fa fa-flag" aria-hidden="true"></i> Estado Publicación </label>
-                <select class="form-control" id="estadoPublicacionAlojamiento">
+                <select class="form-control" #estadoPublicacionAlojamiento (change)="onChangeEstadoPublicacionAlojamiento($event, estadoPublicacionAlojamiento.value)">         
                     <option value="En Estudio">En Estudio</option>
                     <option value="Rechazado">Rechazado</option>
                     <option value="Aceptado">Aceptado</option>
