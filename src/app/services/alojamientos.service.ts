@@ -51,4 +51,10 @@ export class AlojamientosService {
     return this.http.get(url);
   }
 
+  buscarPorFiltro(sede, hospedanA, tipoAlojamiento, habitacion) {
+    let url = URL_SERVICIOS + '/busqueda/alojamientos/' + sede + '/' + hospedanA + '/' + tipoAlojamiento + '/' + habitacion;
+    console.log(url);
+     return this.http.get(url);
+  }
+
   }
