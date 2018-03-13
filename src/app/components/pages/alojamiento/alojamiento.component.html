@@ -276,51 +276,50 @@
 
 <!--MODAL-->
 <!--Ventana Emergente Condiciones-->
-<div class="fondo-negro animated fadeIn">
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="condiciones">
-        <div class="modal-dialog modal-lg">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-primary"> <i class="fa fa-phone"></i> Datos de Contacto</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="condiciones">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-primary"> <i class="fa fa-phone"></i> Datos de Contacto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
          <span aria-hidden="true">&times;</span>
        </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-5" style="float:center">
-                            <img src="assets/img/contact.png" align=center width=100% alt="">
-                        </div>
-                        <div class="col-md-7">
-                            <img src="assets/img/avatar.png" align=center alt="">
-                            <table class="table table-responsive table-striped">
-                                <tbody>
-                                    <tr>
-                                        <td> <i class="fa fa-user"></i> Nombre Completo: {{usuarioCondor.informacion.nombres}} {{usuarioCondor.informacion.apellidos}} </td>
-                                    </tr>
-                                    <tr>
-                                        <td> <i class="fa fa-phone"></i> Telefono: {{usuarioCondor.informacion.indicativo}} {{usuarioCondor.informacion.telefono}} </td>
-                                    </tr>
-                                    <tr>
-                                        <td> <i class="fa fa-mobile"></i> Celular: {{usuarioCondor.informacion.telefonoMovil}} </td>
-                                    </tr>
-                                    <tr>
-                                        <td> <i class="fa fa-envelope"></i> Correo:{{usuarioCondor.informacion.correo}} </td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-5" style="float:center">
+                        <img src="assets/img/contact.png" align=center width=100% alt="">
                     </div>
+                    <div class="col-md-7">
+                        <img src="assets/img/avatar.png" align=center alt="">
+                        <table class="table table-responsive table-striped">
+                            <tbody>
+                                <tr>
+                                    <td> <i class="fa fa-user"></i> Nombre Completo: {{usuarioCondor.informacion.nombres}} {{usuarioCondor.informacion.apellidos}} </td>
+                                </tr>
+                                <tr>
+                                    <td> <i class="fa fa-phone"></i> Telefono: {{usuarioCondor.informacion.indicativo}} {{usuarioCondor.informacion.telefono}} </td>
+                                </tr>
+                                <tr>
+                                    <td> <i class="fa fa-mobile"></i> Celular: {{usuarioCondor.informacion.telefonoMovil}} </td>
+                                </tr>
+                                <tr>
+                                    <td> <i class="fa fa-envelope"></i> Correo:{{usuarioCondor.informacion.correo}} </td>
+                                </tr>
 
-
-
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger btn-xs" data-dismiss="modal"> <i class="fa fa-window-close"></i> Cerrar</button>
 
-                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-xs" data-dismiss="modal"> <i class="fa fa-window-close"></i> Cerrar</button>
+
             </div>
         </div>
     </div>
