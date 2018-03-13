@@ -137,17 +137,19 @@ export class AdministradorComponent implements OnInit {
       });
   }
 
-  onChangeEstadoAlojamiento($event, estadoAlojamiento) {
-    this._alojamientoService.buscarPorEstadoAlojamiento(estadoAlojamiento)
+  onChangeEstadoAlojamiento($event, estadoAlojamientoValue) {
+    console.log(estadoAlojamientoValue);
+    this._alojamientoService.buscarPorEstadoAlojamiento(estadoAlojamientoValue)
       .subscribe((resp: any) => {
-        this.alojamientos = resp.estadosAlojamientos;
+        this.alojamientos = resp.estadoAlojamiento;
       });
   }
 
-  onChangeEstadoPublicacionAlojamiento($event, estadoPublicacionAlojamiento) {
-    this._alojamientoService.buscarPorEstadoPublicacionAlojamiento(estadoPublicacionAlojamiento)
+  onChangeEstadoPublicacionAlojamiento($event, estadoPublicacionAlojamientoValue) {
+    console.log(estadoPublicacionAlojamientoValue);
+    this._alojamientoService.buscarPorEstadoPublicacionAlojamiento(estadoPublicacionAlojamientoValue)
       .subscribe((resp: any) => {
-        this.alojamientos = resp.estadosPublicacionAlojamiento;
+        this.alojamientos = resp.estadoPublicacionAlojamiento;
       });
   }
 

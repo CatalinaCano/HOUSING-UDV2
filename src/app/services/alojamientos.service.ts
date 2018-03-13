@@ -101,7 +101,7 @@ export class AlojamientosService {
       });
   }
   buscarPorEstadoAlojamiento(estadoAlojamiento) {
-    let url = URL_SERVICIOS + '/busqueda/admin?=estadoAlojamiento=' + estadoAlojamiento;
+    let url = URL_SERVICIOS + '/busqueda/admin?estadoAlojamiento=' + estadoAlojamiento;
     return this.http.get(url)
       .catch(err => {
         swal('Error', 'Error al buscar por estado del alojamiento', 'error');

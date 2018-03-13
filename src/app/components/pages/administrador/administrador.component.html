@@ -52,6 +52,7 @@
             <div class=" col-md-3 col-xs-12 ">
                 <label> <i class="fa fa-toggle-off" aria-hidden="true"></i> Estado Alojamiento</label>
                 <select class="form-control" #estadoAlojamiento (change)="onChangeEstadoAlojamiento($event, estadoAlojamiento.value)">         
+                   <option value="">Seleccionar</option>
                     <option value="Ocupado">Ocupado</option>
                     <option value="Disponible">Disponible</option>
                 </select>
@@ -59,6 +60,7 @@
             <div class=" col-md-3 col-xs-12">
                 <label> <i class="fa fa-flag" aria-hidden="true"></i> Estado Publicación </label>
                 <select class="form-control" #estadoPublicacionAlojamiento (change)="onChangeEstadoPublicacionAlojamiento($event, estadoPublicacionAlojamiento.value)">         
+                    <option value="">Seleccionar</option>
                     <option value="En Estudio">En Estudio</option>
                     <option value="Rechazado">Rechazado</option>
                     <option value="Aceptado">Aceptado</option>
