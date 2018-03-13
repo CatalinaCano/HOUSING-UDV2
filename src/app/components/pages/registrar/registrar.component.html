@@ -14,8 +14,6 @@
         <agm-map [latitude]="latitud" [longitude]="longitud" [scrollwheel]="false" [zoom]="zoom">
             <agm-marker [latitude]="latitud" [longitude]="longitud"></agm-marker>
         </agm-map>
-
-
     </div>
 
 
@@ -932,7 +930,7 @@
         <div class="row">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="condiciones" formControlName="condiciones">
-                <label class="form-check-label" for="gridCheck">Acepta las Condiciones</label>
+                <label class="form-check-label" for="gridCheck">Acepta las <a data-toggle="modal" data-target="#terminos" style="color:red" >condiciones </a></label>
             </div>
         </div>
     </form>
@@ -946,4 +944,74 @@
                     </button>
     </div>
 
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="terminos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"> <i class="fa fa-gavel"></i> Condiciones Housing UD</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <ol>
+                    <li>Podrá ser candidato a ingresar al programa Housing-UD, cualquier estudiante de pregrado de la Universidad.</li>
+                    <li>El estudiante que pertenezca al programa no deberá estar matriculado en otra Institución de Educación Superior.</li>
+                    <li>El estudiante debe estar activo dentro de la institución.</li>
+                    <li>El estudiante debe tener un promedio mínimo de 3,8.</li>
+                    <li> Los intercambios estudiantiles se realizarán únicamente si el estudiante ha cursado mínimo el 50% del plan de estudios y será válido para todo tipo de programas de pregrado ofrecidos por la Universidad Distrital en las facultades
+                        y sedes existentes.</li>
+                    <li> Housing-UDesunprogramafundamentadoenlareciprocidad razón por la cual cada estudiante visitante se compromete en ser a la vez estudiante anfitrión</li>
+                    <li> Cada Universidad participante, en su condición de institución de origen validara la información de la vivienda suministrada por cada estudiante, en forma previa a que el estudiante visitante se movilice.</li>
+                    <li>Los estudiantes visitantes y anfitriones que se postulen deberán cumplir con los siguientes requisitos:
+                        <ol>
+                            <li>Estar matriculados y ser estudiantes activos en algún programa académico de la universidad de origen.</li>
+                            <li>Haber aprobado por lo menos el 50% de los créditos de la carrera que cursan.</li>
+                            <li>No convivir en una familia en donde vivan personas ajenas al primer círculo sanguíneo del estudiante (Papá, Mamá, Hermanos) NO (Padrastros, tíos).</li>
+                            <li>Cumplir con los rangos de edad, establecidos por la universidad de origen (Mayor a 18 años y menor a 30 años).(EN CASO DE QUE SE ACEPTEN MENORES DE EDAD, se deberá presentar una carta de autorización de acudiente).
+                            </li>
+                            <li>El estudiante anfitrión solo podrá postular una vivienda dentro del programa.</li>
+                            <li>Housing-UD es un programa fundamentado en la reciprocidad por tal motivo los estudiantes tienen la posibilidad de decidir ofrecer un alojamiento con o sin alimentación. En ese caso una persona asignada por el CERI será la
+                                encargada de validar la información y asignar manualmente los alojamientos. Esto debido a que las condiciones del programa deben garantizar que todos los participantes cuenten con las mismas posibilidades.</li>
+                            <li>El estudiante anfitrión no está obligado a sostener financieramente, durante el periodo de estadía al estudiante visitante.
+                            </li>
+
+                            <li>El estudiante visitante no podrá alojarse con ningún tipo de mascota.</li>
+                            <li>El estudiante visitante financiará los gastos que demande obtener la visa, contratar un seguro contra accidente, enfermedad y repatriación que cubra las contingencias que puedan producirse durante su periodo de permanencia
+                                en la ciudad de destino. Ningún estudiante será autorizado a salir de su universidad de origen sino dispone de este seguro, y deberá acreditarlo ante ella.
+                            </li>
+                            <li>Los estudiantes visitantes deberán llegar a la ciudad de destino mínimo una semana de antelación al inicio de su proceso académico, el estudiante anfitrión apoyara el recibimiento y la inducción del estudiante visitante</li>
+                            <li>Informarle clara y oportunamente al estudiante visitante las condiciones de alojamiento y alimentación proporcionados por el estudiante anfitrión seleccionado.</li>
+                            <li>El estudiante visitante solo podrá alojarse en la vivienda postulada por el estudiante anfitrión.</li>
+                            <li>Permitirle al estudiante visitante el uso de todas las instalaciones de la vivienda postulada por el estudiante anfitrión.
+                            </li>
+                            <li>Los estudiantes visitantes se comprometen a cumplir con todas las leyes y normas vigentes en la vivienda seleccionada.</li>
+                            <li>Los estudiantes visitantes deberán asumir toda la responsabilidad sobre los daños y perjuicios que causen durante su tiempo de estadía en la vivienda del estudiante anfitrión.
+                            </li>
+                            <li>El estudiante visitante deberá proporcionar sus antecedentes de salud tales como: Intervenciones quirúrgicas, alergias, tratamientos en curso, medicación actual, vacunas y demás información que considere pertinente.
+                            </li>
+                            <li>El estudiante visitante se hará cargo de los costos correspondientes a los materiales de estudio, transporte, insumos y toda cuota por servicios o actividades no incluidas en este acuerdo.</li>
+                            <li>En caso de que el periodo de estancia del estudiante visitante supere el establecido inicialmente está en la obligación de notificarlo oportunamente, para redefinir su estadía.</li>
+                            <li>El estudiante anfitrión no deberá haber reprobado 3 o más asignaturas en el periodo actual, y no haber cursado 3 o más veces una misma materia.</li>
+                            <li>Tanto el estudiante visitante como el estudiante anfitrión no deberán tener antecedentes judiciales.</li>
+                            <li>Los estudiantes visitantes y anfitriones solo pueden ser beneficiarios una única vez del programa.
+                            </li>
+                            <li>El estudiante anfitrión debe presentar una carta de autorización del propietario de la vivienda postulada.</li>
+                            <li>Tanto el estudiante anfitrión como el visitante una vez culminada su visita deben dar a conocer la retroalimentación de su experiencia tanto de las instalaciones físicas de la vivienda como su relación con la familia anfitriona.</li>
+                            <li>La duración del periodo de movilidad académica de los estudiantes provenientes de otra Institución, no podrá ser inferior a un semestre ni exceder un año académico, demostrar dominio del idioma del país al cual va a
+                                viajar.
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"> <i class="fa fa-close" ></i> Cerrar</button>
+            </div>
+        </div>
+    </div>
 </div>
