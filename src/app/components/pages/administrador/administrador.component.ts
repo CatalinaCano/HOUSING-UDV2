@@ -105,8 +105,8 @@ export class AdministradorComponent implements OnInit {
           .subscribe(actualizado => {
             this.cargarAlojamientos();
             this.cargarEstadisticas();
-            // devolver a la pagina anterior  this.cargarAlojamientos();
           });
+        this.router.navigate(['/inicio']);
       }
     });
 

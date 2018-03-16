@@ -15,7 +15,7 @@ export class RegistrarAlojamientoService {
   }
 
   crearAlojamiento(alojamiento: Alojamiento, id) {
-    console.log('se regustra alojamiento con id:' + id);
+    console.log('se registra alojamiento con id:' + id);
     let url = URL_SERVICIOS + '/alojamiento' + '/' + id;
     console.log('se regustra alojamiento con id:' + url);
     return this.http.post( url , alojamiento)

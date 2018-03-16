@@ -28,7 +28,7 @@ export class EstudiantesComponent implements OnInit {
   ngOnInit() {
     this.cargarEstudiantes();
     this.forma = new FormGroup({
-      'email': new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$') ]),
+      'email': new FormControl('', [Validators.required, Validators.email, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$') ]),
       'perteneceA': new FormControl('', Validators.required),
       'role': new FormControl('', Validators.required),
       'sobreMi': new FormControl('', [Validators.required, Validators.minLength(10)])

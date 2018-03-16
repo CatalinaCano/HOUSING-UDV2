@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 declare const gapi: any;
 @Injectable()
 export class EstudianteService {
+
     estudiante: Estudiante;
     token: string;
     img: string;
@@ -27,14 +28,11 @@ export class EstudianteService {
 
 estaLogueado() {
   if (this.estudiante == null) {
-    console.log(this.token);
     localStorage.removeItem('token');
     localStorage.clear();
     return false;
   } else {
-    console.log('esta logueado ' + this.token.length);
     this.matchUsuario = this.estudiante.email.split('@', 1).toString();
-    console.log('Correo: ' + this.matchUsuario);
     this.obtenerMatchID();
     return true;
   }
@@ -82,8 +80,6 @@ cargarStorage() {
       console.log(resp);
         return true;
     });
-
-
   }
 
   signOut() {
@@ -98,7 +94,7 @@ cargarStorage() {
     return this.matchUsuario;
   }
 
-  obtenerNombres() {
+ obtenerNombres() {
     return this.nombresUsuario;
   }
   obtenerImagen() {

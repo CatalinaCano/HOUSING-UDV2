@@ -5,80 +5,93 @@
     <div class="form-group row">
         <legend>
             <i class="fa fa-camera text-warning "></i> Espacios del Alojamiento</legend>
-        <div class="alert alert-danger row " role="alert ">
+        <div class=" row alert alert-danger  " role="alert ">
             <strong>Atención!</strong> por favor sube las fotos de tu alojamiento, en el orden que se específica
         </div>
 
 
+        <form ngNativeValidate [formGroup]="forma" (ngSubmit)="cambiarImagen()" novalidate="novalidate">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="card">
+                        <div class="card-body" align="center">
+                            <h4 class="card-title text-primary"> <i class="fa fa-bed"></i> Imágen Habitación </h4>
+                            <label for="input-file-now">Seleciona la imágen de la habitación del estudiante visitante</label>
+                            <img *ngIf="imgHabitacionTemp" [src]="imgHabitacionTemp" class="w150">
+                            <input (change)="seleccionImagenHabitacion($event.target.files[0])" type="file" id="imgHabitacion" class="dropify" required formControlName="imgHabitacion" />
+                        </div>
+                        <div *ngIf="!forma.controls['imgHabitacion'].valid" class="form-control-feedback">
+                            <small>*Obligatorio</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary"> <i class="fa fa-home"></i> Imágen Fachada </h4>
+                            <label for="input-file-now">Seleciona la imágen de la Fachada del alojamiento</label>
+                            <img *ngIf="imgFachadaTemp" [src]="imgFachadaTemp" class="w150">
+                            <input (change)="seleccionImagenFachada($event.target.files[0])" type="file" id="imgFachada" class="dropify" required formControlName="imgFachada" />
+                        </div>
+                        <div *ngIf="!forma.controls['imgFachada'].valid" class="form-control-feedback">
+                            <small>*Obligatorio</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary"> <i class="fa fa-coffee"></i> Imágen Sala </h4>
+                            <label for="input-file-now">Seleciona la imágen de la Sala del alojamiento</label>
+                            <img *ngIf="imgSalaTemp" [src]="imgSalaTemp" class="w150">
+                            <input (change)="seleccionImagenSala($event.target.files[0])" type="file" id="imgSala" class="dropify" required formControlName="imgSala" />
+                        </div>
+                        <div *ngIf="!forma.controls['imgSala'].valid" class="form-control-feedback">
+                            <small>*Obligatorio</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary"> <i class="fa fa-cutlery"></i> Imágen Cocina </h4>
+                            <label for="input-file-now">Seleciona la imágen de la Cocina del alojamiento</label>
+                            <img *ngIf="imgCocinaTemp" [src]="imgCocinaTemp" class="w150">
+                            <input (change)="seleccionImagenCocina($event.target.files[0])" type="file" id="imgCocina" class="dropify" required formControlName="imgCocina" />
+                        </div>
+                        <div *ngIf="!forma.controls['imgCocina'].valid" class="form-control-feedback">
+                            <small>*Obligatorio</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <div class="row">
-            <div class="col-lg-6 col-md-6">
-                <div class="card">
-                    <div class="card-body" align="center">
-                        <h4 class="card-title text-primary"> <i class="fa fa-bed"></i> Imágen Habitación </h4>
-                        <label for="input-file-now">Seleciona la imágen de la habitación del estudiante visitante</label>
-                        <img *ngIf="imgHabitacionTemp" [src]="imgHabitacionTemp" class="w150">
-                        <input (change)="seleccionImagenHabitacion($event.target.files[0])" type="file" id="imgHabitacion" class="dropify" />
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title text-primary"> <i class="fa fa-home"></i> Imágen Fachada </h4>
-                        <label for="input-file-now">Seleciona la imágen de la Fachada del alojamiento</label>
-                        <img *ngIf="imgFachadaTemp" [src]="imgFachadaTemp" class="w150">
-                        <input (change)="seleccionImagenFachada($event.target.files[0])" type="file" id="imgFachada" class="dropify" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-lg-6 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title text-primary"> <i class="fa fa-coffee"></i> Imágen Sala </h4>
-                        <label for="input-file-now">Seleciona la imágen de la Sala del alojamiento</label>
-                        <img *ngIf="imgSalaTemp" [src]="imgSalaTemp" class="w150">
-                        <input (change)="seleccionImagenSala($event.target.files[0])" type="file" id="imgSala" class="dropify" />
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title text-primary"> <i class="fa fa-cutlery"></i> Imágen Cocina </h4>
-                        <label for="input-file-now">Seleciona la imágen de la Cocina del alojamiento</label>
-                        <img *ngIf="imgCocinaTemp" [src]="imgCocinaTemp" class="w150">
-                        <input (change)="seleccionImagenCocina($event.target.files[0])" type="file" id="imgCocina" class="dropify" />
-                    </div>
-                </div>
-            </div>
-        </div>
+            <br>
 
-        <br>
-
-        <div class="row">
-            <div class="col-lg-6 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title text-primary"> <i class="fa fa-bath"></i> Imágen Baño </h4>
-                        <label for="input-file-now">Seleciona la imágen del baño del alojamiento</label>
-                        <img *ngIf="imgBanioTemp" [src]="imgBanioTemp" class="w150">
-                        <input (change)="seleccionImagenBanio($event.target.files[0])" type="file" id="imgBanio" class="dropify" />
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="card" [ngClass]="{'alert alert-danger':!forma.get('imgBanio').valid}">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary"> <i class="fa fa-bath"></i> Imágen Baño </h4>
+                            <label for="input-file-now">Seleciona la imágen del baño del alojamiento</label>
+                            <img *ngIf="imgBanioTemp" [src]="imgBanioTemp" class="w150">
+                            <input (change)="seleccionImagenBanio($event.target.files[0])" type="file" id="imgBanio" class="dropify" required formControlName="imgBanio" />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <button (click)="cambiarImagen()" [disabled]="validarCampos()" type="button" class="btn btn-success waves-effect waves-light m-r-10">
+                <div class="col-lg-6 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <button (click)="cambiarImagen()" [disabled]="forma.valid" type="submit " class="btn btn-success waves-effect waves-light m-r-10">
                             <i class="fa fa-save"></i> Guardar Alojamiento
                         </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>

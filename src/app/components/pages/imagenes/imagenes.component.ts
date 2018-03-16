@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { URL_SERVICIOS } from '../../../config/config';
 import { RegistrarAlojamientoService } from '../../../services/registrar-alojamiento.service';
 import { SubirArchivoService } from '../../../services/subir-archivo.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 
@@ -17,6 +18,7 @@ export class ImagenesComponent implements OnInit {
   public imgCocina: File;
   public imgHabitacion: File;
   public imgFachada: File;
+  forma: FormGroup;
 
   public imgHabitacionTemp: string;
   public imgSalaTemp: string;
@@ -36,6 +38,13 @@ export class ImagenesComponent implements OnInit {
         this.idAlojamiento = parametros['id'];
         console.log('parametros del imagenes component' + this.idAlojamiento);
       });
+    this.forma = new FormGroup({
+      'imgHabitacion': new FormControl('', Validators.required),
+      'imgFachada': new FormControl('', Validators.required),
+      'imgSala': new FormControl('', Validators.required),
+      'imgCocina': new FormControl('', Validators.required),
+      'imgBanio': new FormControl('', Validators.required)
+    });
   }
 
 
@@ -159,20 +168,6 @@ export class ImagenesComponent implements OnInit {
     reader.onloadend = () => this.imgSalaTemp = reader.result;
   }
 
-
-
-
-
-
-  validarCampos() {
-    if ( !this.imgBanio && !this.imgFachada  && !this.imgCocina && !this.imgSala  && !this.imgHabitacion ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-
   cambiarImagen() {
   this._subirArchivos.subirArchivo(this.imgSala, this.imgHabitacion, this.imgFachada, this.imgCocina, this.imgBanio, this.idAlojamiento)
     .then( resp => {
@@ -181,7 +176,7 @@ export class ImagenesComponent implements OnInit {
       this.router.navigate(['/inicio']);
     })
     .catch( resp => {
-      console.log(resp);
+      swal('Error', 'Debe seleccionar todas las imágenes', 'error');
     });
   }
 

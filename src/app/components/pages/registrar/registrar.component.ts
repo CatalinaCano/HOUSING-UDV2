@@ -267,9 +267,13 @@ export class RegistrarComponent implements OnInit {
     let yyyy = fecha.getFullYear();
     if (dd < 10) {
       dia = '0' + dd;
+    } else {
+      dia = dd;
     }
     if (mm < 10) {
       mes = '0' + mm;
+    } else {
+      mes = mm;
     }
     let today = dia + '/' + mes + '/' + yyyy;
     return today;
