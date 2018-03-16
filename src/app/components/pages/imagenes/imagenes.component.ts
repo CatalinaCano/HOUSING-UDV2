@@ -180,4 +180,13 @@ export class ImagenesComponent implements OnInit {
     });
   }
 
+
+  validarCampos() {
+    if (this.imgFachada != null && this.imgCocina != null && this.imgBanio != null && this.imgHabitacion != null && this.imgSala != null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }

@@ -84,7 +84,7 @@ export class AlojamientoComponent implements OnInit {
         this._alojamientoService.borrarAlojamiento(alojamiento._id)
           .subscribe(borrado => {
             console.log(borrado);
-          // devolver a la pagina anterior  this.cargarAlojamientos();
+             this.router.navigate(['/administrador']);
           });
       }
     });

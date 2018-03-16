@@ -83,8 +83,8 @@ export class AdministradorComponent implements OnInit {
       if (borrar) {
         this._alojamientoService.borrarAlojamiento(alojamiento._id)
           .subscribe(borrado => {
-            console.log(borrado);
             this.cargarAlojamientos();
+            this.cargarEstadisticas();
           });
       }
     });
@@ -99,14 +99,14 @@ export class AdministradorComponent implements OnInit {
       showCancelButton: true,
       confirmButtonText: 'Si',
       cancelButtonText: 'No'
-    }).then(borrar => {
-      if (borrar) {
+    }).then(actualizar => {
+      if (actualizar) {
         this._alojamientoService.actualizarEstadoAlojamiento(alojamiento)
           .subscribe(actualizado => {
             this.cargarAlojamientos();
             this.cargarEstadisticas();
           });
-        this.router.navigate(['/inicio']);
+        this.router.navigate(['/administrador']);
       }
     });
 
@@ -152,9 +152,4 @@ export class AdministradorComponent implements OnInit {
         this.alojamientos = resp.estadoPublicacionAlojamiento;
       });
   }
-
-
-
-
-
 }
