@@ -97,7 +97,6 @@ export class EstudiantesComponent implements OnInit {
     if (this.forma.invalid) {
       return;
     }
-    this.oculto = ' oculto';
     let estudiante = new Estudiante(
       this.forma.value.email,
       this.forma.value.sobreMi,

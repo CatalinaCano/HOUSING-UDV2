@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-
 import {
   EstudianteService,
   NavbarService,
@@ -13,7 +12,8 @@ import {
   EstudiantesHousingService,
   EstadisticasService,
   AdminGuard,
-  EstudianteGuard
+  EstudianteGuard,
+  EnviarCorreoService
 } from './service.index';
 
 
@@ -34,7 +34,8 @@ import {
     EstudiantesHousingService,
     EstadisticasService,
     AdminGuard,
-    EstudianteGuard
+    EstudianteGuard,
+    EnviarCorreoService
   ]
 })
 export class ServiceModule { }

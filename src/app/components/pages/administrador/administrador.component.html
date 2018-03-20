@@ -15,6 +15,7 @@
                 <label> <i class="fa fa-university" aria-hidden="true"></i> Sede de destino</label>
                 <select class="form-control" #sedes (change)="onChangeSede($event, sedes.value)">            <!--Facultades-->
                     <optgroup label="Sedes">
+                    <option value="">Seleccionar</option> 
                     <option value="Aduanilla de Paiba">Aduanilla de Paiba</option>
                     <option value="Calle 34">Calle 34</option>
                     <option value="Calle 40 (Edificio Administrativo)">Calle 40 (Edificio Administrativo)</option>
@@ -42,7 +43,7 @@
             <div class=" col-md-3 col-xs-12">
                 <label> <i class="fa fa-briefcase" aria-hidden="true"></i> Hospedan a</label>
                 <select class="form-control" #hospedanA (change)="onChangeHospedanA($event, hospedanA.value)">   
-                    <option value="">Seleccionar</option>
+                    <option value="">Seleccionar</option> 
                     <option value="Mujer">Mujer</option>
                     <option value="Hombre">Hombre</option>
                     <option value="No importa">No importa</option>

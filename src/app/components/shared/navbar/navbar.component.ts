@@ -14,7 +14,6 @@ export class NavbarComponent implements OnInit {
 
   usuario: Estudiante;
 
-
   constructor( public _navbar: NavbarService,
                public _estudianteService: EstudianteService,
               public router: Router

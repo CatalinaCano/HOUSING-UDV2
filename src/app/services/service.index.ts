@@ -1,3 +1,4 @@
+export { EnviarCorreoService } from './enviar-correo.service';
 export { EstudianteGuard } from './guards/estudiante.guard';
 export { AdminGuard } from './guards/admin.guard';
 export { EstadisticasService } from './estadisticas.service';
