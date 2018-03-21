@@ -16,8 +16,6 @@ declare var swal: any;
   templateUrl: './alojamiento.component.html'
 })
 export class AlojamientoComponent implements OnInit {
-
-  // Variables para el mapa
   lat: number;
   lng: number;
   zoom: number = 18;
@@ -28,8 +26,6 @@ export class AlojamientoComponent implements OnInit {
   role: string;
   administrador: boolean = false;
   usuario: Estudiante;
-
-
 
   constructor(  public _estudianteService: EstudianteService,
                 public router: Router,
@@ -78,7 +74,7 @@ export class AlojamientoComponent implements OnInit {
     swal({
       title: '¿Estas Seguro?',
       text: 'Esta a punto de borrar el alojamiento de ' + alojamiento.estudiante.email,
-      type: 'warning',
+      icon: 'info',
       showCancelButton: true,
       confirmButtonText: 'Si',
       cancelButtonText: 'No'
@@ -99,7 +95,7 @@ export class AlojamientoComponent implements OnInit {
     swal({
       title: '¿Estas Seguro?',
       text: 'Esta a punto de actualizar el estado del alojamiento de ' + alojamiento.estudiante.email,
-      type: 'warning',
+      icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Si',
       cancelButtonText: 'No'
@@ -119,7 +115,7 @@ export class AlojamientoComponent implements OnInit {
     swal({
       title: '¿Estas Seguro?',
       text: 'Esta a punto de actualizar el estado del alojamiento de ' + alojamiento.estudiante.email,
-      type: 'warning',
+      icon: 'info',
       showCancelButton: true,
       confirmButtonText: 'Si',
       cancelButtonText: 'No'
@@ -137,7 +133,7 @@ export class AlojamientoComponent implements OnInit {
     swal({
       title: '¿Estas Seguro?',
       text: 'Esta a punto de actualizar el estado del alojamiento de ' + alojamiento.estudiante.email,
-      type: 'warning',
+      icon: 'info',
       showCancelButton: true,
       confirmButtonText: 'Si',
       cancelButtonText: 'No'
@@ -156,6 +152,7 @@ enviarCorreoAceptado() {
     swal({
       text: 'Enviar observaciones',
       content: 'input',
+      icon: 'info',
       button: {
         text: 'Enviar',
         closeModal: false,
@@ -179,6 +176,7 @@ enviarCorreoRechazado() {
   swal({
     text: 'Enviar observaciones',
     content: 'input',
+    icon: 'info',
     button: {
       text: 'Enviar',
       closeModal: false,

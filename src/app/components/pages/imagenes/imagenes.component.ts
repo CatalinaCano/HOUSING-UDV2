@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { URL_SERVICIOS } from '../../../config/config';
-import { RegistrarAlojamientoService } from '../../../services/registrar-alojamiento.service';
-import { SubirArchivoService } from '../../../services/subir-archivo.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { SubirArchivoService, RegistrarAlojamientoService } from '../../../services/service.index';
 
 
 
@@ -36,7 +35,6 @@ export class ImagenesComponent implements OnInit {
     this.route.params
       .subscribe(parametros => {
         this.idAlojamiento = parametros['id'];
-        console.log('parametros del imagenes component' + this.idAlojamiento);
       });
     this.forma = new FormGroup({
       'imgHabitacion': new FormControl('', Validators.required),
@@ -171,7 +169,6 @@ export class ImagenesComponent implements OnInit {
   cambiarImagen() {
   this._subirArchivos.subirArchivo(this.imgSala, this.imgHabitacion, this.imgFachada, this.imgCocina, this.imgBanio, this.idAlojamiento)
     .then( resp => {
-        console.log(resp);
       swal('Éxito', 'Alojamiento Almacenado con Éxito', 'success' );
       this.router.navigate(['/inicio']);
     })

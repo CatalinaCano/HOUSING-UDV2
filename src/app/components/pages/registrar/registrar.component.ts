@@ -3,11 +3,10 @@ import { ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
-import { RegistrarAlojamientoService, EstudianteService } from '../../../services/service.index';
+import { RegistrarAlojamientoService, EstudianteService, EnviarCorreoService } from '../../../services/service.index';
 import { Alojamiento } from '../../../models/alojamiento.model';
 import { Estudiante } from '../../../models/estudiante.model';
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-registrar',
@@ -40,6 +39,7 @@ export class RegistrarComponent implements OnInit {
     private ngZone: NgZone,
     public _registrarAlojamientoService: RegistrarAlojamientoService,
     public _estudianteService: EstudianteService,
+    public _enviarCorreo: EnviarCorreoService,
     public router: Router
   ) { }
 
@@ -114,34 +114,21 @@ export class RegistrarComponent implements OnInit {
       'condiciones': new FormControl(false)
   });
 
-
-    // Coordenas del mapa por defecto
     this.zoom = 4;
     this.latitud = 4.6233868;
     this.longitud = -74.0662944;
-
-    //  Crear el FormControl
     this.searchControl = new FormControl('', Validators.required);
-
-    // Colocar posicion actual
     this.setCurrentPosition();
-
-    // load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
         types: ['address']
       });
       autocomplete.addListener('place_changed', () => {
         this.ngZone.run(() => {
-          // get the place result
           let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-
-          // verify result
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }
-
-          // set latitude, longitude and zoom
           this.latitud = place.geometry.location.lat();
           this.longitud = place.geometry.location.lng();
           this.zoom = 12;
@@ -248,6 +235,11 @@ export class RegistrarComponent implements OnInit {
 
     this._registrarAlojamientoService.crearAlojamiento(alojamiento, this.idEstudiante ).subscribe(resp => {
       this.idAlojamiento = resp;
+      let mail = this.estudiante.email;
+      this._enviarCorreo.enviarCorreo(mail)
+          .subscribe(res => {
+            console.log(res);
+          });
       this.router.navigate(['/imagenes', this.idAlojamiento]);
     });
     this.forma.reset();
