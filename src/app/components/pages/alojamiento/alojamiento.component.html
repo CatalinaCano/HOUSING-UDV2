@@ -12,7 +12,7 @@
         </div>
         <div class="col-md-2" *ngIf="this.usuario.role === 'ADMINISTRADOR'">
             <button (click)="borrarAlojamiento(alojamiento)" class="btn btn-danger"> <i class="fa fa-trash-o"></i></button>
-            <button (click)="prueba2()" class="btn btn-success"> <i class="fa fa-thumbs-up"></i></button>
+            <button (click)="cambiarEstadoAprobado(alojamiento)" class="btn btn-success"> <i class="fa fa-thumbs-up"></i></button>
             <button (click)="cambiarEstadoRechazado(alojamiento)" class="btn btn-warning"> <i class="fa fa-thumbs-down"></i></button>
         </div>
 

@@ -7,6 +7,8 @@ import { AlojamientoConsulta } from '../../../models/alojamientoConsulta.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { } from 'googlemaps';
 import { Estudiante } from '../../../models/estudiante.model';
+import { EnviarCorreoService } from '../../../services/enviar-correo.service';
+import { Correo } from '../../../models/correo.model';
 declare var swal: any;
 
 @Component({
@@ -33,7 +35,8 @@ export class AlojamientoComponent implements OnInit {
                 public router: Router,
                 public route: ActivatedRoute,
                 public _alojamientoService: AlojamientosService,
-                public _condorService: CondorService
+                public _condorService: CondorService,
+                public _enviarCorreo: EnviarCorreoService
                 ) {
 
                  }
@@ -104,8 +107,7 @@ export class AlojamientoComponent implements OnInit {
       if (borrar) {
         this._alojamientoService.actualizarEstadoAlojamiento(alojamiento)
           .subscribe(actualizado => {
-            this.router.navigate(['/administrador']);
-            // devolver a la pagina anterior  this.cargarAlojamientos();
+            this.enviarCorreoAceptado();
           });
       }
     });
@@ -125,8 +127,7 @@ export class AlojamientoComponent implements OnInit {
       if (borrar) {
         this._alojamientoService.actualizarEstadoAlojamiento(alojamiento)
           .subscribe(actualizado => {
-            this.router.navigate(['/administrador']);
-            // devolver a la pagina anterior  this.cargarAlojamientos();
+            this.enviarCorreoRechazado();
           });
       }
     });
@@ -144,56 +145,55 @@ export class AlojamientoComponent implements OnInit {
       if (borrar) {
         this._alojamientoService.actualizarEstadoAlojamiento(alojamiento)
           .subscribe(actualizado => {
-            this.router.navigate(['/administrador']);
-            // devolver a la pagina anterior  this.cargarAlojamientos();
+            this.enviarCorreoAceptado();
           });
       }
     });
 
   }
 
-  prueba2() {
+enviarCorreoAceptado() {
     swal({
-      text: 'Search for a movie. e.g. "La La Land".',
+      text: 'Enviar observaciones',
       content: 'input',
       button: {
-        text: 'Search!',
+        text: 'Enviar',
         closeModal: false,
       },
-    })
-      .then(name => {
-        // tslint:disable-next-line:curly
-        if (!name) throw null;
-
-        return fetch(`https://itunes.apple.com/search?term=${name}&entity=movie`);
-      })
-      .then(results => {
-        return results.json();
-      })
-      .then(json => {
-        const movie = json.results[0];
-
-        if (!movie) {
-          return swal('No movie was found!');
-        }
-
-        const name = movie.trackName;
-        const imageURL = movie.artworkUrl100;
-
-        swal({
-          title: 'Top result:',
-          text: name,
-          icon: imageURL,
-        });
-      })
-      .catch(err => {
-        if (err) {
-          swal('Oh noes!', 'The AJAX request failed!', 'error');
-        } else {
-          swal.stopLoading();
-          swal.close();
-        }
-      });
+    }).then(observaciones => {
+      if (observaciones) {
+        console.log(this.usuarioCondor.informacion.correo, observaciones);
+        let correo = new Correo(this.usuarioCondor.informacion.correo, observaciones);
+        this._enviarCorreo.enviarCorreoAceptado(correo)
+          .subscribe(res => {
+            swal.stopLoading();
+            swal.close();
+            this.router.navigate(['/administrador']);
+          });
+      }
+    });
   }
 
+
+enviarCorreoRechazado() {
+  swal({
+    text: 'Enviar observaciones',
+    content: 'input',
+    button: {
+      text: 'Enviar',
+      closeModal: false,
+    },
+  }).then(observaciones => {
+    if (observaciones) {
+      console.log(this.usuarioCondor.informacion.correo, observaciones);
+      let correo = new Correo(this.usuarioCondor.informacion.correo, observaciones);
+      this._enviarCorreo.enviarCorreoRechazado(correo)
+        .subscribe(res => {
+          swal.stopLoading();
+          swal.close();
+          this.router.navigate(['/administrador']);
+        });
+    }
+  });
+}
 }

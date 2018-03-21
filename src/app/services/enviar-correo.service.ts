@@ -12,9 +12,15 @@ export class EnviarCorreoService {
     public router: Router
   ) { }
 
-  enviarCorreoAceptado(email, observaciones) {
+  enviarCorreoAceptado(correo) {
     let url = URL_SERVICIOS + '/correo/aceptado';
-    return this.http.post(url, [email, observaciones]);
+    console.log(url);
+    return this.http.post(url, correo);
   }
 
+  enviarCorreoRechazado(correo) {
+    let url = URL_SERVICIOS + '/correo/rechazado';
+    console.log(url);
+    return this.http.post(url, correo);
+  }
 }
