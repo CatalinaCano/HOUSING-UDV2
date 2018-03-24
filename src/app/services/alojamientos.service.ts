@@ -41,8 +41,23 @@ export class AlojamientosService {
 
   }
 
+
   actualizarEstadoAlojamiento(alojamiento) {
-     let url = URL_SERVICIOS + '/alojamiento/estadoAlojamiento/' + alojamiento._id + '/' + alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento;
+    let url = URL_SERVICIOS + '/alojamiento/estadoAlojamiento/' + alojamiento._id + '/' + alojamiento.propiedadesAlojamiento.estadoAlojamiento;
+   console.log(alojamiento);
+   return this.http.put(url, alojamiento)
+               .map((resp: any) => {
+                 swal('Alojamiento Actualizado', alojamiento.estudiante.email, 'success');
+                 return true;
+               }).catch( err => {
+                   swal('Error', 'Error al actualizar el estado del alojamiento', 'error');
+                   return Observable.throw(err);
+               });
+
+ }
+
+  actualizarEstadoPublicacionAlojamiento(alojamiento) {
+     let url = URL_SERVICIOS + '/alojamiento/estadoPublicacionAlojamiento/' + alojamiento._id + '/' + alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento;
     console.log(alojamiento);
     return this.http.put(url, alojamiento)
                 .map((resp: any) => {

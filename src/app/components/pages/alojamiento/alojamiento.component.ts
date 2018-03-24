@@ -104,7 +104,7 @@ export class AlojamientoComponent implements OnInit {
       cancelButtonText: 'No'
     }).then(borrar => {
       if (borrar) {
-        this._alojamientoService.actualizarEstadoAlojamiento(alojamiento)
+        this._alojamientoService.actualizarEstadoPublicacionAlojamiento(alojamiento)
           .subscribe(actualizado => {
             this.enviarCorreoAceptado();
           });
@@ -124,7 +124,7 @@ export class AlojamientoComponent implements OnInit {
       cancelButtonText: 'No'
     }).then(borrar => {
       if (borrar) {
-        this._alojamientoService.actualizarEstadoAlojamiento(alojamiento)
+        this._alojamientoService.actualizarEstadoPublicacionAlojamiento(alojamiento)
           .subscribe(actualizado => {
             this.enviarCorreoRechazado();
           });
