@@ -7,6 +7,7 @@ export class SubirArchivoService {
   constructor() { }
 
   subirArchivo(imgSala: File, imgHabitacion: File, imgFachada: File, imgCocina: File, imgBanio: File,  idAlojamiento: string ) {
+    console.log('EL ID QUE LLEGA AL ACTUALIZAR ES ' + idAlojamiento);
     return new Promise ((resolve, reject) => {
       let formData = new FormData();
       let xhr = new XMLHttpRequest();
@@ -28,7 +29,7 @@ export class SubirArchivoService {
           }
         }
       };
-      let url = URL_SERVICIOS + '/alojamiento' + '/' + idAlojamiento;
+      let url = URL_SERVICIOS + '/alojamiento/' + idAlojamiento;
 
       xhr.open('PUT', url, true);
       xhr.send( formData );

@@ -15,14 +15,12 @@ export class RegistrarAlojamientoService {
   }
 
   crearAlojamiento(alojamiento: Alojamiento, id) {
-    console.log('se registra alojamiento con id:' + id);
     let url = URL_SERVICIOS + '/alojamiento' + '/' + id;
-    console.log('se regustra alojamiento con id:' + url);
     return this.http.post( url , alojamiento)
      .map((resp: any ) => {
        console.log('se guardo con exito ' + '\n');
-       console.log(resp.alojamientoGuardado);
-       return resp.alojamientoGuardado;
+       console.log(resp.alojamientoGuardado._id);
+       return resp.alojamientoGuardado._id;
       }).catch((err: any) => {
         swal('Error', err.error.mensaje, 'error');
         return Observable.throw(err);

@@ -54,6 +54,7 @@ export class AlojamientoComponent implements OnInit {
           this._alojamientoService.buscarAlojamiento(this.idAlojamiento)
             .subscribe(res => {
               this.alojamiento = JSON.parse(JSON.stringify(res)).alojamientoBD;
+              console.log('cargar alojamiento' + this.alojamiento);
             }, error => console.log(error));
       });
   }
@@ -91,6 +92,8 @@ export class AlojamientoComponent implements OnInit {
   }
 
   cambiarEstadoAprobado(alojamiento) {
+    console.log('este es el alojamiento a actualizar ' + JSON.stringify(alojamiento));
+    console.log(alojamiento.estudiante.email);
     alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento = 'Aceptado';
     swal({
       title: '¿Estas Seguro?',

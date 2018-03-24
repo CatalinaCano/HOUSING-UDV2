@@ -167,6 +167,7 @@ export class ImagenesComponent implements OnInit {
   }
 
   cambiarImagen() {
+    console.log(this.idAlojamiento);
   this._subirArchivos.subirArchivo(this.imgSala, this.imgHabitacion, this.imgFachada, this.imgCocina, this.imgBanio, this.idAlojamiento)
     .then( resp => {
       swal('Éxito', 'Alojamiento Almacenado con Éxito', 'success' );

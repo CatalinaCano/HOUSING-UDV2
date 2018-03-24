@@ -42,7 +42,7 @@ export class AlojamientosService {
   }
 
   actualizarEstadoAlojamiento(alojamiento) {
-     let url = URL_SERVICIOS + '/alojamiento/estadoAlojamiento/' + alojamiento._id;
+     let url = URL_SERVICIOS + '/alojamiento/estadoAlojamiento/' + alojamiento._id + '/' + alojamiento.propiedadesAlojamiento.estadoPublicacionAlojamiento;
     console.log(alojamiento);
     return this.http.put(url, alojamiento)
                 .map((resp: any) => {
