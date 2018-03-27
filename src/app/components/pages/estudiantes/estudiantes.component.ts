@@ -13,7 +13,7 @@ declare var swal: any;
 })
 export class EstudiantesComponent implements OnInit {
 
-  estudiantes: Estudiante [] = [];
+  estudiantes:  Estudiante [] = [];
   estudianteNuevo: Estudiante;
   desde: number = 0;
   role: string = 'ESTUDIANTE';
@@ -69,8 +69,9 @@ export class EstudiantesComponent implements OnInit {
     }
 
     this._estudiantesHousing.buscarEstudiante(termino)
-      .subscribe((estudiantes: Estudiante[]) => {
-          this.estudiantes = estudiantes;
+      .subscribe((resp: any) => {
+        console.log(resp);
+          this.estudiantes = resp.estudiantes;
       });
   }
 

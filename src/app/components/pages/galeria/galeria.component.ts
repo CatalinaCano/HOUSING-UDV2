@@ -45,7 +45,8 @@ export class GaleriaComponent implements OnInit {
            this.alojamientos = resp.alojamientos;
         });
      } else {
-      swal('Error', 'Debes seleccionar todos los filtros', 'error');
+      swal('Atención', 'No hay alojamientos registrados con esas características recuerda haber seleccionado  todos los filtros', 'error');
+      this.cargarAlojamientos();
      }
   }
 
@@ -57,7 +58,8 @@ export class GaleriaComponent implements OnInit {
           this.alojamientos = resp.alojamientos;
         });
     } else {
-      swal('Error', 'Debes seleccionar todos los filtros', 'error');
+      swal('Atención', 'No hay alojamientos registrados con esas características recuerda haber seleccionado  todos los filtros', 'error');
+      this.cargarAlojamientos();
     }
   }
 
@@ -69,7 +71,8 @@ export class GaleriaComponent implements OnInit {
            this.alojamientos = resp.alojamientos;
         });
     } else {
-      swal('Error', 'Debes seleccionar todos los filtros', 'error');
+      swal('Atención', 'No hay alojamientos registrados con esas características recuerda haber seleccionado  todos los filtros', 'error');
+      this.cargarAlojamientos();
     }
   }
 
@@ -82,7 +85,8 @@ export class GaleriaComponent implements OnInit {
            this.alojamientos = resp.alojamientos;
         });
     } else {
-      swal('Error', 'Debes seleccionar todos los filtros', 'error');
+      swal('Atención', 'No hay alojamientos registrados con esas características recuerda haber seleccionado  todos los filtros', 'error');
+      this.cargarAlojamientos();
     }
   }
 

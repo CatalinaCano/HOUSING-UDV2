@@ -5,271 +5,273 @@
     <!--Barra de navegacion-->
 
     <!-- Encabezado -->
-    <div class="row">
-        <div class="col-md-10">
-            <h1 class="my-4 text-primary"> <i class="fa fa-map-marker"></i> {{usuarioCondor.alojamiento.barrio}} <small>{{alojamiento.tipoVivienda}}  |  <small> Estrato: {{usuarioCondor.alojamiento.estrato}} - </small> <small>{{alojamiento.propiedadesAlojamiento.clasificacionAlojamiento}}</small></small>
-            </h1>
-        </div>
-        <div class="col-md-2" *ngIf="this.usuario.role === 'ADMINISTRADOR'">
-            <button (click)="borrarAlojamiento(alojamiento)" class="btn btn-danger"> <i class="fa fa-trash-o"></i></button>
-            <button (click)="cambiarEstadoAprobado(alojamiento)" class="btn btn-success"> <i class="fa fa-thumbs-up"></i></button>
-            <button (click)="cambiarEstadoRechazado(alojamiento)" class="btn btn-warning"> <i class="fa fa-thumbs-down"></i></button>
-        </div>
-
-    </div>
-    <hr>
-
-    <div class="row animated fadeInUp">
-        <div class="col-lg-8">
-            <img class="img-fluid" [src]="alojamiento.imagenes.imgFachada |imagen:'alojamiento'" height="auto" width="100%" alt="">
-            <br>
-            <table class="table table-striped">
-                <tbody>
-                    <tr>
-                        <td>
-                            <i class="fa fa-suitcase"></i> Hospedan a: <br> {{alojamiento.hospedanA}}
-                            <!--viene de mongo-->
-                        </td>
-                        <td>
-                            <i class="fa fa-university"></i> Sede Cercana:<br> {{alojamiento.sedeCercana}}
-                            <!--viene de mongo-->
-                        </td>
-                        <td> <i class="fa fa-users"></i> Habitantes en el alojamiento: {{usuarioCondor.alojamiento.cantidadHabitantes}}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <hr>
-            <p class="text-justify">
-                {{alojamiento.propiedadesAlojamiento.descripcionAlojamiento}}
-            </p>
-            <!--viene de mongo-->
-            <hr>
-            <h3 class="my-4"> <i class="fa fa-home text-info"></i> Componentes del Alojamiento</h3>
-            <div class="alert alert-warning" role="alert">
-                <strong>Atención!</strong> A continuación, se describen los espacios generales del alojamiento, <strong>NO</strong> de la habitación.
+    <div *ngIf="usuarioCondor">
+        <div class="row">
+            <div class="col-md-10">
+                <h1 class="my-4 text-primary"> <i class="fa fa-map-marker"></i> {{usuarioCondor.alojamiento.barrio}} <small>{{alojamiento.tipoVivienda}}  |  <small> Estrato: {{usuarioCondor.alojamiento.estrato}} - </small> <small>{{alojamiento.propiedadesAlojamiento.clasificacionAlojamiento}}</small></small>
+                </h1>
             </div>
-            <table class="table table-striped">
-                <tbody>
-                    <tr>
-                        <td> <i class="fa fa-bed"></i> {{alojamiento.componentes.numeroHabitaciones}} Habitaciones</td>
-                        <td> <i class="fa fa-shower"></i> {{alojamiento.componentes.cantidadBanios}} Baño</td>
-                        <td> <i class="fa fa-cutlery"></i> Acceso a cocina: {{alojamiento.componentes.accesoCocina}} </td>
-                    </tr>
-                    <tr>
-                        <td> <i class="fa fa-pencil"></i> Espacio para estudiar: {{alojamiento.componentes.espacioEstudio}}</td>
-                        <td> <i class="fa fa-info"></i> Se permite fumar: {{alojamiento.componentes.sePermiteFumar}} </td>
-                        <td> <i class="fa fa-flag"></i> Espacios al aire libre: {{alojamiento.componentes.espacioAireLibre}} </td>
-                    </tr>
-                    <tr>
-                        <td> <i class="fa fa-coffee"></i> Acceso a Sala: {{alojamiento.componentes.accesoSala}}</td>
-                        <td colspan="2"><i class="fa fa-paw"></i> Mascotas: {{alojamiento.mascota.habitaMascota}}</td>
-
-                    </tr>
-                </tbody>
-            </table>
-            <hr>
-            <!--Servicios de la casa-->
-            <h3 class="my-4"> <i class="fa fa-gears text-success"></i> Servicios del Alojamiento</h3>
-            <table class="table table-striped">
-                <tbody>
-                    <tr>
-                        <td> <i class="fa fa-bed"></i> Tipo de Cama: {{alojamiento.servicios.tipoCama}} </td>
-                        <td> <i class="fa fa-bath"></i> Baño Privado : {{alojamiento.servicios.banioPrivado}} </td>
-                        <td> <i class="fa fa-columns"></i> Guardaropas: {{alojamiento.servicios.guardaRopa}} </td>
-
-                    </tr>
-                    <tr>
-                        <td> <i class="fa fa-wifi"></i> Internet: {{alojamiento.servicios.internet}} </td>
-                        <td> <i class="fa fa-laptop"></i> Computador : {{alojamiento.servicios.computador}} </td>
-                        <td> <i class="fa fa-tv"></i> Televisión: {{alojamiento.servicios.television}} </td>
-
-                    </tr>
-                    <tr>
-                        <td> <i class="fa fa-gamepad"></i> Video Juegos: {{alojamiento.servicios.guardaRopa}} </td>
-                        <td> <i class="fa fa-flash"></i> Servicios Públicos: {{alojamiento.servicios.serviciosPublicos}} </td>
-                        <td> <i class="fa fa-fire"></i> Agua Caliente: {{alojamiento.servicios.aguaCaliente}} </td>
-
-                    </tr>
-                    <tr>
-                        <td> <i class="fa fa-cutlery"></i> Alimentación incluida: {{alojamiento.servicios.alimentacionIncluida}} </td>
-                        <td> <i class="fa fa-handshake-o"></i> Aseo de la habitación: {{alojamiento.servicios.aseoHabitacion}}</td>
-                        <td><i class="fa fa-suitcase"></i> Lavado de Ropa: {{alojamiento.servicios.lavadoRopa}} </td>
-
-                    </tr>
-                    <tr>
-                        <td> <i class="fa fa-film"></i> Servicio de TV por cable: {{alojamiento.servicios.television}} </td>
-                        <td> <i class="fa fa-tint"></i> Lavadora: {{alojamiento.servicios.lavadora}} </td>
-                        <td> <i class="fa fa-home"></i> Acceso a llaves: {{alojamiento.servicios.accesoLlaves}} </td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa fa-plug"></i> Voltaje Electrodomésticos: {{alojamiento.servicios.electrodomesticos}} </td>
-                        <td><i class="fa fa-volume-up"></i> Sistema de Alarma: {{alojamiento.servicios.alarma}} </td>
-                        <td><i class="fa fa-microchip"></i> Acceso a electrodomésticos de Cocina: {{alojamiento.servicios.electrodomesticosDeCocina}} </td>
-
-                    </tr>
-
-                </tbody>
-            </table>
-            <hr>
-            <h3 class="my-4"> <i class="fa fa-map-marker text-warning"></i> Ubicación</h3>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.809026464145!2d-74.06758188523798!3d4.628134896637911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a286d598bd5%3A0xddf14904a87dfb47!2sUniversidad+Distrital+Francisco+Jos%C3%A9+de+Caldas!5e0!3m2!1ses!2sco!4v1520470384812"
-                width="100%" height="450px" frameborder="0" style="border:0" allowfullscreen></iframe>
-
-            <agm-map [latitude]="lat" [longitude]="lng" [scrollwheel]="false" [zoom]="zoom">
-                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-            </agm-map>
-
-            <!--Direccion y localidad-->
-            <table class="table table-striped">
-                <tbody>
-                    <tr>
-                        <td> <i class="fa fa-map-pin"></i> Dirección: {{usuarioCondor.alojamiento.direccion}} </td>
-                        <td> <i class="fa fa-street-view"></i> Zona: {{alojamiento.ubicacion.zona}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <!--Barra lateral-->
-        <div class="col-lg-4">
-            <h3 class="my-3"> <i class="fa fa-user text-success"></i> {{usuarioCondor.informacion.nombres}} {{usuarioCondor.informacion.apellidos}}</h3>
-            <img [src]="usuarioCondor.informacion.imagen |imagen:'google'" height="auto" width="100%" align="center">
-            <h3 class="my-3"> <i class="fa fa-coffee text-warning"></i> Interéses y Costumbres del alojamiento anfitrión</h3>
-            <table class="table table-striped">
-                <tbody>
-                    <tr>
-                        <td> <i class="fa fa-language"></i> Idiomas: {{usuarioCondor.informacion.idioma}} </td>
-                    </tr>
-                    <tr>
-                        <td> <i class="fa fa-spoon"></i> Hábitos Alimenticios: {{alojamiento.costumbres.habitosAlimenticios}} </td>
-                    </tr>
-                    <tr>
-                        <td> <i class="fa fa-american-sign-language-interpreting"></i> Consumo Drogas: {{alojamiento.costumbres.consumoDrogas}}</td>
-                    </tr>
-                    <tr>
-                        <td> <i class="fa fa-glass"></i> Consumo Alcohol: {{alojamiento.costumbres.consumoAlcohol}}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <hr>
-            <h3 class="my-4"> <i class="fa fa-warning text-danger"></i> Normas del alojamiento</h3>
-            <div class="reglas">
-                <ol>
-                    <li> Hora de llegada: {{alojamiento.normasAlojamiento.horaLlegada}} {{alojamiento.normasAlojamiento.franjaLlegada}} </li>
-                    <li> Acceso de otras personas: {{alojamiento.normasAlojamiento.accesoOtrasPersonas}}</li>
-                    <li> Fiestas o eventos: {{alojamiento.normasAlojamiento.fiestasEventos}} </li>
-                    <li> Sonido a volumen: {{alojamiento.normasAlojamiento.nivelVolumen}} </li>
-                    <li> Ritos,exorcismos, orgias: {{alojamiento.normasAlojamiento.ritosExorcismosOrgias}} </li>
-                    <li> Consumo de alcohol: {{alojamiento.normasAlojamiento.permiteConsumoAlcohol}} </li>
-                    <li> Consumo de drogas ó sustancias psicoactivas: {{alojamiento.normasAlojamiento.permiteConsumoDrogas}} </li>
-                </ol>
+            <div class="col-md-2" *ngIf="this.usuario.role === 'ADMINISTRADOR'">
+                <button (click)="borrarAlojamiento(alojamiento)" class="btn btn-danger"> <i class="fa fa-trash-o"></i></button>
+                <button (click)="cambiarEstadoAprobado(alojamiento)" class="btn btn-success"> <i class="fa fa-thumbs-up"></i></button>
+                <button (click)="cambiarEstadoRechazado(alojamiento)" class="btn btn-warning"> <i class="fa fa-thumbs-down"></i></button>
             </div>
-            <hr>
-            <h3 class="my-4"><i class="fa fa-map-o text-primary"></i> Lugares de interés cercanos</h3>
-            <table class="table table-striped">
-                <tbody>
-                    <tr>
-                        <td> <i class="fa fa-building-o"></i> Centros Comerciales: {{alojamiento.lugaresCercanos.centrosComerciales}} </td>
-                    </tr>
-                    <tr>
-                        <td> <i class="fa fa-university"></i> Museos: {{alojamiento.lugaresCercanos.museos}} </td>
-                    </tr>
-                    <tr>
-                        <td> <i class="fa fa-cutlery"></i> Restaurantes: {{alojamiento.lugaresCercanos.restaurantes}} </td>
-                    </tr>
-                    <tr>
-                        <td> <i class="fa fa-beer"></i> Bares: {{alojamiento.lugaresCercanos.bares}} </td>
-                    </tr>
-                    <tr>
-                        <td> <i class="fa fa-plus"></i> Iglesias: {{alojamiento.lugaresCercanos.iglesias}}</td>
-                    </tr>
-                    <tr>
-                        <td> <i class="fa fa-h-square"></i> Hospitales: {{alojamiento.lugaresCercanos.hospitales}}</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i class="fa fa-shopping-cart"></i> Zonas Comerciales: {{alojamiento.lugaresCercanos.zonasComerciales}}</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i class="fa fa-book"></i> Zonas Culturales: {{alojamiento.lugaresCercanos.zonasCulturales}}</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i class="fa fa-envira"></i> Parques: {{alojamiento.lugaresCercanos.parques}}</td>
 
-                    </tr>
-                    <tr>
-                        <td>
-                            <i class="fa fa-child"></i> Gimnasios: {{alojamiento.lugaresCercanos.gimnasio}}</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i class="fa fa-sign-language"></i> Teatros: {{alojamiento.lugaresCercanos.teatros}}</td>
+        </div>
+        <hr>
 
-                    </tr>
+        <div class="row animated fadeInUp">
+            <div class="col-lg-8">
+                <img class="img-fluid" [src]="alojamiento.imagenes.imgFachada |imagen:'alojamiento'" height="auto" width="100%" alt="">
+                <br>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <i class="fa fa-suitcase"></i> Hospedan a: <br> {{alojamiento.hospedanA}}
+                                <!--viene de mongo-->
+                            </td>
+                            <td>
+                                <i class="fa fa-university"></i> Sede Cercana:<br> {{alojamiento.sedeCercana}}
+                                <!--viene de mongo-->
+                            </td>
+                            <td> <i class="fa fa-users"></i> Habitantes en el alojamiento: {{usuarioCondor.alojamiento.cantidadHabitantes}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <p class="text-justify">
+                    {{alojamiento.propiedadesAlojamiento.descripcionAlojamiento}}
+                </p>
+                <!--viene de mongo-->
+                <hr>
+                <h3 class="my-4"> <i class="fa fa-home text-info"></i> Componentes del Alojamiento</h3>
+                <div class="alert alert-warning" role="alert">
+                    <strong>Atención!</strong> A continuación, se describen los espacios generales del alojamiento, <strong>NO</strong> de la habitación.
+                </div>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td> <i class="fa fa-bed"></i> {{alojamiento.componentes.numeroHabitaciones}} Habitaciones</td>
+                            <td> <i class="fa fa-shower"></i> {{alojamiento.componentes.cantidadBanios}} Baño</td>
+                            <td> <i class="fa fa-cutlery"></i> Acceso a cocina: {{alojamiento.componentes.accesoCocina}} </td>
+                        </tr>
+                        <tr>
+                            <td> <i class="fa fa-pencil"></i> Espacio para estudiar: {{alojamiento.componentes.espacioEstudio}}</td>
+                            <td> <i class="fa fa-info"></i> Se permite fumar: {{alojamiento.componentes.sePermiteFumar}} </td>
+                            <td> <i class="fa fa-flag"></i> Espacios al aire libre: {{alojamiento.componentes.espacioAireLibre}} </td>
+                        </tr>
+                        <tr>
+                            <td> <i class="fa fa-coffee"></i> Acceso a Sala: {{alojamiento.componentes.accesoSala}}</td>
+                            <td colspan="2"><i class="fa fa-paw"></i> Mascotas: {{alojamiento.mascota.habitaMascota}}</td>
 
-                </tbody>
-            </table>
-            <hr>
-            <h3 class="my-4"><i class="fa fa-automobile text-success"></i> Transporte Disponible </h3>
-            <table class="table table-striped">
-                <tbody>
-                    <tr>
-                        <td>
-                            <i class="fa fa-bus"></i> Transporte Público: {{alojamiento.transporte.publico}}</td>
-                    </tr>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <!--Servicios de la casa-->
+                <h3 class="my-4"> <i class="fa fa-gears text-success"></i> Servicios del Alojamiento</h3>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td> <i class="fa fa-bed"></i> Tipo de Cama: {{alojamiento.servicios.tipoCama}} </td>
+                            <td> <i class="fa fa-bath"></i> Baño Privado : {{alojamiento.servicios.banioPrivado}} </td>
+                            <td> <i class="fa fa-columns"></i> Guardaropas: {{alojamiento.servicios.guardaRopa}} </td>
 
-                    <tr>
-                        <td> <i class="fa fa-car"></i> Uber : {{alojamiento.transporte.uber}}</td>
-                    </tr>
-                    <tr>
-                        <td> <i class="fa fa-bicycle"></i> Bicicleta: {{alojamiento.transporte.bicicleta}} </td>
-                    </tr>
-                    <tr>
-                        <td> <i class="fa fa-male"></i> Caminando: {{alojamiento.transporte.caminando}}</td>
-                    </tr>
-                    <tr>
-                        <td> <i class="fa fa-taxi"></i> Taxi: {{alojamiento.transporte.taxi}}</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i class="fa fa-train"></i> Metro: {{alojamiento.transporte.metro}}</td>
-                    </tr>
+                        </tr>
+                        <tr>
+                            <td> <i class="fa fa-wifi"></i> Internet: {{alojamiento.servicios.internet}} </td>
+                            <td> <i class="fa fa-laptop"></i> Computador : {{alojamiento.servicios.computador}} </td>
+                            <td> <i class="fa fa-tv"></i> Televisión: {{alojamiento.servicios.television}} </td>
 
-                </tbody>
-            </table>
-            <hr>
-            <div class="alert alert-info" role="alert">
-                <strong>Si desea aplicar este alojamiento!</strong> haga clic en Contactar, así podrá comunicarse con el anfitrión
+                        </tr>
+                        <tr>
+                            <td> <i class="fa fa-gamepad"></i> Video Juegos: {{alojamiento.servicios.guardaRopa}} </td>
+                            <td> <i class="fa fa-flash"></i> Servicios Públicos: {{alojamiento.servicios.serviciosPublicos}} </td>
+                            <td> <i class="fa fa-fire"></i> Agua Caliente: {{alojamiento.servicios.aguaCaliente}} </td>
+
+                        </tr>
+                        <tr>
+                            <td> <i class="fa fa-cutlery"></i> Alimentación incluida: {{alojamiento.servicios.alimentacionIncluida}} </td>
+                            <td> <i class="fa fa-handshake-o"></i> Aseo de la habitación: {{alojamiento.servicios.aseoHabitacion}}</td>
+                            <td><i class="fa fa-suitcase"></i> Lavado de Ropa: {{alojamiento.servicios.lavadoRopa}} </td>
+
+                        </tr>
+                        <tr>
+                            <td> <i class="fa fa-film"></i> Servicio de TV por cable: {{alojamiento.servicios.television}} </td>
+                            <td> <i class="fa fa-tint"></i> Lavadora: {{alojamiento.servicios.lavadora}} </td>
+                            <td> <i class="fa fa-home"></i> Acceso a llaves: {{alojamiento.servicios.accesoLlaves}} </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-plug"></i> Voltaje Electrodomésticos: {{alojamiento.servicios.electrodomesticos}} </td>
+                            <td><i class="fa fa-volume-up"></i> Sistema de Alarma: {{alojamiento.servicios.alarma}} </td>
+                            <td><i class="fa fa-microchip"></i> Acceso a electrodomésticos de Cocina: {{alojamiento.servicios.electrodomesticosDeCocina}} </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+                <hr>
+                <h3 class="my-4"> <i class="fa fa-map-marker text-warning"></i> Ubicación</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.809026464145!2d-74.06758188523798!3d4.628134896637911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a286d598bd5%3A0xddf14904a87dfb47!2sUniversidad+Distrital+Francisco+Jos%C3%A9+de+Caldas!5e0!3m2!1ses!2sco!4v1520470384812"
+                    width="100%" height="450px" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+                <agm-map [latitude]="lat" [longitude]="lng" [scrollwheel]="false" [zoom]="zoom">
+                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                </agm-map>
+
+                <!--Direccion y localidad-->
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td> <i class="fa fa-map-pin"></i> Dirección: {{usuarioCondor.alojamiento.direccion}} </td>
+                            <td> <i class="fa fa-street-view"></i> Zona: {{alojamiento.ubicacion.zona}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <button class="btn btn-success btn-block" data-toggle="modal" data-target="#condiciones"> <i class="fa fa-envelope"></i> Contactar</button>
-            <br>
+            <!--Barra lateral-->
+            <div class="col-lg-4">
+                <h3 class="my-3"> <i class="fa fa-user text-success"></i> {{usuarioCondor.informacion.nombres}} {{usuarioCondor.informacion.apellidos}}</h3>
+                <img [src]="usuarioCondor.informacion.imagen |imagen:'google'" height="auto" width="100%" align="center">
+                <h3 class="my-3"> <i class="fa fa-coffee text-warning"></i> Interéses y Costumbres del alojamiento anfitrión</h3>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td> <i class="fa fa-language"></i> Idiomas: {{usuarioCondor.informacion.idioma}} </td>
+                        </tr>
+                        <tr>
+                            <td> <i class="fa fa-spoon"></i> Hábitos Alimenticios: {{alojamiento.costumbres.habitosAlimenticios}} </td>
+                        </tr>
+                        <tr>
+                            <td> <i class="fa fa-american-sign-language-interpreting"></i> Consumo Drogas: {{alojamiento.costumbres.consumoDrogas}}</td>
+                        </tr>
+                        <tr>
+                            <td> <i class="fa fa-glass"></i> Consumo Alcohol: {{alojamiento.costumbres.consumoAlcohol}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <h3 class="my-4"> <i class="fa fa-warning text-danger"></i> Normas del alojamiento</h3>
+                <div class="reglas">
+                    <ol>
+                        <li> Hora de llegada: {{alojamiento.normasAlojamiento.horaLlegada}} {{alojamiento.normasAlojamiento.franjaLlegada}} </li>
+                        <li> Acceso de otras personas: {{alojamiento.normasAlojamiento.accesoOtrasPersonas}}</li>
+                        <li> Fiestas o eventos: {{alojamiento.normasAlojamiento.fiestasEventos}} </li>
+                        <li> Sonido a volumen: {{alojamiento.normasAlojamiento.nivelVolumen}} </li>
+                        <li> Ritos,exorcismos, orgias: {{alojamiento.normasAlojamiento.ritosExorcismosOrgias}} </li>
+                        <li> Consumo de alcohol: {{alojamiento.normasAlojamiento.permiteConsumoAlcohol}} </li>
+                        <li> Consumo de drogas ó sustancias psicoactivas: {{alojamiento.normasAlojamiento.permiteConsumoDrogas}} </li>
+                    </ol>
+                </div>
+                <hr>
+                <h3 class="my-4"><i class="fa fa-map-o text-primary"></i> Lugares de interés cercanos</h3>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td> <i class="fa fa-building-o"></i> Centros Comerciales: {{alojamiento.lugaresCercanos.centrosComerciales}} </td>
+                        </tr>
+                        <tr>
+                            <td> <i class="fa fa-university"></i> Museos: {{alojamiento.lugaresCercanos.museos}} </td>
+                        </tr>
+                        <tr>
+                            <td> <i class="fa fa-cutlery"></i> Restaurantes: {{alojamiento.lugaresCercanos.restaurantes}} </td>
+                        </tr>
+                        <tr>
+                            <td> <i class="fa fa-beer"></i> Bares: {{alojamiento.lugaresCercanos.bares}} </td>
+                        </tr>
+                        <tr>
+                            <td> <i class="fa fa-plus"></i> Iglesias: {{alojamiento.lugaresCercanos.iglesias}}</td>
+                        </tr>
+                        <tr>
+                            <td> <i class="fa fa-h-square"></i> Hospitales: {{alojamiento.lugaresCercanos.hospitales}}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-shopping-cart"></i> Zonas Comerciales: {{alojamiento.lugaresCercanos.zonasComerciales}}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-book"></i> Zonas Culturales: {{alojamiento.lugaresCercanos.zonasCulturales}}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-envira"></i> Parques: {{alojamiento.lugaresCercanos.parques}}</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-child"></i> Gimnasios: {{alojamiento.lugaresCercanos.gimnasio}}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-sign-language"></i> Teatros: {{alojamiento.lugaresCercanos.teatros}}</td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+                <hr>
+                <h3 class="my-4"><i class="fa fa-automobile text-success"></i> Transporte Disponible </h3>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <i class="fa fa-bus"></i> Transporte Público: {{alojamiento.transporte.publico}}</td>
+                        </tr>
+
+                        <tr>
+                            <td> <i class="fa fa-car"></i> Uber : {{alojamiento.transporte.uber}}</td>
+                        </tr>
+                        <tr>
+                            <td> <i class="fa fa-bicycle"></i> Bicicleta: {{alojamiento.transporte.bicicleta}} </td>
+                        </tr>
+                        <tr>
+                            <td> <i class="fa fa-male"></i> Caminando: {{alojamiento.transporte.caminando}}</td>
+                        </tr>
+                        <tr>
+                            <td> <i class="fa fa-taxi"></i> Taxi: {{alojamiento.transporte.taxi}}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-train"></i> Metro: {{alojamiento.transporte.metro}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <hr>
+                <div class="alert alert-info" role="alert">
+                    <strong>Si desea aplicar este alojamiento!</strong> haga clic en Contactar, así podrá comunicarse con el anfitrión
+                </div>
+                <button class="btn btn-success btn-block" data-toggle="modal" data-target="#condiciones"> <i class="fa fa-envelope"></i> Contactar</button>
+                <br>
+            </div>
         </div>
+        <hr>
+        <!-- /.row -->
+        <!-- Related Projects Row -->
+        <h3 class="my-4"> <i class="fa fa-home text-primary"></i> Espacios del Alojamiento</h3>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <img class="img-fluid" [src]="alojamiento.imagenes.imgSala |imagen:'alojamiento'" alt="">
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <img class="img-fluid" [src]="alojamiento.imagenes.imgBanio |imagen:'alojamiento'" alt="">
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <img class="img-fluid" [src]="alojamiento.imagenes.imgCocina |imagen:'alojamiento'" alt="">
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <img class="img-fluid" [src]="alojamiento.imagenes.imgHabitacion |imagen:'alojamiento'" alt="">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <a class="btn btn-success" [routerLink]="['/galeria']"> <i class="fa fa-arrow-circle-left"></i> Volver</a>
+        </div>
+        <br>
+        <!-- /.row -->
     </div>
-    <hr>
-    <!-- /.row -->
-    <!-- Related Projects Row -->
-    <h3 class="my-4"> <i class="fa fa-home text-primary"></i> Espacios del Alojamiento</h3>
-    <div class="row">
-        <div class="col-md-3 col-sm-6 mb-4">
-            <img class="img-fluid" [src]="alojamiento.imagenes.imgSala |imagen:'alojamiento'" alt="">
-        </div>
-        <div class="col-md-3 col-sm-6 mb-4">
-            <img class="img-fluid" [src]="alojamiento.imagenes.imgBanio |imagen:'alojamiento'" alt="">
-        </div>
-        <div class="col-md-3 col-sm-6 mb-4">
-            <img class="img-fluid" [src]="alojamiento.imagenes.imgCocina |imagen:'alojamiento'" alt="">
-        </div>
-        <div class="col-md-3 col-sm-6 mb-4">
-            <img class="img-fluid" [src]="alojamiento.imagenes.imgHabitacion |imagen:'alojamiento'" alt="">
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <a class="btn btn-success" [routerLink]="['/galeria']"> <i class="fa fa-arrow-circle-left"></i> Volver</a>
-    </div>
-    <br>
-    <!-- /.row -->
 </div>
 <!-- /.container -->
 

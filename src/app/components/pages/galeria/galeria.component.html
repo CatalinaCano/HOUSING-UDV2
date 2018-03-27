@@ -10,7 +10,7 @@
         <h5 class="card-header"> <i class="fa fa-search" aria-hidden="true"></i> Filtros de Búsqueda </h5>
         <div class="row card-block">
             <div id="destino" class=" col-md-3 col-xs-12">
-                <label> <i class="fa fa-university" aria-hidden="true"></i> Sede de destino</label>
+                <label> <i class="fa fa-university text-warning" aria-hidden="true"></i> Sede de destino</label>
                 <select class="form-control" #sedes (change)="onChangeSede($event, sedes.value)">            <!--Facultades-->
                     <optgroup label="Sedes">
                     <option value="">Seleccionar</option>
@@ -39,7 +39,7 @@
                 </select>
             </div>
             <div class=" col-md-3 col-xs-12">
-                <label> <i class="fa fa-briefcase" aria-hidden="true"></i> Hospedan a</label>
+                <label> <i class="fa fa-briefcase text-primary" aria-hidden="true"></i> Hospedan a</label>
                 <select class="form-control" #hospedanA (change)="onChangeHospedanA($event, hospedanA.value)">       
                 <!--Perfil-->
                 <option value="">Seleccionar</option>
@@ -50,7 +50,7 @@
             </div>
 
             <div class=" col-md-3 col-xs-12 ">
-                <label> <i class="fa fa-coffee" aria-hidden="true"></i> Tipo de Alojamiento</label>
+                <label> <i class="fa fa-coffee text-success" aria-hidden="true"></i> Tipo de Alojamiento</label>
                 <!--tipos de alojamiento-->
                 <select class="form-control" #tipoAlojamiento (change)="onChangeTipoAlojamiento($event, tipoAlojamiento.value)">      
                     <option value="">Seleccionar</option>        
@@ -64,7 +64,7 @@
                 </select>
             </div>
             <div class=" col-md-3 col-xs-12">
-                <label> <i class="fa fa-bed" aria-hidden="true"></i> Habitación </label>
+                <label> <i class="fa fa-bed text-primary" aria-hidden="true"></i> Habitación </label>
                 <select class="form-control" #tipoHabitacion (change)="onChangeTipoHabitacion($event, tipoHabitacion.value)">
                     <option value="">Seleccionar</option>
                     <option>Individual</option>

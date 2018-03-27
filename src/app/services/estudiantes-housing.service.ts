@@ -27,13 +27,9 @@ export class EstudiantesHousingService {
   }
 
   buscarEstudiante( termino: string ) {
-      let url = URL_SERVICIOS + '/busqueda/estudiantes/' + termino;
-     return this.http.get(url)
-                 .map( (res: any) => res.estudiantes)
-                 .catch( (err: any) => {
-                   swal('Error', err.error.mensaje, 'error');
-                    return Observable.throw(err);
-                 } );
+      let url = URL_SERVICIOS + '/busqueda/admin/usuarios/' + termino;
+      console.log(url);
+     return this.http.get(url);
 
   }
 
