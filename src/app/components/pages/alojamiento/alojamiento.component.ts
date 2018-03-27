@@ -45,8 +45,6 @@ export class AlojamientoComponent implements OnInit {
     this.lng = this.alojamiento.ubicacion.longitud;
   }
 
-
-
   cargarAlojamiento() {
     this.route.params
       .subscribe(parametros => {
@@ -81,7 +79,7 @@ export class AlojamientoComponent implements OnInit {
       cancelButtonText: 'No'
     }).then(borrar => {
       if (borrar) {
-        this._alojamientoService.borrarAlojamiento(alojamiento._id)
+        this._alojamientoService.borrarAlojamiento(alojamiento._id, alojamiento.estudiante.email)
           .subscribe(borrado => {
             console.log(borrado);
              this.router.navigate(['/administrador']);

@@ -12,7 +12,7 @@
         <h5 class="card-header"> <i class="fa fa-search" aria-hidden="true"></i> Filtros de Búsqueda </h5>
         <div class="row card-block">
             <div id="destino" class=" col-md-3 col-xs-12">
-                <label> <i class="fa fa-university" aria-hidden="true"></i> Sede de destino</label>
+                <label> <i class="fa fa-university text-warning" aria-hidden="true"></i> Sede de destino</label>
                 <select class="form-control" #sedes (change)="onChangeSede($event, sedes.value)">            <!--Facultades-->
                     <optgroup label="Sedes">
                     <option value="">Seleccionar</option> 
@@ -41,7 +41,7 @@
                 </select>
             </div>
             <div class=" col-md-3 col-xs-12">
-                <label> <i class="fa fa-briefcase" aria-hidden="true"></i> Hospedan a</label>
+                <label> <i class="fa fa-briefcase text-primary" aria-hidden="true"></i> Hospedan a</label>
                 <select class="form-control" #hospedanA (change)="onChangeHospedanA($event, hospedanA.value)">   
                     <option value="">Seleccionar</option> 
                     <option value="Mujer">Mujer</option>
@@ -51,7 +51,7 @@
             </div>
 
             <div class=" col-md-3 col-xs-12 ">
-                <label> <i class="fa fa-toggle-off" aria-hidden="true"></i> Estado Alojamiento</label>
+                <label> <i class="fa fa-toggle-off text-danger" aria-hidden="true"></i> Estado Alojamiento</label>
                 <select class="form-control" #estadoAlojamiento (change)="onChangeEstadoAlojamiento($event, estadoAlojamiento.value)">         
                    <option value="">Seleccionar</option>
                     <option value="Ocupado">Ocupado</option>
@@ -59,7 +59,7 @@
                 </select>
             </div>
             <div class=" col-md-3 col-xs-12">
-                <label> <i class="fa fa-flag" aria-hidden="true"></i> Estado Publicación </label>
+                <label> <i class="fa fa-flag text-success" aria-hidden="true"></i> Estado Publicación </label>
                 <select class="form-control" #estadoPublicacionAlojamiento (change)="onChangeEstadoPublicacionAlojamiento($event, estadoPublicacionAlojamiento.value)">         
                     <option value="">Seleccionar</option>
                     <option value="En estudio">En estudio</option>

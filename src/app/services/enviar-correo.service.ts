@@ -27,4 +27,9 @@ export class EnviarCorreoService {
     return this.http.post(url, correo);
   }
 
+  enviarCorreoAlojamientoEliminado(mail: string) {
+    let url = URL_SERVICIOS + '/correo/eliminado';
+    return this.http.post(url, mail);
+  }
+
 }

@@ -5,13 +5,15 @@ import { Alojamiento } from '../models/alojamiento.model';
 import { AlojamientoConsulta } from '../models/alojamientoConsulta.model';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Observable';
+import { EnviarCorreoService } from './service.index';
 @Injectable()
 export class AlojamientosService {
 
 
 
   constructor(
-    public http: HttpClient
+    public http: HttpClient,
+    public enviarCorreo: EnviarCorreoService
   ) {
 
   }
@@ -32,19 +34,31 @@ export class AlojamientosService {
     });
   }
 
-  borrarAlojamiento(idAlojamiento: string) {
+  borrarAlojamiento(idAlojamiento: string, correo: string) {
+      this.enviarCorreoAlojamientoEliminado(correo).subscribe(res => {
+        console.log(res);
+      });
       let url = URL_SERVICIOS + '/alojamiento/' + idAlojamiento;
-    return this.http.delete(url).catch(err => {
-      swal('Error', 'Error al borrar alojamiento', 'error');
+      return this.http.delete(url).catch(err => {
+        swal('Error', 'Error al borrar alojamiento', 'error');
+        return Observable.throw(err);
+      });
+  }
+
+
+  enviarCorreoAlojamientoEliminado(correo: string) {
+    let url = URL_SERVICIOS + '/correo/eliminado/' + correo;
+    return this.http.post(url, correo).catch(err => {
+      swal('Error', 'Error al enviar correo al usuario', 'error');
       return Observable.throw(err);
     });
-
   }
+
 
 
   actualizarEstadoAlojamiento(alojamiento) {
     let url = URL_SERVICIOS + '/alojamiento/estadoAlojamiento/' + alojamiento._id + '/' + alojamiento.propiedadesAlojamiento.estadoAlojamiento;
-   console.log(alojamiento);
+    console.log(alojamiento);
    return this.http.put(url, alojamiento)
                .map((resp: any) => {
                  swal('Alojamiento Actualizado', alojamiento.estudiante.email, 'success');

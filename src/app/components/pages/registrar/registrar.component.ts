@@ -239,7 +239,6 @@ export class RegistrarComponent implements OnInit {
       this._enviarCorreo.enviarCorreo(mail)
           .subscribe(res => {
             console.log(res);
-          // this.router.navigate(['/imagenes', this.idAlojamiento]);
           });
       this.router.navigate(['/imagenes', this.idAlojamiento]);
     });

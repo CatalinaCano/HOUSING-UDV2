@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EstadisticasService } from '../../../services/estadisticas.service';
 import { AlojamientoConsulta } from '../../../models/alojamientoConsulta.model';
 import { Router } from '@angular/router';
-import { AlojamientosService } from '../../../services/service.index';
+import { AlojamientosService, EnviarCorreoService, EstadisticasService } from '../../../services/service.index';
 declare var swal: any;
 
 @Component({
@@ -81,7 +80,7 @@ export class AdministradorComponent implements OnInit {
       cancelButtonText: 'No'
     }).then(borrar => {
       if (borrar) {
-        this._alojamientoService.borrarAlojamiento(alojamiento._id)
+        this._alojamientoService.borrarAlojamiento(alojamiento._id, alojamiento.estudiante.email)
           .subscribe(borrado => {
             this.cargarAlojamientos();
             this.cargarEstadisticas();
