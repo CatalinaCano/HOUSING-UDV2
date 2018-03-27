@@ -23,7 +23,8 @@ export class AdministradorComponent implements OnInit {
   constructor(
     public _estadisticas: EstadisticasService,
     public router: Router,
-    public _alojamientoService: AlojamientosService
+    public _alojamientoService: AlojamientosService,
+    public _correoService: EnviarCorreoService
   ) { }
 
   ngOnInit() {
@@ -102,14 +103,17 @@ export class AdministradorComponent implements OnInit {
       if (actualizar) {
         this._alojamientoService.actualizarEstadoAlojamiento(alojamiento)
           .subscribe(actualizado => {
-            this.cargarAlojamientos();
-            this.cargarEstadisticas();
+            this._correoService.enviarCorreoEstadoAlojamiento(alojamiento).subscribe(res => {
+              this.cargarAlojamientos();
+              this.cargarEstadisticas();
+            });
           });
         this.router.navigate(['/administrador']);
       }
     });
 
   }
+
 
   buscar(termino: string) {
     if (termino.length <= 0) {

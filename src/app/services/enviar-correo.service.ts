@@ -28,8 +28,13 @@ export class EnviarCorreoService {
   }
 
   enviarCorreoAlojamientoEliminado(mail: string) {
-    let url = URL_SERVICIOS + '/correo/eliminado';
+    let url = URL_SERVICIOS + '/correo/eliminado/' + mail;
     return this.http.post(url, mail);
+  }
+
+  enviarCorreoEstadoAlojamiento(alojamiento) {
+    let url = URL_SERVICIOS + '/correo/' + alojamiento.propiedadesAlojamiento.estadoAlojamiento + '/' + alojamiento.estudiante.email;
+    return this.http.post(url, alojamiento);
   }
 
 }

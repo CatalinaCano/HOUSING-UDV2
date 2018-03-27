@@ -73,7 +73,7 @@ export class AlojamientoComponent implements OnInit {
     swal({
       title: '¿Estas Seguro?',
       text: 'Esta a punto de borrar el alojamiento de ' + alojamiento.estudiante.email,
-      icon: 'info',
+      icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Si',
       cancelButtonText: 'No'
@@ -116,7 +116,7 @@ export class AlojamientoComponent implements OnInit {
     swal({
       title: '¿Estas Seguro?',
       text: 'Esta a punto de actualizar el estado del alojamiento de ' + alojamiento.estudiante.email,
-      icon: 'info',
+      icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Si',
       cancelButtonText: 'No'
@@ -134,7 +134,7 @@ export class AlojamientoComponent implements OnInit {
     swal({
       title: '¿Estas Seguro?',
       text: 'Esta a punto de actualizar el estado del alojamiento de ' + alojamiento.estudiante.email,
-      icon: 'info',
+      icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Si',
       cancelButtonText: 'No'
