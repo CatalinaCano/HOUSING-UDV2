@@ -44,9 +44,9 @@ export class GaleriaComponent implements OnInit {
           console.log(resp);
            this.alojamientos = resp.alojamientos;
         });
-    } else {
+     } else {
       swal('Error', 'Debes seleccionar todos los filtros', 'error');
-    }
+     }
   }
 
   onChangeHospedanA($event, hospedanAValue) {

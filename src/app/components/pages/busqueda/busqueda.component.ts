@@ -35,7 +35,7 @@ export class BusquedaComponent implements OnInit {
     this.http.get(url)
             .subscribe((resp: any) => {
               this.alojamientos = resp.alojamientos;
-              this.estudiantes = resp.estudiantes;
+              this.estudiantes = resp.sedes;
             });
 
   }
