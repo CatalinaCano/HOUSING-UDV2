@@ -5,11 +5,11 @@ import { MapsAPILoader } from '@agm/core';
 import { EstudianteService, AlojamientosService, CondorService} from '../../../services/service.index';
 import { AlojamientoConsulta } from '../../../models/alojamientoConsulta.model';
 import { Router, ActivatedRoute } from '@angular/router';
-import { } from 'googlemaps';
 import { Estudiante } from '../../../models/estudiante.model';
 import { EnviarCorreoService } from '../../../services/enviar-correo.service';
 import { Correo } from '../../../models/correo.model';
 declare var swal: any;
+
 
 @Component({
   selector: 'app-alojamiento',

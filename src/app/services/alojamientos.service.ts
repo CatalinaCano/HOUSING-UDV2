@@ -6,6 +6,8 @@ import { AlojamientoConsulta } from '../models/alojamientoConsulta.model';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Observable';
 import { EnviarCorreoService } from './service.index';
+declare var swal: any;
+
 @Injectable()
 export class AlojamientosService {
 
