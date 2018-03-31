@@ -85,12 +85,13 @@ export class AlojamientosService {
   }
 
   buscar(termino) {
-    let url = URL_SERVICIOS + '/busqueda/alojamientos/' + termino;
+    let url = URL_SERVICIOS + '/busqueda/admin/alojamientos/' + termino;
+   console.log(url);
     return this.http.get(url)
-      .catch(err => {
-        swal('Error', 'Error al buscar el termino',  'error');
-        return Observable.throw(err);
-      });
+            .catch( err => {
+              swal('Error', 'Error al buscar por filtros', 'error');
+              return Observable.throw(err);
+    });
   }
 
   buscarPorFiltro(sede, hospedanA, tipoAlojamiento, habitacion) {

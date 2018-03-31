@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlojamientoConsulta } from '../../../models/alojamientoConsulta.model';
 import { Router } from '@angular/router';
 import { AlojamientosService, EnviarCorreoService, EstadisticasService } from '../../../services/service.index';
+
 declare var swal: any;
 
 @Component({
@@ -10,7 +11,6 @@ declare var swal: any;
   styleUrls: ['./administrador.component.css']
 })
 export class AdministradorComponent implements OnInit {
-
   alojamientos: AlojamientoConsulta[] = [];
   totalAlojamientos: number;
   totalAlojamientosDisponibles: number;
@@ -54,14 +54,12 @@ export class AdministradorComponent implements OnInit {
 
   cambiarDesde(valor: number) {
     let desde = this.desde + valor;
-
     if (desde >= this.totalRegistros) {
       return;
     }
     if (desde < 0) {
       return;
     }
-
     this.desde += valor;
     this.cargarAlojamientos();
 
@@ -116,13 +114,15 @@ export class AdministradorComponent implements OnInit {
 
 
   buscar(termino: string) {
+    console.log('buscando con.. ' + termino);
     if (termino.length <= 0) {
       this.cargarAlojamientos();
       return;
     }
     this._alojamientoService.buscar(termino)
       .subscribe((resp: any) => {
-        this.alojamientos = resp.sedes;
+        console.log(resp);
+        this.alojamientos = resp.alojamientos;
       });
   }
 

@@ -15,7 +15,7 @@
                 <label> <i class="fa fa-university text-warning" aria-hidden="true"></i> Sede de destino</label>
                 <select class="form-control" #sedes (change)="onChangeSede($event, sedes.value)">            <!--Facultades-->
                     <optgroup label="Sedes">
-                    <option value="">Seleccionar</option> 
+                    <option value="Seleccionar">Seleccionar</option> 
                     <option value="Aduanilla de Paiba">Aduanilla de Paiba</option>
                     <option value="Calle 34">Calle 34</option>
                     <option value="Calle 40 (Edificio Administrativo)">Calle 40 (Edificio Administrativo)</option>
@@ -43,7 +43,7 @@
             <div class=" col-md-3 col-xs-12">
                 <label> <i class="fa fa-briefcase text-primary" aria-hidden="true"></i> Hospedan a</label>
                 <select class="form-control" #hospedanA (change)="onChangeHospedanA($event, hospedanA.value)">   
-                    <option value="">Seleccionar</option> 
+                    <option value="Seleccionar">Seleccionar</option> 
                     <option value="Mujer">Mujer</option>
                     <option value="Hombre">Hombre</option>
                     <option value="No importa">No importa</option>
@@ -53,7 +53,7 @@
             <div class=" col-md-3 col-xs-12 ">
                 <label> <i class="fa fa-toggle-off text-danger" aria-hidden="true"></i> Estado Alojamiento</label>
                 <select class="form-control" #estadoAlojamiento (change)="onChangeEstadoAlojamiento($event, estadoAlojamiento.value)">         
-                   <option value="">Seleccionar</option>
+                   <option value="Seleccionar">Seleccionar</option>
                     <option value="Ocupado">Ocupado</option>
                     <option value="Disponible">Disponible</option>
                 </select>
@@ -61,7 +61,7 @@
             <div class=" col-md-3 col-xs-12">
                 <label> <i class="fa fa-flag text-success" aria-hidden="true"></i> Estado Publicación </label>
                 <select class="form-control" #estadoPublicacionAlojamiento (change)="onChangeEstadoPublicacionAlojamiento($event, estadoPublicacionAlojamiento.value)">         
-                    <option value="">Seleccionar</option>
+                    <option value="Seleccionar">Seleccionar</option>
                     <option value="En estudio">En estudio</option>
                     <option value="Rechazado">Rechazado</option>
                     <option value="Aceptado">Aceptado</option>

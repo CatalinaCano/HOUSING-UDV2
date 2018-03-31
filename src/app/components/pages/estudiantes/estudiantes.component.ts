@@ -111,7 +111,7 @@ export class EstudiantesComponent implements OnInit {
         swal('Éxito', 'Estudiante creado con Éxito', 'success');
         this.cargarEstudiantes();
       });
-    this.forma.reset();
+    this.limpiar();
   }
 
   limpiar() {

@@ -15,7 +15,6 @@ export class BusquedaComponent implements OnInit {
 
   alojamientos: AlojamientoConsulta[] = [];
   estudiantes: any[] = [];
-  // sedes: any[] = [];
 
   constructor(
       public ativatedRoute: ActivatedRoute,
