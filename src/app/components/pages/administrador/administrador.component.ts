@@ -54,7 +54,7 @@ export class AdministradorComponent implements OnInit {
 
   cambiarDesde(valor: number) {
     let desde = this.desde + valor;
-    if (desde >= this.totalRegistros) {
+    if (desde >= this.totalAlojamientos) {
       return;
     }
     if (desde < 0) {
